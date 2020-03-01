@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f3f3f3;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.small{
+    padding: 5px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Header */
+
+header{
+    padding: 40px;
+}
+
+header .logo{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header .logo p{
+    color:#9b9b9b;
+}
+
+header form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+header .barra-busqueda{
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    background: #fff;
+    padding: 0 20px;
+    border-radius: 100px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+header .categorias{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header .categorias a{
+    color: #9b9b9b;
+    margin: 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+header .categorias a.activo{
+    color: #000;
+}
+
+/* Grid Productos */
+
+.grid{
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s linear 1s;
+}
+
+.btn{
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.grid.imagenes-cargadas{
+    opacity: 1;
+}
+
+.grid .item{
+    position: absolute;
+    display: block;
+    padding: 0;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+}
+
+.grid .item-contenido{
+    position: relative;
+}
+
+.grid .item img{
+    width: 100%;
+    cursor: pointer;
+    vertical-align: top;
+    border-radius: 7px;
+}
+
+/*Footer */
+footer .redes-sociales{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+footer .redes-sociales a{
+    display: block;
+    width: 60px;
+    background: #000;
+    color: #fff;
+    margin: 20px;
+    text-align: center;
+    border-radius: 100px;
+    transition: .3s ease all;
+}
+
+footer .redes-sociales a:hover{
+    width: 65px;
+}
+
+footer .redes-sociales .twitter{background: #1da1f2;}
+footer .redes-sociales .facebook{background: #3b5998;}
+footer .redes-sociales .instagram{background: #c13584;}
+
+footer .creado-por {
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #3b5998;
+}
+
+footer .creado-por a:hover{color: #000;} 
+
+/*Mediaqueries*/
+@media screen and (max-width: 700px){
+    .grid .item{
+        width: calc(50% - 20px);
+    }
+    header .barra-busqueda{
+        width: 100%;
+    }
+}

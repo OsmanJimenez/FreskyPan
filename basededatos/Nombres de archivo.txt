@@ -1,0 +1,6 @@
+cam_est cambia estado de productos
+cam_est2 cambia estado de cliente
+cam_est3 cambia estado de pedidos
+cam_est4 cambia estado de contratos
+cam_est5 cambia estado de devolucion
+cam_est6 cambia estado de lote 
