@@ -105,8 +105,17 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      
+<!-- Switch 
+      <button class="switch" id="switch">
+					<span><i class="fas fa-sun"></i></span>
+					<span><i class="fas fa-moon"></i></span>
+			</button>
 
+      
+<!-- Divider 
+<hr class="sidebar-divider">
+
+-->
       
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">

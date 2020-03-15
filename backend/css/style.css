@@ -161,9 +161,18 @@ input:-moz-placeholder { /* Firefox 18- */
 	height: 100px;
 }
 
+.bg-blue {
+  background-color: #543 !important;
+}
+
+
+
+
 /* Responsive */
 @media screen and (max-width: 767px) {
 	.form-v5-content {
 	    margin: 175px 20px;
 	}
 }
+
+

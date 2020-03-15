@@ -45,6 +45,16 @@
     </div>
   </li>
 
+<!-- Nav Item - Calendar -->
+  <li class="nav-item dropdown no-arrow mx-1">
+    <a class="nav-link dropdown-toggle" href="calendario/" id="alertsDropdown" role="button">
+      <i class="far fa-calendar-alt"></i>
+
+      <!-- Counter - Alerts -->
+      <span class="badge badge-danger badge-counter">5+</span>
+    </a>
+  </li>
+
   <!-- Nav Item - Alerts -->
   <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"

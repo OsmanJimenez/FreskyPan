@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8">
   <title>Administración ERP</title>
-   
+  <!-- Main Style Css -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style2.css" /> 
+ 
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
-  <!-- Main Style Css -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/style2.css" />
+  
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,6 +31,8 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/switch.css" /> 
 
   <!-- Custom calendar -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -361,6 +364,9 @@
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Swtich JavaScript-->
+  <script src="js/switch.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

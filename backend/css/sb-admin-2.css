@@ -10,6 +10,9 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+
+
  :root {
   --blue: ##17c0eb;
   --indigo: #6610f2;
@@ -7006,6 +7009,7 @@ button.bg-dark:focus {
   background-color: #fff !important;
 }
 
+
 .bg-transparent {
   background-color: transparent !important;
 }
@@ -11408,6 +11412,7 @@ a:focus {
 .sidebar-light .sidebar-brand {
   color: #6e707e;
 }
+
 
 .sidebar-light hr.sidebar-divider {
   border-top: 1px solid #eaecf4;
