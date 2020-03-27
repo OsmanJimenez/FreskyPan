@@ -91,7 +91,7 @@
 
               </div>
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Información del Cliente</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Información del Proveedor</h6>
               </div>
               <div class="space-small"></div>
 
@@ -135,7 +135,7 @@
                   <div class="space-small"></div>
                   <label for="inputCantidad">Telefono</label>
                   <input type="number" name="a1" class="form-control" id="inputCantidad2" placeholder="">
-                  <label for="inputCantidad">Direccion del pedido</label>
+                  <label for="inputCantidad">Sede donde descargar el pedido</label>
                   <input type="text" name="dire" class="form-control" id="inputCantidad3" placeholder="">
                   
                 </div>

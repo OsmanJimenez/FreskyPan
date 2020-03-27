@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Clientes</title>
+  <title>Agregar Proveedores</title>
    
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
@@ -20,7 +20,7 @@
   <!-- Custom favicon for this template-->
   <link rel="icon" type="image/png" href="../favicon.png" />
 
-  <title>Clientes - Freskypan</title>
+  <title>Proveedores - Freskypan</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -65,13 +65,13 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Agregar Clientes</h1>
-          <p class="mb-4">En este apartado podremos agregar distintos clientes</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800">Agregar Proveedores</h1>
+          <p class="mb-4">En este apartado podremos agregar distintos proveedores</a>.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Clientes</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Proveedores</h6>
             </div>
             <div class="card-body">
               <!-- Add Example -->
@@ -108,10 +108,21 @@
                     <label for="inputName">Dirección</label>
                     <input type="text" name="dir" class="form-control" id="inputName" placeholder="">
                     <div class="space-small"></div>
+                    <label for="exampleFormControlTextarea1">Correo electronico</label>
+                    <input type="email" name="pass" class="form-control" id="inputName" placeholder="" required="">
+                    <div class="space-small"></div>
+                    <label for="inputState">Estado</label>
+                  <select id="inputState" name="sab" class="form-control">
+                    <option selected>Escoger</option>
+                    <option>Activo</option>
+                    <option>Suspendido</option>
+                  </select>
+                  <div class="space-small"></div>
                     <label for="exampleFormControlTextarea1">Descripción</label>
                     <textarea name="des" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    <br>
-                    <input type="password" name="pass" class="form-control" id="inputName" placeholder="contraseña" required="">
+                    <div class="space-small"></div>
+                    <label for="exampleFormControlTextarea1">Correo electronico</label>
+                    <input type="email" name="pass" class="form-control" id="inputName" placeholder="" required="">
                   </div>
                   <div class="form-group col-md-6 text-center">
                     <img src="../img/Captura.PNG">

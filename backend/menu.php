@@ -42,6 +42,8 @@
           </div>
         </div>
       </li>
+
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLotes" aria-expanded="true"
           aria-controls="collapseCuentas">
@@ -56,15 +58,45 @@
           </div>
         </div>
       </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventarios" aria-expanded="true"
+          aria-controls="collapseInventarios">
+          <i class="far fa-chart-bar"></i>
+          <span>Inventario</span>
+        </a>
+        <div id="collapseInventarios" class="collapse" aria-labelledby="headingBodegas" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Bodega:</h6>
+            <a class="collapse-item" href="bodegas_agregar.php">Agregar</a>
+            <a class="collapse-item" href="bodegas_ver.php">Ver</a>
+          </div>
+        </div>
+        <div id="collapseInventarios" class="collapse" aria-labelledby="headingMateria" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Materia Prima:</h6>
+            <a class="collapse-item" href="materia_agregar.php">Agregar</a>
+            <a class="collapse-item" href="materia_ver.php">Ver</a>
+          </div>
+        </div>
+        <div id="collapseInventarios" class="collapse" aria-labelledby="headingInsumos" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Insumo:</h6>
+            <a class="collapse-item" href="insumo_agregar.php">Agregar</a>
+            <a class="collapse-item" href="insumo_ver.php">Ver</a>
+          </div>
+        </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContacts"
           aria-expanded="true" aria-controls="collapseContacts">
           <i class="far fa-address-card"></i>
-          <span>Clientes</span>
+          <span>Proveedores</span>
         </a>
         <div id="collapseContacts" class="collapse" aria-labelledby="headingContacts" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Clientes:</h6>
+            <h6 class="collapse-header">Proveedores:</h6>
             <a class="collapse-item" href="Clientes_Agregar.php">Agregar</a>
             <a class="collapse-item" href="Clientes_Ver.php">Ver</a>
           </div>
@@ -98,6 +130,24 @@
             <h6 class="collapse-header">Devoluciones:</h6>
             <a class="collapse-item" href="Devoluciones_Agregar.php">Agregar</a>
             <a class="collapse-item" href="Devoluciones_Ver.php">Ver</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHerramientas" aria-expanded="true"
+          aria-controls="collapseCuentas">
+          <i class="fas fa-paste"></i>
+          <span>Herramientas</span>
+        </a>
+        <div id="collapseHerramientas" class="collapse" aria-labelledby="headingHerramientas" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Hojas:</h6>
+            <a class="collapse-item" href="Tools_Documentos.php">Documentos</a>
+            <a class="collapse-item" href="Tools_Calculo.php">Calculo</a>
+            <a class="collapse-item" href="Tools_Presentacion.php">Presentación</a>
+            <a class="collapse-item" href="Tools_Dibujo.php">Dibujo</a>
+            <a class="collapse-item" href="Tools_Formulario.php">Formulario</a>
           </div>
         </div>
       </li>
