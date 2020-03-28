@@ -57,13 +57,20 @@
             <a class="collapse-item" href="lotes_ver.php">Ver</a>
           </div>
         </div>
+        <div id="collapseLotes" class="collapse" aria-labelledby="headingLotes" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Ventas:</h6>
+            <a class="collapse-item" href="Ventas_agregar.php">Agregar</a>
+            <a class="collapse-item" href="Ventas_ver.php">Ver</a>
+          </div>
+        </div>
       </li>
 
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventarios" aria-expanded="true"
           aria-controls="collapseInventarios">
-          <i class="far fa-chart-bar"></i>
+          <i class="fas fa-boxes"></i>
           <span>Inventario</span>
         </a>
         <div id="collapseInventarios" class="collapse" aria-labelledby="headingBodegas" data-parent="#accordionSidebar">
@@ -114,6 +121,13 @@
             <h6 class="collapse-header">Pedidos:</h6>
             <a class="collapse-item" href="Pedidos_Agregar.php">Agregar</a>
             <a class="collapse-item" href="Pedidos_ver.php">Ver</a>
+          </div>
+        </div>
+        <div id="collapseCuentas" class="collapse" aria-labelledby="headingCuentas" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Facturas:</h6>
+            <a class="collapse-item" href="Facturas_agregar.php">Agregar</a>
+            <a class="collapse-item" href="Facturas_ver.php">Ver</a>
           </div>
         </div>
       </li>
