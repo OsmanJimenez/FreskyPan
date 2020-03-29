@@ -12,7 +12,7 @@ if($a>0){
 				$id_u = $fila['ID_USUARIO'];
 
 					
-
+ 
 
 $usr = array('id_u' => $id_u );
 
