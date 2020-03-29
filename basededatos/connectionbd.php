@@ -3,6 +3,6 @@ $conn= mysqli_connect(
 'localhost',
 'root',
 '',
-'panaderia'
+'panaderiaerp'
 ) or die("Error");
 ?>
