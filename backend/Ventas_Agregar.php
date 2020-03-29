@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Pedidos</title>
+  <title>Agregar Ventas</title>
    
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
@@ -20,7 +20,7 @@
   <!-- Custom favicon for this template-->
   <link rel="icon" type="image/png" href="../favicon.png" />
 
-  <title>Pedidos - ERP</title>
+  <title>Ventas - ERP</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -63,35 +63,24 @@
       <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Agregar Pedidos</h1>
-        <p class="mb-4">En este apartado podremos agregar distintos pedidos</a>.</p>
+        <h1 class="h3 mb-2 text-gray-800">Agregar Ventas</h1>
+        <p class="mb-4">En este apartado podremos agregar distintas Ventas</a>.</p>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
 
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Pedidos</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Ventas</h6>
           </div>
 
           <div class="card-body">
             <!-- Add Example -->
             <form action="../basededatos/agregap.php" method="POST">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputPrice">Fecha</label>
-                  <input type="date" id="inputName" class="form-control" name="fec" width="100%" />
-                        
+              
 
-                </div>
 
-               <!-- <div class="form-group col-md-6">
-                  <label for="inputCantidad">Codigo del pedido</label>
-                  <input type="text" name="ced" class="form-control" id="inputCantidad" placeholder="">
-                </div> -->
-
-              </div>
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Información del Proveedor</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Información de la Producción</h6>
               </div>
               <div class="space-small"></div>
 
@@ -102,23 +91,19 @@
                   <thead>
                     <tr>
                       <th></th>
-                      <th>Cedula</th>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Telefono</th>
-                      <th>Dirección</th>
-                      
+                      <th>ID</th>
+                      <th>Fecha</th>
+                      <th>Cantidad</th>
 
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th></th>
-                    <th>Cedula</th>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Telefono</th>
-                      <th>Dirección</th>                     
+                      
+                      <th>ID</th>
+                      <th>Fecha</th>
+                      <th>Cantidad</th>                
                     </tr>
                   </tfoot>
                   <tbody>
@@ -130,73 +115,23 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                <label for="inputCantidad">Cedula</label>
+                <label for="inputCantidad">ID Venta</label>
                   <input type="text" name="ced" class="form-control" id="inputCantidad1" placeholder="">
                   <div class="space-small"></div>
-                  <label for="inputCantidad">Telefono</label>
+                  <label for="inputCantidad">ID Producción</label>
                   <input type="number" name="a1" class="form-control" id="inputCantidad2" placeholder="">
-                  <label for="inputCantidad">Sede donde descargar el pedido</label>
-                  <input type="text" name="dire" class="form-control" id="inputCantidad3" placeholder="">
-                  
+                  <label for="inputCantidad">Fecha</label>
+                  <input type="date" name="dire" class="form-control" id="inputCantidad3" placeholder="">
+                  <label for="inputCantidad">Cantidad</label>
+                  <input type="number" name="a1" class="form-control" id="inputCantidad2" placeholder="">
+                  <div class="space-small"></div>
+                  <button type="submit" class="btn btn-primary  ">Agregar</button>
                 </div>
               </div>  
               
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Información del Producto</h6>
-              </div>
-              <div class="space-small"></div>
+              
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-
-                <div class="table-responsive" style=" max-height:350px; " >
-                <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>Codigo</th>
-                      <th>Nombre</th>
-                      <th>Precio</th>
-                      <th>Sabor</th>
-                      <th>Descripcion</th>
-                      <th>Stock</th>
-                      
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th></th>
-                      <th>Codigo</th>
-                      <th>Nombre</th>
-                      <th>Precio</th>
-                      <th>Sabor</th>
-                      <th>Descripcion</th>
-                      <th>Stock</th>
-                      
-                    </tr>
-                  </tfoot>
-                  <tbody>
-
-                  <?php require ("../basededatos/listapv2.php");?>
-
-                  </tbody>
-                </table>
-              </div>
-                </div>
-
-                <div class="form-group col-md-6">
-                  <label for="inputCantidad">Codigo del producto</label>
-                  <input type="number" name="cod" class="form-control" id="inputCantidad5" placeholder="">
-                  <div class="space-small"></div>
-                  <label for="inputCantidad">Precio del producto</label>
-                  <input type="number" name="can" class="form-control" id="inputCantidad6" placeholder="">
-                  <div class="space-small"></div>
-                  <label for="inputCantidad">Cantidad a comprar</label>
-                  <input type="number" name="can" class="form-control" id="inputCantidad7" placeholder="">
-                  <div class="space-small"></div>
-                  <label for="exampleFormControlTextarea1">Descripción</label>
-                  <textarea name="des" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                </div>
+              
               </div>
 
               
@@ -204,7 +139,7 @@
               
           <input type="hidden" name="id" id="prueba" readonly="">
 
-          <button type="submit" class="btn btn-primary">Agregar</button>
+          
           
               
               </form>
