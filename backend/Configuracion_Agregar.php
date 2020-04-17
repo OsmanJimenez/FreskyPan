@@ -75,7 +75,7 @@
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregapd.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/agregarus.php" method="POST" enctype="multipart/form-data">
 
 
               <label for="inputName">Codigo del Empleado</label>
@@ -89,20 +89,20 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Apellido del Empleado</label>
-                  <input type="text" name="pre" class="form-control" id="inputrice" placeholder="">
+                  <input type="text" name="ape" class="form-control" id="inputrice" placeholder="">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Contraseña</label>
-                   <input type="password" name="pre" class="form-control" id="inputrice" placeholder="Duración en Dias">
+                   <input type="password" name="pas" class="form-control" id="inputrice" placeholder="Duración en Dias">
                 </div>
 
 
                 <div class="form-group col-md-6">
                   <label for="inputState">Rol</label>
-                  <select id="inputState" name="sab" class="form-control">
+                  <select id="inputState" name="rol" class="form-control">
                     <option>Administrador</option>
                     <option selected>Empleado</option>
                   </select>

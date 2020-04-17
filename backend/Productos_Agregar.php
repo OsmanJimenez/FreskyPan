@@ -96,13 +96,13 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Duración</label>
-                   <input type="number" name="pre" class="form-control" id="inputrice" placeholder="Duración en Dias">
+                   <input type="number" name="dur" class="form-control" id="inputrice" placeholder="Duración en Dias">
                 </div>
 
 
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
-                  <select id="inputState" name="sab" class="form-control">
+                  <select id="inputState" name="est" class="form-control">
                     <option selected>Escoger</option>
                     <option>Activo</option>
                     <option>Suspendido</option>
@@ -115,10 +115,10 @@
                   <label for="inputState">Categoria</label>
                   <select id="inputState" name="cat" class="form-control">
                     <option selected>Escoger</option>
-                    <option>Pasteleria</option>
-                    <option>Panaderia</option>
-                    <option>Postres</option>
-                    <option>Tortas</option>
+                    <option value="1">Pasteleria</option>
+                    <option value="2">Panaderia</option>
+                    <option value="3">Postres</option>
+                    <option value="4">Tortas</option>
                   </select>
                 </div>
 

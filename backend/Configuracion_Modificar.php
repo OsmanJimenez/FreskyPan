@@ -75,7 +75,7 @@
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregapd.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/actuau.php" method="POST" enctype="multipart/form-data">
             <label for="inputName">Codigo del Empleado</label>
             <div class="form-row">
             
@@ -84,7 +84,7 @@
                 <input type="number" name="cod" class="form-control" id="inputName" placeholder="">
               </div>
               <div class="form-group col-md-1">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Buscar</button>
+              <button type="button" class="btn btn-primary" id="btnmd" data-toggle="modal">Buscar</button>
               </div>
             </div>
 
@@ -152,9 +152,9 @@
       <!-- /.container-fluid -->
 
 
-
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
       <!-- Core plugin JavaScript-->
       <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
