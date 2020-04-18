@@ -75,7 +75,7 @@
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregapd.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/agregarbg.php" method="POST" enctype="multipart/form-data">
 
 
               <label for="inputName">Codigo de la Bodega</label>
@@ -94,10 +94,10 @@
 
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
-                  <select id="inputState" name="sab" class="form-control">
+                  <select id="inputState" name="est" class="form-control">
                     <option selected>Escoger</option>
-                    <option>Activo</option>
-                    <option>Suspendido</option>
+                    <option value="1">Activo</option>
+                    <option value="0">Suspendido</option>
                   </select>
                 </div>
               </div>

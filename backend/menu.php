@@ -24,7 +24,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interfas
+        Interfaz
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -76,8 +76,8 @@
         <div id="collapseInventarios" class="collapse" aria-labelledby="headingBodegas" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Bodega:</h6>
-            <a class="collapse-item" href="bodegas_agregar.php">Agregar</a>
-            <a class="collapse-item" href="bodegas_ver.php">Ver</a>
+            <a class="collapse-item" href="Bodegas_Agregar.php">Agregar</a>
+            <a class="collapse-item" href="Bodegas_Ver.php">Ver</a>
           </div>
         </div>
         <div id="collapseInventarios" class="collapse" aria-labelledby="headingMateria" data-parent="#accordionSidebar">

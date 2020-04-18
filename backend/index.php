@@ -179,7 +179,7 @@
                       <a class="dropdown-item" href="#">Semanales</a>
                       <a class="dropdown-item" href="#">Mensuales</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Mas</a>
+                      <a class="dropdown-item" href="#">Más</a>
                     </div>
                   </div>
                 </div>
@@ -209,7 +209,7 @@
                       <a class="dropdown-item" href="#">Semanales</a>
                       <a class="dropdown-item" href="#">Mensuales</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Mas</a>
+                      <a class="dropdown-item" href="#">Más</a>
                     </div>
                   </div>
                 </div>
@@ -283,7 +283,7 @@
 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Productos mas Visitados</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Productos más Visitados</h6>
                 </div>
                 <div class="card-body">
                   <h4 class="small font-weight-bold">Pan alineado <span class="float-right">80%</span></h4>
@@ -346,12 +346,12 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Estas Seguro?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">¿Está Seguro?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Selecciona "Cerrar sesión" a continuación si estás listo para finalizar tu sesión
+        <div class="modal-body">Seleccionar "Cerrar sesión" a continuación si está listo para finalizar tu sesión
           actual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
