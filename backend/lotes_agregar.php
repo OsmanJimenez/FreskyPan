@@ -117,9 +117,10 @@
                         <div class="space-small"></div>
                         <div class="space-small"></div>
 
-                        <label for="inputName">Stock</label>
-                        <input type="number" name="st" class="form-control" id="inputName" placeholder="">
-
+                        <label for="inputName">Cantidad inicial</label>
+                        <input type="number" name="ci" class="form-control" id="inputName" placeholder="">
+                        <label for="inputName">Unidades</label>
+                        <input type="number" name="uni" class="form-control" id="inputName" placeholder="">
                         <label for="inputName">Fecha</label>
                         <input type="date" id="inputName" class="form-control" name="fecha" width="100%" />
                        

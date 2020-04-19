@@ -84,11 +84,11 @@
             <?php require ("../basededatos/connectionbd.php");
 $cd=$_GET['id'];
 $fe=$_GET['fec'];
-$query2="Select * from lote where id_lot='$cd' and fec='$fe'";
+$ca=$_GET['ca'];
+$query2="Select * from produccion where ID_PRODUCCION='$cd' and fechaProduccion='$fe'";
 $result2=mysqli_query($conn,$query2);
                              while($fila2=mysqli_fetch_array($result2)){     
-        $est=$fila2['est_lot'];
-        $Stock=$fila2['st_prn'];
+        $Stock=$fila2['cantidadInicial'];
          }
 ?>
             <div class="form-row">
@@ -130,13 +130,14 @@ $result2=mysqli_query($conn,$query2);
 
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputName">Stock</label>
+                  <label for="inputName">Unidades</label>
                   <input type="number" value="<?php echo $Stock;?>" name="st" class="form-control" id="inputName"
                     placeholder="">
 
                   <input type="hidden" name="id" id="prueba" readonly="">
                   <input type="hidden" name="idl" value="<?php echo $cd;?>">
                   <input type="hidden" name="fece" value="<?php echo $fe;?>">
+                  <input type="hidden" name="can" value="<?php echo $ca;?>">
                   <br>
 
                   <button type="button" class="btn btn-primary" data-toggle="modal"

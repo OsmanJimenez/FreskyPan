@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Ventas</title>
+  <title>Modificar Ventas</title>
    
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
@@ -75,7 +75,7 @@
 
           <div class="card-body">
             <!-- Add Example -->
-            <form action="../basededatos/agregap.php" method="POST">
+            <form action="../basededatos/editarv.php" method="POST">
               
 
 
@@ -114,17 +114,30 @@
                 </table>
               </div>
                 </div>
-
+ <?php require ("../basededatos/connectionbd.php");
+$mic=$_GET['id'];
+$query="Select * from venta,produccion,venta_produccion where venta.ID_VENTA='$mic' and
+        venta.ID_VENTA=venta_produccion.FK_ID_VENTA and
+        venta_produccion.FK_ID_PRODUCCION=produccion.ID_PRODUCCION";
+$result=mysqli_query($conn,$query);
+      
+      $fila=mysqli_fetch_array($result); 
+        $idv = $fila['ID_VENTA'];
+        $idp = $fila['FK_ID_PRODUCCION'];
+        $can=$fila['cantidad'];
+        $fecha=$fila['fecha'];
+      
+        ?>
                 <div class="form-group col-md-6">
                 <label for="inputCantidad">ID Venta</label>
-                  <input type="text" name="cod" class="form-control" id="inputCantidad1" placeholder="">
+                  <input type="text" name="cod" class="form-control" id="inputCantidad1" placeholder="" value="<?php echo $idv; ?>">
                   <div class="space-small"></div>
                   <label for="inputCantidad">ID Producción</label>
-                  <input type="number" name="pro" class="form-control" id="pro" readonly="" placeholder="">
+                  <input type="number" name="pro" class="form-control" id="pro" readonly="" placeholder="" value="<?php echo $idp; ?>">
                   <label for="inputCantidad">Fecha</label>
-                  <input type="date" name="fec" class="form-control" id="inputCantidad3" placeholder="">
+                  <input type="date" name="fec" class="form-control" id="inputCantidad3" placeholder="" value="<?php echo $fec; ?>">
                   <label for="inputCantidad">Cantidad</label>
-                  <input type="number" name="can" class="form-control" id="inputCantidad2" placeholder="">
+                  <input type="number" name="can" class="form-control" id="inputCantidad2" placeholder="" value="<?php echo $can; ?>">
                   <div class="space-small"></div>
                   <button type="submit" class="btn btn-primary  ">Agregar</button>
                 </div>
@@ -145,7 +158,7 @@
               
               </form>
               
-          
+        
 
           </div>
 

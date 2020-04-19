@@ -14,7 +14,7 @@ $ruta=$_FILES["img"]["tmp_name"];
 $destino="fotos/".$img_pro;
 copy($ruta,$destino);
 echo $cat_pro;
-$query="Insert into CATPRODUCTO (ID_CATPRODUCTO,nombre,FK_ID_SUBTIPOPRODUCTO,descripcion,precio,sabor,imagen,estado,duracion,stock)values      ('$cod_pro','$nom_pro','$cat_pro','$des_pro','$pre_pro','$sab_pro','$destino','$est_pro','$dur_pro','0')";
+$query="Insert into CATPRODUCTO (ID_CATPRODUCTO,nombre,FK_ID_SUBTIPOPRODUCTO,descripcion,precio,sabor,imagen,estado,duracion,stock)values      ('$cod_pro','$nom_pro','$cat_pro','$des_pro','$pre_pro','$sab_pro','$destino','$est_pro','$dur_pro','1')";
 $result=mysqli_query($conn,$query);
 if(!$result){
 	if(mysqli_errno($conn)==1062){

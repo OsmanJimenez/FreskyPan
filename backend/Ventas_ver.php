@@ -88,18 +88,22 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
+                      <th>Producto</th>
                       <th>ID Venta</th>
                       <th>Fecha</th>
-                      <th>ID Pedido</th>
-                      
+                      <th>ID Produccion</th>
+                      <th>Cantidad</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
+                     <th>Producto</th>
                       <th>ID Venta</th>
                       <th>Fecha</th>
-                      <th>ID Pedido</th>
-                    
+                      <th>ID Produccion</th>
+                      <th>Cantidad</th>
+                      <th></th>
                     </tr>
                   </tfoot>
                   <tbody>
