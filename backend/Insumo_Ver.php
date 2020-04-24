@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Ver Productos</title>
+  <title>Ver Insumos</title>
    
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
@@ -20,7 +20,7 @@
   <!-- Custom favicon for this template-->
   <link rel="icon" type="image/png" href="../favicon.png" />
 
-  <title>Productos - ERP</title>
+  <title>Insumos - ERP</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -67,14 +67,14 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Productos</h1>
+            <h1 class="h3 mb-0 text-gray-800">Insumos</h1>
             <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-              onclick="exportTableToExcel('dataTable' ,'Lista de Productos')"><i
+              onclick="exportTableToExcel('dataTable' ,'Lista de Insumos')"><i
                 class="fas fa-download fa-sm text-white-50"></i>  Generar Reporte</button>
 
           </div>
 
-          <p class="mb-4">Aqui encontrara información acerca de los productos</a>.</p>
+          <p class="mb-4">Aqui encontrara información acerca de los insumos</a>.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -85,14 +85,16 @@
 
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" id="Productos_Ver"  width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" id="Insumos_Ver"  width="100%" cellspacing="0">
                   <thead>
                     <tr>
+                      <th>Código</th>
                       <th>Nombre</th>
+                      <th>Descripción</th>
+                      <th>Tipo</th>
+                      <th>Cantidad</th>
                       <th>Precio</th>
-                      <th>Sabor</th>
-                      <th>Descripcion</th>
-                      <th>Stock</th>
+                      <th>Iva</th>
                       <th>Estado</th>
                       <th>Modificar</th>
                       <th>Opción</th>
@@ -100,11 +102,13 @@
                   </thead>
                   <tfoot>
                     <tr>
+                      <th>Código</th>
                       <th>Nombre</th>
+                      <th>Descripción</th>
+                      <th>Tipo</th>
+                      <th>Cantidad</th>
                       <th>Precio</th>
-                      <th>Sabor</th>
-                      <th>Descripcion</th>
-                      <th>Stock</th>
+                      <th>Iva</th>
                       <th>Estado</th>
                       <th>Modificar</th>
                       <th>Opción</th>
@@ -112,14 +116,18 @@
                   </tfoot>
                   <tbody>
 
-                    <?php require ("../basededatos/listapv.php");?>
+                    <?php require ("../basededatos/listarim.php");?>
 
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-<a class="btn btn-primary" href="Productos_Vertodos.php">Ver todos</a>
+            <?php if(empty($_GET)){ ?>
+            <a class="btn btn-primary" href="Insumo_Ver.php?all=True">Ver todos</a>
+          <?php }else{ ?>
+            <a class="btn btn-primary" href="Insumo_Ver.php">Ver activos</a>
+          <?php } ?>
         </div>
 
 

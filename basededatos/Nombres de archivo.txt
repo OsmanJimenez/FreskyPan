@@ -4,3 +4,5 @@ cam_est3 cambia estado de pedidos
 cam_est4 cambia estado de contratos
 cam_est5 cambia estado de devolucion
 cam_est6 cambia estado de lote 
+cam_estbg cambia estado de bodega
+cam_estim cambia estado de insumo

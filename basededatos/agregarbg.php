@@ -8,7 +8,7 @@ $query="INSERT INTO Bodega(ID_BODEGA,descripcion,estado) VALUES ('$cod_pro','$de
 $result=mysqli_query($conn,$query);
 if(!$result){
 	if(mysqli_errno($conn)==1062){
-?><script type="text/javascript">alert("Error ya se encuentra un registro con el mismo id")</script> <?php  
+?><script type="text/javascript">alert("Error ya se encuentra un registro con el mismo Código")</script> <?php  
 	}else {
 		echo "error",mysqli_error($conn);
 	}

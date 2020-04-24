@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Materia Prima</title>
+  <title>Modificar Insumo</title>
    
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
@@ -20,7 +20,7 @@
   <!-- Custom favicon for this template-->
   <link rel="icon" type="image/png" href="../favicon.png" />
 
-  <title>Materia Prima - ERP</title>
+  <title>Insumo - ERP</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -64,55 +64,76 @@
       <!-- Begin Page Content -->
       <div class="container-fluid">
 
+<!-- Page Heading -->
+      <?php require ("../basededatos/connectionbd.php");
+        $id=$_GET['id'];
+        $query="SELECT nombre,precio,estado,cantidad,iva,descripcion FROM Insumo WHERE ID_INSUMO='$id'";
+        $result=mysqli_query($conn,$query);
+              
+        $fila=mysqli_fetch_array($result);
+        $nom=$fila['nombre'];
+        $pre=$fila['precio'];
+        $est=$fila['estado'];
+        $can=$fila['cantidad'];
+        $iva=$fila['iva'];
+        $des=$fila['descripcion'];
+        ?>
+
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Agregar Materia Prima</h1>
-        <p class="mb-4">En este apartado podremos agregar distintas Materias Primas</a>.</p>
+        <h1 class="h3 mb-2 text-gray-800">Modificar Insumos</h1>
+        <p class="mb-4">En este apartado podremos modificar los insumos registrados en el sistema</a>.</p>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Materia Prima</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Insumos</h6>
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregamp.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/actuaim.php" method="POST" enctype="multipart/form-data">
 
 <div class="form-row">
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Código</label>
-              <input type="number" name="cod" class="form-control" onkeypress="return validanumericos(event)" id="inputName" placeholder="" required>
+              <input type="number" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" placeholder="" readonly="readonly">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="" maxlength="10" required>
+                  <input type="text" name="nom" value="<?php echo $nom; ?>" class="form-control" id="inputName" placeholder="" maxlength="10" required>
                 </div>
               </div>
 
-              <div class="form-row">
-
-                <div class="form-group col-md-6">
-                  <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputState">Estado</label>
-                  <select id="inputState" name="est" class="form-control">
-                    <option selected value="1">Activo</option>
-                    <option value="0">Suspendido</option>
-                  </select>
-                </div>
-              </div>
+              
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Cantidad</label>
-                   <input type="number" name="can" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                   <input type="number" name="can" value="<?php echo $can; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
+                  <label for="inputPrice">Precio</label>
+                  <input type="number" name="pre" value="<?php echo $pre; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
                     <label for="inputPrice">Iva</label>
-                    <input type="number" name="iva" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
-                </div>         
+                    <input type="number" name="iva" value="<?php echo $iva; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
+                </div>
+                <div class="form-group col-md-6">
+                 <label for="inputState">Estado</label>
+                  <select id="inputState" name="est" class="form-control" disabled>
+                    <?php if($est=="0"){ ?>
+                    <option value="1">Activo</option>
+                    <option selected value="0">Suspendido</option>
+                    <?php }else{ ?>
+                    <option selected value="1">Activo</option>
+                    <option value="0">Suspendido</option>
+                    <?php } ?>
+                  </select>
+                </div>
               </div>
               
 
@@ -120,15 +141,15 @@
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required><?php echo $des; ?></textarea>
                   </div>
-                </div>   
+                </div>
               </div>
 
 
 
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Añadir</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modificar</button>
 
               <!-- Modal -->
               <div id="myModal" class="modal fade" role="dialog">
