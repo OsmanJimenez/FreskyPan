@@ -77,10 +77,11 @@ $i = 0;
         $pre=$fila['precio'];
         $id=$fila['ID_CATPRODUCTO'];
         $esta=$fila['estado'];
+        $img=$fila['imagen'];
         $i++; ?>
-        <h1 class="h3 mb-2 text-gray-800">Agregar Productos</h1>
+        <h1 class="h3 mb-2 text-gray-800">Modificar Productos</h1>
         <p class="mb-4">En este apartado podremos agregar distintos productos</a>.</p>
-        r
+        
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
@@ -88,7 +89,7 @@ $i = 0;
           </div>
           <div class="card-body">
             <!-- Add Example -->
-            <form action="../basededatos/actuapd.php" method="POST">
+            <form action="../basededatos/actuapd.php" method="POST" enctype="multipart/form-data">
               <label for="inputName">Codigo del Producto</label>
               <input type="text" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" readonly=""
                 placeholder="">
@@ -104,12 +105,17 @@ $i = 0;
                   <label for="inputPrice">Precio</label>
                   <input type="number" name="pre" class="form-control" value="<?php echo $pre; ?>" id="inputrice"
                     placeholder="">
+
+                  
+                    
+
                 </div>
               </div>
+
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Sabor</label>
-                  <select id="inputStatesab" class="form-control" name="sab" value="<?php echo $pre; ?>">
+                  <select id="inputStatesab" class="form-control" name="sab" required="" value="<?php echo $sab; ?>">
                     <option>Escoger</option>
                     <option value="1">Dulce</option>
                     <option value="2">Salado</option>
@@ -118,17 +124,12 @@ $i = 0;
                 </div>
               </div>
               <div class="form-row">
-                <div class="form-group col-md-6">
+                   <div class="form-group col-md-6">
+
                   <label for="inputState">Categoria</label>
-                  <select id="inputStatecat" class="form-control" name="cat">
-                    <option>Escoger</option>
-                    <option value="1">Pasteleria</option>
-                    <option value="2">Panaderia</option>
-                    <option value="3">Postres</option>
-                    
-  
-                  </select>
+<?php require('../basededatos/select.php')?>
                 </div>
+
                 <div class="form-group col-md-6">
 
                   <div class="form-group">
@@ -141,7 +142,7 @@ $i = 0;
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
-                  <select class="form-control" name="esta" id="estado">
+                  <select class="form-control" name="esta" value='<?php echo $esta ?>' id="estado">
                     <option selected>Escoger</option>
                     <option value="1">Activo</option>
                     <option value="0">Inactivo</option>
@@ -153,6 +154,9 @@ $i = 0;
                 <label for="exampleFormControlTextarea1">Descripción</label>
                 <textarea class="form-control" name="des" id="exampleFormControlTextarea1"
                   rows="3"><?php echo $des; ?></textarea>
+                  <label for="exampleFormControlFile1">Imagen del Producto</label>
+                    <input type="file" name="img" accept="image/*" class="form-control-file"
+                      id="exampleFormControlFile1">
               </div>
 
 

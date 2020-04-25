@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Ver Productos</title>
+  <title>Agregar Pedidos</title>
    
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
@@ -20,7 +20,7 @@
   <!-- Custom favicon for this template-->
   <link rel="icon" type="image/png" href="../favicon.png" />
 
-  <title>Productos - ERP</title>
+  <title>Tipo producto - ERP</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -49,6 +49,7 @@
     require('menu.php');
     ?>
     <!-- End of Sidebar -->
+   
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -65,57 +66,52 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Productos</h1>
+        
+
+           <!-- Page Heading -->
+         <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Tipo producto</h1>
             <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-              onclick="exportTableToExcel('dataTable' ,'Lista de Productos')"><i
+              onclick="exportTableToExcel('dataTable' ,'Lista de Pedidos')"><i
                 class="fas fa-download fa-sm text-white-50"></i>  Generar Reporte</button>
 
           </div>
-
-          <p class="mb-4">Aqui encontrara información acerca de los productos</a>.</p>
-
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"></h6>
+              <h6 class="m-0 font-weight-bold text-primary">Ejemplos</h6>
             </div>
 
 
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" id="Productos_Ver"  width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>ID</th>
+                      <th>Numero</th>
                       <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Rol</th>
-                      <th></th>
+                      <th>Opción</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                   <th>ID</th>
+                      <th>Numero</th>
                       <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Rol</th>
-                      <th></th>
+                      <th>Opción</th>
                     </tr>
                   </tfoot>
                   <tbody>
 
-                    <?php require ("../basededatos/listau.php");?>
+                    <?php require ("../basededatos/listat.php");?>
 
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-<!--<a class="btn btn-primary" href="Productos_Vertodos.php">Ver todos</a>-->
-        </div>
 
+        </div>
+        <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -158,18 +154,18 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>

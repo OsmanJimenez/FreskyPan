@@ -86,33 +86,7 @@
 
               <div class="form-row">
                 <div class="form-group col-md-6">
-                <div class="table-responsive" style=" max-height:350px; ">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th></th>
-                    <th>Codigo</th>
-                      <th>Nombre</th>
-                      <th>Cantidad</th>
-                      <th>Fecha    
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th></th>
-                      
-                      <th>Codigo</th>
-                      <th>Nombre</th>
-                      <th>Cantidad</th>
-                      <th>Fecha               
-                    </tr>
-                  </tfoot>
-                  <tbody>
 
-                    <?php require ("../basededatos/listac3.php");?>
-                  </tbody>
-                </table>
-              </div>
                 </div>
  <?php require ("../basededatos/connectionbd.php");
 $mic=$_GET['id'];

@@ -122,7 +122,7 @@
                   <label for="inputCantidad">ID Producción</label>
                   <input type="number" name="pro" class="form-control" id="pro" readonly="" placeholder="">
                   <label for="inputCantidad">Fecha</label>
-                  <input type="date" name="fec" class="form-control" id="inputCantidad3" placeholder="">
+                  <input type="date" name="fec" class="form-control" id="inputCantidad3" placeholder="" required="">
                   <label for="inputCantidad">Cantidad</label>
                   <input type="number" name="can" class="form-control" id="inputCantidad2" placeholder="">
                   <div class="space-small"></div>

@@ -104,22 +104,17 @@
                   <label for="inputState">Estado</label>
                   <select id="inputState" name="est" class="form-control">
                     <option selected>Escoger</option>
-                    <option>Activo</option>
-                    <option>Suspendido</option>
+                    <option value="1">Activo</option>
+                    <option value="0">Suspendido</option>
                   </select>
                 </div>
               </div>
               
               <div class="form-row">
                 <div class="form-group col-md-6">
+
                   <label for="inputState">Categoria</label>
-                  <select id="inputState" name="cat" class="form-control">
-                    <option selected>Escoger</option>
-                    <option value="1">Pasteleria</option>
-                    <option value="2">Panaderia</option>
-                    <option value="3">Postres</option>
-                    <option value="4">Tortas</option>
-                  </select>
+<?php require('../basededatos/select.php')?>
                 </div>
 
 

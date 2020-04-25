@@ -20,6 +20,6 @@ if(!$result){
 
 }else{
 echo "registro insertado";
-   header('location:../backend/Materia_Ver.php'); 
+  header('location:../backend/Materia_Ver.php'); 
 }
 ?>
