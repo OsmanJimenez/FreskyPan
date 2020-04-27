@@ -20,7 +20,7 @@
   <!-- Custom favicon for this template-->
   <link rel="icon" type="image/png" href="../favicon.png" />
 
-  <title>Productos - ERP</title>
+  <title>Materia Prima - ERP</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
+    <script src="js/validanumericos.js" type="text/javascript"></script>
 </head>
 
 <div id="wrapper">
@@ -75,67 +75,62 @@
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregapd.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/agregamp.php" method="POST" enctype="multipart/form-data">
 
 <div class="form-row">
 
                 <div class="form-group col-md-6">
-                  <label for="inputName">Codigo</label>
-              <input type="number" name="cod" class="form-control" id="inputName" placeholder="">
+                  <label for="inputName">Código</label>
+              <input type="number" name="cod" class="form-control" onkeypress="return validanumericos(event)" id="inputName" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="">
+                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="" maxlength="10" required>
                 </div>
               </div>
-
-              
 
               <div class="form-row">
 
                 <div class="form-group col-md-6">
-                  <label for="inputName">Fecha de Vencimiento</label>
-                  <input type="date" id="inputName" class="form-control" name="fec" width="100%" />
+                  <label for="inputPrice">Precio</label>
+                  <input type="number" name="pre" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" id="inputrice" placeholder="">
+                  <label for="inputState">Estado</label>
+                  <select id="inputState" name="est" class="form-control">
+                    <option selected value="1">Activo</option>
+                    <option value="0">Suspendido</option>
+                  </select>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Cantidad</label>
-                   <input type="number" name="pre" class="form-control" id="inputrice" placeholder="">
+                   <input type="number" name="can" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
                 </div>
-
-
                 <div class="form-group col-md-6">
-                  <label for="inputState">Estado</label>
-                  <select id="inputState" name="sab" class="form-control">
-                    <option selected>Escoger</option>
-                    <option>Activo</option>
-                    <option>Suspendido</option>
-                  </select>
-                </div>
+                    <label for="inputPrice">Iva</label>
+                    <input type="number" name="iva" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
+                </div>         
               </div>
               
 
               <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputPrice">Iva</label>
-                    <input type="number" name="pre" class="form-control" id="inputrice" placeholder="">
-                
-
+              <div class="form-group col-md-6">
+                  <label for="inputState">Tipo</label>
+                  <select id="inputState" name="est" class="form-control">
+                    <option selected value="1">Producto</option>
+                    <option value="0">Herramienta</option>
+                  </select>
                 </div>
+
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required></textarea>
                   </div>
-                </div>
-                
-
+                </div>   
               </div>
 
 
@@ -155,10 +150,10 @@
                       
                     </div>
                     <div class="modal-body">
-                      <p>Esta seguro?</p>
+                      <p>¿Está seguro?</p>
                     </div>
                     <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary">Si</button>
+                      <button type="submit" class="btn btn-primary">Sí</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                     </div>
                   </div>

@@ -1,19 +1,19 @@
 <?php
 require ("connectionbd.php");
 $cd=$_GET['idc'];
-$query="Select * from productos where cod_pro='$cd'";
+$query="Select * from catproducto where ID_CATPRODUCTO='$cd'";
 $result=mysqli_query($conn,$query);
 $i = 0;
 			
 			while($fila=mysqli_fetch_array($result)){			
-				$est=$fila['est_pro'];
+				$est=$fila['estado'];
 				$i++;	
              
              if($est==0){
-              $query2="UPDATE productos set est_pro='1' where cod_pro='$cd' ";
+              $query2="UPDATE catproducto set estado='1' where ID_CATPRODUCTO='$cd' ";
 
              }elseif ($est==1) {
-             	$query2="UPDATE productos set est_pro='0' where cod_pro='$cd' ";
+             	$query2="UPDATE catproducto set estado='0' where ID_CATPRODUCTO='$cd' ";
              }
 $result2=mysqli_query($conn,$query2);
 if (!$result2) {

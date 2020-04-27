@@ -91,19 +91,20 @@
                   <thead>
                     <tr>
                       <th></th>
-                      <th>ID</th>
-                      <th>Fecha</th>
+                    <th>Codigo</th>
+                      <th>Nombre</th>
                       <th>Cantidad</th>
-
+                      <th>Fecha    
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th></th>
                       
-                      <th>ID</th>
-                      <th>Fecha</th>
-                      <th>Cantidad</th>                
+                      <th>Codigo</th>
+                      <th>Nombre</th>
+                      <th>Cantidad</th>
+                      <th>Fecha               
                     </tr>
                   </tfoot>
                   <tbody>
@@ -116,14 +117,14 @@
 
                 <div class="form-group col-md-6">
                 <label for="inputCantidad">ID Venta</label>
-                  <input type="text" name="ced" class="form-control" id="inputCantidad1" placeholder="">
+                  <input type="text" name="cod" class="form-control" id="inputCantidad1" placeholder="">
                   <div class="space-small"></div>
                   <label for="inputCantidad">ID Producción</label>
-                  <input type="number" name="a1" class="form-control" id="inputCantidad2" placeholder="">
+                  <input type="number" name="pro" class="form-control" id="pro" readonly="" placeholder="">
                   <label for="inputCantidad">Fecha</label>
-                  <input type="date" name="dire" class="form-control" id="inputCantidad3" placeholder="">
+                  <input type="date" name="fec" class="form-control" id="inputCantidad3" placeholder="" required="">
                   <label for="inputCantidad">Cantidad</label>
-                  <input type="number" name="a1" class="form-control" id="inputCantidad2" placeholder="">
+                  <input type="number" name="can" class="form-control" id="inputCantidad2" placeholder="">
                   <div class="space-small"></div>
                   <button type="submit" class="btn btn-primary  ">Agregar</button>
                 </div>
@@ -173,7 +174,7 @@
     <script>
       function cambia(text) {
         //  var text = document.getElementById('sd').value;
-        document.getElementById('prueba').value = text;
+        document.getElementById('pro').value = text;
       }
     </script>
     <script>

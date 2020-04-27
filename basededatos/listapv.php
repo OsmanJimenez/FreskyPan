@@ -1,22 +1,24 @@
 <?php
 require ("connectionbd.php");
-$query="Select sum(lote.st_prn) as sum,productos.nom_pro,
+/*$query="Select sum(lote.st_prn) as sum,productos.nom_pro,
 productos.pre_pro,
 productos.sab_pro,
 productos.des_pro,
 productos.est_pro,
-productos.cod_pro  from lote,productos where productos.cod_pro=lote.cod_pro group by productos.nom_pro having count(*)>0 ";
+productos.cod_pro  from lote,productos where productos.cod_pro=lote.cod_pro group by productos.nom_pro having count(*)>0 ";*/
+$query="Select * from catproducto";
 $result=mysqli_query($conn,$query);
+
 	$i = 0;
 			
 			while($fila=mysqli_fetch_array($result)){			
-				$Nom = $fila['nom_pro'];
-				$cod = $fila['pre_pro'];
-				$fec=$fila['sab_pro'];
-				$des = $fila['des_pro'];
-				$stock=$fila['sum'];
-				$est=$fila['est_pro'];
-				$id=$fila['cod_pro'];
+				$Nom = $fila['nombre'];
+				$cod = $fila['precio'];
+				$fec=$fila['sabor'];
+				$des = $fila['descripcion'];
+				$stock=$fila['stock'];
+				$est=$fila['estado'];
+				$id=$fila['ID_CATPRODUCTO'];
 				$i++;	?>
 
 		<tr align="center">

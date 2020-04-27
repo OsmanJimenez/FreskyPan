@@ -64,22 +64,24 @@
         <!-- Page Heading -->
         <?php require ("../basededatos/connectionbd.php");
 $mic=$_GET['idc'];
-$query="Select * from productos where cod_pro='$mic'";
+$query="Select * from catproducto where ID_CATPRODUCTO='$mic'";
 $result=mysqli_query($conn,$query);
 $i = 0;
       
       while($fila=mysqli_fetch_array($result)){     
-        $Nom = $fila['nom_pro'];
-        $cod = $fila['pre_pro'];
-        $fec=$fila['sab_pro'];
-        $des = $fila['des_pro'];
-        $stock=$fila['can_pro'];
-       
-        $id=$fila['cod_pro'];
+        $Nom = $fila['nombre'];
+        $cat = $fila['FK_ID_SUBTIPOPRODUCTO'];
+        $sab=$fila['sabor'];
+        $des = $fila['descripcion'];
+        $stock=$fila['stock'];
+        $pre=$fila['precio'];
+        $id=$fila['ID_CATPRODUCTO'];
+        $esta=$fila['estado'];
+        $img=$fila['imagen'];
         $i++; ?>
-        <h1 class="h3 mb-2 text-gray-800">Agregar Productos</h1>
+        <h1 class="h3 mb-2 text-gray-800">Modificar Productos</h1>
         <p class="mb-4">En este apartado podremos agregar distintos productos</a>.</p>
-        r
+        
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
@@ -87,7 +89,7 @@ $i = 0;
           </div>
           <div class="card-body">
             <!-- Add Example -->
-            <form action="../basededatos/actuapd.php" method="POST">
+            <form action="../basededatos/actuapd.php" method="POST" enctype="multipart/form-data">
               <label for="inputName">Codigo del Producto</label>
               <input type="text" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" readonly=""
                 placeholder="">
@@ -101,32 +103,33 @@ $i = 0;
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" value="<?php echo $cod; ?>" id="inputrice"
+                  <input type="number" name="pre" class="form-control" value="<?php echo $pre; ?>" id="inputrice"
                     placeholder="">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputState">Sabor</label>
-                  <select id="inputState" class="form-control" name="sab">
-                    <option selected>Escoger</option>
-                    <option>Dulce</option>
-                    <option>Salado</option>
-                    <option>Agridulce</option>
-                  </select>
+
+                  
+                    
+
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputState">Categoria</label>
-                  <select id="inputState" class="form-control" name="cat">
-                    <option selected>Escoger</option>
-                    <option>Pasteleria</option>
-                    <option>Panaderia</option>
-                    <option>Postres</option>
+                  <label for="inputState">Sabor</label>
+                  <select id="inputStatesab" class="form-control" name="sab" required="" value="<?php echo $sab; ?>">
+                    <option>Escoger</option>
+                    <option value="1">Dulce</option>
+                    <option value="2">Salado</option>
+                    <option value="3">Agridulce</option>
                   </select>
                 </div>
+              </div>
+              <div class="form-row">
+                   <div class="form-group col-md-6">
+
+                  <label for="inputState">Categoria</label>
+<?php require('../basededatos/select.php')?>
+                </div>
+
                 <div class="form-group col-md-6">
 
                   <div class="form-group">
@@ -139,17 +142,21 @@ $i = 0;
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
-                  <select class="form-control" name="esta">
+                  <select class="form-control" name="esta" value='<?php echo $esta ?>' id="estado">
                     <option selected>Escoger</option>
                     <option value="1">Activo</option>
                     <option value="0">Inactivo</option>
                   </select>
                 </div>
               </div>
+  
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descripción</label>
-                <textarea class="form-control" value="<?php echo $des; ?>" name="des" id="exampleFormControlTextarea1"
-                  rows="3"></textarea>
+                <textarea class="form-control" name="des" id="exampleFormControlTextarea1"
+                  rows="3"><?php echo $des; ?></textarea>
+                  <label for="exampleFormControlFile1">Imagen del Producto</label>
+                    <input type="file" name="img" accept="image/*" class="form-control-file"
+                      id="exampleFormControlFile1">
               </div>
 
 
@@ -187,7 +194,13 @@ $i = 0;
       </div>
       <!-- /.container-fluid -->
 
+                              <script>
+    document.ready = document.getElementById("inputStatecat").value = '<?php echo $cat; ?>';
 
+    document.ready = document.getElementById("inputStatesab").value = '<?php if(strcasecmp ($sab,'Dulce')==0){ echo '1';}elseif(strcasecmp ($sab,'Salado')==0){ echo '2';}elseif(strcasecmp ($sab,'Agridulce')==0){ echo '3';} ?>';
+    document.ready = document.getElementById("estado").value = '<?php echo $esta; ?>';
+
+</script>
 
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

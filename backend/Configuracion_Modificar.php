@@ -75,16 +75,28 @@
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregapd.php" method="POST" enctype="multipart/form-data">
+                    <?php require ("../basededatos/connectionbd.php");
+$mic=$_GET['id'];
+$query="Select * from usuario where ID_USUARIO='$mic'";
+$result=mysqli_query($conn,$query);
+$i = 0;
+      
+      $fila=mysqli_fetch_array($result);     
+        $codigo = $fila['ID_USUARIO'];
+        $nombre = $fila['prNombre'];
+        $apellido=$fila['prApellido'];
+        $rol= $fila['rol'];
+        $i++; ?>
+            <form action="../basededatos/actuau.php" method="POST" enctype="multipart/form-data">
             <label for="inputName">Codigo del Empleado</label>
             <div class="form-row">
             
               <div class="form-group col-md-11">
                 
-                <input type="number" name="cod" class="form-control" id="inputName" placeholder="">
+                <input type="number" name="cod" class="form-control" id="inputName" value="<?php echo $codigo;?>" placeholder="" readonly="">
               </div>
               <div class="form-group col-md-1">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Buscar</button>
+           
               </div>
             </div>
 
@@ -94,26 +106,20 @@
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Empleado</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="">
+                  <input type="text" name="nom" value="<?php echo $nombre;?>" class="form-control" id="inputName" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Apellido del Empleado</label>
-                  <input type="text" name="pre" class="form-control" id="inputrice" placeholder="">
+                  <input type="text" name="ape" class="form-control" value="<?php echo $apellido;?>" id="inputrice" placeholder="">
                 </div>
               </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputState">Contraseña</label>
-                   <input type="password" name="pre" class="form-control" id="inputrice" placeholder="Duración en Dias">
-                </div>
-
-
-                <div class="form-group col-md-6">
+              <div class="form-row">  
+              <div class="form-group col-md-6">
                   <label for="inputState">Rol</label>
-                  <select id="inputState" name="sab" class="form-control">
+                  <select value="<?php echo $rol;?>"id="inputState" name="rol" class="form-control">
                     <option>Administrador</option>
-                    <option selected>Empleado</option>
+                    <option>Empleado</option>
                   </select>
                 </div>
               </div>
@@ -152,9 +158,9 @@
       <!-- /.container-fluid -->
 
 
-
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
       <!-- Core plugin JavaScript-->
       <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

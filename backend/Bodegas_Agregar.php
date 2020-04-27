@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
+  <script src="js/validanumericos.js" type="text/javascript"></script>
 </head>
 
 <div id="wrapper">
@@ -75,11 +75,11 @@
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregapd.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/agregarbg.php" method="POST" enctype="multipart/form-data">
 
 
               <label for="inputName">Codigo de la Bodega</label>
-              <input type="number" name="cod" class="form-control" id="inputName" placeholder="">
+              <input type="number" name="cod" class="form-control" onkeypress="return validanumericos(event)" id="inputName" placeholder="" required>
 
             
 
@@ -87,17 +87,16 @@
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required></textarea>
                   </div>
                 </div>
 
 
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
-                  <select id="inputState" name="sab" class="form-control">
-                    <option selected>Escoger</option>
-                    <option>Activo</option>
-                    <option>Suspendido</option>
+                  <select id="inputState" name="est" class="form-control">
+                    <option selected value="1">Activo</option>
+                    <option value="0">Suspendido</option>
                   </select>
                 </div>
               </div>
@@ -123,10 +122,10 @@
                       
                     </div>
                     <div class="modal-body">
-                      <p>Esta seguro?</p>
+                      <p>¿Está seguro?</p>
                     </div>
                     <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary">Si</button>
+                      <button type="submit" class="btn btn-primary">Sí</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                     </div>
                   </div>

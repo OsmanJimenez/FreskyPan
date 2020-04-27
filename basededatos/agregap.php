@@ -1,21 +1,24 @@
 <?php
 require ("connectionbd.php");
-$Fec_ped=$_POST['fec'];		
-$can_ped=$_POST['can'];	
-$dir_ped=$_POST['dire'];	
-$des_ped=$_POST['des'];	
-$cod_pro=$_POST['cod'];
-$ced=$_POST['ced'];
-var_dump($dir_ped);
-$query="Insert into pedidos (Fec_ped,can_ped,dir_ped,des_ped,cod_pro,ced_cl,est_ped )values('$Fec_ped','$can_ped','$dir_ped','$des_ped','$cod_pro','$ced','1')";
+$idv=$_POST['cod'];		
+$idp=$_POST['pro'];	
+$can=$_POST['can'];	
+$fec=$_POST['fec'];	
+var_dump($fec);
+$query1="INSERT INTO venta(ID_VENTA,fecha) VALUES ('$idv','$fec')";
+$result1=mysqli_query($conn,$query1);
+$query="insert into venta_produccion(FK_ID_PRODUCCION, FK_ID_VENTA, cantidad) VALUES ('$idp','$idv','$can')";
 $result=mysqli_query($conn,$query);
-if(!$result){
-echo "no se pudo";
-
+$query2="UPDATE produccion,catproducto SET produccion.cantidadInicial=produccion.cantidadInicial-'$can',catproducto.stock=catproducto.stock-'$can' WHERE produccion.ID_PRODUCCION='$idp' and produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO";
+$result2=mysqli_query($conn,$query2);
+if(!$result2 || ! $result1 || !$result){
+echo "error",mysqli_error($conn);
 }else{
-header('location:../backend');
+header('location:../backend/Ventas_ver.php');
     
 }
+
+
 
 
 ?>

@@ -1,28 +1,21 @@
 <?php
 require ("connectionbd.php");
-$query="Select clientes.nom_cl, clientes.a1_cl, clientes.ced_cl, telcl.tel_cl, clientes.dir_cl, clientes.est_cl from clientes,telcl where telcl.ced_cl=clientes.ced_cl";
+$query="Select produccion.ID_PRODUCCION,catproducto.nombre,produccion.fechaProduccion,produccion.cantidadInicial from produccion,catproducto where produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO ORDER BY `produccion`.`fechaProduccion` ASC ";
 $result=mysqli_query($conn,$query);
 $i = 0;
 			
 			while($fila=mysqli_fetch_array($result)){			
-				$doc = $fila['ced_cl'];
-				$Nom = $fila['nom_cl'];
-				$cod = $fila['a1_cl']; 
-				
-				$tel = $fila['tel_cl'];
-				$dir = $fila['dir_cl'];
-				$est=$fila['est_cl'];
+				$num = $fila['ID_PRODUCCION'];
+				$Nom = $fila['nombre'];
+				$stock = $fila['cantidadInicial']; 
+				$fec=$fila['fechaProduccion'];
 				$i++;	?>
 
 		<tr align="center">
-			<td><input type="radio" class="pr"></td>
-			<td><?php echo $doc; ?></td>
+			<td><input required="" type="radio" name="r1" onclick="cambia('<?php echo $num; ?>')" id="sd"></input></td>
+			<td><?php echo $num; ?></td>
 			<td><?php echo $Nom; ?></td>
-			<td><?php echo $cod; ?></td>
-			
-			
-			<td><?php echo $tel; ?></td>
-			<td><?php echo $dir; ?></td>
-				
+			<td><?php echo $stock; ?></td>
+			<td><?php echo $fec; ?></td>				
 		</tr> 
 <?php }?>

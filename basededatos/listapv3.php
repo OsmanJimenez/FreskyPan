@@ -1,17 +1,16 @@
-
 <?php
 require ("connectionbd.php");
-$query="Select * from productos";
+$query="Select * from catproducto";
 $result=mysqli_query($conn,$query);
 $i = 0;
 			
 			while($fila=mysqli_fetch_array($result)){
-				$code = $fila['cod_pro'];		
-				$Nom = $fila['nom_pro'];
+				$code = $fila['ID_CATPRODUCTO'];		
+				$Nom = $fila['nombre'];
 				
 				
-				$stock=$fila['cat_pro'];
-				$est=$fila['est_pro'];
+				$stock=$fila['descripcion'];
+				$est=$fila['estado'];
 				$i++;	?>
 
 		<tr align="center">

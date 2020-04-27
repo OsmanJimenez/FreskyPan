@@ -1,4 +1,4 @@
-
+<!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-design sidebar sidebar-light accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
@@ -24,7 +24,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interfas
+        Interfaz
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -42,7 +42,6 @@
           </div>
         </div>
       </li>
-
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLotes" aria-expanded="true"
@@ -66,7 +65,6 @@
         </div>
       </li>
 
-
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventarios" aria-expanded="true"
           aria-controls="collapseInventarios">
@@ -76,15 +74,15 @@
         <div id="collapseInventarios" class="collapse" aria-labelledby="headingBodegas" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Bodega:</h6>
-            <a class="collapse-item" href="bodegas_agregar.php">Agregar</a>
-            <a class="collapse-item" href="bodegas_ver.php">Ver</a>
+            <a class="collapse-item" href="Bodegas_Agregar.php">Agregar</a>
+            <a class="collapse-item" href="Bodegas_Ver.php">Ver</a>
           </div>
         </div>
         <div id="collapseInventarios" class="collapse" aria-labelledby="headingMateria" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Materia Prima:</h6>
-            <a class="collapse-item" href="materia_agregar.php">Agregar</a>
-            <a class="collapse-item" href="materia_ver.php">Ver</a>
+            <a class="collapse-item" href="Materia_Agregar.php">Agregar</a>
+            <a class="collapse-item" href="Materia_Ver.php">Ver</a>
           </div>
         </div>
         <div id="collapseInventarios" class="collapse" aria-labelledby="headingInsumos" data-parent="#accordionSidebar">
@@ -95,6 +93,7 @@
           </div>
         </div>
       </li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContacts"
           aria-expanded="true" aria-controls="collapseContacts">
@@ -166,27 +165,29 @@
         </div>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConfiguracion" aria-expanded="true"
+          aria-controls="collapseCuentas">
+          <i class="fas fa-users-cog"></i>
+          <span>Configuración</span>
+        </a>
+        <div id="collapseConfiguracion" class="collapse" aria-labelledby="headingConfiguracion" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Usuarios:</h6>
+            <a class="collapse-item" href="Configuracion_Agregar.php">Agregar</a>
+            <a class="collapse-item" href="Configuracion_Ver.php">Ver</a>
+          </div>
+        </div>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-<!-- Switch 
-      <button class="switch" id="switch">
-					<span><i class="fas fa-sun"></i></span>
-					<span><i class="fas fa-moon"></i></span>
-			</button>
-
-      
-<!-- Divider 
-<hr class="sidebar-divider">
-
--->
       
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
 
-    </ul>
-    <!-- End of Sidebar -->
-
-    </ul>
+</ul>
+<!-- End of Sidebar -->    
