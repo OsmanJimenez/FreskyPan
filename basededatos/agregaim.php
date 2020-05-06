@@ -7,16 +7,17 @@ $pre= $_POST['pre'];
 $can= $_POST['can'];	
 $est= $_POST['est'];
 $iva= $_POST['iva'];
+$tip= $_POST['tip'];
 $des= $_POST['des'];	
-$query="INSERT INTO Insumo(ID_INSUMO,nombre,cantidad,descripcion,precio,iva,stock,estado,FK_ID_TIPOINSUMO) VALUES ('$cod','$nom','$can','$des','$pre','$iva','0','$est','1')";
+$query="INSERT INTO Insumo(ID_INSUMO,nombre,cantidad,descripcion,precio,iva,stock,estado,FK_ID_TIPOINSUMO) VALUES ('$cod','$nom','$can','$des','$pre','$iva','0','$est','$tip')";
 $result=mysqli_query($conn,$query);
 if(!$result){
 	if(mysqli_errno($conn)==1062){
-?><script type="text/javascript">alert("Error ya se encuentra un registro con el mismo Código")</script> <?php  
+?><script type="text/javascript">alert("Error ya se encuentra un registro con el mismo código")</script> <?php  
 	}else {
 		echo "error",mysqli_error($conn);
 	}
-	header('location:../backend/Insumo_Agregar.php'); 
+	//header('location:../backend/Insumo_Agregar.php'); 
 
 }else{
 echo "registro insertado";

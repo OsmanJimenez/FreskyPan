@@ -88,8 +88,8 @@
         <div id="collapseInventarios" class="collapse" aria-labelledby="headingInsumos" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Insumo:</h6>
-            <a class="collapse-item" href="insumo_agregar.php">Agregar</a>
-            <a class="collapse-item" href="insumo_ver.php">Ver</a>
+            <a class="collapse-item" href="Insumo_Agregar.php">Agregar</a>
+            <a class="collapse-item" href="Insumo_Ver.php">Ver</a>
           </div>
         </div>
       </li>

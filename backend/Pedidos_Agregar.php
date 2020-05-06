@@ -88,10 +88,9 @@
                   <label for="inputCantidad">Codigo del pedido</label>
                   <input type="text" name="ced" class="form-control" id="inputCantidad" placeholder="">
                 </div> -->
-
               </div>
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Información del Proveedor</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Escoger al proveedor</h6>
               </div>
               <div class="space-small"></div>
 
@@ -102,19 +101,15 @@
                   <thead>
                     <tr>
                       <th></th>
-                      <th>Cedula</th>
                       <th>Nombre</th>
                       <th>Apellido</th>
                       <th>Telefono</th>
                       <th>Dirección</th>
-                      
-
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th></th>
-                    <th>Cedula</th>
                       <th>Nombre</th>
                       <th>Apellido</th>
                       <th>Telefono</th>
@@ -122,8 +117,7 @@
                     </tr>
                   </tfoot>
                   <tbody>
-
-                    <?php require ("../basededatos/listac3.php");?>
+                    <?php require ("../basededatos/listapro_ped.php");?>
                   </tbody>
                 </table>
               </div>
@@ -142,7 +136,7 @@
               </div>  
               
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Información del Producto</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Escoger el producto</h6>
               </div>
               <div class="space-small"></div>
 
@@ -154,30 +148,28 @@
                   <thead>
                     <tr>
                       <th></th>
-                      <th>Codigo</th>
                       <th>Nombre</th>
+                      <th>Descripción</th>
                       <th>Precio</th>
-                      <th>Sabor</th>
-                      <th>Descripcion</th>
-                      <th>Stock</th>
-                      
+                      <th>IVA</th>
+                      <th>Cantidad</th>
+                      <th>Tipo</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th></th>
-                      <th>Codigo</th>
                       <th>Nombre</th>
+                      <th>Descripción</th>
                       <th>Precio</th>
-                      <th>Sabor</th>
-                      <th>Descripcion</th>
-                      <th>Stock</th>
-                      
+                      <th>IVA</th>
+                      <th>Cantidad</th>
+                      <th>Tipo</th>
                     </tr>
                   </tfoot>
                   <tbody>
 
-                  <?php require ("../basededatos/listapv2.php");?>
+                  <?php require ("../basededatos/listami_ped.php");?>
 
                   </tbody>
                 </table>

@@ -108,28 +108,27 @@
                     <input type="number" name="iva" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
                 </div>
                 <div class="form-group col-md-6">
-                 <label for="inputState">Estado</label>
-                  <select id="inputState" name="est" class="form-control">
-                    <option selected value="1">Activo</option>
-                    <option value="0">Suspendido</option>
+                  <label for="inputState">Tipo</label>
+                  <select id="inputState" name="tip" class="form-control">
+                    <?php require ("../basededatos/combotpins.php");?>
                   </select>
                 </div>
               </div>
               
 
               <div class="form-row">
-              <div class="form-group col-md-6">
-                  <label for="inputState">Tipo</label>
-                  <select id="inputState" name="est" class="form-control">
-                    <option selected value="1">Producto</option>
-                    <option value="0">Herramienta</option>
-                  </select>
-                </div>
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
                     <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required></textarea>
                   </div>
+                </div>
+                <div class="form-group col-md-6">
+                 <label for="inputState">Estado</label>
+                  <select id="inputState" name="est" class="form-control">
+                    <option selected value="1">Activo</option>
+                    <option value="0">Suspendido</option>
+                  </select>
                 </div>
               </div>
 
