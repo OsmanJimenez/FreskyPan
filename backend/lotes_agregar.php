@@ -118,9 +118,9 @@
                         <div class="space-small"></div>
 
                         <label for="inputName">Cantidad inicial</label>
-                        <input type="number" name="ci" class="form-control" id="inputName" placeholder="">
+                        <input type="number" name="ci" maxlength="11" class="form-control" id="inputName" oninput="maxlengthNumber(this)" onkeypress="return cant(event)" onpaste="return false" placeholder="">
                         <label for="inputName">Unidades</label>
-                        <input type="number" name="uni" class="form-control" id="inputName" placeholder="">
+                        <input type="number" name="uni" class="form-control" id="inputName" oninput="maxlengthNumber(this)" onkeypress="return unidad(event)" onpaste="return false" placeholder="">
                         <label for="inputName">Fecha</label>
                         <input type="date" id="inputName" class="form-control" name="fecha" width="100%" />
                        
@@ -215,6 +215,58 @@
           });
         </script>
         <!-- Core plugin JavaScript-->
+
+        <script>
+      function maxlengthNumber(ob){
+        console.log(ob.value);
+
+        if(ob.value.length > ob.maxLength){
+
+          ob.value = ob.value.slice(0,ob.maxLength);
+        }
+      }
+
+      
+    </script>
+
+    <script type="text/javascript">
+  function cant(evento){
+          
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          ci= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (ci.indexOf(teclado) == -1 && !teclado_especial) {
+                return false; 
+            }
+  }
+ </script>
+  <script type="text/javascript">
+  function unidad(evento){
+          
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          uni= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (uni.indexOf(teclado) == -1 && !teclado_especial) {
+                return false; 
+            }
+  }
+ </script>
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->

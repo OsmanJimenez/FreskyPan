@@ -79,24 +79,25 @@
 
 
               <label for="inputName">Codigo del Producto</label>
-              <input type="number" name="cod" class="form-control" id="inputName" placeholder="">
+              <input type="number" name="cod" class="form-control" id="inputName" id="inputName"   oninput="maxlengthNumber(this)" onpaste="return false" 
+              onkeypress="return codigo(event)" placeholder="">
 
               <div class="form-row">
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Producto</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="">
+                  <input type="text" name="nom" class="form-control" id="inputName"  onkeypress="return validarNom(event)" onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" id="inputrice" placeholder="">
+                  <input type="number" name="pre" class="form-control" id="inputrice" oninput="maxlengthNumber(this)" onpaste="return false" onkeypress="return precio(event)"  placeholder="">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Duración</label>
-                   <input type="number" name="dur" class="form-control" id="inputrice" placeholder="Duración en Dias">
+                   <input type="number" name="dur" class="form-control" id="inputrice" oninput="maxlengthNumber(this)" onpaste="return false" onkeypress="return duracion(event)" placeholder="Duración en Dias">
                 </div>
 
 
@@ -133,7 +134,7 @@
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" onkeypress="return validarDes(event)" onpaste="return false" rows="3"></textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -183,6 +184,122 @@
 
       </div>
       <!-- /.container-fluid -->
+      <script>
+      function maxlengthNumber(ob){
+        console.log(ob.value);
+
+        if(ob.value.length > ob.maxLength){
+
+          ob.value = ob.value.slice(0,ob.maxLength);
+        }
+      }
+
+      
+    </script>  
+    <!-- funcion de validacion solo numeros-->
+
+
+       <script type="text/javascript">
+  function codigo(evento){
+          
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          cod= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+                return false; 
+            }
+  }
+ </script>
+ <script type="text/javascript">
+  function precio(evento){
+          
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          pre= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (pre.indexOf(teclado) == -1 && !teclado_especial) {
+                return false; 
+            }
+  }
+ </script>
+ <script type="text/javascript">
+  function duracion(evento){
+          
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          dur= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (dur.indexOf(teclado) == -1 && !teclado_especial) {
+                return false; 
+            }
+  }
+ </script>
+ 
+ 
+<!-- funcion de validacion de texto -->   
+
+
+    <script type="text/javascript">
+  function validarNom(evento){
+          
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          nom = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+                return false; 
+            }
+  }
+ </script>
+ <script type="text/javascript">
+  function validarDes(evento){
+          
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          des = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (des.indexOf(teclado) == -1 && !teclado_especial) {
+                return false; 
+            }
+  }
+ </script>
+
 
 
 

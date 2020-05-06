@@ -79,7 +79,7 @@
 
 
               <label for="inputName">Codigo de la Bodega</label>
-              <input type="number" name="cod" class="form-control" onkeypress="return validanumericos(event)" id="inputName" placeholder="" required>
+              <input type="number" name="cod" maxlength="11" class="form-control" onkeypress="return codBodega(event)" id="inputName"  oninput="maxlengthNumber(this)" onpaste="return false" placeholder="" required>
 
             
 
@@ -87,7 +87,7 @@
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return validarDes(event)" onpaste="return false"  required></textarea>
                   </div>
                 </div>
 
@@ -140,6 +140,62 @@
 
       </div>
       <!-- /.container-fluid -->
+
+       <script>
+      function maxlengthNumber(ob){
+        console.log(ob.value);
+
+        if(ob.value.length > ob.maxLength){
+
+          ob.value = ob.value.slice(0,ob.maxLength);
+        }
+      }
+
+      
+    </script>  
+    <!-- funcion de validacion solo numeros-->
+
+
+       <script type="text/javascript">
+  function codBodega(evento){
+          
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          cod= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+                return false; 
+            }
+  }
+ </script>
+
+  <script type="text/javascript">
+  function validarDes(evento){
+          
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          des = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (des.indexOf(teclado) == -1 && !teclado_especial) {
+                return false; 
+            }
+  }
+ </script>
+
 
 
 
