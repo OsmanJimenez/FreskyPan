@@ -1,6 +1,6 @@
 <?php
 require ("connectionbd.php");
-$query="Select * from pedidos";
+$query="Select * from pedido";
 $result=mysqli_query($conn,$query);
 $i = 0;
 			

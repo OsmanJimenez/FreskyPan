@@ -9,14 +9,13 @@ $nom2=$_POST['nom2'];
 $cor=$_POST['cor'];
 $est=$_POST['est'];
 
+$query="INSERT INTO proveedor(ID_PROVEEDOR,prNombre,segNombre,prApellido, segApellido,correo, estado) VALUES                   ('$cod'      ,'$nom','$nom2','$a1','$a2','$cor','$est')";
 
-
-$query="UPDATE proveedor SET prNombre='$nom',segNombre='$nom2',prApellido='$a1',segApellido='$a2',correo='$cor',estado='est' WHERE ID_PROVEEDOR='$cod'";
-$query2="UPDATE telefono set ID_TELEFONO='$tel' where FK_ID_PROVEEDOR='$cod'";
 $result=mysqli_query($conn,$query);
+$query2="INSERT INTO telefono(FK_ID_PROVEEDOR,ID_TELEFONO) VALUES ('$cod','$tel')";
 $result2=mysqli_query($conn,$query2);
-if(!$result){
-echo "no se pudo";
+if(!$result || !$result2){
+echo "no se pudo",mysqli_error($conn);
 
 }else{
 echo "registro insertado";

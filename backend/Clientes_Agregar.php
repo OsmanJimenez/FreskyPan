@@ -105,24 +105,19 @@
 
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputName">Dirección</label>
-                    <input type="text" name="dir" class="form-control" id="inputName" placeholder="">
+                    <label for="inputName">Segundo Nombre</label>
+                    <input type="text" name="nom2" class="form-control" id="inputName" placeholder="">
                     <div class="space-small"></div>
                     <label for="exampleFormControlTextarea1">Correo electronico</label>
-                    <input type="email" name="pass" class="form-control" id="inputName" placeholder="" required="">
+                    <input type="email" name="cor" class="form-control" id="inputName" placeholder="" required="">
                     <div class="space-small"></div>
                     <label for="inputState">Estado</label>
-                  <select id="inputState" name="sab" class="form-control">
+                  <select id="inputState" name="est" class="form-control">
                     <option selected>Escoger</option>
-                    <option>Activo</option>
-                    <option>Suspendido</option>
+                    <option value="1">Activo</option>
+                    <option value="0">Suspendido</option>
                   </select>
-                  <div class="space-small"></div>
-                    <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea name="des" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    <div class="space-small"></div>
-                    <label for="exampleFormControlTextarea1">Correo electronico</label>
-                    <input type="email" name="pass" class="form-control" id="inputName" placeholder="" required="">
+
                   </div>
                   <div class="form-group col-md-6 text-center">
                     <img src="../img/Captura.PNG">

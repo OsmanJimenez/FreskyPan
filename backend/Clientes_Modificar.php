@@ -79,30 +79,32 @@
               <?php
 require ("../basededatos/connectionbd.php");
 $mic=$_GET['id'];
-$query="Select clientes.nom_cl,
-clientes.a1_cl,
-clientes.a2_cl,
-clientes.ced_cl,
-telcl.tel_cl,
-clientes.dir_cl,
-clientes.des_cl from clientes,telcl where clientes.ced_cl='$mic' and telcl.ced_cl=clientes.ced_cl ";
+$query="Select * from proveedor,telefono where ID_PROVEEDOR='$mic' and telefono.FK_ID_PROVEEDOR=proveedor.ID_PROVEEDOR ";
 $result=mysqli_query($conn,$query);
 $i = 0;
       
       while($fila=mysqli_fetch_array($result)){     
-        $Nom = $fila['nom_cl'];
-        $cod = $fila['a1_cl'];
-        $cod2 = $fila['a2_cl']; 
-        $doc = $fila['ced_cl'];
-        $tel = $fila['tel_cl'];
-        $dir = $fila['dir_cl'];
-        $de = $fila['des_cl'];
+        $Nom = $fila['prNombre'];
+        $Nom2 = $fila['segNombre'];
+        $cod = $fila['ID_PROVEEDOR'];
+        $a1 = $fila['prApellido']; 
+        $a2 = $fila['segApellido'];
+        $tel = $fila['ID_TELEFONO'];
+        $cor = $fila['correo'];
+        $est = $fila['estado'];
+        $val="";
+        if($est=="1"){
+        $val="Activado";
+        }else if ($est==0){
+
+          $val="Suspendido";
+        }
         $i++; ?>
               <form action="../basededatos/actuac.php" method="POST">
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputName">Numero de Cedula</label>
-                    <input type="text" value="<?php echo $doc;?>" class="form-control" id="inputName" name="ced"
+                    <input type="text" value="<?php echo $cod;?>" class="form-control" id="inputName" name="ced"
                       placeholder="Numero de Cedula" readonly="">
                   </div>
                   <div class="form-group col-md-6">
@@ -120,26 +122,33 @@ $i = 0;
                   <div class="form-group col-md-3">
 
                     <label for="inputCantidad">Primer Apellido</label>
-                    <input type="text" name="a1" value="<?php echo $cod;?>" class="form-control" id="inputCantidad"
+                    <input type="text" name="a1" value="<?php echo $a1;?>" class="form-control" id="inputCantidad"
                       placeholder="Primer Apellido">
                   </div>
                   <div class="form-group col-md-3">
 
                     <label for="inputCantidad">Segundo Apellido</label>
-                    <input type="text" name="a2" class="form-control" value="<?php echo $cod2;?>" id="inputCantidad"
+                    <input type="text" name="a2" class="form-control" value="<?php echo $a2;?>" id="inputCantidad"
                       placeholder="Segundo Apellido">
                   </div>
                 </div>
 
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputName">Dirección</label>
-                    <input type="text" name="dir" value="<?php echo $dir;?>" class="form-control" id="inputName"
+                    <label for="inputName">Segundo Nombre</label>
+                    <input type="text" name="nom2" value="<?php echo $Nom2;?>" class="form-control" id="inputName"
                       placeholder="Dirección">
                     <div class="space-small"></div>
-                    <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea name="des" value="<?php echo $de;?>" class="form-control" id="exampleFormControlTextarea1"
-                      rows="3"></textarea>
+                    <label for="exampleFormControlTextarea1">Correo electronico</label>
+                    <input type="email" name="cor" class="form-control" id="inputName" placeholder="" required="" value="<?php echo $cor; ?>">
+                    <div class="space-small"></div>
+                    <label for="inputState">Estado</label>
+
+                    <select id="inputState" name="est" value="<?php echo $est; ?>" class="form-control">
+                    <option>Escoger</option>
+                    <option value="1">Activo</option>
+                    <option value="0">Suspendido</option>
+                  </select>
                   </div>
                   <div class="form-group col-md-6 text-center">
                     <img src="../img/Captura.PNG">
