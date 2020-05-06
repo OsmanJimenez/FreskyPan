@@ -70,7 +70,7 @@
         <div class="card shadow mb-4">
 
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Facturas</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Información del Pedido</h6>
           </div>
 
           <div class="card-body">
@@ -79,9 +79,7 @@
               
 
 
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Información del Pedido</h6>
-              </div>
+              
               <div class="space-small"></div>
 
               <div class="form-row">
@@ -128,7 +126,7 @@
                   <label for="inputCantidad">Fecha</label>
                   <input type="date" name="dire" class="form-control" id="inputCantidad3" placeholder="">
                   <div class="space-small"></div>
-                  <button type="submit" class="btn btn-primary  ">Agregar</button>
+                  <button type="submit" class="btn btn-primary float-right">Agregar</button>
                 </div>
               </div>  
               
