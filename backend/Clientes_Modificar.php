@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Modificar Clientes</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -42,13 +42,13 @@
 <body id="page-top">
   <div id="wrapper">
 
- 
+
     <!-- Sidebar -->
     <?php
     require('menu.php');
     ?>
     <!-- End of Sidebar -->
-    
+
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -61,7 +61,7 @@
     require('Navigation.php');
     ?>
         <!-- End of -->
-        
+
        <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -88,11 +88,11 @@ clientes.dir_cl,
 clientes.des_cl from clientes,telcl where clientes.ced_cl='$mic' and telcl.ced_cl=clientes.ced_cl ";
 $result=mysqli_query($conn,$query);
 $i = 0;
-      
-      while($fila=mysqli_fetch_array($result)){     
+
+      while($fila=mysqli_fetch_array($result)){
         $Nom = $fila['nom_cl'];
         $cod = $fila['a1_cl'];
-        $cod2 = $fila['a2_cl']; 
+        $cod2 = $fila['a2_cl'];
         $doc = $fila['ced_cl'];
         $tel = $fila['tel_cl'];
         $dir = $fila['dir_cl'];
@@ -102,31 +102,31 @@ $i = 0;
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputName">Numero de Cedula</label>
-                    <input type="text" value="<?php echo $doc;?>" class="form-control" id="inputName" name="ced"
+                    <input type="text" value="<?php echo $doc;?>" class="form-control" id="inputName" name="ced" maxlength="15" oninput="maxlengthNumber(this)" onkeypress="return numCed(event)"  onpaste="return false"
                       placeholder="Numero de Cedula" readonly="">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPrice">Telefono</label>
-                    <input type="number" value="<?php echo $tel;?>" name="tel" class="form-control" id="inputrice"
+                    <input type="number" value="<?php echo $tel;?>" name="tel" class="form-control" id="inputrice"  maxlength="10" oninput="maxlengthNumber(this)" onkeypress="return numTel(event)"  onpaste="return false"
                       placeholder="Telefono">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCantidad">Nombre</label>
-                    <input type="text" value="<?php echo $Nom;?>" name="nom" class="form-control" id="inputCantidad"
+                    <input type="text" value="<?php echo $Nom;?>" name="nom" class="form-control" id="inputCantidad" maxlength="10" onkeypress="return Nom(event) " onpaste="return false"
                       placeholder="Nombre">
                   </div>
                   <div class="form-group col-md-3">
 
                     <label for="inputCantidad">Primer Apellido</label>
-                    <input type="text" name="a1" value="<?php echo $cod;?>" class="form-control" id="inputCantidad"
+                    <input type="text" name="a1" value="<?php echo $cod;?>" class="form-control" id="inputCantidad" maxlength="15" onkeypress="return Pr_ap(event)" onpaste="return false"
                       placeholder="Primer Apellido">
                   </div>
                   <div class="form-group col-md-3">
 
                     <label for="inputCantidad">Segundo Apellido</label>
-                    <input type="text" name="a2" class="form-control" value="<?php echo $cod2;?>" id="inputCantidad"
+                    <input type="text" name="a2" class="form-control" value="<?php echo $cod2;?>" id="inputCantidad" maxlength="15" onkeypress="return Seg_ap(event)" onpaste="return false"
                       placeholder="Segundo Apellido">
                   </div>
                 </div>
@@ -138,7 +138,7 @@ $i = 0;
                       placeholder="Dirección">
                     <div class="space-small"></div>
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea name="des" value="<?php echo $de;?>" class="form-control" id="exampleFormControlTextarea1"
+                    <textarea name="des" value="<?php echo $de;?>" class="form-control" id="exampleFormControlTextarea1" maxlength="15" onkeypress="return validarDes(event)" onpaste="return false"
                       rows="3"></textarea>
                   </div>
                   <div class="form-group col-md-6 text-center">
@@ -163,6 +163,145 @@ $i = 0;
 
         </div>
         <!-- /.container-fluid -->
+
+        <script>
+     function maxlengthNumber(ob){
+       console.log(ob.value);
+
+       if(ob.value.length > ob.maxLength){
+
+         ob.value = ob.value.slice(0,ob.maxLength);
+       }
+     }
+
+
+   </script>
+   <!-- funcion de validacion solo numeros-->
+
+
+      <script type="text/javascript">
+ function numCed(evento){
+
+     key = evento.keyCode || evento.which;
+      teclado = String.fromCharCode(key).toLocaleLowerCase();
+         ced= "1234567890";
+           especiales = "37-38-46";
+
+           teclado_especial = false;
+           for (var i in especiales) {
+               if (key == especiales[i]) {
+                   teclado_especial = true; break;
+               }
+           }
+           if (ced.indexOf(teclado) == -1 && !teclado_especial) {
+               return false;
+           }
+ }
+</script>
+
+     <script type="text/javascript">
+ function numTel(evento){
+
+     key = evento.keyCode || evento.which;
+      teclado = String.fromCharCode(key).toLocaleLowerCase();
+         tel= "1234567890";
+           especiales = "37-38-46";
+
+           teclado_especial = false;
+           for (var i in especiales) {
+               if (key == especiales[i]) {
+                   teclado_especial = true; break;
+               }
+           }
+           if (tel.indexOf(teclado) == -1 && !teclado_especial) {
+               return false;
+           }
+ }
+</script>
+
+<!-- validacion de texto-->
+
+       <script type="text/javascript">
+ function Nom(evento){
+
+     key = evento.keyCode || evento.which;
+      teclado = String.fromCharCode(key).toLocaleLowerCase();
+         nom = "abcdefghijklmnñopqrstuvwxyz";
+           especiales = "37-38-46";
+
+           teclado_especial = false;
+           for (var i in especiales) {
+               if (key == especiales[i]) {
+                   teclado_especial = true; break;
+               }
+           }
+           if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+               return false;
+           }
+ }
+</script>
+ <script type="text/javascript">
+ function Pr_ap(evento){
+
+     key = evento.keyCode || evento.which;
+      teclado = String.fromCharCode(key).toLocaleLowerCase();
+         a1 = "abcdefghijklmnñopqrstuvwxyz";
+           especiales = "37-38-46";
+
+           teclado_especial = false;
+           for (var i in especiales) {
+               if (key == especiales[i]) {
+                   teclado_especial = true; break;
+               }
+           }
+           if (a1.indexOf(teclado) == -1 && !teclado_especial) {
+               return false;
+           }
+ }
+
+
+</script>
+ <script type="text/javascript">
+ function Seg_ap(evento){
+
+     key = evento.keyCode || evento.which;
+      teclado = String.fromCharCode(key).toLocaleLowerCase();
+         a2 = "abcdefghijklmnñopqrstuvwxyz";
+           especiales = "37-38-46";
+
+           teclado_especial = false;
+           for (var i in especiales) {
+               if (key == especiales[i]) {
+                   teclado_especial = true; break;
+               }
+           }
+           if (a2.indexOf(teclado) == -1 && !teclado_especial) {
+               return false;
+           }
+ }
+</script>
+
+
+
+ <script type="text/javascript">
+ function validarDes(evento){
+
+     key = evento.keyCode || evento.which;
+      teclado = String.fromCharCode(key).toLocaleLowerCase();
+         des = "abcdefghijklmnñopqrstuvwxyz";
+           especiales = "37-38-46";
+
+           teclado_especial = false;
+           for (var i in especiales) {
+               if (key == especiales[i]) {
+                   teclado_especial = true; break;
+               }
+           }
+           if (des.indexOf(teclado) == -1 && !teclado_especial) {
+               return false;
+           }
+ }
+</script>
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
