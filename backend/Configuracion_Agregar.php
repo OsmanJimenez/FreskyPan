@@ -79,17 +79,17 @@
 
 
               <label for="inputName">Codigo del Empleado</label>
-              <input type="number" name="cod" class="form-control" id="inputName" placeholder="">
+              <input type="number" name="cod" class="form-control" id="inputName" onkeypress="return cod_emp(event)" onpaste="return false"  placeholder="">
 
               <div class="form-row">
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Empleado</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="">
+                  <input type="text" name="nom" class="form-control" id="inputName" onkeypress="return validarNom(event)"  onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Apellido del Empleado</label>
-                  <input type="text" name="ape" class="form-control" id="inputrice" placeholder="">
+                  <input type="text" name="ape" class="form-control" id="inputrice" onkeypress="return validarAp(event)"  onpaste="return false" placeholder="">
                 </div>
               </div>
 
@@ -141,6 +141,80 @@
 
       </div>
       <!-- /.container-fluid -->
+
+        <!-- validacion de campos numericos y longitud -->
+        <script>
+      function maxlengthNumber(ob){
+        console.log(ob.value);
+
+        if(ob.value.length > ob.maxLength){
+
+          ob.value = ob.value.slice(0,ob.maxLength);
+        }
+      }
+
+
+    </script>
+
+     <script type="text/javascript">
+  function cod_emp(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          cod = "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+ </script>
+      <!-- validacion de texto-->
+      <script type="text/javascript">
+    function validarNom(evento){
+
+        key = evento.keyCode || evento.which;
+         teclado = String.fromCharCode(key).toLocaleLowerCase();
+            nom = "abcdefghijklmnñopqrstuvwxyz";
+              especiales = "37-38-46";
+
+              teclado_especial = false;
+              for (var i in especiales) {
+                  if (key == especiales[i]) {
+                      teclado_especial = true; break;
+                  }
+              }
+              if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+                  return false;
+              }
+    }
+   </script>
+
+   <script type="text/javascript">
+    function validarAp(evento){
+
+        key = evento.keyCode || evento.which;
+         teclado = String.fromCharCode(key).toLocaleLowerCase();
+            ape = "abcdefghijklmnñopqrstuvwxyz";
+              especiales = "37-38-46";
+
+              teclado_especial = false;
+              for (var i in especiales) {
+                  if (key == especiales[i]) {
+                      teclado_especial = true; break;
+                  }
+              }
+              if (ape.indexOf(teclado) == -1 && !teclado_especial) {
+                  return false;
+              }
+    }
+   </script>  
 
 
 
