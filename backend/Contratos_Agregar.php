@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Contratos</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -119,19 +119,19 @@
 
                   <div class="form-group col-md-6">
                     <label for="inputCantidad">Numero de Cedula</label>
-                    <input type="text" class="form-control" id="inputCantidad" placeholder="">
+                    <input type="number" class="form-control"name="ced" maxlength="15" id="inputCantidad" oninput="maxlengthNumber(this)" onkeypress="return num_ced(event)" onpaste="return false"  placeholder="">
 
                     <label for="inputCantidad">Nombre</label>
-                    <input type="text" class="form-control" id="inputCantidad" placeholder="">
+                    <input type="text" class="form-control" name="nom" maxlength="10" id="inputCantidad" onkeypress="return val_Nom(event)"  onpaste="return false"  placeholder="">
 
                     <label for="inputCantidad">Primer Apellido</label>
-                    <input type="text" class="form-control" id="inputCantidad" placeholder="">
+                    <input type="text" class="form-control" name="a1" maxlength="10" id="inputCantidad" onkeypress="return pr_Ap(event)"  onpaste="return false" placeholder="">
 
                     <label for="inputCantidad">Segundo Apellido</label>
-                    <input type="text" class="form-control" id="inputCantidad" placeholder="">
+                    <input type="text" class="form-control" name="a2" maxlength="15" id="inputCantidad" onkeypress="return seg_Ap(event)"  onpaste="return false" placeholder="">
 
                     <label for="inputCantidad">Telefono</label>
-                    <input type="number" class="form-control" id="inputCantidad" placeholder="">
+                    <input type="number" class="form-control" name="tel" maxlength="10" id="inputCantidad" oninput="maxlengthNumber(this)" onkeypress="return val_tel(event)"  onpaste="return false" placeholder="">
 
                     <label for="inputCantidad">Dirección</label>
                     <input type="text" class="form-control" id="inputCantidad" placeholder="">
@@ -143,11 +143,11 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputName">Fecha de Entrega</label>
-                    <input type="text" name="fec" class="form-control" id="inputName" placeholder="">
+                    <input type="date" name="fec" class="form-control" id="inputName" placeholder="">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputName">Hora de Entrega</label>
-                    <input type="text" name="hor" class="form-control" id="inputName" placeholder="">
+                    <input type="date" name="hor" class="form-control" id="inputName" placeholder="">
                   </div>
                 </div>
                 <div class="form-row">
@@ -221,6 +221,123 @@
             document.getElementById('prueba2').value = text;
           }
         </script>
+
+        <!-- validacion de longitud de campo y texto-->
+      <script>
+
+      function maxlengthNumber(ob){
+        console.log(ob.value);
+
+        if(ob.value.length > ob.maxLength){
+
+          ob.value = ob.value.slice(0,ob.maxLength);
+        }
+      }
+    </script>
+
+     <script type="text/javascript">
+  function num_ced(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          ced = "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (ced.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+ </script>
+
+ <script type="text/javascript">
+function val_tel(evento){
+
+  key = evento.keyCode || evento.which;
+   teclado = String.fromCharCode(key).toLocaleLowerCase();
+      tel = "1234567890";
+        especiales = "37-38-46";
+
+        teclado_especial = false;
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                teclado_especial = true; break;
+            }
+        }
+        if (tel.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+}
+</script>
+<!-- validacion de texto-->
+
+</script>
+
+    <script type="text/javascript">
+  function val_Nom(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          nom = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+ </script>
+ <script type="text/javascript">
+function pr_Ap(evento){
+
+   key = evento.keyCode || evento.which;
+    teclado = String.fromCharCode(key).toLocaleLowerCase();
+       a1 = "abcdefghijklmnñopqrstuvwxyz";
+         especiales = "37-38-46";
+
+         teclado_especial = false;
+         for (var i in especiales) {
+             if (key == especiales[i]) {
+                 teclado_especial = true; break;
+             }
+         }
+         if (a2.indexOf(teclado) == -1 && !teclado_especial) {
+             return false;
+         }
+}
+</script>
+<script type="text/javascript">
+function seg_Ap(evento){
+
+  key = evento.keyCode || evento.which;
+   teclado = String.fromCharCode(key).toLocaleLowerCase();
+      a2 = "abcdefghijklmnñopqrstuvwxyz";
+        especiales = "37-38-46";
+
+        teclado_especial = false;
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                teclado_especial = true; break;
+            }
+        }
+        if (a2.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+}
+</script>
+
+
+
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
