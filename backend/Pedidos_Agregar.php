@@ -69,160 +69,147 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
 
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Pedidos</h6>
-          </div>
+          
 
           <div class="card-body">
             <!-- Add Example -->
             <form action="../basededatos/agregap.php" method="POST">
               <div class="form-row">
-                <div class="form-group col-md-6">
+                
                   <label for="inputPrice">Fecha</label>
                   <input type="date" id="inputName" class="form-control" name="fec" width="100%" />
-                        
 
-                </div>
-
-               <!-- <div class="form-group col-md-6">
-                  <label for="inputCantidad">Codigo del pedido</label>
-                  <input type="text" name="ced" class="form-control" id="inputCantidad" placeholder="">
-                </div> -->
               </div>
+          </div>
+        </div>
+
+        <div class="card shadow mb-4">
+              
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Escoger al proveedor</h6>
               </div>
+
               <div class="space-small"></div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                <div class="table-responsive" style=" max-height:350px; ">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Telefono</th>
-                      <th>Dirección</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th></th>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Telefono</th>
-                      <th>Dirección</th>                     
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <?php require ("../basededatos/listapro_ped.php");?>
-                  </tbody>
-                </table>
-              </div>
-                </div>
+              <div class="card-body">
+                <div class="form-row">
 
-                <div class="form-group col-md-6">
-                <label for="inputCantidad">Cedula</label>
-                  <input type="text" name="ced" class="form-control" id="inputCantidad1" placeholder="">
-                  <div class="space-small"></div>
-                  <label for="inputCantidad">Telefono</label>
-                  <input type="number" name="a1" class="form-control" id="inputCantidad2" placeholder="">
-                  <label for="inputCantidad">Sede donde descargar el pedido</label>
-                  <input type="text" name="dire" class="form-control" id="inputCantidad3" placeholder="">
-                  
+                  <div class="form-group col-md-6">
+                    <div class="table-responsive" style=" max-height:350px; ">
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                            <th>Dirección</th>
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                            <th>Dirección</th>                     
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          <?php require ("../basededatos/listapro_ped.php");?>
+                        </tbody>
+                      </table>
+                    </div>              
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="inputCantidad">Cedula</label>
+                    <input type="text" name="ced" class="form-control" id="inputCantidad1" placeholder="">
+                    <div class="space-small"></div>
+                    <label for="inputCantidad">Telefono</label>
+                    <input type="number" name="a1" class="form-control" id="inputCantidad2" placeholder="">
+                    <label for="inputCantidad">Sede donde descargar el pedido</label>
+                    <input type="text" name="dire" class="form-control" id="inputCantidad3" placeholder="">
+                    
+                  </div>
+
                 </div>
-              </div>  
-              
+              </div>
+        </div> 
+
+        <div class="card shadow mb-4">
+
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Escoger el producto</h6>
               </div>
+
               <div class="space-small"></div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
+              <div class="card-body">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
 
-                <div class="table-responsive" style=" max-height:350px; " >
-                <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>Nombre</th>
-                      <th>Descripción</th>
-                      <th>Precio</th>
-                      <th>IVA</th>
-                      <th>Cantidad</th>
-                      <th>Tipo</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th></th>
-                      <th>Nombre</th>
-                      <th>Descripción</th>
-                      <th>Precio</th>
-                      <th>IVA</th>
-                      <th>Cantidad</th>
-                      <th>Tipo</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
+                  <div class="table-responsive" style=" max-height:350px; " >
+                    <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
 
-                  <?php require ("../basededatos/listami_ped.php");?>
+                      <?php require ("../basededatos/listami_ped.php");?>
 
-                  </tbody>
-                </table>
-              </div>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="form-group col-md-6">
-                  <label for="inputCantidad">Codigo del producto</label>
-                  <input type="number" name="cod" class="form-control" id="inputCantidad5" placeholder="">
-                  <div class="space-small"></div>
-                  <label for="inputCantidad">Precio del producto</label>
-                  <input type="number" name="can" class="form-control" id="inputCantidad6" placeholder="">
-                  <div class="space-small"></div>
-                  <label for="inputCantidad">Cantidad a comprar</label>
-                  <input type="number" name="can" class="form-control" id="inputCantidad7" placeholder="">
-                  <div class="space-small"></div>
-                  <label for="exampleFormControlTextarea1">Descripción</label>
-                  <textarea name="des" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                    <label for="inputCantidad">Codigo del producto</label>
+                    <input type="number" name="cod" class="form-control" id="inputCantidad5" placeholder="">
+                    <div class="space-small"></div>
+                    <label for="inputCantidad">Precio del producto</label>
+                    <input type="number" name="can" class="form-control" id="inputCantidad6" placeholder="">
+                    <div class="space-small"></div>
+                    <label for="inputCantidad">Cantidad a comprar</label>
+                    <input type="number" name="can" class="form-control" id="inputCantidad7" placeholder="">
+                    <div class="space-small"></div>
+                    <label for="exampleFormControlTextarea1">Descripción</label>
+                    <textarea name="des" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                  </div>
                 </div>
+
+                <input type="hidden" name="id" id="prueba" readonly="">
+
+                <button type="submit" class="btn btn-primary float-right">Agregar</button>
               </div>
-
-              
-            
-              
-          <input type="hidden" name="id" id="prueba" readonly="">
-
-          <button type="submit" class="btn btn-primary">Agregar</button>
-          
-              
-              </form>
-              
-          
-
-          </div>
+          </form>
 
         </div>
 
-
       </div>
-          
-  </div> 
-
-          <!--End  Add Example -->
-        
+             
 
 </div>
     <!-- /.container-fluid -->
-
-
-
-
-
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
