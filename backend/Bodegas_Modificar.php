@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Modificar Bodegas</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -46,9 +46,9 @@
   <?php
     require('menu.php');
     ?>
-    
+
   <!-- End of Sidebar -->
-  
+
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -69,8 +69,8 @@
         $id=$_GET['id'];
         $query="SELECT descripcion,estado FROM Bodega WHERE ID_BODEGA='$id'";
         $result=mysqli_query($conn,$query);
-              
-        $fila=mysqli_fetch_array($result);     
+
+        $fila=mysqli_fetch_array($result);
         $des = $fila['descripcion'];
         $estado = $fila['estado'];
         ?>
@@ -94,7 +94,7 @@
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea name="des" class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="30" required><?php echo $des; ?></textarea>
+                    <textarea name="des" class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="30"  onkeypress="return validarDes(event)" onpaste="return false" required><?php echo $des; ?></textarea>
                   </div>
                 </div>
 
@@ -112,7 +112,7 @@
                   </select>
                 </div>
               </div>
-              
+
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
 
               <!-- Modal -->
@@ -124,7 +124,7 @@
                     <div class="modal-header">
                     <h4 class="modal-title">Confirmar</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      
+
                     </div>
                     <div class="modal-body">
                       <p>Está seguro?</p>
@@ -145,6 +145,28 @@
 
       </div>
       <!-- /.container-fluid -->
+      <!-- validacion de texto -->
+
+    <script type="text/javascript">
+
+      function validarDes(evento){
+
+      key = evento.keyCode || evento.which;
+      teclado = String.fromCharCode(key).toLocaleLowerCase();
+      des = "abcdefghijklmnñopqrstuvwxyz";
+      especiales = "37-38-46";
+      teclado_especial = false;
+      
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (des.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+ </script>
 
 
 

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Empleados</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -46,9 +46,9 @@
   <?php
     require('menu.php');
     ?>
-    
+
   <!-- End of Sidebar -->
-  
+
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -108,7 +108,7 @@
                   </select>
                 </div>
               </div>
-              
+
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Añadir</button>
 
               <!-- Modal -->
@@ -120,7 +120,7 @@
                     <div class="modal-header">
                     <h4 class="modal-title">Confirmar</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      
+
                     </div>
                     <div class="modal-body">
                       <p>Esta seguro?</p>
