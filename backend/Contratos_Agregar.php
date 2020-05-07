@@ -78,7 +78,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputName">Codigo del Contrato</label>
-                    <input type="text" name="cod" class="form-control" id="inputName" placeholder="">
+                    <input type="text" name="cod" class="form-control"  maxlength="11" id="inputCantidad" oninput="maxlengthNumber(this)" onkeypress="return cod_cont(event)"  onpaste="return false" id="inputName" placeholder="">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputState">Tipo de Contrato</label>
@@ -234,6 +234,26 @@
         }
       }
     </script>
+
+    <script type="text/javascript">
+ function cod_cont(evento){
+
+     key = evento.keyCode || evento.which;
+      teclado = String.fromCharCode(key).toLocaleLowerCase();
+         cod = "1234567890";
+           especiales = "37-38-46";
+
+           teclado_especial = false;
+           for (var i in especiales) {
+               if (key == especiales[i]) {
+                   teclado_especial = true; break;
+               }
+           }
+           if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+               return false;
+           }
+ }
+</script>
 
      <script type="text/javascript">
   function num_ced(evento){
