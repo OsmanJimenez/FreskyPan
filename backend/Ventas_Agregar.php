@@ -262,7 +262,7 @@
             }
   }
  </script>
-      <!-- validacion de texto-->
+      
       <script type="text/javascript">
     function Cant_p(evento){
 
