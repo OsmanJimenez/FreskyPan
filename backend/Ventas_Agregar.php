@@ -117,7 +117,7 @@
 
                 <div class="form-group col-md-6">
                 <label for="inputCantidad">ID Venta</label>
-                  <input type="text" name="cod" class="form-control" id="inputCantidad1" onkeypress="return id_vent(event)" oninput="maxlengthNumber(this)" onpaste="return false"  placeholder="">
+                  <input type="number" name="cod" class="form-control" id="inputCantidad1" onkeypress="return id_vent(event)" oninput="maxlengthNumber(this)" onpaste="return false"  placeholder="">
                   <div class="space-small"></div>
                   <label for="inputCantidad">ID Producción</label>
                   <input type="number" name="pro" class="form-control" id="pro" readonly="" placeholder="">
@@ -262,7 +262,7 @@
             }
   }
  </script>
-      
+
       <script type="text/javascript">
     function Cant_p(evento){
 
