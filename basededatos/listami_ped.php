@@ -1,13 +1,13 @@
 <?php
 require ("connectionbd.php");
-$sql="SELECT ID_MATERIAPRIMA,MateriaPrima.nombre,cantidad AS nommp,descripción,precio,iva,MedidaCantidad.nombre AS nommc FROM MateriaPrima, MedidaCantidad WHERE ID_MATERIAPRIMA=FK_ID_MATERIAPRIMA AND estado='1' ORDER BY MateriaPrima.nombre ASC";
+$sql="SELECT ID_MATERIAPRIMA,MateriaPrima.nombre AS nommp,cantidad,descripcion,precio,iva,MedidaCantidad.nombre AS nommc FROM MateriaPrima, MedidaCantidad WHERE ID_MEDIDACANTIDAD=FK_ID_MEDIDACANTIDAD AND estado='1' ORDER BY MateriaPrima.nombre ASC";
 $resultmp=mysqli_query($conn,$sql);
-$sql2="SELECT ID_INSUMO,nombre,cantidad,descripción,precio,iva FROM Insumo WHERE estado='1'";
+$sql2="SELECT ID_INSUMO,nombre,cantidad,descripcion,precio,iva FROM Insumo WHERE estado='1' ORDER BY nombre ASC";
 $resultin=mysqli_query($conn,$sql2);
 			while($fila=mysqli_fetch_array($resultmp)){
 				$codm = $fila['ID_MATERIAPRIMA'];
-				$nomm = $fila['nom'];
-				$desm = $fila['descripción'];
+				$nomm = $fila['nommp'];
+				$desm = $fila['descripcion'];
 				$prem = $fila['precio'];
 				$ivam = $fila['iva'];
 				$canm = $fila['cantidad']; 
@@ -27,7 +27,7 @@ $resultin=mysqli_query($conn,$sql2);
 			while($fila2=mysqli_fetch_array($resultin)){
 				$codi = $fila2['ID_INSUMO'];
 				$nomi = $fila2['nombre'];
-				$desi = $fila2['descripción'];
+				$desi = $fila2['descripcion'];
 				$prei = $fila2['precio'];
 				$ivai = $fila2['iva'];
 				$cani = $fila2['cantidad']; 
@@ -39,7 +39,7 @@ $resultin=mysqli_query($conn,$sql2);
 			<td><?php echo $desi; ?></td>
 			<td><?php echo $prei; ?></td>
 			<td><?php echo $ivai; ?></td>
-			<td><?php echo $canm." Unidades"; ?></td>
+			<td><?php echo $cani." Unidades"; ?></td>
 			<td>Insumo</td>				
 		</tr> <label></label>
 <?php } ?>

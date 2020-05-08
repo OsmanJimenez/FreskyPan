@@ -23,7 +23,7 @@
 $servidor='localhost';
 $usuario='root';
 $pass='';
-$bd='panaderia';
+$bd='panaderiaerp';
 
 // Nos conectamos a la base de datos
 $conexion = new mysqli($servidor, $usuario, $pass, $bd);	
@@ -37,7 +37,7 @@ if ($conexion->connect_errno) {
 }
 
 // Url donde estara el proyecto, debe terminar con un "/" al final
-$base_url="http://localhost/linea/backend/calendario/";
+$base_url="http://localhost/FreskyPan/backend/calendario/";
 
 ?>
 

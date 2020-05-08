@@ -147,8 +147,8 @@
 
               <div class="card-body">
                 <div class="form-row">
+                  
                   <div class="form-group col-md-6">
-
                   <div class="table-responsive" style=" max-height:350px; " >
                     <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
                       <thead>
@@ -174,9 +174,7 @@
                         </tr>
                       </tfoot>
                       <tbody>
-
-                      <?php require ("../basededatos/listami_ped.php");?>
-
+                       <?php require ("../basededatos/listami_ped.php");?>
                       </tbody>
                     </table>
                   </div>
@@ -189,7 +187,7 @@
                     <label for="inputCantidad">Precio del producto</label>
                     <input type="number" name="can" class="form-control" id="inputCantidad6" placeholder="">
                     <div class="space-small"></div>
-                    <label for="inputCantidad">Cantidad a comprar</label>
+                    <label for="inputCantidad">Cantidad a pedir</label>
                     <input type="number" name="can" class="form-control" id="inputCantidad7" placeholder="">
                     <div class="space-small"></div>
                     <label for="exampleFormControlTextarea1">Descripción</label>

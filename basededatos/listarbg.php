@@ -6,13 +6,11 @@ if(empty($_GET)){
 } else {
 	$result=mysqli_query($conn,"SELECT * FROM Bodega");
 	$vertodo="True";
-}
-	$i = 0;			
+}	
 			while($fila=mysqli_fetch_array($result)){			
 				$cod = $fila['ID_BODEGA'];
 				$des = $fila['descripcion'];
 				$est = $fila['estado'];
-				$i++;	
 				?>
 
 		<tr align="center">

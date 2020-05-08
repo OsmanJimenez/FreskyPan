@@ -12,7 +12,7 @@ if(!$result){
 	}else {
 		echo "error",mysqli_error($conn);
 	}
-	header('location:../backend/Bodegas_Agregar_Ver.php'); 
+	//header('location:../backend/Bodegas_Ver.php'); 
 
 }else{
 echo "registro insertado";

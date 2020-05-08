@@ -6,8 +6,7 @@ if(empty($_GET)){
 } else {
 	$result=mysqli_query($conn,"SELECT ID_MATERIAPRIMA,MateriaPrima.nombre,cantidad,descripcion,precio,iva,estado,TipoMateriaPrima.nombre AS TMP,MedidaCantidad.nombre AS MC FROM MateriaPrima,TipoMateriaPrima,MedidaCantidad WHERE FK_ID_MEDIDACANTIDAD=ID_MEDIDACANTIDAD AND FK_ID_TIPOMATERIAPRIMA=ID_TIPOMATERIAPRIMA");
 	$vertodo="True";
-}
-	$i = 0;			
+}		
 			while($fila=mysqli_fetch_array($result)){			
 				$cod = $fila['ID_MATERIAPRIMA'];
 				$nom = $fila['nombre'];
@@ -18,9 +17,6 @@ if(empty($_GET)){
 				$est = $fila['estado'];
 				$tm = $fila['TMP'];
 				$mc = $fila['MC'];
-				
-				
-				$i++;	
 				?>
 
 		<tr align="center">

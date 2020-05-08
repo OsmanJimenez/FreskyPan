@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `agenda`
+-- Estructura de tabla para la tabla `Agenda`
 --
 
 CREATE TABLE `agenda` (
@@ -45,60 +45,60 @@ CREATE TABLE `agenda` (
 --
 
 INSERT INTO `agenda` (`id`, `title`, `body`, `url`, `class`, `start`, `end`, `inicio_normal`, `final_normal`) VALUES
-(89, 'Prueba_1', 'Esta es la descripción', 'http://localhost/linea/backend/calendario/descripcion_evento.php?id=89', 'event-success', '1583862720000', '1583430720000', '10/03/2020 12:52:00', '05/03/2020 12:52:00'),
-(90, 'sds', 'dsadsa', 'http://localhost/linea/backend/calendario/descripcion_evento.php?id=90', 'event-info', '1584294780000', '1584381180000', '15/03/2020 12:53:00', '16/03/2020 12:53:00'),
-(92, 'Esto es un titulo especial', 'el evento es especial.', 'http://localhost/linea/backend/calendario/descripcion_evento.php?id=92', 'event-special', '1584594000000', '1584939600000', '19/03/2020 00:00:00', '23/03/2020 00:00:00');
+(89, 'Prueba_1', 'Esta es la descripción', 'http://localhost/linea/backend/Calendario/descripcion_evento.php?id=89', 'event-success', '1583862720000', '1583430720000', '10/03/2020 12:52:00', '05/03/2020 12:52:00'),
+(90, 'sds', 'dsadsa', 'http://localhost/linea/backend/Calendario/descripcion_evento.php?id=90', 'event-info', '1584294780000', '1584381180000', '15/03/2020 12:53:00', '16/03/2020 12:53:00'),
+(92, 'Esto es un titulo especial', 'el evento es especial.', 'http://localhost/linea/backend/Calendario/descripcion_evento.php?id=92', 'event-special', '1584594000000', '1584939600000', '19/03/2020 00:00:00', '23/03/2020 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bodega`
+-- Estructura de tabla para la tabla `Bodega`
 --
 
-CREATE TABLE `bodega` (
-  `ID_BODEGA` int(11) NOT NULL,
-  `descripcion` varchar(30) NOT NULL,
+CREATE TABLE `Bodega` (
+  `ID_BODEGA` int(2) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bodega_insumo`
+-- Estructura de tabla para la tabla `Bodega_Insumo`
 --
 
-CREATE TABLE `bodega_insumo` (
-  `FK_ID_BODEGA` int(11) NOT NULL,
-  `FK_ID_INSUMO` int(11) NOT NULL,
+CREATE TABLE `Bodega_Insumo` (
+  `FK_ID_BODEGA` int(2) NOT NULL,
+  `FK_ID_INSUMO` int(3) NOT NULL,
   `fechaRegistro` date NOT NULL,
   `transaccion` tinyint(1) NOT NULL,
-  `unidades` int(11) NOT NULL
+  `unidades` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bodega_materiaprima`
+-- Estructura de tabla para la tabla `Bodega_MateriaPrima`
 --
 
-CREATE TABLE `bodega_materiaprima` (
-  `FK_ID_BODEGA` int(11) NOT NULL,
-  `FK_ID_MATERIAPRIMA` int(11) NOT NULL,
-  `FK_ID_CALENDARIO` int(11) NOT NULL,
+CREATE TABLE `Bodega_MateriaPrima` (
+  `FK_ID_BODEGA` int(2) NOT NULL,
+  `FK_ID_MATERIAPRIMA` int(3) NOT NULL,
+  `FK_ID_CALENDARIO` int(7) NOT NULL,
   `fechaVencimiento` date NOT NULL,
   `fechaRegistro` date NOT NULL,
-  `unidades` int(11) NOT NULL,
+  `unidades` int(3) NOT NULL,
   `transaccion` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `calendario`
+-- Estructura de tabla para la tabla `Calendario`
 --
 
-CREATE TABLE `calendario` (
-  `ID_CALENDARIO` int(11) NOT NULL,
+CREATE TABLE `Calendario` (
+  `ID_CALENDARIO` int(7) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `hora` varchar(5) NOT NULL,
   `detalles` varchar(50) NOT NULL
@@ -107,144 +107,142 @@ CREATE TABLE `calendario` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `catproducto`
+-- Estructura de tabla para la tabla `CatProducto`
 --
 
-CREATE TABLE `catproducto` (
-  `ID_CATPRODUCTO` int(11) NOT NULL,
-  `nombre` varchar(10) NOT NULL,
-  `descripcion` varchar(40) NOT NULL,
-  `precio` int(11) NOT NULL,
-  `stock` int(11) NOT NULL,
+CREATE TABLE `CatProducto` (
+  `ID_CATPRODUCTO` int(2) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `precio` int(6) NOT NULL,
+  `stock` int(3) NOT NULL,
   `imagen` varchar(200) NOT NULL,
-  `duracion` int(11) NOT NULL,
+  `duracion` int(2) NOT NULL,
   `sabor` varchar(12) NOT NULL,
-  `iva` int(11) NOT NULL,
+  `iva` int(2) NOT NULL,
   `estado` tinyint(1) NOT NULL,
   `FK_ID_SUBTIPOPRODUCTO` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `catproducto_materiaprima`
---
-
-CREATE TABLE `catproducto_materiaprima` (
-  `FK_ID_CATPRODUCTO` int(11) NOT NULL,
-  `FK_ID_MATERIAPRIMA` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `devolucion`
+-- Estructura de tabla para la tabla `Devolucion`
 --
 
-CREATE TABLE `devolucion` (
-  `ID_DEVOLUCION` int(11) NOT NULL,
-  `descripcion` varchar(30) NOT NULL,
+CREATE TABLE `Devolucion` (
+  `ID_DEVOLUCION` int(4) NOT NULL,
+  `descripcion` varchar(60) NOT NULL,
   `fecha` date NOT NULL,
   `estado` tinyint(1) NOT NULL,
-  `FK_ID_PEDIDO` int(11) NOT NULL
+  `FK_ID_PEDIDO` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `eventoespecifico`
+-- Estructura de tabla para la tabla `EventoEspecifico`
 --
 
-CREATE TABLE `eventoespecifico` (
-  `ID_EVENTOESPECIFICO` int(11) NOT NULL,
-  `FK_ID_CALENDARIO` int(11) NOT NULL,
+CREATE TABLE `EventoEspecifico` (
+  `ID_EVENTOESPECIFICO` int(5) NOT NULL,
+  `FK_ID_CALENDARIO` int(7) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `factura`
+-- Estructura de tabla para la tabla `Factura`
 --
 
-CREATE TABLE `factura` (
-  `ID_FACTURA` int(11) NOT NULL,
+CREATE TABLE `Factura` (
+  `ID_FACTURA` int(6) NOT NULL,
   `fecha` date NOT NULL,
-  `FK_ID_PEDIDO` int(11) NOT NULL
+  `FK_ID_PEDIDO` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `insumo`
+-- Estructura de tabla para la tabla `Insumo`
 --
 
-CREATE TABLE `insumo` (
-  `ID_INSUMO` int(11) NOT NULL,
-  `nombre` varchar(10) NOT NULL,
-  `stock` int(11) NOT NULL,
-  `descripcion` varchar(30) NOT NULL,
-  `precio` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `iva` int(11) NOT NULL,
+CREATE TABLE `Insumo` (
+  `ID_INSUMO` int(3) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `stock` int(3) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `precio` int(9) NOT NULL,
+  `cantidad` int(3) NOT NULL,
+  `iva` int(2) NOT NULL,
   `estado` tinyint(1) NOT NULL,
-  `FK_ID_TIPOINSUMO` int(11) NOT NULL
+  `FK_ID_TIPOINSUMO` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `log`
+-- Estructura de tabla para la tabla `Log`
 --
 
-CREATE TABLE `log` (
-  `ID_LOG` int(11) NOT NULL,
+CREATE TABLE `Log` (
+  `ID_LOG` int NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `hora` varchar(5) DEFAULT NULL,
   `descripcion` varchar(50) NOT NULL,
-  `FK_ID_USUARIO` int(11) NOT NULL
+  `FK_ID_USUARIO` int(11) NOT NULL,
+  PRIMARY KEY (ID_LOG)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `materiaprima`
+-- Estructura de tabla para la tabla `MateriaPrima`
 --
 
-CREATE TABLE `materiaprima` (
-  `ID_MATERIAPRIMA` int(11) NOT NULL,
-  `nombre` varchar(10) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `descripcion` varchar(30) NOT NULL,
-  `precio` int(11) NOT NULL,
-  `iva` int(11) NOT NULL,
-  `stock` int(11) NOT NULL,
+CREATE TABLE `MateriaPrima` (
+  `ID_MATERIAPRIMA` int(3) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `cantidad` int(2) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `precio` int(6) NOT NULL,
+  `iva` int(2) NOT NULL,
+  `stock` int(3) NOT NULL,
   `estado` tinyint(1) NOT NULL,
-  `FK_ID_MEDIDACANTIDAD` int(11) NOT NULL,
-  `FK_ID_TIPOMATERIAPRIMA` int(11) NOT NULL
+  `FK_ID_MEDIDACANTIDAD` int(2) NOT NULL,
+  `FK_ID_TIPOMATERIAPRIMA` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `medidacantidad`
+-- Estructura de tabla para la tabla `MedidaCantidad`
 --
 
-CREATE TABLE `medidacantidad` (
-  `ID_MEDIDACANTIDAD` int(11) NOT NULL,
-  `nombre` varchar(3) NOT NULL
+CREATE TABLE `MedidaCantidad` (
+  `ID_MEDIDACANTIDAD` int(2) NOT NULL,
+  `nombre` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `MedidaCantidad`
+--
+
+INSERT INTO `MedidaCantidad` (`ID_MEDIDACANTIDAD`, `nombre`) VALUES
+(1,'kg'),(2,'lb'),(3,'ton'),(4,'g'),(5,'mg'),(6,'L'),(7,'mL'),(8,'oz'),(9,'galón'),(10,'cc'),(11,'Uni');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedido`
+-- Estructura de tabla para la tabla `Pedido`
 --
 
-CREATE TABLE `pedido` (
-  `ID_PEDIDO` int(11) NOT NULL,
-  `FK_ID_CALENDARIO` int(11) NOT NULL,
-  `plazo` int(11) NOT NULL,
+CREATE TABLE `Pedido` (
+  `ID_PEDIDO` int(6) NOT NULL,
+  `FK_ID_CALENDARIO` int(7) NOT NULL,
+  `plazo` int(2) NOT NULL,
   `fecha` date NOT NULL,
   `exigencia` varchar(100) NOT NULL,
   `estado` tinyint(1) NOT NULL
@@ -253,63 +251,63 @@ CREATE TABLE `pedido` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedido_insumo`
+-- Estructura de tabla para la tabla `Pedido_Insumo`
 --
 
-CREATE TABLE `pedido_insumo` (
-  `FK_ID_PEDIDO` int(11) NOT NULL,
-  `FK_ID_INSUMO` int(11) NOT NULL,
-  `unidades` int(11) NOT NULL,
+CREATE TABLE `Pedido_Insumo` (
+  `FK_ID_PEDIDO` int(6) NOT NULL,
+  `FK_ID_INSUMO` int(3) NOT NULL,
+  `unidades` int(3) NOT NULL,
   `cancelado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedido_materiaprima`
+-- Estructura de tabla para la tabla `Pedido_MateriaPrima`
 --
 
-CREATE TABLE `pedido_materiaprima` (
-  `FK_ID_PEDIDO` int(11) NOT NULL,
-  `FK_ID_MATERIAPRIMA` int(11) NOT NULL,
-  `unidades` int(11) NOT NULL,
+CREATE TABLE `Pedido_MateriaPrima` (
+  `FK_ID_PEDIDO` int(6) NOT NULL,
+  `FK_ID_MATERIAPRIMA` int(3) NOT NULL,
+  `unidades` int(3) NOT NULL,
   `cancelado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedido_proveedor`
+-- Estructura de tabla para la tabla `Pedido_Proveedor`
 --
 
-CREATE TABLE `pedido_proveedor` (
-  `FK_ID_PEDIDO` int(11) NOT NULL,
-  `FK_ID_PROVEEDOR` int(11) NOT NULL
+CREATE TABLE `Pedido_Proveedor` (
+  `FK_ID_PEDIDO` int(6) NOT NULL,
+  `FK_ID_PROVEEDOR` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `produccion`
+-- Estructura de tabla para la tabla `Produccion`
 --
 
-CREATE TABLE `produccion` (
-  `ID_PRODUCCION` int(11) NOT NULL,
-  `FK_ID_CALENDARIO` int(11) NOT NULL,
+CREATE TABLE `Produccion` (
+  `ID_PRODUCCION` int(7) NOT NULL,
+  `FK_ID_CALENDARIO` int(7) NOT NULL,
   `fechaProduccion` date NOT NULL,
-  `unidades` int(11) NOT NULL,
-  `cantidadInicial` int(11) NOT NULL,
-  `FK_ID_CATPRODUCTO` int(11) NOT NULL
+  `unidades` int(3) NOT NULL,
+  `cantidadInicial` int(2) NOT NULL,
+  `FK_ID_CATPRODUCTO` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proveedor`
+-- Estructura de tabla para la tabla `Proveedor`
 --
 
-CREATE TABLE `proveedor` (
-  `ID_PROVEEDOR` int(11) NOT NULL,
+CREATE TABLE `Proveedor` (
+  `ID_PROVEEDOR` int(3) NOT NULL,
   `prNombre` varchar(10) NOT NULL,
   `segNombre` varchar(10) NOT NULL,
   `prApellido` varchar(10) NOT NULL,
@@ -321,90 +319,97 @@ CREATE TABLE `proveedor` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proveedor_insumo`
+-- Estructura de tabla para la tabla `Proveedor_Insumo`
 --
 
-CREATE TABLE `proveedor_insumo` (
-  `FK_ID_PROVEEDOR` int(11) NOT NULL,
-  `FK_ID_INSUMO` int(11) NOT NULL,
+CREATE TABLE `Proveedor_Insumo` (
+  `FK_ID_PROVEEDOR` int(3) NOT NULL,
+  `FK_ID_INSUMO` int(3) NOT NULL,
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proveedor_materiaprima`
+-- Estructura de tabla para la tabla `Proveedor_MateriaPrima`
 --
 
-CREATE TABLE `proveedor_materiaprima` (
-  `FK_ID_MATERIAPRIMA` int(11) NOT NULL,
-  `FK_ID_PROVEEDOR` int(11) NOT NULL,
+CREATE TABLE `Proveedor_MateriaPrima` (
+  `FK_ID_MATERIAPRIMA` int(3) NOT NULL,
+  `FK_ID_PROVEEDOR` int(3) NOT NULL,
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `subtipoproducto`
+-- Estructura de tabla para la tabla `SubtipoProducto`
 --
 
-CREATE TABLE `subtipoproducto` (
-  `ID_SUBTIPOPRODUCTO` int(11) NOT NULL,
-  `nombre` varchar(10) NOT NULL,
-  `FK_ID_TIPOPRODUCTO` int(11) NOT NULL
+CREATE TABLE `SubtipoProducto` (
+  `ID_SUBTIPOPRODUCTO` int(2) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `FK_ID_TIPOPRODUCTO` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `telefono`
+-- Estructura de tabla para la tabla `Telefono`
 --
 
-CREATE TABLE `telefono` (
+CREATE TABLE `Telefono` (
   `FK_ID_PROVEEDOR` int(11) NOT NULL,
-  `ID_TELEFONO` varchar(12) NOT NULL
+  `ID_TELEFONO` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipoinsumo`
+-- Estructura de tabla para la tabla `TipoInsumo`
 --
 
-CREATE TABLE `tipoinsumo` (
-  `ID_TIPOINSUMO` int(11) NOT NULL,
+CREATE TABLE `TipoInsumo` (
+  `ID_TIPOINSUMO` int(2) NOT NULL,
   `nombre` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipomateriaprima`
+-- Estructura de tabla para la tabla `TipoMateriaPrima`
 --
 
-CREATE TABLE `tipomateriaprima` (
-  `ID_TIPOMATERIAPRIMA` int(11) NOT NULL,
+CREATE TABLE `TipoMateriaPrima` (
+  `ID_TIPOMATERIAPRIMA` int(2) NOT NULL,
   `nombre` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipoproducto`
+-- Estructura de tabla para la tabla `TipoProducto`
 --
 
-CREATE TABLE `tipoproducto` (
-  `ID_TIPOPRODUCTO` int(11) NOT NULL,
+CREATE TABLE `TipoProducto` (
+  `ID_TIPOPRODUCTO` int(2) NOT NULL,
   `nombre` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `TipoProducto`
+--
+
+INSERT INTO `TipoProducto` (`ID_TIPOPRODUCTO`, `nombre`) VALUES
+(1,'Panaderia'),(2,'Cafetería'),(3,'Pastelería'),(4,'Chocolate y Bombones'),(5,'Dulces y Caramelos'),(6,'Bolleria salada'),(7,'Bolleria dulce');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Estructura de tabla para la tabla `Usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `Usuario` (
   `ID_USUARIO` int(11) NOT NULL,
   `prNombre` varchar(10) NOT NULL,
   `prApellido` varchar(10) NOT NULL,
@@ -415,24 +420,24 @@ CREATE TABLE `usuario` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `venta`
+-- Estructura de tabla para la tabla `Venta`
 --
 
-CREATE TABLE `venta` (
-  `ID_VENTA` int(11) NOT NULL,
+CREATE TABLE `Venta` (
+  `ID_VENTA` int(7) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `venta_produccion`
+-- Estructura de tabla para la tabla `Venta_Produccion`
 --
 
-CREATE TABLE `venta_produccion` (
-  `FK_ID_PRODUCCION` int(11) NOT NULL,
-  `FK_ID_VENTA` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL
+CREATE TABLE `Venta_Produccion` (
+  `FK_ID_PRODUCCION` int(7) NOT NULL,
+  `FK_ID_VENTA` int(7) NOT NULL,
+  `cantidad` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -440,327 +445,330 @@ CREATE TABLE `venta_produccion` (
 --
 
 --
--- Indices de la tabla `bodega`
+-- Indices de la tabla `Bodega`
 --
-ALTER TABLE `bodega`
+ALTER TABLE `Bodega`
   ADD PRIMARY KEY (`ID_BODEGA`);
 
 --
--- Indices de la tabla `bodega_insumo`
+-- Indices de la tabla `Bodega_Insumo`
 --
-ALTER TABLE `bodega_insumo`
+ALTER TABLE `Bodega_Insumo`
   ADD PRIMARY KEY (`FK_ID_BODEGA`,`FK_ID_INSUMO`),
-  ADD KEY `FK_ID_INSUMO_BODEGA_INSUMO` (`FK_ID_INSUMO`);
+  ADD KEY `FK_ID_INSUMO_BODEGA_INSUMO` (`FK_ID_INSUMO`),
+  ADD KEY `FK_ID_BODEGA_BODEGA_INSUMO` (`FK_ID_BODEGA`);
 
 --
--- Indices de la tabla `bodega_materiaprima`
+-- Indices de la tabla `Bodega_MateriaPrima`
 --
-ALTER TABLE `bodega_materiaprima`
+ALTER TABLE `Bodega_MateriaPrima`
   ADD PRIMARY KEY (`FK_ID_BODEGA`,`FK_ID_MATERIAPRIMA`,`FK_ID_CALENDARIO`),
   ADD KEY `FK_ID_MATERIAPRIMA_BODEGA_MATERIAPRIMA` (`FK_ID_MATERIAPRIMA`),
-  ADD KEY `FK_ID_CALENDARIO_BODEGA_MATERIAPRIMA` (`FK_ID_CALENDARIO`);
+  ADD KEY `FK_ID_CALENDARIO_BODEGA_MATERIAPRIMA` (`FK_ID_CALENDARIO`),
+  ADD KEY `FK_ID_BODEGA_BODEGA_MATERIAPRIMA` (`FK_ID_BODEGA`);
 
 --
--- Indices de la tabla `calendario`
+-- Indices de la tabla `Calendario`
 --
-ALTER TABLE `calendario`
+ALTER TABLE `Calendario`
   ADD PRIMARY KEY (`ID_CALENDARIO`);
 
 --
--- Indices de la tabla `catproducto`
+-- Indices de la tabla `CatProducto`
 --
-ALTER TABLE `catproducto`
+ALTER TABLE `CatProducto`
   ADD PRIMARY KEY (`ID_CATPRODUCTO`),
   ADD KEY `FK_ID_SUBTIPOPRODUCTO_CATPRODUCTO` (`FK_ID_SUBTIPOPRODUCTO`);
 
 --
--- Indices de la tabla `catproducto_materiaprima`
+-- Indices de la tabla `Devolucion`
 --
-ALTER TABLE `catproducto_materiaprima`
-  ADD PRIMARY KEY (`FK_ID_CATPRODUCTO`,`FK_ID_MATERIAPRIMA`);
-
---
--- Indices de la tabla `devolucion`
---
-ALTER TABLE `devolucion`
+ALTER TABLE `Devolucion`
   ADD PRIMARY KEY (`ID_DEVOLUCION`),
   ADD KEY `FK_ID_PEDIDO_DEVOLUCION` (`FK_ID_PEDIDO`);
 
 --
--- Indices de la tabla `eventoespecifico`
+-- Indices de la tabla `EventoEspecifico`
 --
-ALTER TABLE `eventoespecifico`
+ALTER TABLE `EventoEspecifico`
   ADD PRIMARY KEY (`ID_EVENTOESPECIFICO`,`FK_ID_CALENDARIO`),
   ADD KEY `FK_ID_CALENDARIO_EVENTOESPECIFICO` (`FK_ID_CALENDARIO`);
 
 --
--- Indices de la tabla `factura`
+-- Indices de la tabla `Factura`
 --
-ALTER TABLE `factura`
+ALTER TABLE `Factura`
   ADD PRIMARY KEY (`ID_FACTURA`),
   ADD KEY `FK_ID_PEDIDO_FACTURA` (`FK_ID_PEDIDO`);
 
 --
--- Indices de la tabla `insumo`
+-- Indices de la tabla `Insumo`
 --
-ALTER TABLE `insumo`
+ALTER TABLE `Insumo`
   ADD PRIMARY KEY (`ID_INSUMO`),
   ADD KEY `FK_ID_TIPOINSUMO_INSUMO` (`FK_ID_TIPOINSUMO`);
 
 --
--- Indices de la tabla `log`
+-- Indices de la tabla `Log`
 --
-ALTER TABLE `log`
-  ADD PRIMARY KEY (`ID_LOG`),
+ALTER TABLE `Log`
   ADD KEY `FK_ID_USUARIO_LOG` (`FK_ID_USUARIO`);
 
 --
--- Indices de la tabla `materiaprima`
+-- Indices de la tabla `MateriaPrima`
 --
-ALTER TABLE `materiaprima`
+ALTER TABLE `MateriaPrima`
   ADD PRIMARY KEY (`ID_MATERIAPRIMA`),
-  ADD KEY `FK_ID_TIPOMATERIAPRIMA_MateriaPrima` (`FK_ID_TIPOMATERIAPRIMA`);
+  ADD KEY `FK_ID_TIPOMATERIAPRIMA_MateriaPrima` (`FK_ID_TIPOMATERIAPRIMA`),
+  ADD KEY `FK_ID_MEDIDACANTIDAD_MateriaPrima` (`FK_ID_MEDIDACANTIDAD`);
 
 --
--- Indices de la tabla `medidacantidad`
+-- Indices de la tabla `MedidaCantidad`
 --
-ALTER TABLE `medidacantidad`
+ALTER TABLE `MedidaCantidad`
   ADD PRIMARY KEY (`ID_MEDIDACANTIDAD`);
 
 --
--- Indices de la tabla `pedido`
+-- Indices de la tabla `Pedido`
 --
-ALTER TABLE `pedido`
+ALTER TABLE `Pedido`
   ADD PRIMARY KEY (`ID_PEDIDO`,`FK_ID_CALENDARIO`),
   ADD KEY `FK_ID_CALENDARIO_PEDIDO` (`FK_ID_CALENDARIO`);
 
 --
--- Indices de la tabla `pedido_insumo`
+-- Indices de la tabla `Pedido_Insumo`
 --
-ALTER TABLE `pedido_insumo`
+ALTER TABLE `Pedido_Insumo`
   ADD PRIMARY KEY (`FK_ID_PEDIDO`,`FK_ID_INSUMO`),
-  ADD KEY `FK_ID_INSUMO_PEDIDO_INSUMO` (`FK_ID_INSUMO`);
+  ADD KEY `FK_ID_INSUMO_PEDIDO_INSUMO` (`FK_ID_INSUMO`),
+  ADD KEY `FK_ID_PEDIDO_PEDIDO_INSUMO` (`FK_ID_PEDIDO`);
 
 --
--- Indices de la tabla `pedido_materiaprima`
+-- Indices de la tabla `Pedido_MateriaPrima`
 --
-ALTER TABLE `pedido_materiaprima`
+ALTER TABLE `Pedido_MateriaPrima`
   ADD PRIMARY KEY (`FK_ID_PEDIDO`,`FK_ID_MATERIAPRIMA`),
-  ADD KEY `FK_ID_MATERIAPRIMA_PEDIDO_MATERIAPRIMA` (`FK_ID_MATERIAPRIMA`);
+  ADD KEY `FK_ID_MATERIAPRIMA_Pedido_MateriaPrima` (`FK_ID_MATERIAPRIMA`),
+  ADD KEY `FK_ID_PEDIDO_Pedido_MateriaPrima` (`FK_ID_PEDIDO`);
 
 --
--- Indices de la tabla `pedido_proveedor`
+-- Indices de la tabla `Pedido_Proveedor`
 --
-ALTER TABLE `pedido_proveedor`
+ALTER TABLE `Pedido_Proveedor`
   ADD PRIMARY KEY (`FK_ID_PEDIDO`,`FK_ID_PROVEEDOR`),
-  ADD KEY `FK_ID_PROVEEDOR_PEDIDO_PROVEEDOR` (`FK_ID_PROVEEDOR`);
+  ADD KEY `FK_ID_PROVEEDOR_PEDIDO_PROVEEDOR` (`FK_ID_PROVEEDOR`),
+  ADD KEY `FK_ID_PEDIDO_PEDIDO_PROVEEDOR` (`FK_ID_PEDIDO`);
 
 --
--- Indices de la tabla `produccion`
+-- Indices de la tabla `Produccion`
 --
-ALTER TABLE `produccion`
+ALTER TABLE `Produccion`
   ADD PRIMARY KEY (`ID_PRODUCCION`,`FK_ID_CALENDARIO`),
   ADD KEY `FK_ID_CALENDARIO_PRODUCCION` (`FK_ID_CALENDARIO`),
   ADD KEY `FK_ID_CATPRODUCTO_PRODUCCION` (`FK_ID_CATPRODUCTO`);
 
 --
--- Indices de la tabla `proveedor`
+-- Indices de la tabla `Proveedor`
 --
-ALTER TABLE `proveedor`
+ALTER TABLE `Proveedor`
   ADD PRIMARY KEY (`ID_PROVEEDOR`);
 
 --
--- Indices de la tabla `proveedor_insumo`
+-- Indices de la tabla `Proveedor_Insumo`
 --
-ALTER TABLE `proveedor_insumo`
+ALTER TABLE `Proveedor_Insumo`
   ADD PRIMARY KEY (`FK_ID_PROVEEDOR`,`FK_ID_INSUMO`),
-  ADD KEY `FK_ID_INSUMO_PROVEEDOR_INSUMO` (`FK_ID_INSUMO`);
+  ADD KEY `FK_ID_INSUMO_PROVEEDOR_INSUMO` (`FK_ID_INSUMO`),
+  ADD KEY `FK_ID_PROVEEDOR_PROVEEDOR_INSUMO` (`FK_ID_PROVEEDOR`);
 
 --
--- Indices de la tabla `proveedor_materiaprima`
+-- Indices de la tabla `Proveedor_MateriaPrima`
 --
-ALTER TABLE `proveedor_materiaprima`
+ALTER TABLE `Proveedor_MateriaPrima`
   ADD PRIMARY KEY (`FK_ID_MATERIAPRIMA`,`FK_ID_PROVEEDOR`),
-  ADD KEY `FK_ID_PROVEEDOR_PROVEEDOR_MATERIAPRIMA` (`FK_ID_PROVEEDOR`);
+  ADD KEY `FK_ID_PROVEEDOR_PROVEEDOR_MATERIAPRIMA` (`FK_ID_PROVEEDOR`),
+  ADD KEY `FK_ID_MATERIAPRIMA_PROVEEDOR_MATERIAPRIMA` (`FK_ID_MATERIAPRIMA`);
 
 --
--- Indices de la tabla `subtipoproducto`
+-- Indices de la tabla `SubtipoProducto`
 --
-ALTER TABLE `subtipoproducto`
+ALTER TABLE `SubtipoProducto`
   ADD PRIMARY KEY (`ID_SUBTIPOPRODUCTO`),
   ADD KEY `FK_ID_TIPOPRODUCTO_SUBTIPOPRODUCTO` (`FK_ID_TIPOPRODUCTO`);
 
 --
--- Indices de la tabla `telefono`
+-- Indices de la tabla `Telefono`
 --
-ALTER TABLE `telefono`
-  ADD PRIMARY KEY (`FK_ID_PROVEEDOR`,`ID_TELEFONO`);
+ALTER TABLE `Telefono`
+  ADD PRIMARY KEY (`FK_ID_PROVEEDOR`,`ID_TELEFONO`),
+  ADD KEY `FK_ID_PROVEEDOR_TELEFONO` (`FK_ID_PROVEEDOR`);
 
 --
--- Indices de la tabla `tipoinsumo`
+-- Indices de la tabla `TipoInsumo`
 --
-ALTER TABLE `tipoinsumo`
+ALTER TABLE `TipoInsumo`
   ADD PRIMARY KEY (`ID_TIPOINSUMO`);
 
 --
--- Indices de la tabla `tipomateriaprima`
+-- Indices de la tabla `TipoMateriaPrima`
 --
-ALTER TABLE `tipomateriaprima`
+ALTER TABLE `TipoMateriaPrima`
   ADD PRIMARY KEY (`ID_TIPOMATERIAPRIMA`);
 
 --
--- Indices de la tabla `tipoproducto`
+-- Indices de la tabla `TipoProducto`
 --
-ALTER TABLE `tipoproducto`
+ALTER TABLE `TipoProducto`
   ADD PRIMARY KEY (`ID_TIPOPRODUCTO`);
 
 --
--- Indices de la tabla `usuario`
+-- Indices de la tabla `Usuario`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `Usuario`
   ADD PRIMARY KEY (`ID_USUARIO`);
 
 --
--- Indices de la tabla `venta`
+-- Indices de la tabla `Venta`
 --
-ALTER TABLE `venta`
+ALTER TABLE `Venta`
   ADD PRIMARY KEY (`ID_VENTA`);
 
 --
--- Indices de la tabla `venta_produccion`
+-- Indices de la tabla `Venta_Produccion`
 --
-ALTER TABLE `venta_produccion`
+ALTER TABLE `Venta_Produccion`
   ADD PRIMARY KEY (`FK_ID_PRODUCCION`,`FK_ID_VENTA`),
-  ADD KEY `FK_ID_VENTA_VENTA` (`FK_ID_VENTA`);
+  ADD KEY `FK_ID_VENTA_VENTA` (`FK_ID_VENTA`),
+  ADD KEY `FK_ID_PRODUCCION_VENTA` (`FK_ID_PRODUCCION`);
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `bodega_insumo`
+-- Filtros para la tabla `Bodega_Insumo`
 --
-ALTER TABLE `bodega_insumo`
-  ADD CONSTRAINT `FK_ID_BODEGA_BODEGA_INSUMO` FOREIGN KEY (`FK_ID_BODEGA`) REFERENCES `bodega` (`ID_BODEGA`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_INSUMO_BODEGA_INSUMO` FOREIGN KEY (`FK_ID_INSUMO`) REFERENCES `insumo` (`ID_INSUMO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Bodega_Insumo`
+  ADD CONSTRAINT `FK_ID_BODEGA_BODEGA_INSUMO` FOREIGN KEY (`FK_ID_BODEGA`) REFERENCES `Bodega` (`ID_BODEGA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_INSUMO_BODEGA_INSUMO` FOREIGN KEY (`FK_ID_INSUMO`) REFERENCES `Insumo` (`ID_INSUMO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `bodega_materiaprima`
+-- Filtros para la tabla `Bodega_MateriaPrima`
 --
-ALTER TABLE `bodega_materiaprima`
-  ADD CONSTRAINT `FK_ID_BODEGA_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_BODEGA`) REFERENCES `bodega` (`ID_BODEGA`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_CALENDARIO_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_CALENDARIO`) REFERENCES `calendario` (`ID_CALENDARIO`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_MATERIAPRIMA_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_MATERIAPRIMA`) REFERENCES `materiaprima` (`ID_MATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Bodega_MateriaPrima`
+  ADD CONSTRAINT `FK_ID_BODEGA_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_BODEGA`) REFERENCES `Bodega` (`ID_BODEGA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_CALENDARIO_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_CALENDARIO`) REFERENCES `Calendario` (`ID_CALENDARIO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_MATERIAPRIMA_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_MATERIAPRIMA`) REFERENCES `MateriaPrima` (`ID_MATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `catproducto`
+-- Filtros para la tabla `CatProducto`
 --
-ALTER TABLE `catproducto`
-  ADD CONSTRAINT `FK_ID_SUBTIPOPRODUCTO_CATPRODUCTO` FOREIGN KEY (`FK_ID_SUBTIPOPRODUCTO`) REFERENCES `subtipoproducto` (`ID_SUBTIPOPRODUCTO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `CatProducto`
+  ADD CONSTRAINT `FK_ID_SUBTIPOPRODUCTO_CATPRODUCTO` FOREIGN KEY (`FK_ID_SUBTIPOPRODUCTO`) REFERENCES `SubtipoProducto` (`ID_SUBTIPOPRODUCTO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `devolucion`
+-- Filtros para la tabla `Devolucion`
 --
-ALTER TABLE `devolucion`
-  ADD CONSTRAINT `FK_ID_PEDIDO_DEVOLUCION` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Devolucion`
+  ADD CONSTRAINT `FK_ID_PEDIDO_DEVOLUCION` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `Pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `eventoespecifico`
+-- Filtros para la tabla `EventoEspecifico`
 --
-ALTER TABLE `eventoespecifico`
-  ADD CONSTRAINT `FK_ID_CALENDARIO_EVENTOESPECIFICO` FOREIGN KEY (`FK_ID_CALENDARIO`) REFERENCES `calendario` (`ID_CALENDARIO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `EventoEspecifico`
+  ADD CONSTRAINT `FK_ID_CALENDARIO_EVENTOESPECIFICO` FOREIGN KEY (`FK_ID_CALENDARIO`) REFERENCES `Calendario` (`ID_CALENDARIO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `factura`
+-- Filtros para la tabla `Factura`
 --
-ALTER TABLE `factura`
-  ADD CONSTRAINT `FK_ID_PEDIDO_FACTURA` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Factura`
+  ADD CONSTRAINT `FK_ID_PEDIDO_FACTURA` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `Pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `insumo`
+-- Filtros para la tabla `Insumo`
 --
-ALTER TABLE `insumo`
-  ADD CONSTRAINT `FK_ID_TIPOINSUMO_INSUMO` FOREIGN KEY (`FK_ID_TIPOINSUMO`) REFERENCES `tipoinsumo` (`ID_TIPOINSUMO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Insumo`
+  ADD CONSTRAINT `FK_ID_TIPOINSUMO_INSUMO` FOREIGN KEY (`FK_ID_TIPOINSUMO`) REFERENCES `TipoInsumo` (`ID_TIPOINSUMO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `log`
+-- Filtros para la tabla `Log`
 --
-ALTER TABLE `log`
-  ADD CONSTRAINT `FK_ID_USUARIO_LOG` FOREIGN KEY (`FK_ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Log`
+  ADD CONSTRAINT `FK_ID_USUARIO_LOG` FOREIGN KEY (`FK_ID_USUARIO`) REFERENCES `Usuario` (`ID_USUARIO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `materiaprima`
+-- Filtros para la tabla `MateriaPrima`
 --
-ALTER TABLE `materiaprima`
-  ADD CONSTRAINT `FK_ID_MEDIDACANTIDAD_MATERIAPRIMA` FOREIGN KEY (`FK_ID_TIPOMATERIAPRIMA`) REFERENCES `tipomateriaprima` (`ID_TIPOMATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_TIPOMATERIAPRIMA_MateriaPrima` FOREIGN KEY (`FK_ID_TIPOMATERIAPRIMA`) REFERENCES `tipomateriaprima` (`ID_TIPOMATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `MateriaPrima`
+  ADD CONSTRAINT `FK_ID_MEDIDACANTIDAD_MateriaPrima` FOREIGN KEY (`FK_ID_MEDIDACANTIDAD`) REFERENCES `MedidaCantidad` (`ID_MEDIDACANTIDAD`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_TIPOMATERIAPRIMA_MateriaPrima` FOREIGN KEY (`FK_ID_TIPOMATERIAPRIMA`) REFERENCES `TipoMateriaPrima` (`ID_TIPOMATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `pedido`
+-- Filtros para la tabla `Pedido`
 --
-ALTER TABLE `pedido`
-  ADD CONSTRAINT `FK_ID_CALENDARIO_PEDIDO` FOREIGN KEY (`FK_ID_CALENDARIO`) REFERENCES `calendario` (`ID_CALENDARIO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Pedido`
+  ADD CONSTRAINT `FK_ID_CALENDARIO_PEDIDO` FOREIGN KEY (`FK_ID_CALENDARIO`) REFERENCES `Calendario` (`ID_CALENDARIO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `pedido_insumo`
+-- Filtros para la tabla `Pedido_Insumo`
 --
-ALTER TABLE `pedido_insumo`
-  ADD CONSTRAINT `FK_ID_INSUMO_PEDIDO_INSUMO` FOREIGN KEY (`FK_ID_INSUMO`) REFERENCES `insumo` (`ID_INSUMO`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_PEDIDO_PEDIDO_INSUMO` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Pedido_Insumo`
+  ADD CONSTRAINT `FK_ID_INSUMO_PEDIDO_INSUMO` FOREIGN KEY (`FK_ID_INSUMO`) REFERENCES `Insumo` (`ID_INSUMO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_PEDIDO_PEDIDO_INSUMO` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `Pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `pedido_materiaprima`
+-- Filtros para la tabla `Pedido_MateriaPrima`
 --
-ALTER TABLE `pedido_materiaprima`
-  ADD CONSTRAINT `FK_ID_MATERIAPRIMA_PEDIDO_MATERIAPRIMA` FOREIGN KEY (`FK_ID_MATERIAPRIMA`) REFERENCES `materiaprima` (`ID_MATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_PEDIDO_PEDIDO_MATERIAPRIMA` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Pedido_MateriaPrima`
+  ADD CONSTRAINT `FK_ID_MATERIAPRIMA_Pedido_MateriaPrima` FOREIGN KEY (`FK_ID_MATERIAPRIMA`) REFERENCES `MateriaPrima` (`ID_MATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_PEDIDO_Pedido_MateriaPrima` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `Pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `pedido_proveedor`
+-- Filtros para la tabla `Pedido_Proveedor`
 --
-ALTER TABLE `pedido_proveedor`
-  ADD CONSTRAINT `FK_ID_PEDIDO_PEDIDO_PROVEEDOR` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_PROVEEDOR_PEDIDO_PROVEEDOR` FOREIGN KEY (`FK_ID_PROVEEDOR`) REFERENCES `proveedor` (`ID_PROVEEDOR`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Pedido_Proveedor`
+  ADD CONSTRAINT `FK_ID_PEDIDO_PEDIDO_PROVEEDOR` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `Pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_PROVEEDOR_PEDIDO_PROVEEDOR` FOREIGN KEY (`FK_ID_PROVEEDOR`) REFERENCES `Proveedor` (`ID_PROVEEDOR`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `produccion`
+-- Filtros para la tabla `Produccion`
 --
-ALTER TABLE `produccion`
-  ADD CONSTRAINT `FK_ID_CALENDARIO_PRODUCCION` FOREIGN KEY (`FK_ID_CALENDARIO`) REFERENCES `calendario` (`ID_CALENDARIO`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_CATPRODUCTO_PRODUCCION` FOREIGN KEY (`FK_ID_CATPRODUCTO`) REFERENCES `catproducto` (`ID_CATPRODUCTO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Produccion`
+  ADD CONSTRAINT `FK_ID_CALENDARIO_PRODUCCION` FOREIGN KEY (`FK_ID_CALENDARIO`) REFERENCES `Calendario` (`ID_CALENDARIO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_CATPRODUCTO_PRODUCCION` FOREIGN KEY (`FK_ID_CATPRODUCTO`) REFERENCES `CatProducto` (`ID_CATPRODUCTO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `proveedor_insumo`
+-- Filtros para la tabla `Proveedor_Insumo`
 --
-ALTER TABLE `proveedor_insumo`
-  ADD CONSTRAINT `FK_ID_INSUMO_PROVEEDOR_INSUMO` FOREIGN KEY (`FK_ID_INSUMO`) REFERENCES `insumo` (`ID_INSUMO`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_PROVEEDOR_PROVEEDOR_INSUMO` FOREIGN KEY (`FK_ID_PROVEEDOR`) REFERENCES `proveedor` (`ID_PROVEEDOR`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Proveedor_Insumo`
+  ADD CONSTRAINT `FK_ID_INSUMO_PROVEEDOR_INSUMO` FOREIGN KEY (`FK_ID_INSUMO`) REFERENCES `Insumo` (`ID_INSUMO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_PROVEEDOR_PROVEEDOR_INSUMO` FOREIGN KEY (`FK_ID_PROVEEDOR`) REFERENCES `Proveedor` (`ID_PROVEEDOR`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `proveedor_materiaprima`
+-- Filtros para la tabla `Proveedor_MateriaPrima`
 --
-ALTER TABLE `proveedor_materiaprima`
-  ADD CONSTRAINT `FK_ID_MATERIAPRIMA_PROVEEDOR_MATERIAPRIMA` FOREIGN KEY (`FK_ID_MATERIAPRIMA`) REFERENCES `materiaprima` (`ID_MATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_PROVEEDOR_PROVEEDOR_MATERIAPRIMA` FOREIGN KEY (`FK_ID_PROVEEDOR`) REFERENCES `proveedor` (`ID_PROVEEDOR`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Proveedor_MateriaPrima`
+  ADD CONSTRAINT `FK_ID_MATERIAPRIMA_PROVEEDOR_MATERIAPRIMA` FOREIGN KEY (`FK_ID_MATERIAPRIMA`) REFERENCES `MateriaPrima` (`ID_MATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_PROVEEDOR_PROVEEDOR_MATERIAPRIMA` FOREIGN KEY (`FK_ID_PROVEEDOR`) REFERENCES `Proveedor` (`ID_PROVEEDOR`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `subtipoproducto`
+-- Filtros para la tabla `SubtipoProducto`
 --
-ALTER TABLE `subtipoproducto`
-  ADD CONSTRAINT `FK_ID_TIPOPRODUCTO_SUBTIPOPRODUCTO` FOREIGN KEY (`FK_ID_TIPOPRODUCTO`) REFERENCES `tipoproducto` (`ID_TIPOPRODUCTO`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `SubtipoProducto`
+  ADD CONSTRAINT `FK_ID_TIPOPRODUCTO_SUBTIPOPRODUCTO` FOREIGN KEY (`FK_ID_TIPOPRODUCTO`) REFERENCES `TipoProducto` (`ID_TIPOPRODUCTO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `telefono`
+-- Filtros para la tabla `Telefono`
 --
-ALTER TABLE `telefono`
-  ADD CONSTRAINT `FK_ID_PROVEEDOR_TELEFONO` FOREIGN KEY (`FK_ID_PROVEEDOR`) REFERENCES `proveedor` (`ID_PROVEEDOR`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Telefono`
+  ADD CONSTRAINT `FK_ID_PROVEEDOR_TELEFONO` FOREIGN KEY (`FK_ID_PROVEEDOR`) REFERENCES `Proveedor` (`ID_PROVEEDOR`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `venta_produccion`
+-- Filtros para la tabla `Venta_Produccion`
 --
-ALTER TABLE `venta_produccion`
-  ADD CONSTRAINT `FK_ID_PRODUCCION_VENTA_PRODUCCION` FOREIGN KEY (`FK_ID_PRODUCCION`) REFERENCES `produccion` (`ID_PRODUCCION`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_VENTA_VENTA` FOREIGN KEY (`FK_ID_VENTA`) REFERENCES `venta` (`ID_VENTA`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Venta_Produccion`
+  ADD CONSTRAINT `FK_ID_PRODUCCION_VENTA_PRODUCCION` FOREIGN KEY (`FK_ID_PRODUCCION`) REFERENCES `Produccion` (`ID_PRODUCCION`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_VENTA_VENTA` FOREIGN KEY (`FK_ID_VENTA`) REFERENCES `Venta` (`ID_VENTA`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
