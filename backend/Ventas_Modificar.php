@@ -112,8 +112,9 @@ $result=mysqli_query($conn,$query);
                   <input type="date" name="fec" class="form-control" id="inputCantidad3" placeholder="" value="<?php echo $fec; ?>">
                   <label for="inputCantidad">Cantidad</label>
                   <input type="number" name="can" class="form-control" id="inputCantidad2" placeholder="" value="<?php echo $can; ?>">
+                  <input type="text" name="st" value="<?php echo $can; ?>">
                   <div class="space-small"></div>
-                  <button type="submit" class="btn btn-primary  ">Agregar</button>
+                  <button type="submit" class="btn btn-primary  ">Actualizar</button>
                 </div>
               </div>  
               

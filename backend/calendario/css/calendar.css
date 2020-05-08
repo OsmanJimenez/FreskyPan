@@ -129,7 +129,7 @@
   width: 100%;
 }
 #cal-week-box {
-  position: absolute;
+ /* position: absolute;*/
   width: 70px;
   left: -71px;
   top: -1px;

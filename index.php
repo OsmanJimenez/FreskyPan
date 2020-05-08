@@ -92,22 +92,21 @@ session_start();
         <section class="grid" id="grid">
 <?php
 require ("basededatos/connectionbd.php");
-$query="Select lote.st_prn,productos.est_pro,productos.nom_pro,productos.img_pro,productos.sab_pro,productos.cod_pro,productos.des_pro,productos.pre_pro from productos,lote where productos.cod_pro=lote.cod_pro group by productos.nom_pro having count(*)>0";
+$query="Select catproducto.stock,catproducto.nombre,catproducto.imagen,catproducto.sabor,catproducto.ID_CATPRODUCTO,catproducto.descripcion,catproducto.precio from catproducto";
 $result=mysqli_query($conn,$query);
 $i = 0;
             
-            while($fila=mysqli_fetch_array($result)){           
-                $est=$fila['est_pro'];
-                $Nom = $fila['nom_pro'];
-                $cod = $fila['pre_pro'];
-               $sab=$fila['sab_pro'];
-                $des = $fila['des_pro'];
+            while($fila=mysqli_fetch_array($result)){      
+                $Nom = $fila['nombre'];
+                $cod = $fila['precio'];
+               $sab=$fila['sabor'];
+                $des = $fila['descripcion'];
            
-                $stock=['st_prn'];
-                $id=$fila['cod_pro'];
-                $img=$fila['img_pro'];
+                $stock=['stock'];
+                $id=$fila['ID_CATPRODUCTO'];
+                $img=$fila['imagen'];
                 $i++;
-                if($est==1 && $stock>0){
+                if($stock>0){
                 ?>
 
             <div class="item" data-categoria="<?php echo $sab ;?>" data-etiquetas="<?php echo $sab ;?> <?php echo $Nom ;?>"

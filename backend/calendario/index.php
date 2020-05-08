@@ -46,7 +46,6 @@ if (isset($_POST['from']))
 
         // Ejecutamos nuestra sentencia sql
         $conexion->query($query)or die('<script type="text/javascript">alert("Horario No Disponible ")</script>');
-
         header("Location:$base_url");        
 
 
@@ -63,7 +62,7 @@ if (isset($_POST['from']))
 
         // Ejecutamos nuestra sentencia sql
         $conexion->query($query); 
-
+        
         // redireccionamos a nuestro calendario
         //header("Location:$base_url"); 
     }
@@ -77,7 +76,10 @@ if (isset($_POST['from']))
     <meta charset="utf-8">
     <title>Calendario</title>
     <link rel="stylesheet" type="text/css" href="css/calendar.css">
-
+   <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
     <link rel="stylesheet" href="css/font-awesome.min.css" >
     <script type="text/javascript" src="js/es-ES.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
