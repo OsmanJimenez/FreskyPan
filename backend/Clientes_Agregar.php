@@ -105,25 +105,83 @@
 
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputName">Segundo Nombre</label>
+                    <label for="inputName">Materia Prima -Insumo</label>
                     <input type="text" name="nom2" class="form-control" id="inputName" maxlength="15" onkeypress=" return Nom_2(event)" onpaste="return false" placeholder="">
                     <div class="space-small"></div>
                     <label for="exampleFormControlTextarea1">Correo electronico</label>
                     <input type="email" name="cor" class="form-control" id="inputName" placeholder="" required="">
                     <div class="space-small"></div>
                     <label for="inputState">Estado</label>
-                  <select id="inputState" name="est" class="form-control">
-                    <option selected>Escoger</option>
-                    <option value="1">Activo</option>
-                    <option value="0">Suspendido</option>
-                  </select>
+                    <select id="inputState" name="est" class="form-control">
+                      <option selected>Escoger</option>
+                      <option value="1">Activo</option>
+                      <option value="0">Suspendido</option>
+                    </select>
 
                   </div>
-                  <div class="form-group col-md-6 text-center">
-                    <img src="../img/Captura.PNG">
-                   <!-- <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15913.82878315453!2d-74.37047654999999!3d4.324887749999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1570575086503!5m2!1ses!2sco"
-                      width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
+
+                  <div class="form-group col-md-6">
+                  <label for="inputCantidad">Materia Prima</label>
+                  <div class="table-responsive" style=" max-height:350px; " >
+                    <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                       <?php require ("../basededatos/listami_ped.php");?>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <label for="inputCantidad">Insumo</label>
+                  <div class="table-responsive" style=" max-height:350px; " >
+                    <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                       <?php require ("../basededatos/listami_ped.php");?>
+                      </tbody>
+                    </table>
+                  </div>
                   </div>
 
 
@@ -277,6 +335,10 @@
                 return false;
             }
   }
+
+  $(document).ready(function() {
+    $('#demo').multiselect();
+  });
  </script>
 
 
@@ -297,6 +359,10 @@
 
         <!-- Page level custom scripts -->
         <script src="js/demo/datatables-demo.js"></script>
+
+        <!-- MultiSelect -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
 </body>
 
