@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Modificar Lotes</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -47,7 +47,7 @@
     require('menu.php');
     ?>
     <!-- End of Sidebar -->
-   
+
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -87,7 +87,7 @@ $fe=$_GET['fec'];
 $ca=$_GET['ca'];
 $query2="Select * from produccion where ID_PRODUCCION='$cd' and fechaProduccion='$fe'";
 $result2=mysqli_query($conn,$query2);
-                             while($fila2=mysqli_fetch_array($result2)){     
+                             while($fila2=mysqli_fetch_array($result2)){
         $Stock=$fila2['cantidadInicial'];
          }
 ?>
@@ -132,7 +132,7 @@ $result2=mysqli_query($conn,$query2);
                 <div class="form-group col-md-6">
                   <label for="inputName">Unidades</label>
                   <input type="number" value="<?php echo $Stock;?>" name="st" class="form-control" id="inputName"
-                    placeholder="">
+                  maxlength="11" onkeypress="return uni_lo(event)" oninput="maxlengthNumber(this)" onpaste="return false"  placeholder="">
 
                   <input type="hidden" name="id" id="prueba" readonly="">
                   <input type="hidden" name="idl" value="<?php echo $cd;?>">
@@ -176,6 +176,41 @@ $result2=mysqli_query($conn,$query2);
             </div>
 
           </div>
+          <script>
+        function maxlengthNumber(ob){
+          console.log(ob.value);
+
+          if(ob.value.length > ob.maxLength){
+
+            ob.value = ob.value.slice(0,ob.maxLength);
+          }
+        }
+
+
+      </script>
+      <!-- funcion de validacion solo numeros-->
+
+
+
+        <script type="text/javascript">
+    function uni_lo(evento){
+
+        key = evento.keyCode || evento.which;
+         teclado = String.fromCharCode(key).toLocaleLowerCase();
+            uni= "1234567890";
+              especiales = "37-38-46";
+
+              teclado_especial = false;
+              for (var i in especiales) {
+                  if (key == especiales[i]) {
+                      teclado_especial = true; break;
+                  }
+              }
+              if (uni.indexOf(teclado) == -1 && !teclado_especial) {
+                  return false;
+              }
+    }
+    </script>
           <!-- /.container-fluid -->
           <script src="vendor/jquery/jquery.min.js"></script>
           <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
