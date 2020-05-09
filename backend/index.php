@@ -42,6 +42,8 @@ session_start();
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Administración</h1>
+            <button id="theme-toggle" class="btn btn-outline-dark" >Activar Modo Oscuro</button>
+            
           </div>
 
           <!-- Content Row -->
