@@ -7,7 +7,7 @@
 
    <!-- Custom styles for this template-->
    <link href="css/sb-admin-2.css" rel="stylesheet">
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -86,8 +86,8 @@ $result=mysqli_query($conn,$query);
 $i = 0;
    if(!$result){
 echo "no se pudo",mysqli_error($conn);
-}   
-      $fila=mysqli_fetch_array($result);     
+}
+      $fila=mysqli_fetch_array($result);
         $nomt = $fila['nombre'];
         $idt = $fila['ID_TIPOPRODUCTO'];
         $i++; ?>
@@ -99,16 +99,16 @@ echo "no se pudo",mysqli_error($conn);
                     <div class="form-row">
 
 
-                      
+
 
                       <div class="form-group col-md-4">
                         <div class="space-small"></div>
                         <div class="space-small"></div>
 
                         <label for="inputName">Código</label>
-                        <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" id="inputName" placeholder="" readonly="">
+                        <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_tip(event)" onpaste="return false" id="inputName" placeholder="" readonly="">
                         <label for="inputName">Nombre</label>
-                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" id="inputName" placeholder="">           
+                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" maxlength="11"  onkeypress="return Nom_tip(event)" onpaste="return false" id="inputName" placeholder="">           
                         <div class="space-small"></div>
                         <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -117,7 +117,7 @@ echo "no se pudo",mysqli_error($conn);
                       </div>
                     </div>
 
-                    
+
 
                     <!-- Modal -->
                     <div id="myModal" class="modal fade" role="dialog">
@@ -128,7 +128,7 @@ echo "no se pudo",mysqli_error($conn);
                           <div class="modal-header">
                           <h4 class="modal-title">Confirmar</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            
+
                           </div>
                           <div class="modal-body">
                             <p>Esta seguro</p>
@@ -159,6 +159,61 @@ echo "no se pudo",mysqli_error($conn);
           </div>
 
         </div>
+        <script>
+      function maxlengthNumber(ob){
+        console.log(ob.value);
+
+        if(ob.value.length > ob.maxLength){
+
+          ob.value = ob.value.slice(0,ob.maxLength);
+        }
+      }
+
+
+    </script>
+    <!-- funcion de validacion solo numeros-->
+
+
+       <script type="text/javascript">
+  function cod_tip(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          cd= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (cd.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+  </script>
+  <!-- validacion de texto-->
+
+        <script type="text/javascript">
+  function Nom_tip(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          nom = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+  </script>
         <!-- /.container-fluid -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
