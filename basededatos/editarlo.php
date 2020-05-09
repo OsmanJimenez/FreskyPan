@@ -8,7 +8,7 @@ $can=$_POST['can'];
 
 $su=$st_prn-$can;
 
-$query="UPDATE produccion,catproducto SET produccion.FK_ID_CATPRODUCTO='$cod_pro',produccion.cantidadInicial='$st_prn',catproducto.stock=catproducto.stock+'$su' WHERE ID_PRODUCCION='$id' and fechaProduccion='$fec' and produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO";
+$query="UPDATE produccion,catproducto SET produccion.FK_ID_CATPRODUCTO='$cod_pro',produccion.unidades='$st_prn',catproducto.stock=catproducto.stock+'$su' WHERE ID_PRODUCCION='$id' and fechaProduccion='$fec' and produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO";
 
 $result=mysqli_query($conn,$query);
 if(!$result){

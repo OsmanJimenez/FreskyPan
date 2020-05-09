@@ -10,11 +10,13 @@ $result=mysqli_query($conn,$query);
 if($a>0){
 			while($fila=mysqli_fetch_array($result)){			
 				$id_u = $fila['ID_USUARIO'];
+				$nom=$fila['prNombre'];
+				$ape=$fila['prApellido'];
 
 					
  
 
-$usr = array('id_u' => $id_u );
+$usr = array('id_u' => $id_u,'nom'=>$nom,'ape'=>$ape );
 
 $_SESSION['cl']=$usr;
 header('location:../backend/');

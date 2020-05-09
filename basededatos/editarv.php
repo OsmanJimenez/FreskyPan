@@ -7,10 +7,7 @@ $fec=$_POST['fec'];
 $can=$_POST['can'];
 
 $su=$st_prn-$can;
-echo $st_prn;
-echo $can;
-echo $su;
-echo $cod_ven;
+
 $query="UPDATE venta,produccion,catproducto,venta_produccion SET venta_produccion.cantidad='$can',produccion.unidades=produccion.unidades+'$su',catproducto.stock=catproducto.stock+'$su' WHERE venta_produccion.FK_ID_VENTA='$cod_ven' 
     and venta.ID_VENTA=venta_produccion.FK_ID_VENTA
     and venta_produccion.FK_ID_PRODUCCION=produccion.ID_PRODUCCION
@@ -22,7 +19,7 @@ echo "no se pudo",mysqli_error($conn);
 
 }else{
 echo "registro insertado";
-//	header('location:../backend/');
+header('location:../backend/');
 }
 
 ?>

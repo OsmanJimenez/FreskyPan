@@ -85,48 +85,27 @@
 $cd=$_GET['id'];
 $fe=$_GET['fec'];
 $ca=$_GET['ca'];
-$query2="Select * from produccion where ID_PRODUCCION='$cd' and fechaProduccion='$fe'";
+$query2="Select FK_ID_CATPRODUCTO,unidades from produccion where ID_PRODUCCION='$cd'
+ and fechaProduccion='$fe'";
 $result2=mysqli_query($conn,$query2);
                              while($fila2=mysqli_fetch_array($result2)){
-        $Stock=$fila2['cantidadInicial'];
+        $Stock=$fila2['unidades'];
+        $pro=$fila2['FK_ID_CATPRODUCTO'];
          }
 ?>
             <div class="form-row">
-              <div class="form-group col-md-10">
+              <div class="form-group col-md-11">
                 <label for="inputState">Productos</label>
 
-
-                <table class="table table-bordered" id="datasTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>Nombre del producto</th>
-                      <th>Id del producto</th>
-                      <th>Categoria</th>
-                      <th>Sabor</th>
-                      <th>Descripcion</th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-
-                    <?php require ("../basededatos/listapv3.php");?>
-
-
-                  </tbody>
-                </table>
+                  
+                      <input type="text" name="id" id="prueba" readonly="" value="<?php echo $pro; ?>"class="form-control">
+                  <input type="text" name="idl" value="<?php echo $cd;?>"class="form-control"readonly="">
+                  <input type="text" name="fece" value="<?php echo $fe;?>"class="form-control"readonly="">
+                  <input type="text" name="can" value="<?php echo $ca;?>"class="form-control"readonly="">
 
 
               </div>
-              <div class="form-group col-md-2 text-center">
-                <div class="space-small"></div>
-                <button type="submit" class="btn btn-primary ">Agregar </button>
-                <div class="space-small"></div>
 
-              </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -134,10 +113,6 @@ $result2=mysqli_query($conn,$query2);
                   <input type="number" value="<?php echo $Stock;?>" name="st" class="form-control" id="inputName"
                   maxlength="11" onkeypress="return uni_lo(event)" oninput="maxlengthNumber(this)" onpaste="return false"  placeholder="">
 
-                  <input type="hidden" name="id" id="prueba" readonly="">
-                  <input type="hidden" name="idl" value="<?php echo $cd;?>">
-                  <input type="hidden" name="fece" value="<?php echo $fe;?>">
-                  <input type="hidden" name="can" value="<?php echo $ca;?>">
                   <br>
 
                   <button type="button" class="btn btn-primary" data-toggle="modal"

@@ -1,3 +1,8 @@
+<?php session_start();
+$id=$_SESSION['cl']['id_u'];
+$no=$_SESSION['cl']['nom'];
+$ape=$_SESSION['cl']['ape'];
+ ?>
 <!DOCTYPE html>
 <html>
 
@@ -77,13 +82,13 @@
                 <div class="form-row">
                   <div class="form-group col-md-8">
                     <label for="inputName">Numero de Cedula</label>
-                    <input type="text" class="form-control" id="inputName" name="ced" placeholder="">
+                    <input type="text" readonly="" value="<?php echo $id; ?>" class="form-control" id="inputName" name="ced" placeholder="">
 
                     <label for="inputPrice">Nombre</label>
-                    <input type="text" name="tel" class="form-control" id="inputrice" placeholder="">
+                    <input type="text" name="tel" readonly="" value="<?php echo $no; ?>" class="form-control" id="inputrice" placeholder="">
 
                     <label for="inputPrice">Apellido</label>
-                    <input type="text" name="tel" class="form-control" id="inputrice" placeholder="">
+                    <input type="text" name="tel" value="<?php echo $ape; ?>" readonly="" class="form-control" id="inputrice" placeholder="">
                   </div>
                   <div class="form-group col-md-4">
                     <img src="../img/panadero.jpg" width="200" height="200" class="rounded-circle mx-auto d-block" alt="imagen del usuario">
