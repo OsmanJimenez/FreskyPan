@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Subtipo</title>
+  <title>Agregar Tipo de Producto</title>
 
    <!-- Custom styles for this template-->
    <link href="css/sb-admin-2.css" rel="stylesheet">

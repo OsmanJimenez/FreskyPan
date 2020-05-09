@@ -41,6 +41,13 @@
             <a class="collapse-item" href="Productos_Ver.php">Ver</a>
           </div>
         </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Tipos de Productos:</h6>
+            <a class="collapse-item" href="TipoP_Agregar.php">Agregar</a>
+            <a class="collapse-item" href="TipoP_Ver.php">Ver</a>
+          </div>
+        </div>
       </li>
 
       <li class="nav-item">
@@ -160,7 +167,6 @@
             <a class="collapse-item" href="Tools_Calculo.php">Calculo</a>
             <a class="collapse-item" href="Tools_Presentacion.php">Presentación</a>
             <a class="collapse-item" href="Tools_Dibujo.php">Dibujo</a>
-            <a class="collapse-item" href="Tools_Formulario.php">Formulario</a>
           </div>
         </div>
       </li>

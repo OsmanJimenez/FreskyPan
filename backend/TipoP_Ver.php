@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Pedidos</title>
+  <title>Ver Tipo de Producto</title>
    
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
@@ -90,7 +90,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Ejemplos</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tipos de Productos</h6>
             </div>
 
 
