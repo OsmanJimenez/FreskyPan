@@ -7,7 +7,7 @@
 
    <!-- Custom styles for this template-->
    <link href="css/sb-admin-2.css" rel="stylesheet">
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -84,8 +84,8 @@ $mic=$_GET['idc'];
 $query="Select tipoproducto.nombre as nom1,subtipoproducto.nombre as nom2, subtipoproducto.ID_SUBTIPOPRODUCTO,subtipoproducto.FK_ID_TIPOPRODUCTO from subtipoproducto,tipoproducto where ID_SUBTIPOPRODUCTO='$mic' and subtipoproducto.FK_ID_TIPOPRODUCTO=tipoproducto.ID_TIPOPRODUCTO";
 $result=mysqli_query($conn,$query);
 $i = 0;
-      
-      $fila=mysqli_fetch_array($result);     
+
+      $fila=mysqli_fetch_array($result);
         $noms = $fila['nom1'];
         $nomt = $fila['nom2'];
         $idt = $fila['ID_SUBTIPOPRODUCTO'];
@@ -120,16 +120,16 @@ $i = 0;
                         </div>
                       </div>
 
-                      
+
 
                       <div class="form-group col-md-4">
                         <div class="space-small"></div>
                         <div class="space-small"></div>
 
                         <label for="inputName">Código</label>
-                        <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" id="inputName" placeholder="" readonly="">
+                        <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_sub(event)" onpaste="return false" id="inputName" placeholder="" readonly="">
                         <label for="inputName">Nombre</label>
-                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" id="inputName" placeholder="">           
+                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control"  maxlength="11"  onkeypress="return Nom_sub(event)" onpaste="return false" id="inputName" placeholder="">           
                         <div class="space-small"></div>
                         <input type="hidden" name="id" id="prueba" readonly="">
                         <!-- Trigger the modal with a button -->
@@ -139,7 +139,7 @@ $i = 0;
                       </div>
                     </div>
 
-                    
+
 
                     <!-- Modal -->
                     <div id="myModal" class="modal fade" role="dialog">
@@ -150,7 +150,7 @@ $i = 0;
                           <div class="modal-header">
                           <h4 class="modal-title">Confirmar</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            
+
                           </div>
                           <div class="modal-body">
                             <p>Esta seguro</p>
@@ -181,6 +181,61 @@ $i = 0;
           </div>
 
         </div>
+        <script>
+      function maxlengthNumber(ob){
+        console.log(ob.value);
+
+        if(ob.value.length > ob.maxLength){
+
+          ob.value = ob.value.slice(0,ob.maxLength);
+        }
+      }
+
+
+    </script>
+    <!-- funcion de validacion solo numeros-->
+
+
+       <script type="text/javascript">
+  function cod_sub(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          cd= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (cd.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+  </script>
+  <!-- validacion de texto-->
+
+        <script type="text/javascript">
+  function Nom_sub(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          nom = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+  </script>
         <!-- /.container-fluid -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

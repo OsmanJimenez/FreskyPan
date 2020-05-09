@@ -7,7 +7,7 @@
 
    <!-- Custom styles for this template-->
    <link href="css/sb-admin-2.css" rel="stylesheet">
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -109,16 +109,16 @@
                         </div>
                       </div>
 
-                      
+
 
                       <div class="form-group col-md-4">
                         <div class="space-small"></div>
                         <div class="space-small"></div>
 
                         <label for="inputName">Código</label>
-                        <input type="number" name="cd" class="form-control" id="inputName" placeholder="">
+                        <input type="number" name="cd" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_sub(event)" onpaste="return false" placeholder="">
                         <label for="inputName">Nombre</label>
-                        <input type="text" name="nom" class="form-control" id="inputName" placeholder="">           
+                        <input type="text" name="nom" class="form-control" id="inputName"  maxlength="11"  onkeypress="return Nom_sub(event)" onpaste="return false" placeholder="">           
                         <div class="space-small"></div>
                         <input type="hidden" name="id" id="prueba" readonly="">
                         <!-- Trigger the modal with a button -->
@@ -128,7 +128,7 @@
                       </div>
                     </div>
 
-                    
+
 
                     <!-- Modal -->
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -177,6 +177,61 @@
             document.getElementById('prueba').value = text;
           }
         </script>
+        <script>
+      function maxlengthNumber(ob){
+        console.log(ob.value);
+
+        if(ob.value.length > ob.maxLength){
+
+          ob.value = ob.value.slice(0,ob.maxLength);
+        }
+      }
+
+
+    </script>
+    <!-- funcion de validacion solo numeros-->
+
+
+       <script type="text/javascript">
+  function cod_sub(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          cd= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (cd.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+  </script>
+  <!-- validacion de texto-->
+
+        <script type="text/javascript">
+  function Nom_sub(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          nom = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+  </script>
 
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -192,5 +247,6 @@
         <script src="js/demo/datatables-demo.js"></script>
 
 </body>
+
 
 </html>
