@@ -119,7 +119,7 @@
 
                 <div class="form-group col-md-6">
                 <label for="inputCantidad">ID Pedido</label>
-                  <input type="number" name="ced" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_pe(event)" onpaste="return false" id="inputCantidad1" placeholder="">
+                  <input type="number" name="ced" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_ped(event)" onpaste="return false" id="inputCantidad1" placeholder="">
                   <div class="space-small"></div>
                   <label for="inputCantidad">ID Factura</label>
                   <input type="number" name="a1" class="form-control" maxlength="11"  onkeypress="return id_fa(event)" onpaste="return false" id="inputCantidad2" placeholder="">
