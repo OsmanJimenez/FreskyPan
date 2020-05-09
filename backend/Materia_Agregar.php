@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Materia Prima</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -46,9 +46,9 @@
   <?php
     require('menu.php');
     ?>
-    
+
   <!-- End of Sidebar -->
-  
+
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -81,11 +81,11 @@
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Código</label>
-              <input type="number" name="cod" class="form-control" onkeypress="return validanumericos(event)" id="inputName" placeholder="" required>
+              <input type="number" name="cod" class="form-control" maxlength="11" onkeypress="return cod_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="" maxlength="10" required>
+                  <input type="text" name="nom" class="form-control" id="inputName" placeholder=""  maxlength="10" onkeypress="return Nom_ma(event)"  onpaste="return false"  required>
                 </div>
               </div>
 
@@ -93,7 +93,7 @@
 
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                  <input type="number" name="pre" class="form-control"  maxlength="11" onkeypress="return pre_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false"  id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
@@ -107,22 +107,22 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Cantidad</label>
-                   <input type="number" name="can" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                   <input type="number" name="can" class="form-control"  maxlength="11" onkeypress="return cant_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false"  id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputState">Unidad de medida</label>
                   <select id="inputState" name="udm" class="form-control">
                     <?php require ("../basededatos/combomc.php");?>
                   </select>
-                </div>   
+                </div>
               </div>
-              
+
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputPrice">Iva (%)</label>
-                    <input type="number" name="iva" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
-                </div> 
+                    <input type="number" name="iva" class="form-control"  maxlength="11" onkeypress="return iv_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false"  id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
+                </div>
                 <div class="form-group col-md-6">
                   <label for="inputState">Tipo</label>
                   <select id="inputState" name="tip" class="form-control">
@@ -135,9 +135,9 @@
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return des_ma(event)" onpaste="return false"  required></textarea>
                   </div>
-                </div>  
+                </div>
               </div>
 
               <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
@@ -168,6 +168,141 @@
         </div>
 
       </div>
+      <script>
+    function maxlengthNumber(ob){
+      console.log(ob.value);
+
+      if(ob.value.length > ob.maxLength){
+
+        ob.value = ob.value.slice(0,ob.maxLength);
+      }
+    }
+
+
+  </script>
+  <!-- funcion de validacion solo numeros-->
+
+
+     <script type="text/javascript">
+function cod_ma(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        cod= "1234567890";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
+
+    <script type="text/javascript">
+function pre_ma(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        pre= "1234567890";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (pre.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
+<script type="text/javascript">
+function cant_ma(evento){
+
+key = evento.keyCode || evento.which;
+ teclado = String.fromCharCode(key).toLocaleLowerCase();
+    can= "1234567890";
+      especiales = "37-38-46";
+
+      teclado_especial = false;
+      for (var i in especiales) {
+          if (key == especiales[i]) {
+              teclado_especial = true; break;
+          }
+      }
+      if (can.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+}
+</script>
+<script type="text/javascript">
+function iv_ma(evento){
+
+key = evento.keyCode || evento.which;
+ teclado = String.fromCharCode(key).toLocaleLowerCase();
+    iva= "1234567890";
+      especiales = "37-38-46";
+
+      teclado_especial = false;
+      for (var i in especiales) {
+          if (key == especiales[i]) {
+              teclado_especial = true; break;
+          }
+      }
+      if (iva.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+}
+</script>
+
+<!-- validacion de texto-->
+
+      <script type="text/javascript">
+function Nom_ma(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        nom = "abcdefghijklmnñopqrstuvwxyz";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
+<!-- validacion de texto-->
+
+      <script type="text/javascript">
+function des_ma(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        des= "abcdefghijklmnñopqrstuvwxyz";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (des.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
       <!-- /.container-fluid -->
 
 
