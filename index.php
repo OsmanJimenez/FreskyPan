@@ -130,10 +130,7 @@ $i = 0;
                 <div class="input-group-prepend">
                         <span class="input-group-text" id="addon-wrapping"> Precio :$ <?php echo $cod ;?></span>
                         </div>
-                       <?php if(isset($_SESSION['cl'])){?>
-                        <a class="btn btn-outline-primary" href="./carritodecompras.php?id=<?php  echo $id;?>">Añadir al carrito de compras</a>
-              <!--  <button type="button" class="btn btn-outline-primary">Comprar</button> -->
-<?php }?>
+
             </div>
         <?php  } }?>
 

@@ -4,39 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Modificar Materia Prima</title>
-   
-  <!-- Font-->
-  <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
-  <!-- Main Style Css -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/style2.css" />
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <!-- Custom favicon for this template-->
-  <link rel="icon" type="image/png" href="../favicon.png" />
-
-  <title>Materia Prima - ERP</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-
-  <!-- Custom calendar -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    <script src="js/validanumericos.js" type="text/javascript"></script>
+  <?php
+    require('Style.php');
+  ?>
 </head>
 
 <div id="wrapper">
@@ -46,9 +17,9 @@
   <?php
     require('menu.php');
     ?>
-    
+
   <!-- End of Sidebar -->
-  
+
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -69,7 +40,7 @@
         $id=$_GET['id'];
         $query="SELECT nombre,precio,estado,cantidad,iva,descripcion FROM MateriaPrima WHERE ID_MATERIAPRIMA='$id'";
         $result=mysqli_query($conn,$query);
-              
+
         $fila=mysqli_fetch_array($result);
         $nom=$fila['nombre'];
         $pre=$fila['precio'];
@@ -96,11 +67,11 @@
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Código</label>
-              <input type="number" name="cod" value="<?php echo $id; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputName" placeholder="" readonly="readonly">
+              <input type="number" name="cod" value="<?php echo $id; ?>" class="form-control"maxlength="11" onkeypress="return cod_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputName" placeholder="" readonly="readonly">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre</label>
-                  <input type="text" name="nom" value="<?php echo $nom; ?>" class="form-control" id="inputName" placeholder="" maxlength="10" required>
+                  <input type="text" name="nom" value="<?php echo $nom; ?>" class="form-control" id="inputName" placeholder=""maxlength="10" onkeypress="return Nom_ma(event)" onpaste="return false" id="inputName" required>
                 </div>
               </div>
 
@@ -108,7 +79,7 @@
 
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" value="<?php echo $pre; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                  <input type="number" name="pre" value="<?php echo $pre; ?>" class="form-control" maxlength="11" onkeypress="return pre_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
@@ -127,22 +98,22 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Cantidad</label>
-                   <input type="number" name="can" value="<?php echo $can; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                   <input type="number" name="can" value="<?php echo $can; ?>" class="form-control" maxlength="11" onkeypress="return cant_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPrice">Iva</label>
-                    <input type="number" name="iva" value="<?php echo $iva; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
-                </div>         
+                    <input type="number" name="iva" value="<?php echo $iva; ?>" class="form-control" maxlength="11" onkeypress="return iv_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
+                </div>
               </div>
-              
+
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required><?php echo $des; ?></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30"  onkeypress="return des_ma(event)"  onpaste="return false" id="inputName" required><?php echo $des; ?></textarea>
                   </div>
-                </div>   
+                </div>
               </div>
 
 
@@ -159,7 +130,7 @@
                     <div class="modal-header">
                     <h4 class="modal-title">Confirmar</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      
+
                     </div>
                     <div class="modal-body">
                       <p>¿Está seguro?</p>
@@ -179,6 +150,141 @@
         </div>
 
       </div>
+      <script>
+    function maxlengthNumber(ob){
+      console.log(ob.value);
+
+      if(ob.value.length > ob.maxLength){
+
+        ob.value = ob.value.slice(0,ob.maxLength);
+      }
+    }
+
+
+  </script>
+  <!-- funcion de validacion solo numeros-->
+
+
+     <script type="text/javascript">
+function cod_ma(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        cod= "1234567890";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
+
+    <script type="text/javascript">
+function pre_ma(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        pre= "1234567890";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (pre.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
+<script type="text/javascript">
+function cant_ma(evento){
+
+key = evento.keyCode || evento.which;
+ teclado = String.fromCharCode(key).toLocaleLowerCase();
+    can= "1234567890";
+      especiales = "37-38-46";
+
+      teclado_especial = false;
+      for (var i in especiales) {
+          if (key == especiales[i]) {
+              teclado_especial = true; break;
+          }
+      }
+      if (can.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+}
+</script>
+<script type="text/javascript">
+function iv_ma(evento){
+
+key = evento.keyCode || evento.which;
+ teclado = String.fromCharCode(key).toLocaleLowerCase();
+    iva= "1234567890";
+      especiales = "37-38-46";
+
+      teclado_especial = false;
+      for (var i in especiales) {
+          if (key == especiales[i]) {
+              teclado_especial = true; break;
+          }
+      }
+      if (iva.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+}
+</script>
+
+<!-- validacion de texto-->
+
+      <script type="text/javascript">
+function Nom_ma(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        nom = "abcdefghijklmnñopqrstuvwxyz";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
+<!-- validacion de texto-->
+
+      <script type="text/javascript">
+function des_ma(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        des= "abcdefghijklmnñopqrstuvwxyz";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (des.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
       <!-- /.container-fluid -->
 
 

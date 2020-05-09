@@ -4,38 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Productos</title>
-   
-  <!-- Font-->
-  <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
-  <!-- Main Style Css -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/style2.css" />
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <!-- Custom favicon for this template-->
-  <link rel="icon" type="image/png" href="../favicon.png" />
-
-  <title>Productos - ERP</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-
-  <!-- Custom calendar -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+  <?php
+    require('Style.php');
+  ?>
 
 </head>
 
@@ -46,9 +18,9 @@
   <?php
     require('menu.php');
     ?>
-    
+
   <!-- End of Sidebar -->
-  
+
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -79,24 +51,24 @@
 
 
               <label for="inputName">Codigo del Producto</label>
-              <input type="number" name="cod" class="form-control" id="inputName" placeholder="">
+              <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return cod_pro(event)" onpaste="return false" placeholder="">
 
               <div class="form-row">
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Producto</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="">
+                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="10" onkeypress="return Nom_pro(event)" onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" id="inputrice" placeholder="">
+                  <input type="number" name="pre" class="form-control" id="inputrice" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return pre_pro(event)" onpaste="return false" placeholder="">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Duración</label>
-                   <input type="number" name="dur" class="form-control" id="inputrice" placeholder="Duración en Dias">
+                   <input type="number" name="dur" class="form-control" id="inputrice" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return dur_pro(event)" onpaste="return false" placeholder="Duración en Dias">
                 </div>
 
 
@@ -109,7 +81,7 @@
                   </select>
                 </div>
               </div>
-              
+
               <div class="form-row">
                 <div class="form-group col-md-6">
 
@@ -133,7 +105,7 @@
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40" onkeypress="return des_pro(event)" onpaste="return false" rows="3"></textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -153,7 +125,7 @@
 
               <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
 
-              
+
 
               <!-- Modal -->
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -174,7 +146,7 @@
                     </div>
                   </div>
                 </div>
-              
+
             </form>
 
             <!--End  Add Example -->
@@ -182,6 +154,120 @@
         </div>
 
       </div>
+
+      <script>
+    function maxlengthNumber(ob){
+      console.log(ob.value);
+
+      if(ob.value.length > ob.maxLength){
+
+        ob.value = ob.value.slice(0,ob.maxLength);
+      }
+    }
+
+
+  </script>
+  <!-- funcion de validacion solo numeros-->
+
+
+     <script type="text/javascript">
+function cod_pro(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        cod= "1234567890";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
+
+    <script type="text/javascript">
+function pre_pro(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        pre= "1234567890";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (pre.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
+<script type="text/javascript">
+function dur_pro(evento){
+
+key = evento.keyCode || evento.which;
+ teclado = String.fromCharCode(key).toLocaleLowerCase();
+    dur= "1234567890";
+      especiales = "37-38-46";
+
+      teclado_especial = false;
+      for (var i in especiales) {
+          if (key == especiales[i]) {
+              teclado_especial = true; break;
+          }
+      }
+      if (dur.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+}
+</script>
+<!-- validacion de texto-->
+
+      <script type="text/javascript">
+function Nom_pro(evento){
+
+    key = evento.keyCode || evento.which;
+     teclado = String.fromCharCode(key).toLocaleLowerCase();
+        nom = "abcdefghijklmnñopqrstuvwxyz";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+              if (key == especiales[i]) {
+                  teclado_especial = true; break;
+              }
+          }
+          if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+          }
+}
+</script>
+<script type="text/javascript">
+function des_pro(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+  des = "abcdefghijklmnñopqrstuvwxyz";
+    especiales = "37-38-46";
+
+    teclado_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            teclado_especial = true; break;
+        }
+    }
+    if (des.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
+    }
+}
+</script>
       <!-- /.container-fluid -->
 
 

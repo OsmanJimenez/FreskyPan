@@ -4,38 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Modificar Lotes</title>
-   
-  <!-- Font-->
-  <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
-  <!-- Main Style Css -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/style2.css" />
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <!-- Custom favicon for this template-->
-  <link rel="icon" type="image/png" href="../favicon.png" />
-
-  <title>Lotes - ERP</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-
-  <!-- Custom calendar -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+  <?php
+    require('Style.php');
+  ?>
 
 </head>
 
@@ -47,7 +19,7 @@
     require('menu.php');
     ?>
     <!-- End of Sidebar -->
-   
+
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -85,59 +57,34 @@
 $cd=$_GET['id'];
 $fe=$_GET['fec'];
 $ca=$_GET['ca'];
-$query2="Select * from produccion where ID_PRODUCCION='$cd' and fechaProduccion='$fe'";
+$query2="Select FK_ID_CATPRODUCTO,unidades from produccion where ID_PRODUCCION='$cd'
+ and fechaProduccion='$fe'";
 $result2=mysqli_query($conn,$query2);
-                             while($fila2=mysqli_fetch_array($result2)){     
-        $Stock=$fila2['cantidadInicial'];
+                             while($fila2=mysqli_fetch_array($result2)){
+        $Stock=$fila2['unidades'];
+        $pro=$fila2['FK_ID_CATPRODUCTO'];
          }
 ?>
             <div class="form-row">
-              <div class="form-group col-md-10">
+              <div class="form-group col-md-11">
                 <label for="inputState">Productos</label>
 
-
-                <table class="table table-bordered" id="datasTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>Nombre del producto</th>
-                      <th>Id del producto</th>
-                      <th>Categoria</th>
-                      <th>Sabor</th>
-                      <th>Descripcion</th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-
-                    <?php require ("../basededatos/listapv3.php");?>
-
-
-                  </tbody>
-                </table>
+                  
+                      <input type="text" name="id" id="prueba" readonly="" value="<?php echo $pro; ?>"class="form-control">
+                  <input type="text" name="idl" value="<?php echo $cd;?>"class="form-control"readonly="">
+                  <input type="text" name="fece" value="<?php echo $fe;?>"class="form-control"readonly="">
+                  <input type="text" name="can" value="<?php echo $ca;?>"class="form-control"readonly="">
 
 
               </div>
-              <div class="form-group col-md-2 text-center">
-                <div class="space-small"></div>
-                <button type="submit" class="btn btn-primary ">Agregar </button>
-                <div class="space-small"></div>
 
-              </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputName">Unidades</label>
                   <input type="number" value="<?php echo $Stock;?>" name="st" class="form-control" id="inputName"
-                    placeholder="">
+                  maxlength="11" onkeypress="return uni_lo(event)" oninput="maxlengthNumber(this)" onpaste="return false"  placeholder="">
 
-                  <input type="hidden" name="id" id="prueba" readonly="">
-                  <input type="hidden" name="idl" value="<?php echo $cd;?>">
-                  <input type="hidden" name="fece" value="<?php echo $fe;?>">
-                  <input type="hidden" name="can" value="<?php echo $ca;?>">
                   <br>
 
                   <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -176,6 +123,41 @@ $result2=mysqli_query($conn,$query2);
             </div>
 
           </div>
+          <script>
+        function maxlengthNumber(ob){
+          console.log(ob.value);
+
+          if(ob.value.length > ob.maxLength){
+
+            ob.value = ob.value.slice(0,ob.maxLength);
+          }
+        }
+
+
+      </script>
+      <!-- funcion de validacion solo numeros-->
+
+
+
+        <script type="text/javascript">
+    function uni_lo(evento){
+
+        key = evento.keyCode || evento.which;
+         teclado = String.fromCharCode(key).toLocaleLowerCase();
+            uni= "1234567890";
+              especiales = "37-38-46";
+
+              teclado_especial = false;
+              for (var i in especiales) {
+                  if (key == especiales[i]) {
+                      teclado_especial = true; break;
+                  }
+              }
+              if (uni.indexOf(teclado) == -1 && !teclado_especial) {
+                  return false;
+              }
+    }
+    </script>
           <!-- /.container-fluid -->
           <script src="vendor/jquery/jquery.min.js"></script>
           <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

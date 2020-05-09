@@ -3,42 +3,11 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Subtipo</title>
+  <title>Modificar Tipo de Producto</title>
 
-   <!-- Custom styles for this template-->
-   <link href="css/sb-admin-2.css" rel="stylesheet">
-   
-  <!-- Font-->
-  <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
-  <!-- Main Style Css -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/style2.css" />
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <!-- Custom favicon for this template-->
-  <link rel="icon" type="image/png" href="../favicon.png" />
-
-  <title>Subtipo - ERP</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-
-  <!-- Custom calendar -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+  <?php
+    require('Style.php');
+  ?>
 
 </head>
 
@@ -86,8 +55,8 @@ $result=mysqli_query($conn,$query);
 $i = 0;
    if(!$result){
 echo "no se pudo",mysqli_error($conn);
-}   
-      $fila=mysqli_fetch_array($result);     
+}
+      $fila=mysqli_fetch_array($result);
         $nomt = $fila['nombre'];
         $idt = $fila['ID_TIPOPRODUCTO'];
         $i++; ?>
@@ -99,16 +68,16 @@ echo "no se pudo",mysqli_error($conn);
                     <div class="form-row">
 
 
-                      
+
 
                       <div class="form-group col-md-4">
                         <div class="space-small"></div>
                         <div class="space-small"></div>
 
                         <label for="inputName">Código</label>
-                        <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" id="inputName" placeholder="" readonly="">
+                        <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_tip(event)" onpaste="return false" id="inputName" placeholder="" readonly="">
                         <label for="inputName">Nombre</label>
-                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" id="inputName" placeholder="">           
+                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" maxlength="11"  onkeypress="return Nom_tip(event)" onpaste="return false" id="inputName" placeholder="">           
                         <div class="space-small"></div>
                         <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -117,7 +86,7 @@ echo "no se pudo",mysqli_error($conn);
                       </div>
                     </div>
 
-                    
+
 
                     <!-- Modal -->
                     <div id="myModal" class="modal fade" role="dialog">
@@ -128,7 +97,7 @@ echo "no se pudo",mysqli_error($conn);
                           <div class="modal-header">
                           <h4 class="modal-title">Confirmar</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            
+
                           </div>
                           <div class="modal-body">
                             <p>Esta seguro</p>
@@ -159,6 +128,61 @@ echo "no se pudo",mysqli_error($conn);
           </div>
 
         </div>
+        <script>
+      function maxlengthNumber(ob){
+        console.log(ob.value);
+
+        if(ob.value.length > ob.maxLength){
+
+          ob.value = ob.value.slice(0,ob.maxLength);
+        }
+      }
+
+
+    </script>
+    <!-- funcion de validacion solo numeros-->
+
+
+       <script type="text/javascript">
+  function cod_tip(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          cd= "1234567890";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (cd.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+  </script>
+  <!-- validacion de texto-->
+
+        <script type="text/javascript">
+  function Nom_tip(evento){
+
+      key = evento.keyCode || evento.which;
+       teclado = String.fromCharCode(key).toLocaleLowerCase();
+          nom = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true; break;
+                }
+            }
+            if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+  }
+  </script>
         <!-- /.container-fluid -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

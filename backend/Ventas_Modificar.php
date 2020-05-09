@@ -4,38 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Modificar Ventas</title>
-   
-  <!-- Font-->
-  <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
-  <!-- Main Style Css -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/style2.css" />
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <!-- Custom favicon for this template-->
-  <link rel="icon" type="image/png" href="../favicon.png" />
-
-  <title>Ventas - ERP</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-
-  <!-- Custom calendar -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+  <?php
+    require('Style.php');
+  ?>
 
 </head>
 
@@ -76,7 +48,7 @@
           <div class="card-body">
             <!-- Add Example -->
             <form action="../basededatos/editarv.php" method="POST">
-              
+
 
 
               <div class="card-header py-3">
@@ -94,46 +66,46 @@ $query="Select * from venta,produccion,venta_produccion where venta.ID_VENTA='$m
         venta.ID_VENTA=venta_produccion.FK_ID_VENTA and
         venta_produccion.FK_ID_PRODUCCION=produccion.ID_PRODUCCION";
 $result=mysqli_query($conn,$query);
-      
-      $fila=mysqli_fetch_array($result); 
+
+      $fila=mysqli_fetch_array($result);
         $idv = $fila['ID_VENTA'];
         $idp = $fila['FK_ID_PRODUCCION'];
         $can=$fila['cantidad'];
         $fecha=$fila['fecha'];
-      
+
         ?>
                 <div class="form-group col-md-6">
                 <label for="inputCantidad">ID Venta</label>
-                  <input type="text" name="cod" class="form-control" id="inputCantidad1" placeholder="" value="<?php echo $idv; ?>">
+                  <input type="text" name="cod" class="form-control"  maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_vent(event)" onpaste="return false" id="inputCantidad1" placeholder="" value="<?php echo $idv; ?>">
                   <div class="space-small"></div>
                   <label for="inputCantidad">ID Producción</label>
-                  <input type="number" name="pro" class="form-control" id="pro" readonly="" placeholder="" value="<?php echo $idp; ?>">
+                  <input type="number" name="pro" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_prod(event)" onpaste="return false" id="pro" readonly="" placeholder="" value="<?php echo $idp; ?>">
                   <label for="inputCantidad">Fecha</label>
                   <input type="date" name="fec" class="form-control" id="inputCantidad3" placeholder="" value="<?php echo $fec; ?>">
                   <label for="inputCantidad">Cantidad</label>
-                  <input type="number" name="can" class="form-control" id="inputCantidad2" placeholder="" value="<?php echo $can; ?>">
+                  <input type="number" name="can" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cant_vent(event)" onpaste="return false" id="inputCantidad2" placeholder="" value="<?php echo $can; ?>">
                   <input type="text" name="st" value="<?php echo $can; ?>">
                   <div class="space-small"></div>
                   <button type="submit" class="btn btn-primary  ">Actualizar</button>
                 </div>
-              </div>  
-              
-              
-
-              
               </div>
 
-              
-            
-              
+
+
+
+              </div>
+
+
+
+
           <input type="hidden" name="id" id="prueba" readonly="">
 
-          
-          
-              
+
+
+
               </form>
-              
-        
+
+
 
           </div>
 
@@ -141,14 +113,88 @@ $result=mysqli_query($conn,$query);
 
 
       </div>
-          
-  </div> 
+
+  </div>
 
           <!--End  Add Example -->
-        
+
 
 </div>
     <!-- /.container-fluid -->
+
+    <script>
+    function maxlengthNumber(ob){
+         console.log(ob.value);
+
+         if(ob.value.length > ob.maxLength){
+
+    ob.value = ob.value.slice(0,ob.maxLength);
+      }
+    }
+
+
+    </script>
+   <!-- funcion de validacion solo numeros-->
+
+
+   <script type="text/javascript">
+   function id_vent(evento){
+
+   key = evento.keyCode || evento.which;
+   teclado = String.fromCharCode(key).toLocaleLowerCase();
+    cod= "1234567890";
+      especiales = "37-38-46";
+
+      teclado_especial = false;
+      for (var i in especiales) {
+          if (key == especiales[i]) {
+              teclado_especial = true; break;
+          }
+      }
+      if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+   }
+   </script>
+
+   <script type="text/javascript">
+   function id_prod(evento){
+
+   key = evento.keyCode || evento.which;
+   teclado = String.fromCharCode(key).toLocaleLowerCase();
+    pro= "1234567890";
+      especiales = "37-38-46";
+
+      teclado_especial = false;
+      for (var i in especiales) {
+          if (key == especiales[i]) {
+              teclado_especial = true; break;
+          }
+      }
+      if (pro.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+   }
+   </script>
+   <script type="text/javascript">
+   function cant_vent(evento){
+
+   key = evento.keyCode || evento.which;
+   teclado = String.fromCharCode(key).toLocaleLowerCase();
+    can= "1234567890";
+      especiales = "37-38-46";
+
+      teclado_especial = false;
+      for (var i in especiales) {
+          if (key == especiales[i]) {
+              teclado_especial = true; break;
+          }
+      }
+      if (can.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+   }
+   </script>
 
 
 
@@ -170,7 +216,7 @@ $result=mysqli_query($conn,$query);
         $(".pr").click(function(){
  var flag=1;
             var valores="";
- 
+
             // Obtenemos todos los valores contenidos en los <td> de la fila
             // seleccionada
             $(this).parents("tr").find("td").each(function(){
@@ -187,8 +233,8 @@ $result=mysqli_query($conn,$query);
                 console.log(flag);
             });
 
-           
-          
+
+
         });
     });
     </script>
@@ -197,7 +243,7 @@ $result=mysqli_query($conn,$query);
         $(".pr2").click(function(){
  var flag=1;
             var valores="";
- 
+
             // Obtenemos todos los valores contenidos en los <td> de la fila
             // seleccionada
             $(this).parents("tr").find("td").each(function(){
@@ -212,8 +258,8 @@ $result=mysqli_query($conn,$query);
                 console.log(flag);
             });
 
-           
-          
+
+
         });
     });
     </script>

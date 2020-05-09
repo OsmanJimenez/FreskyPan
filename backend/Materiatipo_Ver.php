@@ -3,25 +3,26 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Ver Clientes</title>
+  <title>Agregar Pedidos</title>
    
- <!-- Style -->
   <?php
     require('Style.php');
   ?>
+
 </head>
 
 <body id="page-top">
 
+  <!-- Page Wrapper -->
   <div id="wrapper">
 
-   
     <!-- Sidebar -->
     <?php
     require('menu.php');
     ?>
     <!-- End of Sidebar -->
-    
+   
+
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -32,15 +33,16 @@
         <?php
     require('Navigation.php');
     ?>
-
+        <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          
-         <!-- Page Heading -->
+        
+
+           <!-- Page Heading -->
          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Clientes</h1>
+            <h1 class="h3 mb-0 text-gray-800">Pedidos</h1>
             <button type="button" class="btn btn-default dropdown-toggle d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
               data-toggle="dropdown"><i
                 class="fas fa-download fa-sm text-white-50"></i>  Generar Reporte</button>
@@ -57,43 +59,36 @@
               </ul>
 
           </div>
-
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Clientes Ejemplos</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Pedidos ejemplos</h6>
             </div>
+
+
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Cedula</th>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Telefono</th>
-                      <th>Dirección</th>
-                      <th>Estado</th>
-                      <th>Modificar</th>
+                      <th>Numero de pedido</th>
+                      <th>Fecha</th>
+                      <th>Nombre Cliente</th>
                       <th>Opción</th>
-
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                    <th>Cedula</th>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Telefono</th>
-                      <th>Dirección</th>
-                      <th>Estado</th>
-                      <th>Modificar</th>
+                      <th>Numero de pedido</th>
+                      <th>Fecha</th>
+                      <th>Nombre Cliente</th>
                       <th>Opción</th>
                     </tr>
                   </tfoot>
                   <tbody>
 
-                    <?php require ("../basededatos/listac_2.php");?>
+                    <?php require ("../basededatos/listasubt.php");?>
+
                   </tbody>
                 </table>
               </div>
@@ -129,15 +124,15 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Estas seguro?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Selecciones salir apara cerrar la sesión.</div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Salir</a>
+          <a class="btn btn-primary" href="login.html">Logout</a>
         </div>
       </div>
     </div>
@@ -160,13 +155,14 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
 
-   <!-- Page level custom scripts -->
-   <script src="Exportar_Excel.js"></script>
+  <!-- Page level custom scripts -->
+  <script src="Exportar_Excel.js"></script>
 
-  <!-- Export Multi-Scripts -->
-  <?php
+    <!-- Export Multi-Scripts -->
+    <?php
       require('export.php');
     ?>
+
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V1</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -35,7 +35,7 @@
 						Inicio de Sesión
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "El usuario es tu cedula o documento de identidad">
+					<div class="wrap-input100 validate-input" data-validate = "ID de Usuario requerido">
 						<input class="input100" type="text" name="ced" placeholder="Usuario">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -54,25 +54,9 @@
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
 
-							Iniciar Sesión
+							Enviar
 							
 						</button>
-					</div>
-
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Eres nuevo
-						</span>
-						<a class="txt2" href="../nuevo_cliente.php">
-							Registrate
-						</a>
-						<br>
-						<span class="txt1">
-							Olvido su contraseña
-						</span>
-						<a class="txt2" href="../restablecer_contraseña.php">
-							Restablecer 
-						</a>
 					</div>
 
 				</form>

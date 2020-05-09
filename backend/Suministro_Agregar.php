@@ -3,12 +3,11 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Insumo</title>
+  <title>Agregar Suministro</title>
    
   <?php
     require('Style.php');
   ?>
-  
 </head>
 
 <div id="wrapper">
@@ -37,13 +36,13 @@
       <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Agregar Insumos</h1>
-        <p class="mb-4">En este apartado podremos agregar Insumos</a>.</p>
+        <h1 class="h3 mb-2 text-gray-800">Agregar Suministro</h1>
+        <p class="mb-4">En este apartado podremos agregar Suministros</a>.</p>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Insumos</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Suministros</h6>
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->

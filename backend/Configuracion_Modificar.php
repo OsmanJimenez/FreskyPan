@@ -4,38 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Modificar Perfil</title>
-   
-  <!-- Font-->
-  <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
-  <!-- Main Style Css -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/style2.css" />
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <!-- Custom favicon for this template-->
-  <link rel="icon" type="image/png" href="../favicon.png" />
-
-  <title>Perfil - ERP</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
-
-  <!-- Custom calendar -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+  <?php
+    require('Style.php');
+  ?>
 
 </head>
 
@@ -46,9 +18,9 @@
   <?php
     require('menu.php');
     ?>
-    
+
   <!-- End of Sidebar -->
-  
+
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -80,8 +52,8 @@ $mic=$_GET['id'];
 $query="Select * from usuario where ID_USUARIO='$mic'";
 $result=mysqli_query($conn,$query);
 $i = 0;
-      
-      $fila=mysqli_fetch_array($result);     
+
+      $fila=mysqli_fetch_array($result);
         $codigo = $fila['ID_USUARIO'];
         $nombre = $fila['prNombre'];
         $apellido=$fila['prApellido'];
@@ -90,13 +62,13 @@ $i = 0;
             <form action="../basededatos/actuau.php" method="POST" enctype="multipart/form-data">
             <label for="inputName">Codigo del Empleado</label>
             <div class="form-row">
-            
+
               <div class="form-group col-md-11">
-                
-                <input type="number" name="cod" class="form-control" id="inputName" value="<?php echo $codigo;?>" placeholder="" readonly="">
+
+                <input type="number" name="cod" class="form-control" id="inputName" value="<?php echo $codigo;?>"  maxlength="15" oninput="maxlengthNumber(this)" onkeypress="return cod_em(event)" onpaste="return false" placeholder="" readonly="">
               </div>
               <div class="form-group col-md-1">
-           
+
               </div>
             </div>
 
@@ -106,15 +78,15 @@ $i = 0;
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Empleado</label>
-                  <input type="text" name="nom" value="<?php echo $nombre;?>" class="form-control" id="inputName" placeholder="">
+                  <input type="text" name="nom" value="<?php echo $nombre;?>" class="form-control" id="inputName" maxlength="15" onkeypress="return Nom_em(event)" onpaste="return false"  placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Apellido del Empleado</label>
-                  <input type="text" name="ape" class="form-control" value="<?php echo $apellido;?>" id="inputrice" placeholder="">
+                  <input type="text" name="ape" class="form-control" value="<?php echo $apellido;?>" id="inputrice"  maxlength="15" onkeypress="return Ap_em(event)" onpaste="return false" placeholder="">
                 </div>
               </div>
 
-              <div class="form-row">  
+              <div class="form-row">
               <div class="form-group col-md-6">
                   <label for="inputState">Rol</label>
                   <select value="<?php echo $rol;?>"id="inputState" name="rol" class="form-control">
@@ -123,7 +95,7 @@ $i = 0;
                   </select>
                 </div>
               </div>
-              
+
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modificar</button>
 
               <!-- Modal -->
@@ -135,7 +107,7 @@ $i = 0;
                     <div class="modal-header">
                     <h4 class="modal-title">Confirmar</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      
+
                     </div>
                     <div class="modal-body">
                       <p>Esta seguro?</p>
@@ -155,6 +127,85 @@ $i = 0;
         </div>
 
       </div>
+
+      <!-- validacion de longitud de campo numerico-->
+              <script>
+            function maxlengthNumber(ob){
+              console.log(ob.value);
+
+              if(ob.value.length > ob.maxLength){
+
+                ob.value = ob.value.slice(0,ob.maxLength);
+              }
+            }
+
+
+          </script>
+          <!-- funcion de validacion solo numeros-->
+
+
+             <script type="text/javascript">
+        function cod_em(evento){
+
+            key = evento.keyCode || evento.which;
+             teclado = String.fromCharCode(key).toLocaleLowerCase();
+                cod= "1234567890";
+                  especiales = "37-38-46";
+
+                  teclado_especial = false;
+                  for (var i in especiales) {
+                      if (key == especiales[i]) {
+                          teclado_especial = true; break;
+                      }
+                  }
+                  if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+                      return false;
+                  }
+        }
+       </script>
+       <!-- validacion de texto-->
+
+              <script type="text/javascript">
+        function Nom_em(evento){
+
+            key = evento.keyCode || evento.which;
+             teclado = String.fromCharCode(key).toLocaleLowerCase();
+                nom = "abcdefghijklmnñopqrstuvwxyz";
+                  especiales = "37-38-46";
+
+                  teclado_especial = false;
+                  for (var i in especiales) {
+                      if (key == especiales[i]) {
+                          teclado_especial = true; break;
+                      }
+                  }
+                  if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+                      return false;
+                  }
+        }
+       </script>
+      </script>
+      <!-- validacion de texto-->
+
+             <script type="text/javascript">
+       function Ap_em(evento){
+
+           key = evento.keyCode || evento.which;
+            teclado = String.fromCharCode(key).toLocaleLowerCase();
+               ape = "abcdefghijklmnñopqrstuvwxyz";
+                 especiales = "37-38-46";
+
+                 teclado_especial = false;
+                 for (var i in especiales) {
+                     if (key == especiales[i]) {
+                         teclado_especial = true; break;
+                     }
+                 }
+                 if (ape.indexOf(teclado) == -1 && !teclado_especial) {
+                     return false;
+                 }
+       }
+      </script>
       <!-- /.container-fluid -->
 
 
