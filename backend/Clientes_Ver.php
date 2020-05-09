@@ -134,7 +134,7 @@ session_start();
         <div class="modal-body">Selecciones salir apara cerrar la sesión.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Salir</a>
+          <a class="btn btn-primary" href="../salir.php">Salir</a>
         </div>
       </div>
     </div>

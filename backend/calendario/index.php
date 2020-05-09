@@ -622,7 +622,7 @@ if (isset($_POST['from']))
         <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
         <div class="modal-footer">
           <button class="btn d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="../login.html">Logout</a>
+          <a class="btn d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="../../salir.php">Logout</a>
         </div>
       </div>
     </div>
