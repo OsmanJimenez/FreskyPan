@@ -1,4 +1,5 @@
 <?php session_start();
+if((isset($_SESSION['cl']))){
 $id = $_SESSION['cl']['id_u'];
 $no = $_SESSION['cl']['nom'];
 $ape = $_SESSION['cl']['ape'];
@@ -101,3 +102,12 @@ $ape = $_SESSION['cl']['ape'];
 </body>
 
 </html>
+<?php }
+else if(!(isset($_SESSION['cl']))){
+  ?>
+<script>
+alert('Primero inicie sesión');
+  window.location.href='../login/index.php';
+</script><?php
+}
+ ?>
