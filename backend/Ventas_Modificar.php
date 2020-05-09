@@ -6,7 +6,7 @@
   <title>Modificar Ventas</title>
 
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -14,10 +14,9 @@
 <div id="wrapper">
 
   <!-- Sidebar -->
-  <!-- Sidebar -->
   <?php
-    require('menu.php');
-    ?>
+  require('menu.php');
+  ?>
   <!-- End of Sidebar -->
 
   <!-- Content Wrapper -->
@@ -28,8 +27,8 @@
 
       <!-- Topbar -->
       <?php
-    require('Navigation.php');
-    ?>
+      require('Navigation.php');
+      ?>
       <!-- End of -->
       <!-- Begin Page Content -->
       <div class="container-fluid">
@@ -60,23 +59,23 @@
                 <div class="form-group col-md-6">
 
                 </div>
- <?php require ("../basededatos/connectionbd.php");
-$mic=$_GET['id'];
-$query="Select * from venta,produccion,venta_produccion where venta.ID_VENTA='$mic' and
+                <?php require("../basededatos/connectionbd.php");
+                $mic = $_GET['id'];
+                $query = "Select * from venta,produccion,venta_produccion where venta.ID_VENTA='$mic' and
         venta.ID_VENTA=venta_produccion.FK_ID_VENTA and
         venta_produccion.FK_ID_PRODUCCION=produccion.ID_PRODUCCION";
-$result=mysqli_query($conn,$query);
+                $result = mysqli_query($conn, $query);
 
-      $fila=mysqli_fetch_array($result);
-        $idv = $fila['ID_VENTA'];
-        $idp = $fila['FK_ID_PRODUCCION'];
-        $can=$fila['cantidad'];
-        $fecha=$fila['fecha'];
+                $fila = mysqli_fetch_array($result);
+                $idv = $fila['ID_VENTA'];
+                $idp = $fila['FK_ID_PRODUCCION'];
+                $can = $fila['cantidad'];
+                $fecha = $fila['fecha'];
 
-        ?>
+                ?>
                 <div class="form-group col-md-6">
-                <label for="inputCantidad">ID Venta</label>
-                  <input type="text" name="cod" class="form-control"  maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_vent(event)" onpaste="return false" id="inputCantidad1" placeholder="" value="<?php echo $idv; ?>">
+                  <label for="inputCantidad">ID Venta</label>
+                  <input type="text" name="cod" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_vent(event)" onpaste="return false" id="inputCantidad1" placeholder="" value="<?php echo $idv; ?>">
                   <div class="space-small"></div>
                   <label for="inputCantidad">ID Producción</label>
                   <input type="number" name="pro" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_prod(event)" onpaste="return false" id="pro" readonly="" placeholder="" value="<?php echo $idp; ?>">
@@ -93,7 +92,7 @@ $result=mysqli_query($conn,$query);
 
 
 
-              </div>
+          </div>
 
 
 
@@ -103,98 +102,99 @@ $result=mysqli_query($conn,$query);
 
 
 
-              </form>
+          </form>
 
 
-
-          </div>
 
         </div>
 
-
       </div>
+
+
+    </div>
 
   </div>
 
-          <!--End  Add Example -->
+  <!--End  Add Example -->
 
 
 </div>
-    <!-- /.container-fluid -->
+<!-- /.container-fluid -->
 
-    <script>
-    function maxlengthNumber(ob){
-         console.log(ob.value);
+<script>
+  function maxlengthNumber(ob) {
+    console.log(ob.value);
 
-         if(ob.value.length > ob.maxLength){
+    if (ob.value.length > ob.maxLength) {
 
-    ob.value = ob.value.slice(0,ob.maxLength);
+      ob.value = ob.value.slice(0, ob.maxLength);
+    }
+  }
+</script>
+<!-- funcion de validacion solo numeros-->
+
+
+<script type="text/javascript">
+  function id_vent(evento) {
+
+    key = evento.keyCode || evento.which;
+    teclado = String.fromCharCode(key).toLocaleLowerCase();
+    cod = "1234567890";
+    especiales = "37-38-46";
+
+    teclado_especial = false;
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        teclado_especial = true;
+        break;
       }
     }
+    if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+      return false;
+    }
+  }
+</script>
 
+<script type="text/javascript">
+  function id_prod(evento) {
 
-    </script>
-   <!-- funcion de validacion solo numeros-->
+    key = evento.keyCode || evento.which;
+    teclado = String.fromCharCode(key).toLocaleLowerCase();
+    pro = "1234567890";
+    especiales = "37-38-46";
 
-
-   <script type="text/javascript">
-   function id_vent(evento){
-
-   key = evento.keyCode || evento.which;
-   teclado = String.fromCharCode(key).toLocaleLowerCase();
-    cod= "1234567890";
-      especiales = "37-38-46";
-
-      teclado_especial = false;
-      for (var i in especiales) {
-          if (key == especiales[i]) {
-              teclado_especial = true; break;
-          }
+    teclado_especial = false;
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        teclado_especial = true;
+        break;
       }
-      if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-          return false;
+    }
+    if (pro.indexOf(teclado) == -1 && !teclado_especial) {
+      return false;
+    }
+  }
+</script>
+<script type="text/javascript">
+  function cant_vent(evento) {
+
+    key = evento.keyCode || evento.which;
+    teclado = String.fromCharCode(key).toLocaleLowerCase();
+    can = "1234567890";
+    especiales = "37-38-46";
+
+    teclado_especial = false;
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        teclado_especial = true;
+        break;
       }
-   }
-   </script>
-
-   <script type="text/javascript">
-   function id_prod(evento){
-
-   key = evento.keyCode || evento.which;
-   teclado = String.fromCharCode(key).toLocaleLowerCase();
-    pro= "1234567890";
-      especiales = "37-38-46";
-
-      teclado_especial = false;
-      for (var i in especiales) {
-          if (key == especiales[i]) {
-              teclado_especial = true; break;
-          }
-      }
-      if (pro.indexOf(teclado) == -1 && !teclado_especial) {
-          return false;
-      }
-   }
-   </script>
-   <script type="text/javascript">
-   function cant_vent(evento){
-
-   key = evento.keyCode || evento.which;
-   teclado = String.fromCharCode(key).toLocaleLowerCase();
-    can= "1234567890";
-      especiales = "37-38-46";
-
-      teclado_especial = false;
-      for (var i in especiales) {
-          if (key == especiales[i]) {
-              teclado_especial = true; break;
-          }
-      }
-      if (can.indexOf(teclado) == -1 && !teclado_especial) {
-          return false;
-      }
-   }
-   </script>
+    }
+    if (can.indexOf(teclado) == -1 && !teclado_especial) {
+      return false;
+    }
+  }
+</script>
 
 
 
@@ -202,80 +202,83 @@ $result=mysqli_query($conn,$query);
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-      function cambia(text) {
-        //  var text = document.getElementById('sd').value;
-        document.getElementById('pro').value = text;
-      }
-    </script>
-    <script>
-    $(document).ready(function(){
-        $(".pr").click(function(){
- var flag=1;
-            var valores="";
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+  function cambia(text) {
+    //  var text = document.getElementById('sd').value;
+    document.getElementById('pro').value = text;
+  }
+</script>
+<script>
+  $(document).ready(function() {
+    $(".pr").click(function() {
+      var flag = 1;
+      var valores = "";
 
-            // Obtenemos todos los valores contenidos en los <td> de la fila
-            // seleccionada
-            $(this).parents("tr").find("td").each(function(){
+      // Obtenemos todos los valores contenidos en los <td> de la fila
+      // seleccionada
+      $(this).parents("tr").find("td").each(function() {
 
-                valores=$(this).html();
-                if(flag==2){
-                document.getElementById('inputCantidad1').value = valores;}
-                if(flag==5){
-                document.getElementById('inputCantidad2').value = valores;
-                }
-                if(flag==6){
-                document.getElementById('inputCantidad3').value = valores;}
-                flag+=1;
-                console.log(flag);
-            });
+        valores = $(this).html();
+        if (flag == 2) {
+          document.getElementById('inputCantidad1').value = valores;
+        }
+        if (flag == 5) {
+          document.getElementById('inputCantidad2').value = valores;
+        }
+        if (flag == 6) {
+          document.getElementById('inputCantidad3').value = valores;
+        }
+        flag += 1;
+        console.log(flag);
+      });
 
 
 
-        });
     });
-    </script>
-        <script>
-    $(document).ready(function(){
-        $(".pr2").click(function(){
- var flag=1;
-            var valores="";
+  });
+</script>
+<script>
+  $(document).ready(function() {
+    $(".pr2").click(function() {
+      var flag = 1;
+      var valores = "";
 
-            // Obtenemos todos los valores contenidos en los <td> de la fila
-            // seleccionada
-            $(this).parents("tr").find("td").each(function(){
+      // Obtenemos todos los valores contenidos en los <td> de la fila
+      // seleccionada
+      $(this).parents("tr").find("td").each(function() {
 
-                valores=$(this).html();
-                if(flag==2){
-                document.getElementById('inputCantidad5').value = valores;}
-                if(flag==4){
-                document.getElementById('inputCantidad6').value = valores;
-                }
-                flag+=1;
-                console.log(flag);
-            });
+        valores = $(this).html();
+        if (flag == 2) {
+          document.getElementById('inputCantidad5').value = valores;
+        }
+        if (flag == 4) {
+          document.getElementById('inputCantidad6').value = valores;
+        }
+        flag += 1;
+        console.log(flag);
+      });
 
 
 
-        });
     });
-    </script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  });
+</script>
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+<!-- Page level custom scripts -->
+<script src="js/demo/datatables-demo.js"></script>
 
-    </body>
+</body>
 
 </html>

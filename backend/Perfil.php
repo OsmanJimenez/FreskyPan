@@ -1,17 +1,17 @@
 <?php session_start();
-$id=$_SESSION['cl']['id_u'];
-$no=$_SESSION['cl']['nom'];
-$ape=$_SESSION['cl']['ape'];
- ?>
+$id = $_SESSION['cl']['id_u'];
+$no = $_SESSION['cl']['nom'];
+$ape = $_SESSION['cl']['ape'];
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <title>Perfil</title>
-   
+
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -34,14 +34,14 @@ $ape=$_SESSION['cl']['ape'];
 
         <!-- Topbar -->
         <?php
-    require('Navigation.php');
-    ?>
+        require('Navigation.php');
+        ?>
         <!-- End of -->
 
-       <!-- Begin Page Content -->
+        <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          
+
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -66,9 +66,9 @@ $ape=$_SESSION['cl']['ape'];
                     <img src="../img/panadero.jpg" width="200" height="200" class="rounded-circle mx-auto d-block" alt="imagen del usuario">
                   </div>
                 </div>
-                
 
-                
+
+
 
 
 

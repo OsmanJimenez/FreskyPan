@@ -13,14 +13,11 @@
 
 <div id="wrapper">
 
-
   <!-- Sidebar -->
   <?php
     require('menu.php');
     ?>
-
   <!-- End of Sidebar -->
-
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -49,7 +46,6 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Modificar Bodegas</h1>
-        <p class="mb-4">En este apartado podremos modificar las Bodegas registradas en el sistema</a>.</p>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -69,7 +65,6 @@
                     <textarea name="des" class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return des_1(event)" onpaste="return false" required><?php echo $des; ?></textarea>
                   </div>
                 </div>
-
 
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
@@ -94,13 +89,14 @@
                   <!-- Modal content-->
                   <div class="modal-content">
                     <div class="modal-header">
-                    <h4 class="modal-title">Confirmar</h4>
+                      <h4 class="modal-title">Confirmar</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-
                     </div>
+
                     <div class="modal-body">
                       <p>Está seguro?</p>
                     </div>
+
                     <div class="modal-footer">
                       <button type="submit" class="btn btn-primary">Sí</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">No</button>

@@ -1,10 +1,8 @@
 <?php
 require ("connectionbd.php");
-$query="Select * from pedidos";
+$query="SELECT * FROM Pedido";
 $result=mysqli_query($conn,$query);
 $i = 0;
-			
-
 			while($fila=mysqli_fetch_array($result)){			
 				$des = $fila['Id_ped'];
 				$cod = $fila['Fec_ped'];

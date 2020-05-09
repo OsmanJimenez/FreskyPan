@@ -29,11 +29,11 @@
       <!-- Main Content -->
       <div id="content">
 
-        <!-- Topbar -->
-        <?php
-    require('Navigation.php');
+    <!-- Topbar -->
+    <?php
+      require('Navigation.php');
     ?>
-        <!-- End of Topbar -->
+    <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -46,7 +46,7 @@
                 class="fas fa-download fa-sm text-white-50"></i>  Generar Reporte</button>
 
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'txt'});"><img src='icons/txt.png' alt="TXT" style="width:24px">TXT</a></li>
+                    <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'txt'});"><img src='icons/txt.png' alt="TXT" style="width:24px">TXT</a></li>
                 <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'json'});"> <img src='icons/json.png' alt="JSON" style="width:24px"> JSON</a></li>
                 <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'xml'});"> <img src='icons/xml.png' alt="XML" style="width:24px"> XML</a></li>
                 <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'sql'});"> <img src='icons/sql.png' alt="SQL" style="width:24px"> SQL</a></li>
@@ -58,7 +58,6 @@
 
           </div>
 
-          <p class="mb-4">Aquí encontrará información acerca de las Bodegas.</a>.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">

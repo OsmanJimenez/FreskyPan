@@ -6,7 +6,7 @@
   <title>Modificar Perfil</title>
 
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -16,11 +16,9 @@
 
   <!-- Sidebar -->
   <?php
-    require('menu.php');
-    ?>
-
+  require('menu.php');
+  ?>
   <!-- End of Sidebar -->
-
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -30,8 +28,8 @@
 
       <!-- Topbar -->
       <?php
-    require('Navigation.php');
-    ?>
+      require('Navigation.php');
+      ?>
       <!-- End of -->
       <!-- Begin Page Content -->
       <div class="container-fluid">
@@ -47,56 +45,58 @@
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-                    <?php require ("../basededatos/connectionbd.php");
-$mic=$_GET['id'];
-$query="Select * from usuario where ID_USUARIO='$mic'";
-$result=mysqli_query($conn,$query);
-$i = 0;
+            <?php require("../basededatos/connectionbd.php");
+            $mic = $_GET['id'];
+            $query = "Select * from usuario where ID_USUARIO='$mic'";
+            $result = mysqli_query($conn, $query);
+            $i = 0;
 
-      $fila=mysqli_fetch_array($result);
-        $codigo = $fila['ID_USUARIO'];
-        $nombre = $fila['prNombre'];
-        $apellido=$fila['prApellido'];
-        $rol= $fila['rol'];
-        $i++; ?>
+            $fila = mysqli_fetch_array($result);
+            $codigo = $fila['ID_USUARIO'];
+            $nombre = $fila['prNombre'];
+            $apellido = $fila['prApellido'];
+            $rol = $fila['rol'];
+            $i++; ?>
             <form action="../basededatos/actuau.php" method="POST" enctype="multipart/form-data">
-            <label for="inputName">Codigo del Empleado</label>
-            <div class="form-row">
+              <label for="inputName">Codigo del Empleado</label>
+              <div class="form-row">
 
-              <div class="form-group col-md-11">
+                <div class="form-group col-md-11">
+                  <input type="number" name="cod" class="form-control" id="inputName" value="<?php echo $codigo; ?>"
+                    maxlength="15" oninput="maxlengthNumber(this)" onkeypress="return cod_em(event)"
+                    onpaste="return false" placeholder="" readonly="">
+                </div>
+                <div class="form-group col-md-1">
 
-                <input type="number" name="cod" class="form-control" id="inputName" value="<?php echo $codigo;?>"  maxlength="15" oninput="maxlengthNumber(this)" onkeypress="return cod_em(event)" onpaste="return false" placeholder="" readonly="">
+                </div>
               </div>
-              <div class="form-group col-md-1">
-
-              </div>
-            </div>
-
-
 
               <div class="form-row">
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Empleado</label>
-                  <input type="text" name="nom" value="<?php echo $nombre;?>" class="form-control" id="inputName" maxlength="15" onkeypress="return Nom_em(event)" onpaste="return false"  placeholder="">
+                  <input type="text" name="nom" value="<?php echo $nombre; ?>" class="form-control" id="inputName"
+                    maxlength="15" onkeypress="return Nom_em(event)" onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Apellido del Empleado</label>
-                  <input type="text" name="ape" class="form-control" value="<?php echo $apellido;?>" id="inputrice"  maxlength="15" onkeypress="return Ap_em(event)" onpaste="return false" placeholder="">
+                  <input type="text" name="ape" class="form-control" value="<?php echo $apellido; ?>" id="inputrice"
+                    maxlength="15" onkeypress="return Ap_em(event)" onpaste="return false" placeholder="">
                 </div>
               </div>
 
               <div class="form-row">
-              <div class="form-group col-md-6">
+                <div class="form-group col-md-6">
                   <label for="inputState">Rol</label>
-                  <select value="<?php echo $rol;?>"id="inputState" name="rol" class="form-control">
+                  <select value="<?php echo $rol; ?>" id="inputState" name="rol" class="form-control">
                     <option>Administrador</option>
                     <option>Empleado</option>
                   </select>
                 </div>
               </div>
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modificar</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#myModal">Modificar</button>
 
               <!-- Modal -->
               <div id="myModal" class="modal fade" role="dialog">
@@ -105,7 +105,7 @@ $i = 0;
                   <!-- Modal content-->
                   <div class="modal-content">
                     <div class="modal-header">
-                    <h4 class="modal-title">Confirmar</h4>
+                      <h4 class="modal-title">Confirmar</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                     </div>
@@ -129,82 +129,83 @@ $i = 0;
       </div>
 
       <!-- validacion de longitud de campo numerico-->
-              <script>
-            function maxlengthNumber(ob){
-              console.log(ob.value);
+      <script>
+        function maxlengthNumber(ob) {
+          console.log(ob.value);
 
-              if(ob.value.length > ob.maxLength){
+          if (ob.value.length > ob.maxLength) {
 
-                ob.value = ob.value.slice(0,ob.maxLength);
-              }
+            ob.value = ob.value.slice(0, ob.maxLength);
+          }
+        }
+      </script>
+      <!-- funcion de validacion solo numeros-->
+
+
+      <script type="text/javascript">
+        function cod_em(evento) {
+
+          key = evento.keyCode || evento.which;
+          teclado = String.fromCharCode(key).toLocaleLowerCase();
+          cod = "1234567890";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+            if (key == especiales[i]) {
+              teclado_especial = true;
+              break;
             }
-
-
-          </script>
-          <!-- funcion de validacion solo numeros-->
-
-
-             <script type="text/javascript">
-        function cod_em(evento){
-
-            key = evento.keyCode || evento.which;
-             teclado = String.fromCharCode(key).toLocaleLowerCase();
-                cod= "1234567890";
-                  especiales = "37-38-46";
-
-                  teclado_especial = false;
-                  for (var i in especiales) {
-                      if (key == especiales[i]) {
-                          teclado_especial = true; break;
-                      }
-                  }
-                  if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-                      return false;
-                  }
+          }
+          if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+          }
         }
-       </script>
-       <!-- validacion de texto-->
-
-              <script type="text/javascript">
-        function Nom_em(evento){
-
-            key = evento.keyCode || evento.which;
-             teclado = String.fromCharCode(key).toLocaleLowerCase();
-                nom = "abcdefghijklmnñopqrstuvwxyz";
-                  especiales = "37-38-46";
-
-                  teclado_especial = false;
-                  for (var i in especiales) {
-                      if (key == especiales[i]) {
-                          teclado_especial = true; break;
-                      }
-                  }
-                  if (nom.indexOf(teclado) == -1 && !teclado_especial) {
-                      return false;
-                  }
-        }
-       </script>
       </script>
       <!-- validacion de texto-->
 
-             <script type="text/javascript">
-       function Ap_em(evento){
+      <script type="text/javascript">
+        function Nom_em(evento) {
 
-           key = evento.keyCode || evento.which;
-            teclado = String.fromCharCode(key).toLocaleLowerCase();
-               ape = "abcdefghijklmnñopqrstuvwxyz";
-                 especiales = "37-38-46";
+          key = evento.keyCode || evento.which;
+          teclado = String.fromCharCode(key).toLocaleLowerCase();
+          nom = "abcdefghijklmnñopqrstuvwxyz";
+          especiales = "37-38-46";
 
-                 teclado_especial = false;
-                 for (var i in especiales) {
-                     if (key == especiales[i]) {
-                         teclado_especial = true; break;
-                     }
-                 }
-                 if (ape.indexOf(teclado) == -1 && !teclado_especial) {
-                     return false;
-                 }
-       }
+          teclado_especial = false;
+          for (var i in especiales) {
+            if (key == especiales[i]) {
+              teclado_especial = true;
+              break;
+            }
+          }
+          if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+          }
+        }
+      </script>
+      </script>
+      <!-- validacion de texto-->
+
+      <script type="text/javascript">
+        function Ap_em(evento) {
+
+          key = evento.keyCode || evento.which;
+          teclado = String.fromCharCode(key).toLocaleLowerCase();
+          ape = "abcdefghijklmnñopqrstuvwxyz";
+          especiales = "37-38-46";
+
+          teclado_especial = false;
+          for (var i in especiales) {
+            if (key == especiales[i]) {
+              teclado_especial = true;
+              break;
+            }
+          }
+          if (ape.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+          }
+        }
       </script>
       <!-- /.container-fluid -->
 

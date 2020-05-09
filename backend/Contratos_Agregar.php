@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Contratos</title>
-   
+
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -29,8 +29,8 @@
 
         <!-- Topbar -->
         <?php
-    require('Navigation.php');
-    ?>
+        require('Navigation.php');
+        ?>
         <!-- End of
         Begin Page Content -->
         <div class="container-fluid">
@@ -81,7 +81,7 @@
 
                       <tbody>
 
-                        <?php require ("../basededatos/listac2.php");?>
+                        <?php require("../basededatos/listac2.php"); ?>
 
 
                       </tbody>
@@ -145,7 +145,7 @@
 
                       <tbody>
 
-                        <?php require ("../basededatos/listap2.php");?>
+                        <?php require("../basededatos/listap2.php"); ?>
 
 
                       </tbody>

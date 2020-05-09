@@ -6,7 +6,7 @@
   <title>Modificar Tipo de Producto</title>
 
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -29,8 +29,8 @@
 
         <!-- Topbar -->
         <?php
-    require('Navigation.php');
-    ?>
+        require('Navigation.php');
+        ?>
         <!-- End of
         Begin Page Content -->
         <div class="container-fluid">
@@ -47,19 +47,19 @@
 
 
             <div class="card-body">
-<?php
-require ("../basededatos/connectionbd.php");
-$mic=$_GET['idc'];
-$query="Select * from tipoproducto where ID_TIPOPRODUCTO='$mic'";
-$result=mysqli_query($conn,$query);
-$i = 0;
-   if(!$result){
-echo "no se pudo",mysqli_error($conn);
-}
-      $fila=mysqli_fetch_array($result);
-        $nomt = $fila['nombre'];
-        $idt = $fila['ID_TIPOPRODUCTO'];
-        $i++; ?>
+              <?php
+              require("../basededatos/connectionbd.php");
+              $mic = $_GET['idc'];
+              $query = "Select * from tipoproducto where ID_TIPOPRODUCTO='$mic'";
+              $result = mysqli_query($conn, $query);
+              $i = 0;
+              if (!$result) {
+                echo "no se pudo", mysqli_error($conn);
+              }
+              $fila = mysqli_fetch_array($result);
+              $nomt = $fila['nombre'];
+              $idt = $fila['ID_TIPOPRODUCTO'];
+              $i++; ?>
               <form action="../basededatos/actuati.php" method="POST">
 
                 <div class="form-row">
@@ -77,11 +77,10 @@ echo "no se pudo",mysqli_error($conn);
                         <label for="inputName">Código</label>
                         <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_tip(event)" onpaste="return false" id="inputName" placeholder="" readonly="">
                         <label for="inputName">Nombre</label>
-                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" maxlength="11"  onkeypress="return Nom_tip(event)" onpaste="return false" id="inputName" placeholder="">           
+                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" maxlength="11" onkeypress="return Nom_tip(event)" onpaste="return false" id="inputName" placeholder="">
                         <div class="space-small"></div>
                         <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                      data-target="#myModal">Actualizar</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
 
                       </div>
                     </div>
@@ -95,7 +94,7 @@ echo "no se pudo",mysqli_error($conn);
                         <!-- Modal content-->
                         <div class="modal-content">
                           <div class="modal-header">
-                          <h4 class="modal-title">Confirmar</h4>
+                            <h4 class="modal-title">Confirmar</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                           </div>
@@ -129,60 +128,60 @@ echo "no se pudo",mysqli_error($conn);
 
         </div>
         <script>
-      function maxlengthNumber(ob){
-        console.log(ob.value);
+          function maxlengthNumber(ob) {
+            console.log(ob.value);
 
-        if(ob.value.length > ob.maxLength){
+            if (ob.value.length > ob.maxLength) {
 
-          ob.value = ob.value.slice(0,ob.maxLength);
-        }
-      }
-
-
-    </script>
-    <!-- funcion de validacion solo numeros-->
-
-
-       <script type="text/javascript">
-  function cod_tip(evento){
-
-      key = evento.keyCode || evento.which;
-       teclado = String.fromCharCode(key).toLocaleLowerCase();
-          cd= "1234567890";
-            especiales = "37-38-46";
-
-            teclado_especial = false;
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true; break;
-                }
+              ob.value = ob.value.slice(0, ob.maxLength);
             }
-            if (cd.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
-            }
-  }
-  </script>
-  <!-- validacion de texto-->
+          }
+        </script>
+        <!-- funcion de validacion solo numeros-->
+
 
         <script type="text/javascript">
-  function Nom_tip(evento){
+          function cod_tip(evento) {
 
-      key = evento.keyCode || evento.which;
-       teclado = String.fromCharCode(key).toLocaleLowerCase();
-          nom = "abcdefghijklmnñopqrstuvwxyz";
+            key = evento.keyCode || evento.which;
+            teclado = String.fromCharCode(key).toLocaleLowerCase();
+            cd = "1234567890";
             especiales = "37-38-46";
 
             teclado_especial = false;
             for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true; break;
-                }
+              if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+              }
+            }
+            if (cd.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+            }
+          }
+        </script>
+        <!-- validacion de texto-->
+
+        <script type="text/javascript">
+          function Nom_tip(evento) {
+
+            key = evento.keyCode || evento.which;
+            teclado = String.fromCharCode(key).toLocaleLowerCase();
+            nom = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+              if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+              }
             }
             if (nom.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
+              return false;
             }
-  }
-  </script>
+          }
+        </script>
         <!-- /.container-fluid -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
