@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Facturas</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -76,10 +76,10 @@
           <div class="card-body">
             <!-- Add Example -->
             <form action="../basededatos/agregap.php" method="POST">
-              
 
 
-              
+
+
               <div class="space-small"></div>
 
               <div class="form-row">
@@ -94,19 +94,19 @@
                       <th>Fecha</th>
                       <th>Exigencia</th>
                       <th>Estado</th>
-                      
+
 
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th></th>
-                      
+
                       <th>ID</th>
                       <th>Plazo</th>
                       <th>Fecha</th>
                       <th>Exigencia</th>
-                      <th>Estado</th>                 
+                      <th>Estado</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -119,33 +119,33 @@
 
                 <div class="form-group col-md-6">
                 <label for="inputCantidad">ID Pedido</label>
-                  <input type="text" name="ced" class="form-control" id="inputCantidad1" placeholder="">
+                  <input type="text" name="ced" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_pe(event)" onpaste="return false" id="inputCantidad1" placeholder="">
                   <div class="space-small"></div>
                   <label for="inputCantidad">ID Factura</label>
-                  <input type="number" name="a1" class="form-control" id="inputCantidad2" placeholder="">
+                  <input type="number" name="a1" class="form-control" maxlength="11"  onkeypress="return id_fa(event)" onpaste="return false" id="inputCantidad2" placeholder="">
                   <label for="inputCantidad">Fecha</label>
                   <input type="date" name="dire" class="form-control" id="inputCantidad3" placeholder="">
                   <div class="space-small"></div>
                   <button type="submit" class="btn btn-primary float-right">Agregar</button>
                 </div>
-              </div>  
-              
-              
-
-              
               </div>
 
-              
-            
-              
+
+
+
+              </div>
+
+
+
+
           <input type="hidden" name="id" id="prueba" readonly="">
 
-          
-          
-              
+
+
+
               </form>
-              
-          
+
+
 
           </div>
 
@@ -153,13 +153,66 @@
 
 
       </div>
-          
-  </div> 
+
+  </div>
 
           <!--End  Add Example -->
-        
+
 
 </div>
+<script>
+function maxlengthNumber(ob){
+console.log(ob.value);
+
+if(ob.value.length > ob.maxLength){
+
+  ob.value = ob.value.slice(0,ob.maxLength);
+}
+}
+
+
+</script>
+<!-- funcion de validacion solo numeros-->
+
+
+<script type="text/javascript">
+function id_pe(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+  ced= "1234567890";
+    especiales = "37-38-46";
+
+    teclado_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            teclado_especial = true; break;
+        }
+    }
+    if (ced.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
+    }
+}
+
+<script type="text/javascript">
+function id_fa(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+  a1= "1234567890";
+    especiales = "37-38-46";
+
+    teclado_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            teclado_especial = true; break;
+        }
+    }
+    if (a1.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
+    }
+}
+</script>
     <!-- /.container-fluid -->
 
 
@@ -182,7 +235,7 @@
         $(".pr").click(function(){
  var flag=1;
             var valores="";
- 
+
             // Obtenemos todos los valores contenidos en los <td> de la fila
             // seleccionada
             $(this).parents("tr").find("td").each(function(){
@@ -199,8 +252,8 @@
                 console.log(flag);
             });
 
-           
-          
+
+
         });
     });
     </script>
@@ -209,7 +262,7 @@
         $(".pr2").click(function(){
  var flag=1;
             var valores="";
- 
+
             // Obtenemos todos los valores contenidos en los <td> de la fila
             // seleccionada
             $(this).parents("tr").find("td").each(function(){
@@ -224,8 +277,8 @@
                 console.log(flag);
             });
 
-           
-          
+
+
         });
     });
     </script>
