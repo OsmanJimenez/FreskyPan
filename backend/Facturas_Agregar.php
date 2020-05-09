@@ -176,7 +176,7 @@ if(ob.value.length > ob.maxLength){
 
 
 <script type="text/javascript">
-function id_pe(evento){
+function id_ped(evento){
 
 key = evento.keyCode || evento.which;
 teclado = String.fromCharCode(key).toLocaleLowerCase();
@@ -193,6 +193,7 @@ teclado = String.fromCharCode(key).toLocaleLowerCase();
         return false;
     }
 }
+</script>
 
 <script type="text/javascript">
 function id_fa(evento){
