@@ -59,8 +59,8 @@
         <div id="collapseLotes" class="collapse" aria-labelledby="headingLotes" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Ventas:</h6>
-            <a class="collapse-item" href="Ventas_agregar.php">Agregar</a>
-            <a class="collapse-item" href="Ventas_ver.php">Ver</a>
+            <a class="collapse-item" href="Ventas_Agregar.php">Agregar</a>
+            <a class="collapse-item" href="Ventas_Ver.php">Ver</a>
           </div>
         </div>
       </li>
