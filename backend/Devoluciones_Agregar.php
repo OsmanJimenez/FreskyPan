@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Devoluciones</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -78,7 +78,7 @@
               <div class="form-row">
                 <div class="form-group col-md-8">
                   <label for="inputName">Codigo de Devolución</label>
-                  <input type="text" name="cd" class="form-control" id="inputName" placeholder="" required="">
+                  <input type="text" name="cd" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_devo(event)" onpaste="return false" placeholder="" required="">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="inputName">Fecha</label>
@@ -86,9 +86,9 @@
                 </div>
               </div>
 
-              
 
-                
+
+
 
               <div class="form-row">
                 <div class="form-group col-md-8">
@@ -125,9 +125,9 @@
                   </div>
                 </div>
 
-                
 
-                <div class="form-group col-md-4"> 
+
+                <div class="form-group col-md-4">
                 <label for="inputPrice" >Codigo del pedido</label>
                   <input type="number" name="cod" readonly="" class="form-control" id="inputrice" placeholder="" required="">
                   <label for="inputCantidad" >Cedula del cliente</label>
@@ -143,9 +143,9 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
 
-                
+
                   <label for="exampleFormControlTextarea1">Descripción de la devolución</label>
-                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="30"  onkeypress="return des_devo(event)" onpaste="return false" rows="3"></textarea>
                     <br>
                                     <label for="inputCantidad">Desea sumarlo a la produccion</label>
                   <select name="opt">
@@ -175,19 +175,19 @@
                   </div>
                 </div>
                 </div>
-              
+
             </form>
 
             <!--End  Add Example -->
           </div>
-        
+
 
       </div>
       <!-- /.container-fluid -->
 
 
 
-    
+
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="js/jquery.min.js"></script>
@@ -202,7 +202,7 @@
         $(".pr").click(function(){
  var flag=1;
             var valores="";
- 
+
             // Obtenemos todos los valores contenidos en los <td> de la fila
             // seleccionada
             $(this).parents("tr").find("td").each(function(){
@@ -223,11 +223,66 @@
                 console.log(valores);
             });
 
-           
-          
+
+
         });
     });
     </script>
+    <script>
+  function maxlengthNumber(ob){
+    console.log(ob.value);
+
+    if(ob.value.length > ob.maxLength){
+
+      ob.value = ob.value.slice(0,ob.maxLength);
+    }
+  }
+
+
+</script>
+<!-- funcion de validacion solo numeros-->
+
+
+   <script type="text/javascript">
+function cod_devo(evento){
+
+  key = evento.keyCode || evento.which;
+   teclado = String.fromCharCode(key).toLocaleLowerCase();
+      cod= "1234567890";
+        especiales = "37-38-46";
+
+        teclado_especial = false;
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                teclado_especial = true; break;
+            }
+        }
+        if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+}
+</script>
+<!-- validacion de texto-->
+
+    <script type="text/javascript">
+function des_devo(evento){
+
+  key = evento.keyCode || evento.which;
+   teclado = String.fromCharCode(key).toLocaleLowerCase();
+      des = "abcdefghijklmnñopqrstuvwxyz";
+        especiales = "37-38-46";
+
+        teclado_especial = false;
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                teclado_especial = true; break;
+            }
+        }
+        if (des.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+}
+</script>
       <!-- Core plugin JavaScript-->
       <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
