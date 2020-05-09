@@ -164,114 +164,11 @@
           }
         }
       </script>
-      <!-- funcion de validacion solo numeros-->
-
-
-      <script type="text/javascript">
-        function cod_pro(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          cod = "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-
-      <script type="text/javascript">
-        function pre_pro(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          pre = "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (pre.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-      <script type="text/javascript">
-        function dur_pro(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          dur = "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (dur.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-      <!-- validacion de texto-->
-
-      <script type="text/javascript">
-        function Nom_pro(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          nom = "abcdefghijklmnñopqrstuvwxyz";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (nom.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-      <script type="text/javascript">
-        function des_pro(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          des = "abcdefghijklmnñopqrstuvwxyz";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (des.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-      <!-- /.container-fluid -->
-
+<!-- Validation -->
+<?php
+      require('Validation.php');
+      ?>
+      <!-- End Validation --> 
 
 
       <script src="vendor/jquery/jquery.min.js"></script>

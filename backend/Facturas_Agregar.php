@@ -141,57 +141,11 @@
     }
   }
 </script>
-<!-- funcion de validacion solo numeros-->
-
-
-<script type="text/javascript">
-  function id_ped(evento) {
-
-    key = evento.keyCode || evento.which;
-    teclado = String.fromCharCode(key).toLocaleLowerCase();
-    ced = "1234567890";
-    especiales = "37-38-46";
-
-    teclado_especial = false;
-    for (var i in especiales) {
-      if (key == especiales[i]) {
-        teclado_especial = true;
-        break;
-      }
-    }
-    if (ced.indexOf(teclado) == -1 && !teclado_especial) {
-      return false;
-    }
-  }
-</script>
-
-<script type="text/javascript">
-  function id_fa(evento) {
-
-    key = evento.keyCode || evento.which;
-    teclado = String.fromCharCode(key).toLocaleLowerCase();
-    a1 = "1234567890";
-    especiales = "37-38-46";
-
-    teclado_especial = false;
-    for (var i in especiales) {
-      if (key == especiales[i]) {
-        teclado_especial = true;
-        break;
-      }
-    }
-    if (a1.indexOf(teclado) == -1 && !teclado_especial) {
-      return false;
-    }
-  }
-</script>
-<!-- /.container-fluid -->
-
-
-
-
-
-
+<!-- Validation -->
+<?php
+require('Validation.php');
+?>
+<!-- End Validation -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="vendor/jquery/jquery.min.js"></script>

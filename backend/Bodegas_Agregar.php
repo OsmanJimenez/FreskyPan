@@ -45,7 +45,6 @@
             <form action="../basededatos/agregarbg.php" method="POST" enctype="multipart/form-data">
               <label for="inputName">Codigo de la Bodega</label>
               <input type="number" name="cod" class="form-control" onkeypress="return Cod_bo(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" placeholder="" required>
-
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <div class="form-group">
@@ -53,7 +52,6 @@
                     <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return des_1(event)" onpaste="return false" required></textarea>
                   </div>
                 </div>
-
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
                   <select id="inputState" name="est" class="form-control">
@@ -62,7 +60,6 @@
                   </select>
                 </div>
               </div>
-
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Añadir</button>
 
               <!-- Modal -->
@@ -74,7 +71,6 @@
                     <div class="modal-header">
                       <h4 class="modal-title">Confirmar</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-
                     </div>
                     <div class="modal-body">
                       <p>¿Está seguro?</p>
@@ -94,59 +90,12 @@
         </div>
 
       </div>
-      <!-- validacion de longitud de campo numerico-->
-      <script>
-        function maxlengthNumber(ob) {
-          console.log(ob.value);
-          if (ob.value.length > ob.maxLength) {
-            ob.value = ob.value.slice(0, ob.maxLength);
-          }
-        }
-      </script>
-      <!-- funcion de validacion solo numeros-->
 
-      <script type="text/javascript">
-        function Cod_bo(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          cod = "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-      <!-- validacion de texto-->
-
-      <script type="text/javascript">
-        function des_1(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          des = "abcdefghijklmnñopqrstuvwxyz";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (des.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
+      <!-- Validation -->
+      <?php
+      require('Validation.php');
+      ?>
+      <!-- End Validation --> 
 
       <!-- /.container-fluid -->
 

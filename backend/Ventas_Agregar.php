@@ -142,70 +142,11 @@
     }
   }
 </script>
-<!-- funcion de validacion solo numeros-->
-
-
-<script type="text/javascript">
-  function id_vent(evento) {
-
-    key = evento.keyCode || evento.which;
-    teclado = String.fromCharCode(key).toLocaleLowerCase();
-    cod = "1234567890";
-    especiales = "37-38-46";
-
-    teclado_especial = false;
-    for (var i in especiales) {
-      if (key == especiales[i]) {
-        teclado_especial = true;
-        break;
-      }
-    }
-    if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-      return false;
-    }
-  }
-</script>
-
-<script type="text/javascript">
-  function id_prod(evento) {
-
-    key = evento.keyCode || evento.which;
-    teclado = String.fromCharCode(key).toLocaleLowerCase();
-    pro = "1234567890";
-    especiales = "37-38-46";
-
-    teclado_especial = false;
-    for (var i in especiales) {
-      if (key == especiales[i]) {
-        teclado_especial = true;
-        break;
-      }
-    }
-    if (pro.indexOf(teclado) == -1 && !teclado_especial) {
-      return false;
-    }
-  }
-</script>
-<script type="text/javascript">
-  function cant_vent(evento) {
-
-    key = evento.keyCode || evento.which;
-    teclado = String.fromCharCode(key).toLocaleLowerCase();
-    can = "1234567890";
-    especiales = "37-38-46";
-
-    teclado_especial = false;
-    for (var i in especiales) {
-      if (key == especiales[i]) {
-        teclado_especial = true;
-        break;
-      }
-    }
-    if (can.indexOf(teclado) == -1 && !teclado_especial) {
-      return false;
-    }
-  }
-</script>
+<!-- Validation -->
+<?php
+      require('Validation.php');
+      ?>
+      <!-- End Validation --> 
 
 <!-- /.container-fluid -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

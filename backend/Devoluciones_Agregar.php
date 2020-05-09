@@ -157,7 +157,11 @@
         </div>
         <!-- /.container-fluid -->
 
-
+        <!-- Validation -->
+        <?php
+        require('Validation.php');
+        ?>
+        <!-- End Validation -->
 
 
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -214,51 +218,7 @@
             }
           }
         </script>
-        <!-- funcion de validacion solo numeros-->
 
-
-        <script type="text/javascript">
-          function cod_devo(evento) {
-
-            key = evento.keyCode || evento.which;
-            teclado = String.fromCharCode(key).toLocaleLowerCase();
-            cod = "1234567890";
-            especiales = "37-38-46";
-
-            teclado_especial = false;
-            for (var i in especiales) {
-              if (key == especiales[i]) {
-                teclado_especial = true;
-                break;
-              }
-            }
-            if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-              return false;
-            }
-          }
-        </script>
-        <!-- validacion de texto-->
-
-        <script type="text/javascript">
-          function des_devo(evento) {
-
-            key = evento.keyCode || evento.which;
-            teclado = String.fromCharCode(key).toLocaleLowerCase();
-            des = "abcdefghijklmnñopqrstuvwxyz";
-            especiales = "37-38-46";
-
-            teclado_especial = false;
-            for (var i in especiales) {
-              if (key == especiales[i]) {
-                teclado_especial = true;
-                break;
-              }
-            }
-            if (des.indexOf(teclado) == -1 && !teclado_especial) {
-              return false;
-            }
-          }
-        </script>
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 

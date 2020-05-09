@@ -237,51 +237,11 @@
         }
       </script>
 
-      <!-- validacion de texto-->
-
-      <script type="text/javascript">
-        function Nom_ma(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          nom = "abcdefghijklmnñopqrstuvwxyz";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (nom.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-      <!-- validacion de texto-->
-
-      <script type="text/javascript">
-        function des_ma(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          des = "abcdefghijklmnñopqrstuvwxyz";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (des.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-      <!-- /.container-fluid -->
+<!-- Validation -->
+<?php
+      require('Validation.php');
+      ?>
+      <!-- End Validation --> 
 
 
 
