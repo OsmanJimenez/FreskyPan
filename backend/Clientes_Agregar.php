@@ -12,7 +12,6 @@
 
 </head>
 
-
 <body id="page-top">
   <div id="wrapper">
 
@@ -65,17 +64,14 @@
                     <input type="text" name="nom" class="form-control" id="inputCantidad" maxlength="10" onkeypress="return Nom_1(event)" onpaste="return false" placeholder="">
                   </div>
                   <div class="form-group col-md-3">
-
                     <label for="inputCantidad">Primer Apellido</label>
                     <input type="text" name="a1" class="form-control" id="inputCantidad" maxlength="15" onkeypress="return Pr_ap(event)" onpaste="return false" placeholder="">
                   </div>
                   <div class="form-group col-md-3">
-
                     <label for="inputCantidad">Segundo Apellido</label>
                     <input type="text" name="a2" class="form-control" id="inputCantidad" maxlength="15" onkeypress="return Seg_ap(event)" onpaste="return false" placeholder="">
                   </div>
                 </div>
-
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputName">Materia Prima -Insumo</label>
@@ -90,9 +86,7 @@
                       <option value="1">Activo</option>
                       <option value="0">Suspendido</option>
                     </select>
-
                   </div>
-
                   <div class="form-group col-md-6">
                     <label for="inputCantidad">Materia Prima</label>
                     <div class="table-responsive" style=" max-height:350px; ">
@@ -124,7 +118,6 @@
                         </tbody>
                       </table>
                     </div>
-
                     <label for="inputCantidad">Insumo</label>
                     <div class="table-responsive" style=" max-height:350px; ">
                       <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
@@ -157,14 +150,12 @@
                     </div>
                   </div>
                 </div>
-
                 <button type="submit" class="btn btn-primary">Agregar</button>
               </form>
 
               <!--End  Add Example -->
             </div>
           </div>
-
         </div>
 
        <!-- Validation -->
@@ -193,7 +184,6 @@
         <!-- MultiSelect -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

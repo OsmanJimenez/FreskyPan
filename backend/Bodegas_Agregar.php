@@ -80,7 +80,6 @@
                       <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                     </div>
                   </div>
-
                 </div>
               </div>
             </form>
@@ -114,7 +113,6 @@
 
       <!-- Page level custom scripts -->
       <script src="js/demo/datatables-demo.js"></script>
-
       </body>
 
 </html>
