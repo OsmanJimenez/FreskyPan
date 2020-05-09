@@ -83,7 +83,7 @@
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPrice">Telefono</label>
-                    <input type="number" name="tel" class="form-control" id="inputrice" maxlength="10" oninput="maxlengthNumber(this)" onkeypress="return numTel"onpaste="return false" placeholder="">
+                    <input type="number" name="tel" class="form-control" id="inputrice" maxlength="10" oninput="maxlengthNumber(this)" onkeypress="return numTel(event)"onpaste="return false" placeholder="">
                   </div>
                 </div>
                 <div class="form-row">
