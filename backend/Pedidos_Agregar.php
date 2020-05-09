@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="utf-8">
   <title>Agregar Pedidos</title>
@@ -36,7 +35,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
 </head>
 
 <div id="wrapper">
@@ -173,13 +171,12 @@
                           <th>Tipo</th>
                         </tr>
                       </tfoot>
-                      <tbody>
+                      <tbody id="tabla_pro_llenar">
                        <?php require ("../basededatos/listami_ped.php");?>
                       </tbody>
                     </table>
                   </div>
                 </div>
-
                 <div class="form-group col-md-6">
                     <label for="inputCantidad">Codigo del producto</label>
                     <input type="number" name="cod" class="form-control" id="inputCantidad5" placeholder="">
@@ -215,7 +212,7 @@
     <script>
       function cambia(text) {
         //  var text = document.getElementById('sd').value;
-        document.getElementById('prueba').value = text;
+        document.getElementById('prueba').value = text;     
       }
     </script>
     <script>

@@ -13,7 +13,6 @@ $resultin=mysqli_query($conn,$sql2);
 				$canm = $fila['cantidad']; 
 				$nommc = $fila['nommc']; 
 				?>
-
 		<tr align="center">
 			<td><input required="" type="radio" name="r1" onclick="cambia('<?php echo $codm; ?>')" id="sd"></input></td>
 			<td><?php echo $nomm; ?></td>
