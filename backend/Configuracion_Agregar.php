@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Empleados</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -46,9 +46,9 @@
   <?php
     require('menu.php');
     ?>
-    
+
   <!-- End of Sidebar -->
-  
+
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -79,24 +79,24 @@
 
 
               <label for="inputName">Codigo del Empleado</label>
-              <input type="number" name="cod" class="form-control" id="inputName" placeholder="">
+              <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_em(event)" onpaste="return false" placeholder="">
 
               <div class="form-row">
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Empleado</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="">
+                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="15" onkeypress="return Nom_em(event)" onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Apellido del Empleado</label>
-                  <input type="text" name="ape" class="form-control" id="inputrice" placeholder="">
+                  <input type="text" name="ape" class="form-control" id="inputrice" maxlength="15" onkeypress="return Ap_em(event)" onpaste="return false" placeholder="">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Contraseña</label>
-                   <input type="password" name="pas" class="form-control" id="inputrice" placeholder="Duración en Dias">
+                   <input type="password" name="pas" maxlength="12" class="form-control" id="inputrice" placeholder="">
                 </div>
 
 
@@ -108,7 +108,7 @@
                   </select>
                 </div>
               </div>
-              
+
               <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
 
               <!-- Modal -->
@@ -137,6 +137,85 @@
         </div>
 
       </div>
+      <!-- validacion de longitud de campo numerico-->
+              <script>
+            function maxlengthNumber(ob){
+              console.log(ob.value);
+
+              if(ob.value.length > ob.maxLength){
+
+                ob.value = ob.value.slice(0,ob.maxLength);
+              }
+            }
+
+
+          </script>
+          <!-- funcion de validacion solo numeros-->
+
+
+             <script type="text/javascript">
+        function cod_em(evento){
+
+            key = evento.keyCode || evento.which;
+             teclado = String.fromCharCode(key).toLocaleLowerCase();
+                cod= "1234567890";
+                  especiales = "37-38-46";
+
+                  teclado_especial = false;
+                  for (var i in especiales) {
+                      if (key == especiales[i]) {
+                          teclado_especial = true; break;
+                      }
+                  }
+                  if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+                      return false;
+                  }
+        }
+       </script>
+       <!-- validacion de texto-->
+
+              <script type="text/javascript">
+        function Nom_em(evento){
+
+            key = evento.keyCode || evento.which;
+             teclado = String.fromCharCode(key).toLocaleLowerCase();
+                nom = "abcdefghijklmnñopqrstuvwxyz";
+                  especiales = "37-38-46";
+
+                  teclado_especial = false;
+                  for (var i in especiales) {
+                      if (key == especiales[i]) {
+                          teclado_especial = true; break;
+                      }
+                  }
+                  if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+                      return false;
+                  }
+        }
+       </script>
+      </script>
+      <!-- validacion de texto-->
+
+             <script type="text/javascript">
+       function Ap_em(evento){
+
+           key = evento.keyCode || evento.which;
+            teclado = String.fromCharCode(key).toLocaleLowerCase();
+               ape = "abcdefghijklmnñopqrstuvwxyz";
+                 especiales = "37-38-46";
+
+                 teclado_especial = false;
+                 for (var i in especiales) {
+                     if (key == especiales[i]) {
+                         teclado_especial = true; break;
+                     }
+                 }
+                 if (ape.indexOf(teclado) == -1 && !teclado_especial) {
+                     return false;
+                 }
+       }
+      </script>
+
       <!-- /.container-fluid -->
 
 
