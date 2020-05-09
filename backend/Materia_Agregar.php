@@ -123,11 +123,16 @@
                     <label for="inputPrice">Iva (%)</label>
                     <input type="number" name="iva" class="form-control"  maxlength="11" onkeypress="return iv_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false"  id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
                 </div>
-                <div class="form-group col-md-6">
+
+                <div class="form-group col-md-4">
                   <label for="inputState">Tipo</label>
                   <select id="inputState" name="tip" class="form-control">
                     <?php require ("../basededatos/combotmp.php");?>
                   </select>
+                </div>
+                <div class="form-group col-md-2 text-center">
+                <div class="space-small"></div>
+                  <a href="Materiatipo_Agregar.php" class="btn btn-primary">Agregar Tipo</a>
                 </div>
               </div>
 

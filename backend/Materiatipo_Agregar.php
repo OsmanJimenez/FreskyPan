@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Subtipo</title>
+  <title>Agregar Tipo de Materia</title>
 
    <!-- Custom styles for this template-->
    <link href="css/sb-admin-2.css" rel="stylesheet">
@@ -23,7 +23,7 @@
   <!-- Custom favicon for this template-->
   <link rel="icon" type="image/png" href="../favicon.png" />
 
-  <title>Subtipo - ERP</title>
+  <title>Agregar Tipo de Materia Prima - ERP</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -67,9 +67,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Agregar subtipos de productos</h1>
-          <p class="mb-4">En este apartado podremos agregar Subtipos de producto </a>.</p>
-
+          <h1 class="h3 mb-2 text-gray-800">Agregar tipos de Materia Prima</h1>
+          <div class="space-small"></div>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">

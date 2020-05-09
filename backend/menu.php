@@ -99,6 +99,13 @@
             <a class="collapse-item" href="Insumo_Ver.php">Ver</a>
           </div>
         </div>
+        <div id="collapseInventarios" class="collapse" aria-labelledby="headingInsumos" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Suministro:</h6>
+            <a class="collapse-item" href="Suministro_Agregar.php">Agregar</a>
+            <a class="collapse-item" href="Suministro_Ver.php">Ver</a>
+          </div>
+        </div>
       </li>
 
       <li class="nav-item">
