@@ -16,6 +16,7 @@
 <!-- Main Style Css -->
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/style2.css" />
+
 <!-- End Main Style Css -->
 
 <!-- Meta -->
@@ -25,12 +26,11 @@
 <!-- End Meta -->
 
 <!-- Custom styles for this template-->
-<link href="css/sb-admin-2.css" rel="stylesheet">
+<link id="theme" href="css/sb-admin-2.css" rel="stylesheet">
 <!-- End Custom styles for this template-->
 
 <!-- Custom calendar -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <!-- End Custom calendar -->
@@ -38,3 +38,31 @@
 <!-- Validate Fields -->
 <script src="js/validanumericos.js" type="text/javascript"></script>
 <!-- End Validate Fields -->
+
+<link rel="stylesheet" href="css/switch.css" />
+
+<script type="text/javascript">
+// this one is jut to wait for the page to load
+document.addEventListener('DOMContentLoaded', () => {
+
+const themeStylesheet = document.getElementById('theme');
+const storedTheme = localStorage.getItem('theme');
+if(storedTheme){
+    themeStylesheet.href = storedTheme;
+}
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+    // if it's light -> go dark
+    if(themeStylesheet.href.includes('2')){
+        themeStylesheet.href = 'css/sb-admin-dark.css';
+        themeToggle.innerText = 'Activar Modo Claro';
+    } else {
+        // if it's dark -> go light
+        themeStylesheet.href = 'css/sb-admin-2.css';
+        themeToggle.innerText = 'Activar Modo Oscuro';
+    }
+    // save the preference to localStorage
+    localStorage.setItem('theme',themeStylesheet.href)  
+})
+})
+</script>
