@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Ventas</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -76,7 +76,7 @@
           <div class="card-body">
             <!-- Add Example -->
             <form action="../basededatos/agregap.php" method="POST">
-              
+
 
 
               <div class="card-header py-3">
@@ -94,17 +94,17 @@
                     <th>Codigo</th>
                       <th>Nombre</th>
                       <th>Cantidad</th>
-                      <th>Fecha    
+                      <th>Fecha
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th></th>
-                      
+
                       <th>Codigo</th>
                       <th>Nombre</th>
                       <th>Cantidad</th>
-                      <th>Fecha               
+                      <th>Fecha
                     </tr>
                   </tfoot>
                   <tbody>
@@ -117,35 +117,35 @@
 
                 <div class="form-group col-md-6">
                 <label for="inputCantidad">ID Venta</label>
-                  <input type="text" name="cod" class="form-control" id="inputCantidad1" placeholder="">
+                  <input type="text" name="cod" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_vent(event)" onpaste="return false" id="inputCantidad1" placeholder="">
                   <div class="space-small"></div>
                   <label for="inputCantidad">ID Producción</label>
-                  <input type="number" name="pro" class="form-control" id="pro" readonly="" placeholder="">
+                  <input type="number" name="pro" class="form-control" id="pro" readonly="" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_prod(event)" onpaste="return false" placeholder="">
                   <label for="inputCantidad">Fecha</label>
                   <input type="date" name="fec" class="form-control" id="inputCantidad3" placeholder="" required="">
                   <label for="inputCantidad">Cantidad</label>
-                  <input type="number" name="can" class="form-control" id="inputCantidad2" placeholder="">
+                  <input type="number" name="can" class="form-control" id="inputCantidad2" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cant_vent(event)" onpaste="return false" placeholder="">
                   <div class="space-small"></div>
                   <button type="submit" class="btn btn-primary  ">Agregar</button>
                 </div>
-              </div>  
-              
-              
-
-              
               </div>
 
-              
-            
-              
+
+
+
+              </div>
+
+
+
+
           <input type="hidden" name="id" id="prueba" readonly="">
 
-          
-          
-              
+
+
+
               </form>
-              
-          
+
+
 
           </div>
 
@@ -153,21 +153,88 @@
 
 
       </div>
-          
-  </div> 
+
+  </div>
 
           <!--End  Add Example -->
-        
+
 
 </div>
+ <script>
+ function maxlengthNumber(ob){
+      console.log(ob.value);
+
+      if(ob.value.length > ob.maxLength){
+
+ ob.value = ob.value.slice(0,ob.maxLength);
+   }
+ }
+
+
+ </script>
+<!-- funcion de validacion solo numeros-->
+
+
+<script type="text/javascript">
+function id_vent(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+ cod= "1234567890";
+   especiales = "37-38-46";
+
+   teclado_especial = false;
+   for (var i in especiales) {
+       if (key == especiales[i]) {
+           teclado_especial = true; break;
+       }
+   }
+   if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+       return false;
+   }
+}
+</script>
+
+<script type="text/javascript">
+function id_prod(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+ pro= "1234567890";
+   especiales = "37-38-46";
+
+   teclado_especial = false;
+   for (var i in especiales) {
+       if (key == especiales[i]) {
+           teclado_especial = true; break;
+       }
+   }
+   if (pro.indexOf(teclado) == -1 && !teclado_especial) {
+       return false;
+   }
+}
+</script>
+<script type="text/javascript">
+function cant_vent(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+ can= "1234567890";
+   especiales = "37-38-46";
+
+   teclado_especial = false;
+   for (var i in especiales) {
+       if (key == especiales[i]) {
+           teclado_especial = true; break;
+       }
+   }
+   if (can.indexOf(teclado) == -1 && !teclado_especial) {
+       return false;
+   }
+}
+</script>
+
     <!-- /.container-fluid -->
-
-
-
-
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -182,7 +249,7 @@
         $(".pr").click(function(){
  var flag=1;
             var valores="";
- 
+
             // Obtenemos todos los valores contenidos en los <td> de la fila
             // seleccionada
             $(this).parents("tr").find("td").each(function(){
@@ -199,8 +266,8 @@
                 console.log(flag);
             });
 
-           
-          
+
+
         });
     });
     </script>
@@ -209,7 +276,7 @@
         $(".pr2").click(function(){
  var flag=1;
             var valores="";
- 
+
             // Obtenemos todos los valores contenidos en los <td> de la fila
             // seleccionada
             $(this).parents("tr").find("td").each(function(){
@@ -224,8 +291,8 @@
                 console.log(flag);
             });
 
-           
-          
+
+
         });
     });
     </script>
