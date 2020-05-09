@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Modificar Productos</title>
-   
+
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -67,8 +67,8 @@ $mic=$_GET['idc'];
 $query="Select * from catproducto where ID_CATPRODUCTO='$mic'";
 $result=mysqli_query($conn,$query);
 $i = 0;
-      
-      while($fila=mysqli_fetch_array($result)){     
+
+      while($fila=mysqli_fetch_array($result)){
         $Nom = $fila['nombre'];
         $cat = $fila['FK_ID_SUBTIPOPRODUCTO'];
         $sab=$fila['sabor'];
@@ -81,7 +81,7 @@ $i = 0;
         $i++; ?>
         <h1 class="h3 mb-2 text-gray-800">Modificar Productos</h1>
         <p class="mb-4">En este apartado podremos agregar distintos productos</a>.</p>
-        
+
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
@@ -92,22 +92,22 @@ $i = 0;
             <form action="../basededatos/actuapd.php" method="POST" enctype="multipart/form-data">
               <label for="inputName">Codigo del Producto</label>
               <input type="text" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" readonly=""
-                placeholder="">
+                maxlength="11" onkeypress="return cod_pro(event)" oninput="return maxlengthNumber(this)" onpaste="return false"  placeholder="">
 
               <div class="form-row">
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Producto</label>
                   <input type="text" value="<?php echo $Nom; ?>" class="form-control" name="nom" id="inputName"
-                    placeholder="">
+                    maxlength="11" onkeypress="return Nom_pro(event)" onpaste="return false"  placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
                   <input type="number" name="pre" class="form-control" value="<?php echo $pre; ?>" id="inputrice"
-                    placeholder="">
+                  maxlength="11" onkeypress="return pre_pro(event)" oninput="return maxlengthNumber(this)" onpaste="return false"  placeholder="">
 
-                  
-                    
+
+
 
                 </div>
               </div>
@@ -149,11 +149,11 @@ $i = 0;
                   </select>
                 </div>
               </div>
-  
+
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descripción</label>
                 <textarea class="form-control" name="des" id="exampleFormControlTextarea1"
-                  rows="3"><?php echo $des; ?></textarea>
+                  maxlength="40" onkeypress="return des_pro(event)" onpaste="return false" rows="3"><?php echo $des; ?></textarea>
                   <label for="exampleFormControlFile1">Imagen del Producto</label>
                     <input type="file" name="img" accept="image/*" class="form-control-file"
                       id="exampleFormControlFile1">
@@ -200,6 +200,119 @@ $i = 0;
     document.ready = document.getElementById("inputStatesab").value = '<?php if(strcasecmp ($sab,'Dulce')==0){ echo '1';}elseif(strcasecmp ($sab,'Salado')==0){ echo '2';}elseif(strcasecmp ($sab,'Agridulce')==0){ echo '3';} ?>';
     document.ready = document.getElementById("estado").value = '<?php echo $esta; ?>';
 
+</script>
+<script>
+function maxlengthNumber(ob){
+console.log(ob.value);
+
+if(ob.value.length > ob.maxLength){
+
+  ob.value = ob.value.slice(0,ob.maxLength);
+}
+}
+
+
+</script>
+<!-- funcion de validacion solo numeros-->
+
+
+<script type="text/javascript">
+function cod_pro(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+  cod= "1234567890";
+    especiales = "37-38-46";
+
+    teclado_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            teclado_especial = true; break;
+        }
+    }
+    if (cod.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
+    }
+}
+</script>
+
+<script type="text/javascript">
+function pre_pro(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+  pre= "1234567890";
+    especiales = "37-38-46";
+
+    teclado_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            teclado_especial = true; break;
+        }
+    }
+    if (pre.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
+    }
+}
+</script>
+<script type="text/javascript">
+function dur_pro(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+dur= "1234567890";
+especiales = "37-38-46";
+
+teclado_especial = false;
+for (var i in especiales) {
+    if (key == especiales[i]) {
+        teclado_especial = true; break;
+    }
+}
+if (dur.indexOf(teclado) == -1 && !teclado_especial) {
+    return false;
+}
+}
+</script>
+<!-- validacion de texto-->
+
+<script type="text/javascript">
+function Nom_pro(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+  nom = "abcdefghijklmnñopqrstuvwxyz";
+    especiales = "37-38-46";
+
+    teclado_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            teclado_especial = true; break;
+        }
+    }
+    if (nom.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
+    }
+}
+</script>
+<script type="text/javascript">
+function des_pro(evento){
+
+key = evento.keyCode || evento.which;
+teclado = String.fromCharCode(key).toLocaleLowerCase();
+des = "abcdefghijklmnñopqrstuvwxyz";
+especiales = "37-38-46";
+
+teclado_especial = false;
+for (var i in especiales) {
+  if (key == especiales[i]) {
+      teclado_especial = true; break;
+  }
+}
+if (des.indexOf(teclado) == -1 && !teclado_especial) {
+  return false;
+}
+}
 </script>
 
       <script src="vendor/jquery/jquery.min.js"></script>
