@@ -23,7 +23,6 @@ session_start();
 
   <!-- End of Sidebar -->
 
-
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
 
@@ -50,13 +49,9 @@ session_start();
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
             <form action="../basededatos/agregarus.php" method="POST" enctype="multipart/form-data">
-
-
               <label for="inputName">Codigo del Empleado</label>
               <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_em(event)" onpaste="return false" placeholder="">
-
               <div class="form-row">
-
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Empleado</label>
                   <input type="text" name="nom" class="form-control" id="inputName" maxlength="15" onkeypress="return Nom_em(event)" onpaste="return false" placeholder="">
@@ -66,14 +61,11 @@ session_start();
                   <input type="text" name="ape" class="form-control" id="inputrice" maxlength="15" onkeypress="return Ap_em(event)" onpaste="return false" placeholder="">
                 </div>
               </div>
-
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Contraseña</label>
                   <input type="password" name="pas" maxlength="12" class="form-control" id="inputrice" placeholder="">
                 </div>
-
-
                 <div class="form-group col-md-6">
                   <label for="inputState">Rol</label>
                   <select id="inputState" name="rol" class="form-control">
@@ -82,9 +74,7 @@ session_start();
                   </select>
                 </div>
               </div>
-
               <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
-
               <!-- Modal -->
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -109,14 +99,12 @@ session_start();
             <!--End  Add Example -->
           </div>
         </div>
-
       </div>
      <!-- Validation -->
      <?php
       require('Validation.php');
       ?>
       <!-- End Validation --> 
-
 
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -133,7 +121,6 @@ session_start();
 
       <!-- Page level custom scripts -->
       <script src="js/demo/datatables-demo.js"></script>
-
       </body>
 
 </html>
