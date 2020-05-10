@@ -173,7 +173,7 @@
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConfiguracion" aria-expanded="true" aria-controls="collapseCuentas">
       <i class="fas fa-users-cog"></i>
-      <span>Configuración</span>
+      <span>Usuarios</span>
     </a>
     <div id="collapseConfiguracion" class="collapse" aria-labelledby="headingConfiguracion" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
