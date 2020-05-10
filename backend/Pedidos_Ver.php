@@ -79,9 +79,8 @@ session_start();
                       <th>Productos pedidos</th>
                       <th>Proveedor</th>
                       <th>Estado</th>
-                      <th>Modificar</th>
                       <th>Opción</th>
-                      <th>Disponibilidad</th>
+                      <th>Cancelar</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -93,9 +92,8 @@ session_start();
                       <th>Productos pedidos</th>
                       <th>Proveedor</th>
                       <th>Estado</th>
-                      <th>Modificar</th>
                       <th>Opción</th>
-                      <th>Disponibilidad</th>
+                      <th>Cancelar</th>
                     </tr>
                   </tfoot>
                   <tbody>

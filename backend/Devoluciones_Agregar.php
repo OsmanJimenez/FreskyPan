@@ -13,7 +13,7 @@ session_start();
   ?>
 
 </head>
-
+<body id="page-top">
 <div id="wrapper">
 
   <!-- Sidebar -->
@@ -24,10 +24,10 @@ session_start();
   <!-- End of Sidebar -->
 
   <!-- Content Wrapper -->
-  <div id="content-wrapper" class="d-flex flex-column">
+  <div id="content-wrapper" class="d-flex flex-column"> 5
 
     <!-- Main Content -->
-    <div id="content">
+    <div id="content"> 4
 
       <!-- Topbar -->
       <?php
@@ -36,39 +36,74 @@ session_start();
       <!-- End of -->
 
       <!-- Begin Page Content -->
-      <div class="container-fluid">
+      <div class="container-fluid"> 3
+        <?php require("../basededatos/connectionbd.php");
+        $query = "SELECT MAX(ID_DEVOLUCION) AS id FROM Devolucion";
+        $result = mysqli_query($conn, $query);
+        $fila = mysqli_fetch_array($result);
+        if(!empty($fila)){$last=1;}else{$last=$fila['id'];}
+        ?>
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Agregar Devoluciones</h1>
-        <p class="mb-4">En este apartado podremos agregar distintos devoluciones que se generen</a>.</p>
+        <p class="mb-4">En este apartado podremos agregar distintos devoluciones que se generen.</p>
 
         <!-- DataTales Example -->
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-4"> 2
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Devoluciones</h6>
           </div>
-          <div class="card-body">
+          <div class="card-body"> 1
             <!-- Add Example -->
             <form action="../basededatos/agregad.php" method="POST">
               <div class="form-row">
                 <div class="form-group col-md-8">
-                  <label for="inputName">Codigo de Devolución</label>
-                  <input type="text" name="cd" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_devo(event)" onpaste="return false" placeholder="" required="">
+                  <label for="cod">Código de Devolución</label>
+                  <input type="text" name="cod" class="form-control" id="cod" onkeypress="return cod_devo(event)" placeholder="" readonly="">
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="inputName">Fecha</label>
-                  <input type="date" id="inputName" class="form-control" name="fec" width="100%" />
+                  <label for="fec">Fecha</label>
+                  <input type="date" id="fec" class="form-control" name="fec" width="100%" required="">
                 </div>
               </div>
-
-
-
 
 
               <div class="form-row">
                 <div class="form-group col-md-8">
                   <div class="table-responsive" style=" max-height:350px; ">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="ped_Table" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Código de pedido</th>
+                          <th>Fecha</th>
+                          <th>Plazo</th>
+                          <th>Exigencias</th>
+                          <th>Proveedor</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th></th>
+                          <th>Código de pedido</th>
+                          <th>Fecha</th>
+                          <th>Plazo</th>
+                          <th>Exigencias</th>
+                          <th>Proveedor</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        <?php require("../basededatos/listaped_dev.php"); ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-8">
+                  <div class="table-responsive" style=" max-height:350px; ">
+                    <table class="table table-bordered" id="matin_Table" width="100%" cellspacing="0">
                       <thead>
                         <tr>
                           <th></th>
@@ -77,8 +112,6 @@ session_start();
                           <th>Cedula del cliente</th>
                           <th>Codigo del producto</th>
                           <th>Cantidad</th>
-                          <th></th>
-                          <th></th>
                         </tr>
                       </thead>
                       <tfoot>
@@ -89,77 +122,57 @@ session_start();
                           <th>Cedula del cliente</th>
                           <th>Codigo del producto</th>
                           <th>Cantidad</th>
-                          <th></th>
-                          <th></th>
                         </tr>
                       </tfoot>
                       <tbody>
-                        <?php require("../basededatos/listap3.php"); ?>
+                        <?php //require("../basededatos/listap3.php"); ?>
                       </tbody>
                     </table>
                   </div>
                 </div>
-
-
-
-                <div class="form-group col-md-4">
-                  <label for="inputPrice">Codigo del pedido</label>
-                  <input type="number" name="cod" readonly="" class="form-control" id="inputrice" placeholder="" required="">
-                  <label for="inputCantidad">Cedula del cliente</label>
-                  <input type="number" readonly="" class="form-control" id="inputCantidad1" placeholder="" required="">
-                  <label for="inputCantidad">Fecha de compra</label>
-                  <input type="date" name="fecha" class="form-control" id="inputCantidad2" placeholder="" required="">
-                  <label for="inputCantidad">Codigo del producto</label>
-                  <input type="number" name="id" readonly="" class="form-control" id="inputCantidad3" placeholder="" required="">
-                  <label for="inputCantidad">Cantidad del pedido</label>
-                  <input type="number" name="can" readonly="" class="form-control" id="inputCantidad4" placeholder="" required="">
-                </div>
               </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
 
 
-                  <label for="exampleFormControlTextarea1">Descripción de la devolución</label>
-                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="30" onkeypress="return des_devo(event)" onpaste="return false" rows="3"></textarea>
-                  <br>
-                  <label for="inputCantidad">Desea sumarlo a la produccion</label>
-                  <select name="opt">
-                    <option>Si</option>
-                    <option>No</option>
-                  </select>
-                  <br>
+              <div class="form-row"> 
+                <div class="form-group col-md-6"> 
+                  <label for="des">Descripción de la devolución</label>
+                  <textarea class="form-control" name="des" id="des" maxlength="30" required="" onkeypress="return des_devo(event)" rows="3"></textarea>
                   <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
 
                   <!-- Modal -->
-                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+                    <div class="modal-dialog" role="document"> 
+                      <div class="modal-content"> 
+                        <div class="modal-header"> 
                           <h5 class="modal-title" id="exampleModalLabel">¡Alerta!</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
-                        </div>
-                        <div class="modal-body">
+                        </div> 
+                        <div class="modal-body"> 
                           ¿Estas seguro de agregar este ítem?
-                        </div>
-                        <div class="modal-footer">
+                        </div> 
+                        <div class="modal-footer"> 
                           <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                           <button type="submit" class="btn btn-primary">Agregar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
+                        </div> 
+                      </div> 
+                    </div> 
+                  </div> 
+                  </div> 
+                </div> 
             </form>
 
             <!--End  Add Example -->
-          </div>
+          </div> 
 
 
-        </div>
+        </div> 
         <!-- /.container-fluid -->
-
+      </div>
+    </div>
+  </div>
+</div>
         <!-- Validation -->
         <?php
         require('Validation.php');
@@ -175,41 +188,6 @@ session_start();
             //  var text = document.getElementById('sd').value;
             document.getElementById('inputrice').value = text;
           }
-        </script>
-        <script>
-          $(document).ready(function() {
-            $(".pr").click(function() {
-              var flag = 1;
-              var valores = "";
-
-              // Obtenemos todos los valores contenidos en los <td> de la fila
-              // seleccionada
-              $(this).parents("tr").find("td").each(function() {
-
-                valores = $(this).html();
-                if (flag == 2) {
-                  document.getElementById('inputrice').value = valores;
-                }
-                if (flag == 3) {
-                  document.getElementById('inputCantidad2').value = valores;
-                }
-                if (flag == 4) {
-                  document.getElementById('inputCantidad1').value = valores;
-                }
-                if (flag == 5) {
-                  document.getElementById('inputCantidad3').value = valores;
-                }
-                if (flag == 6) {
-                  document.getElementById('inputCantidad4').value = valores;
-                }
-                flag += 1;
-                console.log(valores);
-              });
-
-
-
-            });
-          });
         </script>
         <script>
           function maxlengthNumber(ob) {
@@ -235,7 +213,7 @@ session_start();
         <!-- Page level custom scripts -->
         <script src="js/demo/datatables-demo.js"></script>
 
-        </body>
+</body>
 
 </html>
 
