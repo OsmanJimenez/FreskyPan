@@ -66,3 +66,107 @@ themeToggle.addEventListener('click', () => {
 })
 })
 </script>
+
+<script type="text/javascript">
+// this one is jut to wait for the page to load
+document.addEventListener('DOMContentLoaded', () => {
+
+const themeStylesheet = document.getElementById('theme');
+const storedTheme = localStorage.getItem('theme');
+if(storedTheme){
+    themeStylesheet.href = storedTheme;
+}
+const themeToggle = document.getElementById('theme-toggle1');
+themeToggle.addEventListener('click', () => {
+    // if it's light -> go dark
+    if(themeStylesheet.href.includes('2')){
+        themeStylesheet.href = 'css/sb-admin-2-Blue.css';
+        themeToggle.innerText = 'Azul ';
+    } else {
+        // if it's dark -> go light
+        themeStylesheet.href = 'css/sb-admin-2.css';
+        themeToggle.innerText = 'Azul';
+    }
+    // save the preference to localStorage
+    localStorage.setItem('theme',themeStylesheet.href)  
+})
+})
+</script>
+
+<script type="text/javascript">
+// this one is jut to wait for the page to load
+document.addEventListener('DOMContentLoaded', () => {
+
+const themeStylesheet = document.getElementById('theme');
+const storedTheme = localStorage.getItem('theme');
+if(storedTheme){
+    themeStylesheet.href = storedTheme;
+}
+const themeToggle = document.getElementById('theme-toggle2');
+themeToggle.addEventListener('click', () => {
+    // if it's light -> go dark
+    if(themeStylesheet.href.includes('2')){
+        themeStylesheet.href = 'css/sb-admin-2-Green.css';
+        themeToggle.innerText = 'Verde ';
+    } else {
+        // if it's dark -> go light
+        themeStylesheet.href = 'css/sb-admin-2.css';
+        themeToggle.innerText = 'Verde';
+    }
+    // save the preference to localStorage
+    localStorage.setItem('theme',themeStylesheet.href)  
+})
+})
+</script>
+
+<script type="text/javascript">
+// this one is jut to wait for the page to load
+document.addEventListener('DOMContentLoaded', () => {
+
+const themeStylesheet = document.getElementById('theme');
+const storedTheme = localStorage.getItem('theme');
+if(storedTheme){
+    themeStylesheet.href = storedTheme;
+}
+const themeToggle = document.getElementById('theme-toggle3');
+themeToggle.addEventListener('click', () => {
+    // if it's light -> go dark
+    if(themeStylesheet.href.includes('2')){
+        themeStylesheet.href = 'css/sb-admin-2-Red.css';
+        themeToggle.innerText = 'Rojo ';
+    } else {
+        // if it's dark -> go light
+        themeStylesheet.href = 'css/sb-admin-2.css';
+        themeToggle.innerText = 'Rojo';
+    }
+    // save the preference to localStorage
+    localStorage.setItem('theme',themeStylesheet.href)  
+})
+})
+</script>
+
+<script type="text/javascript">
+// this one is jut to wait for the page to load
+document.addEventListener('DOMContentLoaded', () => {
+
+const themeStylesheet = document.getElementById('theme');
+const storedTheme = localStorage.getItem('theme');
+if(storedTheme){
+    themeStylesheet.href = storedTheme;
+}
+const themeToggle = document.getElementById('theme-toggle4');
+themeToggle.addEventListener('click', () => {
+    // if it's light -> go dark
+    if(themeStylesheet.href.includes('2')){
+        themeStylesheet.href = 'css/sb-admin-2-Yellow.css';
+        themeToggle.innerText = 'Amarillo ';
+    } else {
+        // if it's dark -> go light
+        themeStylesheet.href = 'css/sb-admin-2.css';
+        themeToggle.innerText = 'Amarillo';
+    }
+    // save the preference to localStorage
+    localStorage.setItem('theme',themeStylesheet.href)  
+})
+})
+</script>
