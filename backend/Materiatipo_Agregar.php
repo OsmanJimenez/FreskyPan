@@ -73,9 +73,9 @@ session_start();
                         <div class="space-small"></div>
                         <div class="space-small"></div>
                         <label for="inputName">Código</label>
-                        <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_sub(event)" onpaste="return false" placeholder="">
+                        <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return Num_1(event)" onpaste="return false" placeholder="">
                         <label for="inputName">Nombre</label>
-                        <input type="text" name="nom" class="form-control" id="inputName"  maxlength="11"  onkeypress="return Nom_sub(event)" onpaste="return false" placeholder="">           
+                        <input type="text" name="nom" class="form-control" id="inputName"  maxlength="11"  onkeypress="return texto_1(event)" onpaste="return false" placeholder="">           
                         <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-primary float-right" data-toggle="modal"
                       data-target="#myModal">Añadir</button>
@@ -140,7 +140,7 @@ session_start();
 <?php
       require('Validation.php');
       ?>
-      <!-- End Validation --> 
+      <!-- End Validation -->
 
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
