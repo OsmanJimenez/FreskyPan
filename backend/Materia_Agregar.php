@@ -105,9 +105,19 @@ session_start();
                     <?php require("../basededatos/combotmp.php"); ?>
                   </select>
                 </div>
-                <div class="form-group col-md-2 text-center">
+                     <div class="form-group col-md-2 text-center">
                   <div class="space-small"></div>
                   <a href="Materiatipo_Agregar.php" class="btn btn-primary">Agregar Tipo</a>
+                </div>
+                  <div class="form-group col-md-4">
+                  <label for="inputState">Proveedor</label>
+                  <select id="inputState" name="prv" class="form-control">
+                    <?php require("../basededatos/combopro.php"); ?>
+                  </select>
+                </div>
+                <div class="form-group col-md-2 text-center">
+                  <div class="space-small"></div>
+                  <a href="Clientes_Agregar.php" class="btn btn-primary">Agregar Proveedor</a>
                 </div>
               </div>
 

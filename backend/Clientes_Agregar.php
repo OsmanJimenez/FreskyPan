@@ -55,7 +55,7 @@
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPrice">Telefono</label>
-                    <input type="number" name="tel" class="form-control" id="inputrice" maxlength="10" oninput="maxlengthNumber(this)" onkeypress="return numTel(event)" onpaste="return false" placeholder="">
+                    <input type="number" name="tel" class="form-control" id="inputrice" maxlength="10" oninput="maxlengthNumber(this)" onkeypress="return numTel(event)" onpaste="return false" placeholder="" required="">
                   </div>
                 </div>
                 <div class="form-row">
@@ -74,7 +74,7 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputName">Materia Prima -Insumo</label>
+                    <label for="inputName">Segundo Nombre</label>
                     <input type="text" name="nom2" class="form-control" id="inputName" maxlength="15" onkeypress=" return Nom_2(event)" onpaste="return false" placeholder="">
                     <div class="space-small"></div>
                     <label for="exampleFormControlTextarea1">Correo electronico</label>
@@ -87,68 +87,7 @@
                       <option value="0">Suspendido</option>
                     </select>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputCantidad">Materia Prima</label>
-                    <div class="table-responsive" style=" max-height:350px; ">
-                      <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>IVA</th>
-                            <th>Cantidad</th>
-                            <th>Tipo</th>
-                          </tr>
-                        </thead>
-                        <tfoot>
-                          <tr>
-                            <th></th>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>IVA</th>
-                            <th>Cantidad</th>
-                            <th>Tipo</th>
-                          </tr>
-                        </tfoot>
-                        <tbody>
-                          <?php require("../basededatos/listami_ped.php"); ?>
-                        </tbody>
-                      </table>
-                    </div>
-                    <label for="inputCantidad">Insumo</label>
-                    <div class="table-responsive" style=" max-height:350px; ">
-                      <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>IVA</th>
-                            <th>Cantidad</th>
-                            <th>Tipo</th>
-                          </tr>
-                        </thead>
-                        <tfoot>
-                          <tr>
-                            <th></th>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>IVA</th>
-                            <th>Cantidad</th>
-                            <th>Tipo</th>
-                          </tr>
-                        </tfoot>
-                        <tbody>
-                          <?php require("../basededatos/listami_ped.php"); ?>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                 
                 </div>
                 <button type="submit" class="btn btn-primary">Agregar</button>
               </form>
