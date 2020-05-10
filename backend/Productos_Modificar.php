@@ -67,17 +67,17 @@ session_start();
               <!-- Add Example -->
               <form action="../basededatos/actuapd.php" method="POST" enctype="multipart/form-data">
                 <label for="inputName">Codigo del Producto</label>
-                <input type="text" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" readonly="" maxlength="11" onkeypress="return cod_pro(event)" oninput="return maxlengthNumber(this)" onpaste="return false" placeholder="">
+                <input type="text" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" readonly="" maxlength="11" onkeypress="return Num_1(event)" oninput="return maxlengthNumber(this)" onpaste="return false" placeholder="">
 
                 <div class="form-row">
 
                   <div class="form-group col-md-6">
                     <label for="inputName">Nombre del Producto</label>
-                    <input type="text" value="<?php echo $Nom; ?>" class="form-control" name="nom" id="inputName" maxlength="11" onkeypress="return Nom_pro(event)" onpaste="return false" placeholder="">
+                    <input type="text" value="<?php echo $Nom; ?>" class="form-control" name="nom" id="inputName" maxlength="11" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPrice">Precio</label>
-                    <input type="number" name="pre" class="form-control" value="<?php echo $pre; ?>" id="inputrice" maxlength="11" onkeypress="return pre_pro(event)" oninput="return maxlengthNumber(this)" onpaste="return false" placeholder="">
+                    <input type="number" name="pre" class="form-control" value="<?php echo $pre; ?>" id="inputrice" maxlength="11" onkeypress="return Num_1(event)" oninput="return maxlengthNumber(this)" onpaste="return false" placeholder="">
 
 
 
@@ -125,7 +125,7 @@ session_start();
 
                 <div class="form-group">
                   <label for="exampleFormControlTextarea1">Descripción</label>
-                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40" onkeypress="return des_pro(event)" onpaste="return false" rows="3"><?php echo $des; ?></textarea>
+                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40" onkeypress="return texto_1(event)" onpaste="return false" rows="3"><?php echo $des; ?></textarea>
                   <label for="exampleFormControlFile1">Imagen del Producto</label>
                   <input type="file" name="img" accept="image/*" class="form-control-file" id="exampleFormControlFile1">
                 </div>
@@ -190,7 +190,7 @@ session_start();
  <?php
       require('Validation.php');
       ?>
-      <!-- End Validation --> 
+      <!-- End Validation -->
 
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

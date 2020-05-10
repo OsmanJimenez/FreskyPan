@@ -55,24 +55,24 @@ session_start();
 
 
               <label for="inputName">Codigo del Producto</label>
-              <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return cod_pro(event)" onpaste="return false" placeholder="">
+              <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return Num_1(event)" onpaste="return false" placeholder="">
 
               <div class="form-row">
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Producto</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="10" onkeypress="return Nom_pro(event)" onpaste="return false" placeholder="">
+                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="10" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" id="inputrice" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return pre_pro(event)" onpaste="return false" placeholder="">
+                  <input type="number" name="pre" class="form-control" id="inputrice" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return Num_1(event)" onpaste="return false" placeholder="">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Duración</label>
-                  <input type="number" name="dur" class="form-control" id="inputrice" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return dur_pro(event)" onpaste="return false" placeholder="Duración en Dias">
+                  <input type="number" name="dur" class="form-control" id="inputrice" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return Num_1(event)" onpaste="return false" placeholder="Duración en Dias">
                 </div>
 
 
@@ -109,7 +109,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40" onkeypress="return des_pro(event)" onpaste="return false" rows="3"></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40" onkeypress="return texto_1(event)" onpaste="return false" rows="3"></textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -172,7 +172,7 @@ session_start();
 <?php
       require('Validation.php');
       ?>
-      <!-- End Validation --> 
+      <!-- End Validation -->
 
 
       <script src="vendor/jquery/jquery.min.js"></script>
