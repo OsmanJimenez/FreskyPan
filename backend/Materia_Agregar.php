@@ -56,11 +56,11 @@ session_start();
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Código</label>
-                  <input type="number" name="cod" class="form-control" maxlength="11" onkeypress="return cod_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" placeholder="" required>
+                  <input type="number" name="cod" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="" maxlength="10" onkeypress="return Nom_ma(event)"  onpaste="return false"  required>
+                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="" maxlength="10" onkeypress="return texto_1(event)"  onpaste="return false"  required>
                 </div>
               </div>
 
@@ -68,7 +68,7 @@ session_start();
 
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" maxlength="11" onkeypress="return pre_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputrice" placeholder="" required>
+                  <input type="number" name="pre" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
@@ -82,7 +82,7 @@ session_start();
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Cantidad</label>
-                  <input type="number" name="can" class="form-control" maxlength="11" onkeypress="return cant_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputrice" placeholder="" required>
+                  <input type="number" name="can" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputState">Unidad de medida</label>
@@ -96,7 +96,7 @@ session_start();
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Iva (%)</label>
-                  <input type="number" name="iva" class="form-control" maxlength="11" onkeypress="return iv_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
+                  <input type="number" name="iva" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
                 </div>
 
                 <div class="form-group col-md-4">
@@ -115,7 +115,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return des_ma(event)" onpaste="return false" required></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return texto_1(event)" onpaste="return false" required></textarea>
                   </div>
                 </div>
               </div>
@@ -162,7 +162,7 @@ session_start();
       <?php
       require('Validation.php');
       ?>
-      <!-- End Validation --> 
+      <!-- End Validation -->
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

@@ -131,12 +131,11 @@ session_start();
                   </div>
                 </div>
               </div>
-
-
               <div class="form-row"> 
                 <div class="form-group col-md-6"> 
                   <label for="des">Descripción de la devolución</label>
                   <textarea class="form-control" name="des" id="des" maxlength="30" required="" onkeypress="return des_devo(event)" rows="3"></textarea>
+
                   <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
 
                   <!-- Modal -->

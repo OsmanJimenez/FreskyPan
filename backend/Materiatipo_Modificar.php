@@ -97,9 +97,9 @@ session_start();
                         <div class="space-small"></div>
 
                         <label for="inputName">Código</label>
-                        <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_sub(event)" onpaste="return false" id="inputName" placeholder="" readonly="">
+                        <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return Num_1(event)" onpaste="return false" id="inputName" placeholder="" readonly="">
                         <label for="inputName">Nombre</label>
-                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" maxlength="11" onkeypress="return Nom_sub(event)" onpaste="return false" id="inputName" placeholder="">
+                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" maxlength="11" onkeypress="return texto_1(event)" onpaste="return false" id="inputName" placeholder="">
                         <div class="space-small"></div>
                         <input type="hidden" name="id" id="prueba" readonly="">
                         <!-- Trigger the modal with a button -->
