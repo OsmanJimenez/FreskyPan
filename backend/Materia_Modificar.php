@@ -1,7 +1,7 @@
 <?php
 session_start();
  if((isset($_SESSION['cl']))){ ?>
-  
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -111,7 +111,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return texto_1(event)" onpaste="return false" id="inputName" required><?php echo $des; ?></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onpaste="return false" id="inputName" required><?php echo $des; ?></textarea>
                   </div>
                 </div>
               </div>
@@ -157,7 +157,7 @@ session_start();
           }
         }
       </script>
-    
+
 
 
 <!-- Validation -->

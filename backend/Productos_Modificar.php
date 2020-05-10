@@ -125,7 +125,7 @@ session_start();
 
                 <div class="form-group">
                   <label for="exampleFormControlTextarea1">Descripción</label>
-                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40" onkeypress="return texto_1(event)" onpaste="return false" rows="3"><?php echo $des; ?></textarea>
+                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40"  onpaste="return false" rows="3"><?php echo $des; ?></textarea>
                   <label for="exampleFormControlFile1">Imagen del Producto</label>
                   <input type="file" name="img" accept="image/*" class="form-control-file" id="exampleFormControlFile1">
                 </div>

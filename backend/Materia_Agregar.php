@@ -125,7 +125,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return texto_1(event)" onpaste="return false" required></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30"  onpaste="return false" required></textarea>
                   </div>
                 </div>
               </div>
