@@ -53,7 +53,6 @@ session_start();
                 <div class="form-group col-md-6">           
                   <a type="button" class="btn btn-primary" href="Backup.php" target="_blank">Generar Copia de Seguridad</a>                
                 </div>
-
                 <div class="form-group col-md-6">
                   <a type="button" class="btn btn-primary" href="Restore.php" target="_blank">Restaurar Copia de Seguridad</a>                
                 </div>
@@ -69,13 +68,29 @@ session_start();
             </div>
 
             <div class="card-body">
-
-                <a id="theme-toggle1" class="btn btn-outline-secondary" >Azul</a>
-                <a id="theme-toggle2" class="btn btn-outline-success" >Verde</a>
-                <a id="theme-toggle3" class="btn btn-outline-danger" >Rojo</a>
-                <a id="theme-toggle4" class="btn btn-outline-warning" >Amarillo</a>
+              <div class="form-row">
+                <div class="form-group col-md-4">           
+                  <a id="theme-toggle1" class="btn btn-outline-secondary" >Azul</a>              
+                </div>
+                <div class="form-group col-md-4">
+                  <a id="theme-toggle3" class="btn btn-outline-danger" >Rojo</a>             
+                </div>
+                <div class="form-group col-md-4">
+                  <a id="theme-toggle5" class="btn btn-outline-info" >Cyan</a>               
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">           
+                  <a id="theme-toggle2" class="btn btn-outline-success" >Verde</a>                
+                </div>
+                <div class="form-group col-md-4">
+                  <a id="theme-toggle4" class="btn btn-outline-warning" >Amarillo</a>                
+                </div>
+                <div class="form-group col-md-4">
+                  <a id="theme-toggle6" class="btn btn-outline-Dark" >Negro</a>                
+                </div>
+              </div>
             </div>
-
           </div> 
         </div>
           
