@@ -5,13 +5,12 @@
   <meta charset="utf-8">
   <title>Agregar Proveedores</title>
 
-<!-- Style -->
+  <!-- Style -->
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
-
 
 <body id="page-top">
   <div id="wrapper">
@@ -30,11 +29,11 @@
 
         <!-- Topbar -->
         <?php
-    require('Navigation.php');
-    ?>
+        require('Navigation.php');
+        ?>
         <!-- End of -->
 
-       <!-- Begin Page Content -->
+        <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
@@ -52,30 +51,27 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputName">Numero de Cedula</label>
-                    <input type="text" class="form-control" id="inputName" name="ced"maxlength="15" oninput="maxlengthNumber(this)" onkeypress="return numCed(event)" onpaste="return false" placeholder="">
+                    <input type="text" class="form-control" id="inputName" name="ced" maxlength="15" oninput="maxlengthNumber(this)" onkeypress="return numCed(event)" onpaste="return false" placeholder="">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPrice">Telefono</label>
-                    <input type="number" name="tel" class="form-control" id="inputrice" maxlength="10" oninput="maxlengthNumber(this)" onkeypress="return numTel(event)"onpaste="return false" placeholder="">
+                    <input type="number" name="tel" class="form-control" id="inputrice" maxlength="10" oninput="maxlengthNumber(this)" onkeypress="return numTel(event)" onpaste="return false" placeholder="">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCantidad">Nombre</label>
-                    <input type="text" name="nom" class="form-control" id="inputCantidad" maxlength="10"onkeypress="return Nom_1(event)"  onpaste="return false" placeholder="">
+                    <input type="text" name="nom" class="form-control" id="inputCantidad" maxlength="10" onkeypress="return Nom_1(event)" onpaste="return false" placeholder="">
                   </div>
                   <div class="form-group col-md-3">
-
                     <label for="inputCantidad">Primer Apellido</label>
-                    <input type="text" name="a1" class="form-control" id="inputCantidad" maxlength="15" onkeypress="return Pr_ap(event)"  onpaste="return false"  placeholder="">
+                    <input type="text" name="a1" class="form-control" id="inputCantidad" maxlength="15" onkeypress="return Pr_ap(event)" onpaste="return false" placeholder="">
                   </div>
                   <div class="form-group col-md-3">
-
                     <label for="inputCantidad">Segundo Apellido</label>
-                    <input type="text" name="a2" class="form-control" id="inputCantidad" maxlength="15"onkeypress="return Seg_ap(event)" onpaste="return false" placeholder="">
+                    <input type="text" name="a2" class="form-control" id="inputCantidad" maxlength="15" onkeypress="return Seg_ap(event)" onpaste="return false" placeholder="">
                   </div>
                 </div>
-
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputName">Materia Prima -Insumo</label>
@@ -90,231 +86,83 @@
                       <option value="1">Activo</option>
                       <option value="0">Suspendido</option>
                     </select>
-
                   </div>
-
                   <div class="form-group col-md-6">
-                  <label for="inputCantidad">Materia Prima</label>
-                  <div class="table-responsive" style=" max-height:350px; " >
-                    <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th>Nombre</th>
-                          <th>Descripción</th>
-                          <th>Precio</th>
-                          <th>IVA</th>
-                          <th>Cantidad</th>
-                          <th>Tipo</th>
-                        </tr>
-                      </thead>
-                      <tfoot>
-                        <tr>
-                          <th></th>
-                          <th>Nombre</th>
-                          <th>Descripción</th>
-                          <th>Precio</th>
-                          <th>IVA</th>
-                          <th>Cantidad</th>
-                          <th>Tipo</th>
-                        </tr>
-                      </tfoot>
-                      <tbody>
-                       <?php require ("../basededatos/listami_ped.php");?>
-                      </tbody>
-                    </table>
+                    <label for="inputCantidad">Materia Prima</label>
+                    <div class="table-responsive" style=" max-height:350px; ">
+                      <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>IVA</th>
+                            <th>Cantidad</th>
+                            <th>Tipo</th>
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>IVA</th>
+                            <th>Cantidad</th>
+                            <th>Tipo</th>
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          <?php require("../basededatos/listami_ped.php"); ?>
+                        </tbody>
+                      </table>
+                    </div>
+                    <label for="inputCantidad">Insumo</label>
+                    <div class="table-responsive" style=" max-height:350px; ">
+                      <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>IVA</th>
+                            <th>Cantidad</th>
+                            <th>Tipo</th>
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>IVA</th>
+                            <th>Cantidad</th>
+                            <th>Tipo</th>
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          <?php require("../basededatos/listami_ped.php"); ?>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-
-                  <label for="inputCantidad">Insumo</label>
-                  <div class="table-responsive" style=" max-height:350px; " >
-                    <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th>Nombre</th>
-                          <th>Descripción</th>
-                          <th>Precio</th>
-                          <th>IVA</th>
-                          <th>Cantidad</th>
-                          <th>Tipo</th>
-                        </tr>
-                      </thead>
-                      <tfoot>
-                        <tr>
-                          <th></th>
-                          <th>Nombre</th>
-                          <th>Descripción</th>
-                          <th>Precio</th>
-                          <th>IVA</th>
-                          <th>Cantidad</th>
-                          <th>Tipo</th>
-                        </tr>
-                      </tfoot>
-                      <tbody>
-                       <?php require ("../basededatos/listami_ped.php");?>
-                      </tbody>
-                    </table>
-                  </div>
-                  </div>
-
-
                 </div>
-
-
-
-
                 <button type="submit" class="btn btn-primary">Agregar</button>
               </form>
 
               <!--End  Add Example -->
             </div>
           </div>
-
         </div>
-<!-- validacion de longitud de campo numerico-->
-        <script>
-      function maxlengthNumber(ob){
-        console.log(ob.value);
 
-        if(ob.value.length > ob.maxLength){
-
-          ob.value = ob.value.slice(0,ob.maxLength);
-        }
-      }
-
-
-    </script>
-    <!-- funcion de validacion solo numeros-->
-
-
-       <script type="text/javascript">
-  function numCed(evento){
-
-      key = evento.keyCode || evento.which;
-       teclado = String.fromCharCode(key).toLocaleLowerCase();
-          ced= "1234567890";
-            especiales = "37-38-46";
-
-            teclado_especial = false;
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true; break;
-                }
-            }
-            if (ced.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
-            }
-  }
- </script>
-
-      <script type="text/javascript">
-  function numTel(evento){
-
-      key = evento.keyCode || evento.which;
-       teclado = String.fromCharCode(key).toLocaleLowerCase();
-          tel= "1234567890";
-            especiales = "37-38-46";
-
-            teclado_especial = false;
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true; break;
-                }
-            }
-            if (tel.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
-            }
-  }
- </script>
- <!-- validacion de texto-->
-
-        <script type="text/javascript">
-  function Nom_1(evento){
-
-      key = evento.keyCode || evento.which;
-       teclado = String.fromCharCode(key).toLocaleLowerCase();
-          nom = "abcdefghijklmnñopqrstuvwxyz";
-            especiales = "37-38-46";
-
-            teclado_especial = false;
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true; break;
-                }
-            }
-            if (nom.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
-            }
-  }
- </script>
-</script>
-<!-- validacion de texto-->
-
-       <script type="text/javascript">
- function Nom_2(evento){
-
-     key = evento.keyCode || evento.which;
-      teclado = String.fromCharCode(key).toLocaleLowerCase();
-         nom2 = "abcdefghijklmnñopqrstuvwxyz";
-           especiales = "37-38-46";
-
-           teclado_especial = false;
-           for (var i in especiales) {
-               if (key == especiales[i]) {
-                   teclado_especial = true; break;
-               }
-           }
-           if (nom2.indexOf(teclado) == -1 && !teclado_especial) {
-               return false;
-           }
- }
-</script>
-  <script type="text/javascript">
-  function Pr_ap(evento){
-
-      key = evento.keyCode || evento.which;
-       teclado = String.fromCharCode(key).toLocaleLowerCase();
-          a1 = "abcdefghijklmnñopqrstuvwxyz";
-            especiales = "37-38-46";
-
-            teclado_especial = false;
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true; break;
-                }
-            }
-            if (a1.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
-            }
-  }
-
-
- </script>
-  <script type="text/javascript">
-  function Seg_ap(evento){
-
-      key = evento.keyCode || evento.which;
-       teclado = String.fromCharCode(key).toLocaleLowerCase();
-          a2 = "abcdefghijklmnñopqrstuvwxyz";
-            especiales = "37-38-46";
-
-            teclado_especial = false;
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true; break;
-                }
-            }
-            if (a2.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
-            }
-  }
-
-  $(document).ready(function() {
-    $('#demo').multiselect();
-  });
- </script>
-
-
+       <!-- Validation -->
+      <?php
+      require('Validation.php');
+      ?>
+      <!-- End Validation --> 
 
         <!-- /.container-fluid -->
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -336,7 +184,6 @@
         <!-- MultiSelect -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

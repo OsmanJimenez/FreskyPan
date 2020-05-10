@@ -1,12 +1,15 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <title>Agregar Subtipo</title>
-  
+
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -19,7 +22,6 @@
     require('menu.php');
     ?>
     <!-- End of Sidebar -->
-    <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -29,8 +31,8 @@
 
         <!-- Topbar -->
         <?php
-    require('Navigation.php');
-    ?>
+        require('Navigation.php');
+        ?>
         <!-- End of
         Begin Page Content -->
         <div class="container-fluid">
@@ -47,32 +49,31 @@
 
 
             <div class="card-body">
-<?php
-require ("../basededatos/connectionbd.php");
-$mic=$_GET['idc'];
-$query="Select tipoproducto.nombre as nom1,subtipoproducto.nombre as nom2, subtipoproducto.ID_SUBTIPOPRODUCTO,subtipoproducto.FK_ID_TIPOPRODUCTO from subtipoproducto,tipoproducto where ID_SUBTIPOPRODUCTO='$mic' and subtipoproducto.FK_ID_TIPOPRODUCTO=tipoproducto.ID_TIPOPRODUCTO";
-$result=mysqli_query($conn,$query);
-$i = 0;
+              <?php
+              require("../basededatos/connectionbd.php");
+              $mic = $_GET['idc'];
+              $query = "Select tipoproducto.nombre as nom1,subtipoproducto.nombre as nom2, subtipoproducto.ID_SUBTIPOPRODUCTO,subtipoproducto.FK_ID_TIPOPRODUCTO from subtipoproducto,tipoproducto where ID_SUBTIPOPRODUCTO='$mic' and subtipoproducto.FK_ID_TIPOPRODUCTO=tipoproducto.ID_TIPOPRODUCTO";
+              $result = mysqli_query($conn, $query);
+              $i = 0;
 
-      $fila=mysqli_fetch_array($result);
-        $noms = $fila['nom1'];
-        $nomt = $fila['nom2'];
-        $idt = $fila['ID_SUBTIPOPRODUCTO'];
-        $ids = $fila['FK_ID_TIPOPRODUCTO'];
-        $i++; ?>
+              $fila = mysqli_fetch_array($result);
+              $noms = $fila['nom1'];
+              $nomt = $fila['nom2'];
+              $idt = $fila['ID_SUBTIPOPRODUCTO'];
+              $ids = $fila['FK_ID_TIPOPRODUCTO'];
+              $i++; ?>
               <form action="../basededatos/actuasu.php" method="POST">
 
                 <div class="form-row">
                   <div class="card-body">
 
                     <div class="form-row">
-                      <div class="form-group col-md-8 " >
+                      <div class="form-group col-md-8 ">
 
-                        <div class="table-responsive" style=" max-height:350px; " >
-                   <table class="table table-bordered " id="dataTable" id="Productos_Ver" width="100%"
-                            cellspacing="0">
+                        <div class="table-responsive" style=" max-height:350px; ">
+                          <table class="table table-bordered " id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
                             <thead>
-                              <tr >
+                              <tr>
                                 <th></th>
                                 <th>Id</th>
                                 <th>Nombre del tipo de producto</th>
@@ -82,7 +83,7 @@ $i = 0;
 
                             <tbody>
 
-                              <?php require ("../basededatos/listasub.php");?>
+                              <?php require("../basededatos/listasub.php"); ?>
 
                             </tbody>
                           </table>
@@ -98,12 +99,11 @@ $i = 0;
                         <label for="inputName">Código</label>
                         <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_sub(event)" onpaste="return false" id="inputName" placeholder="" readonly="">
                         <label for="inputName">Nombre</label>
-                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control"  maxlength="11"  onkeypress="return Nom_sub(event)" onpaste="return false" id="inputName" placeholder="">           
+                        <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" maxlength="11" onkeypress="return Nom_sub(event)" onpaste="return false" id="inputName" placeholder="">
                         <div class="space-small"></div>
                         <input type="hidden" name="id" id="prueba" readonly="">
                         <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                      data-target="#myModal">Actualizar</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
 
                       </div>
                     </div>
@@ -117,7 +117,7 @@ $i = 0;
                         <!-- Modal content-->
                         <div class="modal-content">
                           <div class="modal-header">
-                          <h4 class="modal-title">Confirmar</h4>
+                            <h4 class="modal-title">Confirmar</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                           </div>
@@ -151,60 +151,60 @@ $i = 0;
 
         </div>
         <script>
-      function maxlengthNumber(ob){
-        console.log(ob.value);
+          function maxlengthNumber(ob) {
+            console.log(ob.value);
 
-        if(ob.value.length > ob.maxLength){
+            if (ob.value.length > ob.maxLength) {
 
-          ob.value = ob.value.slice(0,ob.maxLength);
-        }
-      }
-
-
-    </script>
-    <!-- funcion de validacion solo numeros-->
-
-
-       <script type="text/javascript">
-  function cod_sub(evento){
-
-      key = evento.keyCode || evento.which;
-       teclado = String.fromCharCode(key).toLocaleLowerCase();
-          cd= "1234567890";
-            especiales = "37-38-46";
-
-            teclado_especial = false;
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true; break;
-                }
+              ob.value = ob.value.slice(0, ob.maxLength);
             }
-            if (cd.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
-            }
-  }
-  </script>
-  <!-- validacion de texto-->
+          }
+        </script>
+        <!-- funcion de validacion solo numeros-->
+
 
         <script type="text/javascript">
-  function Nom_sub(evento){
+          function cod_sub(evento) {
 
-      key = evento.keyCode || evento.which;
-       teclado = String.fromCharCode(key).toLocaleLowerCase();
-          nom = "abcdefghijklmnñopqrstuvwxyz";
+            key = evento.keyCode || evento.which;
+            teclado = String.fromCharCode(key).toLocaleLowerCase();
+            cd = "1234567890";
             especiales = "37-38-46";
 
             teclado_especial = false;
             for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true; break;
-                }
+              if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+              }
+            }
+            if (cd.indexOf(teclado) == -1 && !teclado_especial) {
+              return false;
+            }
+          }
+        </script>
+        <!-- validacion de texto-->
+
+        <script type="text/javascript">
+          function Nom_sub(evento) {
+
+            key = evento.keyCode || evento.which;
+            teclado = String.fromCharCode(key).toLocaleLowerCase();
+            nom = "abcdefghijklmnñopqrstuvwxyz";
+            especiales = "37-38-46";
+
+            teclado_especial = false;
+            for (var i in especiales) {
+              if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+              }
             }
             if (nom.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
+              return false;
             }
-  }
-  </script>
+          }
+        </script>
         <!-- /.container-fluid -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -232,3 +232,12 @@ $i = 0;
 </body>
 
 </html>
+<?php }
+else if(!(isset($_SESSION['cl']))){
+  ?>
+<script>
+alert('Primero inicie sesión');
+  window.location.href='../login/index.php';
+</script><?php
+}
+ ?>

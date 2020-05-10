@@ -1,12 +1,15 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <title>Registro de Actividades</title>
-   
+
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -30,19 +33,17 @@
 
         <!-- Topbar -->
         <?php
-    require('Navigation.php');
-    ?>
+        require('Navigation.php');
+        ?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-         <!-- Page Heading -->
-         <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Producción</h1>
-            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-              onclick="exportTableToExcel('dataTable' ,'Lista_Producción')"><i
-                class="fas fa-download fa-sm text-white-50"></i>  Generar Reporte</button>
+            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="exportTableToExcel('dataTable' ,'Lista_Producción')"><i class="fas fa-download fa-sm text-white-50"></i> Generar Reporte</button>
 
           </div>
           <p class="mb-4">Aqui encontrara información acerca de los cambios efectuados en el sistema</a>.</p>
@@ -56,7 +57,7 @@
 
             <div class="card-body">
               <div class="table-responsive">
-                <table  class="table table-bordered" id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>ID Usuario</th>
@@ -66,23 +67,24 @@
                       <th>Modulo Afectado</th>
 
 
-        
+
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                    <th>ID Usuario</th>
+                      <th>ID Usuario</th>
                       <th>Fecha</th>
                       <th>Hora</th>
                       <th>Descripción</th>
                       <th>Modulo Afectado</th>
 
-                      
+
                     </tr>
                   </tfoot>
                   <tbody>
 
-                    <?php require ("../basededatos/listalo.php");?> <!-- De aqui traen los botones eso, no los quite del php para no afectar la estetica, pero cuando usds creen el php ya no les saldran los botones -->
+                    <?php require("../basededatos/listalo.php"); ?>
+                    <!-- De aqui traen los botones eso, no los quite del php para no afectar la estetica, pero cuando usds creen el php ya no les saldran los botones -->
 
                   </tbody>
                 </table>
@@ -98,8 +100,8 @@
 
       <!-- Footer -->
       <?php
-    require('footer.php');
-    ?>
+      require('footer.php');
+      ?>
       <!-- End of Footer -->
 
     </div>
@@ -114,20 +116,19 @@
   </a>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">¿Está Seguro?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Seleccionar "Cerrar sesión" a continuación si está listo para finalizar tu sesión actual.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary" href="../salir.php">Cerrar Sesión</a>
         </div>
       </div>
     </div>
@@ -150,9 +151,18 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="Exportar_Excel.js"></script>
+  <!-- Page level custom scripts -->
+  <script src="Exportar_Excel.js"></script>
 
 </body>
 
 </html>
+<?php }
+else if(!(isset($_SESSION['cl']))){
+  ?>
+<script>
+alert('Primero inicie sesión');
+  window.location.href='../login/index.php';
+</script><?php
+}
+ ?>

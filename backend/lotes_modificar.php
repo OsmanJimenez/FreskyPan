@@ -1,3 +1,6 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +9,7 @@
   <title>Modificar Lotes</title>
 
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -20,7 +23,6 @@
     ?>
     <!-- End of Sidebar -->
 
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -29,8 +31,8 @@
 
         <!-- Topbar -->
         <?php
-    require('Navigation.php');
-    ?>
+        require('Navigation.php');
+        ?>
         <!-- End of -->
 
         <!--Begin Page Content -->
@@ -50,45 +52,37 @@
               <form action="../basededatos/editarlo.php" method="POST">
                 <div class="form-row">
 
-
                 </div>
             </div>
-            <?php require ("../basededatos/connectionbd.php");
-$cd=$_GET['id'];
-$fe=$_GET['fec'];
-$ca=$_GET['ca'];
-$query2="Select FK_ID_CATPRODUCTO,unidades from produccion where ID_PRODUCCION='$cd'
- and fechaProduccion='$fe'";
-$result2=mysqli_query($conn,$query2);
-                             while($fila2=mysqli_fetch_array($result2)){
-        $Stock=$fila2['unidades'];
-        $pro=$fila2['FK_ID_CATPRODUCTO'];
-         }
-?>
+            <?php require("../basededatos/connectionbd.php");
+            $cd = $_GET['id'];
+            $fe = $_GET['fec'];
+            $ca = $_GET['ca'];
+            $query2 = "Select FK_ID_CATPRODUCTO,unidades from produccion where ID_PRODUCCION='$cd'
+                      and fechaProduccion='$fe'";
+            $result2 = mysqli_query($conn, $query2);
+            while ($fila2 = mysqli_fetch_array($result2)) {
+              $Stock = $fila2['unidades'];
+              $pro = $fila2['FK_ID_CATPRODUCTO'];
+            }
+            ?>
             <div class="form-row">
               <div class="form-group col-md-11">
                 <label for="inputState">Productos</label>
-
-                  
-                      <input type="text" name="id" id="prueba" readonly="" value="<?php echo $pro; ?>"class="form-control">
-                  <input type="text" name="idl" value="<?php echo $cd;?>"class="form-control"readonly="">
-                  <input type="text" name="fece" value="<?php echo $fe;?>"class="form-control"readonly="">
-                  <input type="text" name="can" value="<?php echo $ca;?>"class="form-control"readonly="">
-
-
+                <input type="text" name="id" id="prueba" readonly="" value="<?php echo $pro; ?>" class="form-control">
+                <input type="text" name="idl" value="<?php echo $cd; ?>" class="form-control" readonly="">
+                <input type="text" name="fece" value="<?php echo $fe; ?>" class="form-control" readonly="">
+                <input type="text" name="can" value="<?php echo $ca; ?>" class="form-control" readonly="">
               </div>
-
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputName">Unidades</label>
-                  <input type="number" value="<?php echo $Stock;?>" name="st" class="form-control" id="inputName"
-                  maxlength="11" onkeypress="return uni_lo(event)" oninput="maxlengthNumber(this)" onpaste="return false"  placeholder="">
+                  <input type="number" value="<?php echo $Stock; ?>" name="st" class="form-control" id="inputName" maxlength="11" onkeypress="return uni_lo(event)" oninput="maxlengthNumber(this)" onpaste="return false" placeholder="">
 
                   <br>
 
-                  <button type="button" class="btn btn-primary" data-toggle="modal"
-                    data-target="#myModal">Actualizar</button>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
 
                   <!-- Modal -->
                   <div id="myModal" class="modal fade" role="dialog">
@@ -113,9 +107,6 @@ $result2=mysqli_query($conn,$query2);
                   </div>
                 </div>
 
-
-
-
                 </form>
 
                 <!--End  Add Example -->
@@ -124,40 +115,37 @@ $result2=mysqli_query($conn,$query2);
 
           </div>
           <script>
-        function maxlengthNumber(ob){
-          console.log(ob.value);
+            function maxlengthNumber(ob) {
+              console.log(ob.value);
 
-          if(ob.value.length > ob.maxLength){
+              if (ob.value.length > ob.maxLength) {
 
-            ob.value = ob.value.slice(0,ob.maxLength);
-          }
-        }
+                ob.value = ob.value.slice(0, ob.maxLength);
+              }
+            }
+          </script>
+          <!-- funcion de validacion solo numeros-->
 
+          <script type="text/javascript">
+            function uni_lo(evento) {
 
-      </script>
-      <!-- funcion de validacion solo numeros-->
-
-
-
-        <script type="text/javascript">
-    function uni_lo(evento){
-
-        key = evento.keyCode || evento.which;
-         teclado = String.fromCharCode(key).toLocaleLowerCase();
-            uni= "1234567890";
+              key = evento.keyCode || evento.which;
+              teclado = String.fromCharCode(key).toLocaleLowerCase();
+              uni = "1234567890";
               especiales = "37-38-46";
 
               teclado_especial = false;
               for (var i in especiales) {
-                  if (key == especiales[i]) {
-                      teclado_especial = true; break;
-                  }
+                if (key == especiales[i]) {
+                  teclado_especial = true;
+                  break;
+                }
               }
               if (uni.indexOf(teclado) == -1 && !teclado_especial) {
-                  return false;
+                return false;
               }
-    }
-    </script>
+            }
+          </script>
           <!-- /.container-fluid -->
           <script src="vendor/jquery/jquery.min.js"></script>
           <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -190,3 +178,12 @@ $result2=mysqli_query($conn,$query2);
 </body>
 
 </html>
+<?php }
+else if(!(isset($_SESSION['cl']))){
+  ?>
+<script>
+alert('Primero inicie sesión');
+  window.location.href='../login/index.php';
+</script><?php
+}
+ ?>

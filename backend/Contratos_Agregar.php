@@ -1,12 +1,15 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <title>Agregar Contratos</title>
-   
+
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -29,8 +32,8 @@
 
         <!-- Topbar -->
         <?php
-    require('Navigation.php');
-    ?>
+        require('Navigation.php');
+        ?>
         <!-- End of
         Begin Page Content -->
         <div class="container-fluid">
@@ -81,7 +84,7 @@
 
                       <tbody>
 
-                        <?php require ("../basededatos/listac2.php");?>
+                        <?php require("../basededatos/listac2.php"); ?>
 
 
                       </tbody>
@@ -145,7 +148,7 @@
 
                       <tbody>
 
-                        <?php require ("../basededatos/listap2.php");?>
+                        <?php require("../basededatos/listap2.php"); ?>
 
 
                       </tbody>
@@ -178,6 +181,13 @@
 
         </div>
         <!-- /.container-fluid -->
+
+        <!-- Validation -->
+      <?php
+      require('Validation.php');
+      ?>
+      <!-- End Validation --> 
+      
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="js/jquery.min.js"></script>
@@ -209,3 +219,12 @@
 </body>
 
 </html>
+<?php }
+else if(!(isset($_SESSION['cl']))){
+  ?>
+<script>
+alert('Primero inicie sesión');
+  window.location.href='../login/index.php';
+</script><?php
+}
+ ?>

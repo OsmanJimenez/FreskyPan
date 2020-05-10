@@ -1,3 +1,7 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +10,7 @@
   <title>Agregar Productos</title>
 
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -16,8 +20,8 @@
 
   <!-- Sidebar -->
   <?php
-    require('menu.php');
-    ?>
+  require('menu.php');
+  ?>
 
   <!-- End of Sidebar -->
 
@@ -30,8 +34,8 @@
 
       <!-- Topbar -->
       <?php
-    require('Navigation.php');
-    ?>
+      require('Navigation.php');
+      ?>
       <!-- End of -->
       <!-- Begin Page Content -->
       <div class="container-fluid">
@@ -68,7 +72,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Duración</label>
-                   <input type="number" name="dur" class="form-control" id="inputrice" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return dur_pro(event)" onpaste="return false" placeholder="Duración en Dias">
+                  <input type="number" name="dur" class="form-control" id="inputrice" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return dur_pro(event)" onpaste="return false" placeholder="Duración en Dias">
                 </div>
 
 
@@ -86,7 +90,7 @@
                 <div class="form-group col-md-6">
 
                   <label for="inputState">Categoria</label>
-<?php require('../basededatos/select.php')?>
+                  <?php require('../basededatos/select.php') ?>
                 </div>
 
 
@@ -112,8 +116,7 @@
 
                   <div class="form-group">
                     <label for="exampleFormControlFile1">Imagen del Producto</label>
-                    <input type="file" name="img" accept="image/*" class="form-control-file"
-                      id="exampleFormControlFile1">
+                    <input type="file" name="img" accept="image/*" class="form-control-file" id="exampleFormControlFile1">
                   </div>
 
                 </div>
@@ -156,120 +159,20 @@
       </div>
 
       <script>
-    function maxlengthNumber(ob){
-      console.log(ob.value);
+        function maxlengthNumber(ob) {
+          console.log(ob.value);
 
-      if(ob.value.length > ob.maxLength){
+          if (ob.value.length > ob.maxLength) {
 
-        ob.value = ob.value.slice(0,ob.maxLength);
-      }
-    }
-
-
-  </script>
-  <!-- funcion de validacion solo numeros-->
-
-
-     <script type="text/javascript">
-function cod_pro(evento){
-
-    key = evento.keyCode || evento.which;
-     teclado = String.fromCharCode(key).toLocaleLowerCase();
-        cod= "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-              if (key == especiales[i]) {
-                  teclado_especial = true; break;
-              }
+            ob.value = ob.value.slice(0, ob.maxLength);
           }
-          if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-              return false;
-          }
-}
-</script>
-
-    <script type="text/javascript">
-function pre_pro(evento){
-
-    key = evento.keyCode || evento.which;
-     teclado = String.fromCharCode(key).toLocaleLowerCase();
-        pre= "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-              if (key == especiales[i]) {
-                  teclado_especial = true; break;
-              }
-          }
-          if (pre.indexOf(teclado) == -1 && !teclado_especial) {
-              return false;
-          }
-}
-</script>
-<script type="text/javascript">
-function dur_pro(evento){
-
-key = evento.keyCode || evento.which;
- teclado = String.fromCharCode(key).toLocaleLowerCase();
-    dur= "1234567890";
-      especiales = "37-38-46";
-
-      teclado_especial = false;
-      for (var i in especiales) {
-          if (key == especiales[i]) {
-              teclado_especial = true; break;
-          }
-      }
-      if (dur.indexOf(teclado) == -1 && !teclado_especial) {
-          return false;
-      }
-}
-</script>
-<!-- validacion de texto-->
-
-      <script type="text/javascript">
-function Nom_pro(evento){
-
-    key = evento.keyCode || evento.which;
-     teclado = String.fromCharCode(key).toLocaleLowerCase();
-        nom = "abcdefghijklmnñopqrstuvwxyz";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-              if (key == especiales[i]) {
-                  teclado_especial = true; break;
-              }
-          }
-          if (nom.indexOf(teclado) == -1 && !teclado_especial) {
-              return false;
-          }
-}
-</script>
-<script type="text/javascript">
-function des_pro(evento){
-
-key = evento.keyCode || evento.which;
-teclado = String.fromCharCode(key).toLocaleLowerCase();
-  des = "abcdefghijklmnñopqrstuvwxyz";
-    especiales = "37-38-46";
-
-    teclado_especial = false;
-    for (var i in especiales) {
-        if (key == especiales[i]) {
-            teclado_especial = true; break;
         }
-    }
-    if (des.indexOf(teclado) == -1 && !teclado_especial) {
-        return false;
-    }
-}
-</script>
-      <!-- /.container-fluid -->
-
+      </script>
+<!-- Validation -->
+<?php
+      require('Validation.php');
+      ?>
+      <!-- End Validation --> 
 
 
       <script src="vendor/jquery/jquery.min.js"></script>
@@ -291,3 +194,12 @@ teclado = String.fromCharCode(key).toLocaleLowerCase();
       </body>
 
 </html>
+<?php }
+else if(!(isset($_SESSION['cl']))){
+  ?>
+<script>
+alert('Primero inicie sesión');
+  window.location.href='../login/index.php';
+</script><?php
+}
+ ?>

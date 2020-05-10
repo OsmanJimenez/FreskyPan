@@ -1,3 +1,6 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +8,7 @@
   <title>Agregar Pedidos</title>
 
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
   
 </head>
@@ -23,8 +26,8 @@
   <!-- Sidebar -->
   <!-- Sidebar -->
   <?php
-    require('menu.php');
-    ?>
+  require('menu.php');
+  ?>
   <!-- End of Sidebar -->
 
   <!-- Content Wrapper -->
@@ -35,8 +38,8 @@
 
       <!-- Topbar -->
       <?php
-    require('Navigation.php');
-    ?>
+      require('Navigation.php');
+      ?>
       <!-- End of -->
       <!-- Begin Page Content -->
       <div class="container-fluid">
@@ -55,8 +58,8 @@
             <form action="../basededatos/agregaped.php" method="POST">
               <div class="form-row">
 
-                  <label for="inputPrice">Fecha</label>
-                  <input type="date" id="inputName" class="form-control" name="fec" width="100%" />
+                <label for="inputPrice">Fecha</label>
+                <input type="date" id="inputName" class="form-control" name="fec" width="100%" />
 
               </div>
           </div>
@@ -64,15 +67,11 @@
 
         <div class="card shadow mb-4">
 
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Escoger al proveedor</h6>
-              </div>
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Escoger al proveedor</h6>
+          </div>
 
-              <div class="space-small"></div>
-
-              <div class="card-body">
-                <div class="form-row">
-
+          <div class="space-small"></div>
                   <div class="form-group col-md-6">
                     <div class="table-responsive" style=" max-height:350px; ">
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -108,16 +107,50 @@
                     <label for="inputCantidad">Exigencias</label>
                     <textarea class="form-control" name="ex" rows="8" maxlength="100" required></textarea>
                   </div>
-
-                </div>
               </div>
+
+            </div>
+          </div>
         </div>
 
         <div class="card shadow mb-4">
-
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Escoger el producto</h6>
               </div>
+          <div class="space-small"></div>
+
+          <div class="card-body">
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+                <div class="table-responsive" style=" max-height:350px; ">
+                  <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>IVA</th>
+                        <th>Cantidad</th>
+                        <th>Tipo</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th></th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>IVA</th>
+                        <th>Cantidad</th>
+                        <th>Tipo</th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <?php require("../basededatos/listami_ped.php"); ?>
+                    </tbody>
+                  </table>
               <div class="space-small"></div>
 
               <div class="card-body">
@@ -157,9 +190,14 @@
                   </div>
                 </div>
                 </div>
-
-                <button type="submit" class="btn btn-primary float-right">Agregar</button>
               </div>
+              </div>
+            </div>
+
+            <input type="hidden" name="id" id="prueba" readonly="">
+
+            <button type="submit" class="btn btn-primary float-right">Agregar</button>
+          </div>
           </form>
 
         </div>
@@ -167,7 +205,7 @@
       </div>
 
 
-</div>
+    </div>
     <!-- /.container-fluid -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -344,3 +382,12 @@ function des_pe(evento){
     </body>
 
 </html>
+<?php }
+else if(!(isset($_SESSION['cl']))){
+  ?>
+<script>
+alert('Primero inicie sesión');
+  window.location.href='../login/index.php';
+</script><?php
+}
+ ?>

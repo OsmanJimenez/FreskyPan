@@ -1,3 +1,7 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +10,7 @@
   <title>Modificar Productos</title>
 
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 
 </head>
@@ -15,8 +19,8 @@
 
   <!-- Sidebar -->
   <?php
-    require('menu.php');
-    ?>
+  require('menu.php');
+  ?>
   <!-- End of Sidebar -->
 
   <!-- Content Wrapper -->
@@ -27,114 +31,108 @@
 
       <!-- Topbar -->
       <?php
-    require('Navigation.php');
-    ?>
+      require('Navigation.php');
+      ?>
       <!-- End of -->
       <!-- Begin Page Content -->
       <div class="container-fluid">
 
         <!-- Page Heading -->
-        <?php require ("../basededatos/connectionbd.php");
-$mic=$_GET['idc'];
-$query="Select * from catproducto where ID_CATPRODUCTO='$mic'";
-$result=mysqli_query($conn,$query);
-$i = 0;
+        <?php require("../basededatos/connectionbd.php");
+        $mic = $_GET['idc'];
+        $query = "Select * from catproducto where ID_CATPRODUCTO='$mic'";
+        $result = mysqli_query($conn, $query);
+        $i = 0;
 
-      while($fila=mysqli_fetch_array($result)){
-        $Nom = $fila['nombre'];
-        $cat = $fila['FK_ID_SUBTIPOPRODUCTO'];
-        $sab=$fila['sabor'];
-        $des = $fila['descripcion'];
-        $stock=$fila['stock'];
-        $pre=$fila['precio'];
-        $id=$fila['ID_CATPRODUCTO'];
-        $esta=$fila['estado'];
-        $img=$fila['imagen'];
-        $i++; ?>
-        <h1 class="h3 mb-2 text-gray-800">Modificar Productos</h1>
-        <p class="mb-4">En este apartado podremos agregar distintos productos</a>.</p>
+        while ($fila = mysqli_fetch_array($result)) {
+          $Nom = $fila['nombre'];
+          $cat = $fila['FK_ID_SUBTIPOPRODUCTO'];
+          $sab = $fila['sabor'];
+          $des = $fila['descripcion'];
+          $stock = $fila['stock'];
+          $pre = $fila['precio'];
+          $id = $fila['ID_CATPRODUCTO'];
+          $esta = $fila['estado'];
+          $img = $fila['imagen'];
+          $i++; ?>
+          <h1 class="h3 mb-2 text-gray-800">Modificar Productos</h1>
+          <p class="mb-4">En este apartado podremos agregar distintos productos</a>.</p>
 
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Productos</h6>
-          </div>
-          <div class="card-body">
-            <!-- Add Example -->
-            <form action="../basededatos/actuapd.php" method="POST" enctype="multipart/form-data">
-              <label for="inputName">Codigo del Producto</label>
-              <input type="text" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" readonly=""
-                maxlength="11" onkeypress="return cod_pro(event)" oninput="return maxlengthNumber(this)" onpaste="return false"  placeholder="">
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Productos</h6>
+            </div>
+            <div class="card-body">
+              <!-- Add Example -->
+              <form action="../basededatos/actuapd.php" method="POST" enctype="multipart/form-data">
+                <label for="inputName">Codigo del Producto</label>
+                <input type="text" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" readonly="" maxlength="11" onkeypress="return cod_pro(event)" oninput="return maxlengthNumber(this)" onpaste="return false" placeholder="">
 
-              <div class="form-row">
+                <div class="form-row">
 
-                <div class="form-group col-md-6">
-                  <label for="inputName">Nombre del Producto</label>
-                  <input type="text" value="<?php echo $Nom; ?>" class="form-control" name="nom" id="inputName"
-                    maxlength="11" onkeypress="return Nom_pro(event)" onpaste="return false"  placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" value="<?php echo $pre; ?>" id="inputrice"
-                  maxlength="11" onkeypress="return pre_pro(event)" oninput="return maxlengthNumber(this)" onpaste="return false"  placeholder="">
+                  <div class="form-group col-md-6">
+                    <label for="inputName">Nombre del Producto</label>
+                    <input type="text" value="<?php echo $Nom; ?>" class="form-control" name="nom" id="inputName" maxlength="11" onkeypress="return Nom_pro(event)" onpaste="return false" placeholder="">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPrice">Precio</label>
+                    <input type="number" name="pre" class="form-control" value="<?php echo $pre; ?>" id="inputrice" maxlength="11" onkeypress="return pre_pro(event)" oninput="return maxlengthNumber(this)" onpaste="return false" placeholder="">
 
 
 
 
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputState">Sabor</label>
-                  <select id="inputStatesab" class="form-control" name="sab" required="" value="<?php echo $sab; ?>">
-                    <option>Escoger</option>
-                    <option value="1">Dulce</option>
-                    <option value="2">Salado</option>
-                    <option value="3">Agridulce</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-row">
-                   <div class="form-group col-md-6">
-
-                  <label for="inputState">Categoria</label>
-<?php require('../basededatos/select.php')?>
+                  </div>
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputState">Sabor</label>
+                    <select id="inputStatesab" class="form-control" name="sab" required="" value="<?php echo $sab; ?>">
+                      <option>Escoger</option>
+                      <option value="1">Dulce</option>
+                      <option value="2">Salado</option>
+                      <option value="3">Agridulce</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
 
-                  <div class="form-group">
+                    <label for="inputState">Categoria</label>
+                    <?php require('../basededatos/select.php') ?>
+                  </div>
+
+                  <div class="form-group col-md-6">
+
+                    <div class="form-group">
+
+                    </div>
 
                   </div>
 
                 </div>
-
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputState">Estado</label>
-                  <select class="form-control" name="esta" value='<?php echo $esta ?>' id="estado">
-                    <option selected>Escoger</option>
-                    <option value="1">Activo</option>
-                    <option value="0">Inactivo</option>
-                  </select>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputState">Estado</label>
+                    <select class="form-control" name="esta" value='<?php echo $esta ?>' id="estado">
+                      <option selected>Escoger</option>
+                      <option value="1">Activo</option>
+                      <option value="0">Inactivo</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1">Descripción</label>
-                <textarea class="form-control" name="des" id="exampleFormControlTextarea1"
-                  maxlength="40" onkeypress="return des_pro(event)" onpaste="return false" rows="3"><?php echo $des; ?></textarea>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Descripción</label>
+                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40" onkeypress="return des_pro(event)" onpaste="return false" rows="3"><?php echo $des; ?></textarea>
                   <label for="exampleFormControlFile1">Imagen del Producto</label>
-                    <input type="file" name="img" accept="image/*" class="form-control-file"
-                      id="exampleFormControlFile1">
-              </div>
+                  <input type="file" name="img" accept="image/*" class="form-control-file" id="exampleFormControlFile1">
+                </div>
 
 
-              <?php }?>
-              <button type="button" class="btn btn-primary" data-toggle="modal"
-                data-target="#myModal">Actualizar</button>
+              <?php } ?>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
 
               <!-- Modal -->
               <div id="myModal" class="modal fade" role="dialog">
@@ -157,135 +155,42 @@ $i = 0;
 
                 </div>
               </div>
-            </form>
+              </form>
 
-            <!--End  Add Example -->
+              <!--End  Add Example -->
+            </div>
           </div>
-        </div>
 
       </div>
       <!-- /.container-fluid -->
 
-                              <script>
-    document.ready = document.getElementById("inputStatecat").value = '<?php echo $cat; ?>';
+      <script>
+        document.ready = document.getElementById("inputStatecat").value = '<?php echo $cat; ?>';
 
-    document.ready = document.getElementById("inputStatesab").value = '<?php if(strcasecmp ($sab,'Dulce')==0){ echo '1';}elseif(strcasecmp ($sab,'Salado')==0){ echo '2';}elseif(strcasecmp ($sab,'Agridulce')==0){ echo '3';} ?>';
-    document.ready = document.getElementById("estado").value = '<?php echo $esta; ?>';
+        document.ready = document.getElementById("inputStatesab").value = '<?php if (strcasecmp($sab, 'Dulce') == 0) {
+                                                                              echo '1';
+                                                                            } elseif (strcasecmp($sab, 'Salado') == 0) {
+                                                                              echo '2';
+                                                                            } elseif (strcasecmp($sab, 'Agridulce') == 0) {
+                                                                              echo '3';
+                                                                            } ?>';
+        document.ready = document.getElementById("estado").value = '<?php echo $esta; ?>';
+      </script>
+      <script>
+        function maxlengthNumber(ob) {
+          console.log(ob.value);
 
-</script>
-<script>
-function maxlengthNumber(ob){
-console.log(ob.value);
+          if (ob.value.length > ob.maxLength) {
 
-if(ob.value.length > ob.maxLength){
-
-  ob.value = ob.value.slice(0,ob.maxLength);
-}
-}
-
-
-</script>
-<!-- funcion de validacion solo numeros-->
-
-
-<script type="text/javascript">
-function cod_pro(evento){
-
-key = evento.keyCode || evento.which;
-teclado = String.fromCharCode(key).toLocaleLowerCase();
-  cod= "1234567890";
-    especiales = "37-38-46";
-
-    teclado_especial = false;
-    for (var i in especiales) {
-        if (key == especiales[i]) {
-            teclado_especial = true; break;
+            ob.value = ob.value.slice(0, ob.maxLength);
+          }
         }
-    }
-    if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-        return false;
-    }
-}
-</script>
-
-<script type="text/javascript">
-function pre_pro(evento){
-
-key = evento.keyCode || evento.which;
-teclado = String.fromCharCode(key).toLocaleLowerCase();
-  pre= "1234567890";
-    especiales = "37-38-46";
-
-    teclado_especial = false;
-    for (var i in especiales) {
-        if (key == especiales[i]) {
-            teclado_especial = true; break;
-        }
-    }
-    if (pre.indexOf(teclado) == -1 && !teclado_especial) {
-        return false;
-    }
-}
-</script>
-<script type="text/javascript">
-function dur_pro(evento){
-
-key = evento.keyCode || evento.which;
-teclado = String.fromCharCode(key).toLocaleLowerCase();
-dur= "1234567890";
-especiales = "37-38-46";
-
-teclado_especial = false;
-for (var i in especiales) {
-    if (key == especiales[i]) {
-        teclado_especial = true; break;
-    }
-}
-if (dur.indexOf(teclado) == -1 && !teclado_especial) {
-    return false;
-}
-}
-</script>
-<!-- validacion de texto-->
-
-<script type="text/javascript">
-function Nom_pro(evento){
-
-key = evento.keyCode || evento.which;
-teclado = String.fromCharCode(key).toLocaleLowerCase();
-  nom = "abcdefghijklmnñopqrstuvwxyz";
-    especiales = "37-38-46";
-
-    teclado_especial = false;
-    for (var i in especiales) {
-        if (key == especiales[i]) {
-            teclado_especial = true; break;
-        }
-    }
-    if (nom.indexOf(teclado) == -1 && !teclado_especial) {
-        return false;
-    }
-}
-</script>
-<script type="text/javascript">
-function des_pro(evento){
-
-key = evento.keyCode || evento.which;
-teclado = String.fromCharCode(key).toLocaleLowerCase();
-des = "abcdefghijklmnñopqrstuvwxyz";
-especiales = "37-38-46";
-
-teclado_especial = false;
-for (var i in especiales) {
-  if (key == especiales[i]) {
-      teclado_especial = true; break;
-  }
-}
-if (des.indexOf(teclado) == -1 && !teclado_especial) {
-  return false;
-}
-}
-</script>
+      </script>
+ <!-- Validation -->
+ <?php
+      require('Validation.php');
+      ?>
+      <!-- End Validation --> 
 
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -306,3 +211,12 @@ if (des.indexOf(teclado) == -1 && !teclado_especial) {
       </body>
 
 </html>
+<?php }
+else if(!(isset($_SESSION['cl']))){
+  ?>
+<script>
+alert('Primero inicie sesión');
+  window.location.href='../login/index.php';
+</script><?php
+}
+ ?>

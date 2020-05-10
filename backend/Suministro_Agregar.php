@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Agregar Suministro</title>
-   
+
   <?php
-    require('Style.php');
+  require('Style.php');
   ?>
 </head>
 
@@ -15,11 +15,11 @@
 
   <!-- Sidebar -->
   <?php
-    require('menu.php');
-    ?>
-    
+  require('menu.php');
+  ?>
+
   <!-- End of Sidebar -->
-  
+
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
@@ -29,8 +29,8 @@
 
       <!-- Topbar -->
       <?php
-    require('Navigation.php');
-    ?>
+      require('Navigation.php');
+      ?>
       <!-- End of -->
       <!-- Begin Page Content -->
       <div class="container-fluid">
@@ -45,67 +45,97 @@
             <h6 class="m-0 font-weight-bold text-primary">Suministros</h6>
           </div>
           <div class="card-body">
+
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
             <form action="../basededatos/agregaim.php" method="POST" enctype="multipart/form-data">
-
-<div class="form-row">
-
+              <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputName">Código</label>
-              <input type="number" name="cod" class="form-control" onkeypress="return validanumericos(event)" id="inputName" placeholder="" required>
-                </div>
-                <div class="form-group col-md-6">
+                  <input type="number" name="cod" class="form-control" onkeypress="return validanumericos(event)" id="inputName" placeholder="" required>
+                  <div class="space-small"></div>
                   <label for="inputName">Nombre</label>
                   <input type="text" name="nom" class="form-control" id="inputName" placeholder="" maxlength="10" required>
-                </div>
-              </div>
-
-              
-
-              <div class="form-row">
-                <div class="form-group col-md-6">
+                  <div class="space-small"></div>
                   <label for="inputState">Cantidad</label>
-                   <input type="number" name="can" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
-                </div>
-                <div class="form-group col-md-6">
+                  <input type="number" name="can" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                  <div class="space-small"></div>
                   <label for="inputPrice">Precio</label>
                   <input type="number" name="pre" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputPrice">Iva</label>
-                    <input type="number" name="iva" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputState">Tipo</label>
-                  <select id="inputState" name="tip" class="form-control">
-                    <?php require ("../basededatos/combotpins.php");?>
-                  </select>
-                </div>
-              </div>
-              
-
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required></textarea>
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                 <label for="inputState">Estado</label>
+                  <div class="space-small"></div>
+                  <label for="inputState">Estado</label>
                   <select id="inputState" name="est" class="form-control">
                     <option selected value="1">Activo</option>
                     <option value="0">Suspendido</option>
                   </select>
+                  <div class="space-small"></div>
+                  <label for="inputState">Tipo</label>
+                  <select id="inputState" name="tip" class="form-control">
+                    <?php require("../basededatos/combotpins.php"); ?>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputCantidad">Materia Prima</label>
+                  <div class="table-responsive" style=" max-height:350px; ">
+                    <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        <?php require("../basededatos/listami_ped.php"); ?>
+                      </tbody>
+                    </table>
+                  </div>
+                  <label for="inputCantidad">Insumo</label>
+                  <div class="table-responsive" style=" max-height:350px; ">
+                    <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th></th>
+                          <th>Nombre</th>
+                          <th>Descripción</th>
+                          <th>Precio</th>
+                          <th>IVA</th>
+                          <th>Cantidad</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        <?php require("../basededatos/listami_ped.php"); ?>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-
-
-
-
               <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
 
               <!-- Modal -->
@@ -136,8 +166,6 @@
       </div>
       <!-- /.container-fluid -->
 
-
-
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -155,5 +183,4 @@
       <script src="js/demo/datatables-demo.js"></script>
 
       </body>
-
 </html>
