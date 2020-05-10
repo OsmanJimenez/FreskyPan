@@ -53,7 +53,7 @@ session_start();
               <div class="form-row">
                 <div class="form-group col-md-8">
                   <label for="inputName">Codigo de Devolución</label>
-                  <input type="text" name="cd" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_devo(event)" onpaste="return false" placeholder="" required="">
+                  <input type="text" name="cd" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return Num_1(event)" onpaste="return false" placeholder="" required="">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="inputName">Fecha</label>
@@ -120,7 +120,7 @@ session_start();
 
 
                   <label for="exampleFormControlTextarea1">Descripción de la devolución</label>
-                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="30" onkeypress="return des_devo(event)" onpaste="return false" rows="3"></textarea>
+                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="30" onkeypress="return texto_1(event)" onpaste="return false" rows="3"></textarea>
                   <br>
                   <label for="inputCantidad">Desea sumarlo a la produccion</label>
                   <select name="opt">
