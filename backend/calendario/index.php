@@ -40,7 +40,7 @@ if (isset($_POST['from'])) {
     $clase  = evaluar($_POST['class']);
 
     // insertamos el evento
-    $query = "INSERT INTO agenda VALUES(null,'$titulo','$body','','$clase','$inicio','$final','$inicio_normal','$final_normal')";
+    $query = "INSERT INTO agenda( `title`, `body`, `url`, `class`, `start`, `end`, `inicio_normal`, `final_normal`) VALUES('$titulo','$body','','$clase','$inicio','$final','$inicio_normal','$final_normal')";
 
     // Ejecutamos nuestra sentencia sql
     $conexion->query($query) or die('<script type="text/javascript">alert("Horario No Disponible ")</script>');
@@ -53,7 +53,7 @@ if (isset($_POST['from'])) {
     $id = trim($row[0]);
 
     // para generar el link del evento
-    $link = "$base_url" . "descripcion_evento.php?id=$id";
+    $link ="descripcion_evento.php?id=$id";
 
     // y actualizamos su link
     $query = "UPDATE agenda SET url = '$link' WHERE id = $id";
