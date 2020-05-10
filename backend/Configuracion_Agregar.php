@@ -50,15 +50,15 @@ session_start();
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
             <form action="../basededatos/agregarus.php" method="POST" enctype="multipart/form-data">
               <label for="inputName">Codigo del Empleado</label>
-              <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_em(event)" onpaste="return false" placeholder="">
+              <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return Num_1(event)" onpaste="return false" placeholder="">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Empleado</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="15" onkeypress="return Nom_em(event)" onpaste="return false" placeholder="">
+                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="15" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Apellido del Empleado</label>
-                  <input type="text" name="ape" class="form-control" id="inputrice" maxlength="15" onkeypress="return Ap_em(event)" onpaste="return false" placeholder="">
+                  <input type="text" name="ape" class="form-control" id="inputrice" maxlength="15" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
                 </div>
               </div>
               <div class="form-row">
@@ -104,7 +104,7 @@ session_start();
      <?php
       require('Validation.php');
       ?>
-      <!-- End Validation --> 
+      <!-- End Validation -->
 
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

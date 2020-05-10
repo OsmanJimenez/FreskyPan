@@ -66,7 +66,7 @@ session_start();
 
                 <div class="form-group col-md-11">
                   <input type="number" name="cod" class="form-control" id="inputName" value="<?php echo $codigo; ?>"
-                    maxlength="15" oninput="maxlengthNumber(this)" onkeypress="return cod_em(event)"
+                    maxlength="15" oninput="maxlengthNumber(this)" onkeypress="return Num_1(event)"
                     onpaste="return false" placeholder="" readonly="">
                 </div>
                 <div class="form-group col-md-1">
@@ -79,12 +79,12 @@ session_start();
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Empleado</label>
                   <input type="text" name="nom" value="<?php echo $nombre; ?>" class="form-control" id="inputName"
-                    maxlength="15" onkeypress="return Nom_em(event)" onpaste="return false" placeholder="">
+                    maxlength="15" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Apellido del Empleado</label>
                   <input type="text" name="ape" class="form-control" value="<?php echo $apellido; ?>" id="inputrice"
-                    maxlength="15" onkeypress="return Ap_em(event)" onpaste="return false" placeholder="">
+                    maxlength="15" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
                 </div>
               </div>
 
@@ -135,7 +135,7 @@ session_start();
      <?php
       require('Validation.php');
       ?>
-      <!-- End Validation --> 
+      <!-- End Validation -->
 
 
       <script src="vendor/jquery/jquery.min.js"></script>
