@@ -24,10 +24,10 @@ session_start();
   <!-- End of Sidebar -->
 
   <!-- Content Wrapper -->
-  <div id="content-wrapper" class="d-flex flex-column"> 5
+  <div id="content-wrapper" class="d-flex flex-column"> 
 
     <!-- Main Content -->
-    <div id="content"> 4
+    <div id="content"> 
 
       <!-- Topbar -->
       <?php
@@ -36,7 +36,7 @@ session_start();
       <!-- End of -->
 
       <!-- Begin Page Content -->
-      <div class="container-fluid"> 3
+      <div class="container-fluid"> 
         <?php require("../basededatos/connectionbd.php");
         $query = "SELECT MAX(ID_DEVOLUCION) AS id FROM Devolucion";
         $result = mysqli_query($conn, $query);
@@ -49,11 +49,11 @@ session_start();
         <p class="mb-4">En este apartado podremos agregar distintos devoluciones que se generen.</p>
 
         <!-- DataTales Example -->
-        <div class="card shadow mb-4"> 2
+        <div class="card shadow mb-4"> 
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Devoluciones</h6>
           </div>
-          <div class="card-body"> 1
+          <div class="card-body"> 
             <!-- Add Example -->
             <form action="../basededatos/agregad.php" method="POST">
               <div class="form-row">
@@ -172,7 +172,7 @@ session_start();
     </div>
   </div>
 </div>
-        <!-- Validation -->
+        <!-- Validation --> 
         <?php
         require('Validation.php');
         ?>
