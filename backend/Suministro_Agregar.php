@@ -164,6 +164,11 @@
         </div>
 
       </div>
+      <!-- Validation -->
+      <?php
+       require('Validation.php');
+       ?>
+       <!-- End Validation -->
       <!-- /.container-fluid -->
 
       <script src="vendor/jquery/jquery.min.js"></script>
