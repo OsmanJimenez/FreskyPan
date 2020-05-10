@@ -76,7 +76,7 @@
           function Nom_2(evento) {
             key = evento.keyCode || evento.which;
             teclado = String.fromCharCode(key).toLocaleLowerCase();
-            nom2 = "abcdefghijklmnñopqrstuvwxyz";
+            nom2 = " abcdefghijklmnñopqrstuvwxyz";
             especiales = "37-38-46";
             teclado_especial = false;
             for (var i in especiales) {
@@ -94,7 +94,7 @@
           function Pr_ap(evento) {
             key = evento.keyCode || evento.which;
             teclado = String.fromCharCode(key).toLocaleLowerCase();
-            a1 = "abcdefghijklmnñopqrstuvwxyz";
+            a1 = " abcdefghijklmnñopqrstuvwxyz";
             especiales = "37-38-46";
 
             teclado_especial = false;
@@ -113,7 +113,7 @@
           function Seg_ap(evento) {
             key = evento.keyCode || evento.which;
             teclado = String.fromCharCode(key).toLocaleLowerCase();
-            a2 = "abcdefghijklmnñopqrstuvwxyz";
+            a2 = " abcdefghijklmnñopqrstuvwxyz";
             especiales = "37-38-46";
             teclado_especial = false;
             for (var i in especiales) {
@@ -127,5 +127,3 @@
             }
           }
         </script>
-
-        
