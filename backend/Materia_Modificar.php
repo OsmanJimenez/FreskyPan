@@ -76,11 +76,11 @@ alert('Primero inicie sesión');
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Código</label>
-                  <input type="number" name="cod" value="<?php echo $id; ?>" class="form-control" maxlength="11" onkeypress="return cod_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputName" placeholder="" readonly="readonly">
+                  <input type="number" name="cod" value="<?php echo $id; ?>" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputName" placeholder="" readonly="readonly">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre</label>
-                  <input type="text" name="nom" value="<?php echo $nom; ?>" class="form-control" id="inputName" placeholder="" maxlength="10" onkeypress="return Nom_ma(event)" onpaste="return false" id="inputName" required>
+                  <input type="text" name="nom" value="<?php echo $nom; ?>" class="form-control" id="inputName" placeholder="" maxlength="10" onkeypress="return texto_1(event)" onpaste="return false" id="inputName" required>
                 </div>
               </div>
 
@@ -88,7 +88,7 @@ alert('Primero inicie sesión');
 
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" value="<?php echo $pre; ?>" class="form-control" maxlength="11" onkeypress="return pre_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" required>
+                  <input type="number" name="pre" value="<?php echo $pre; ?>" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
@@ -107,11 +107,11 @@ alert('Primero inicie sesión');
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Cantidad</label>
-                  <input type="number" name="can" value="<?php echo $can; ?>" class="form-control" maxlength="11" onkeypress="return cant_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" required>
+                  <input type="number" name="can" value="<?php echo $can; ?>" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Iva</label>
-                  <input type="number" name="iva" value="<?php echo $iva; ?>" class="form-control" maxlength="11" onkeypress="return iv_ma(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
+                  <input type="number" name="iva" value="<?php echo $iva; ?>" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
                 </div>
               </div>
 
@@ -119,7 +119,7 @@ alert('Primero inicie sesión');
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return des_ma(event)" onpaste="return false" id="inputName" required><?php echo $des; ?></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return texto_1(event)" onpaste="return false" id="inputName" required><?php echo $des; ?></textarea>
                   </div>
                 </div>
               </div>
@@ -165,95 +165,14 @@ alert('Primero inicie sesión');
           }
         }
       </script>
-      <!-- funcion de validacion solo numeros-->
+    
 
-      <script type="text/javascript">
-        function cod_ma(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          cod = "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-
-      <script type="text/javascript">
-        function pre_ma(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          pre = "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (pre.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-      <script type="text/javascript">
-        function cant_ma(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          can = "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (can.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
-      <script type="text/javascript">
-        function iv_ma(evento) {
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          iva = "1234567890";
-          especiales = "37-38-46";
-
-          teclado_especial = false;
-          for (var i in especiales) {
-            if (key == especiales[i]) {
-              teclado_especial = true;
-              break;
-            }
-          }
-          if (iva.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-          }
-        }
-      </script>
 
 <!-- Validation -->
 <?php
       require('Validation.php');
       ?>
-      <!-- End Validation --> 
+      <!-- End Validation -->
 
 
 
