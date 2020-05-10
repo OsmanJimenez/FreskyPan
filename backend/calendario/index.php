@@ -1,4 +1,7 @@
 <?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
+<?php
 // Definimos nuestra zona horaria
 date_default_timezone_set("America/Bogota");
 
@@ -787,3 +790,6 @@ if (isset($_POST['from'])) {
 </body>
 
 </html>
+<?php }
+require('../llenar3.php');
+ ?>
