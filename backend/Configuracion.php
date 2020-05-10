@@ -6,7 +6,7 @@ session_start();
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Empleados</title>
+  <title>Configuración</title>
 
   <?php
   require('Style.php');
@@ -38,13 +38,12 @@ session_start();
       <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Agregar Empleados</h1>
-        <p class="mb-4">En este apartado podremos agregar distintos empleados</a>.</p>
+        <h1 class="h3 mb-2 text-gray-800">Configuración</h1>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Empleados</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Base de Datos</h6>
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
