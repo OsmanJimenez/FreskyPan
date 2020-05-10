@@ -9,6 +9,14 @@
   ?>
   
 </head>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#prov').click(function(){
+           $pro="../basededatos/listami_ped.php?p="+$("#prov").val();
+          $("#InsumoyMateria").load($pro);
+        });
+      });
+    </script>
 
 <div id="wrapper">
 
@@ -44,7 +52,7 @@
 
           <div class="card-body">
             <!-- Add Example -->
-            <form action="../basededatos/agregap.php" method="POST">
+            <form action="../basededatos/agregaped.php" method="POST">
               <div class="form-row">
 
                   <label for="inputPrice">Fecha</label>
@@ -94,14 +102,11 @@
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label for="inputCantidad">Cedula</label>
-                    <input type="text" name="ced" class="form-control" id="inputCantidad1"maxlength="11"oninput="maxlengthNumber(this)" onkeypress="return Ced_pe(event)" onpaste="return false" placeholder="">
+                    <label for="inputCantidad">Plazo</label>
+                    <input type="number" name="pla" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return soloN(event)" onpaste="return false" placeholder="">
                     <div class="space-small"></div>
-                    <label for="inputCantidad">Telefono</label>
-                    <input type="number" name="a1" class="form-control" id="inputCantidad2" maxlength="10"oninput="maxlengthNumber(this)" onkeypress="return Tel_pe(event)" onpaste="return false"  placeholder="">
-                    <label for="inputCantidad">Sede donde descargar el pedido</label>
-                    <input type="text" name="dire" class="form-control" id="inputCantidad3" maxlength="12" onkeypress="return Ced_pe(event)" onpaste="return false"  placeholder="">
-
+                    <label for="inputCantidad">Exigencias</label>
+                    <textarea class="form-control" name="ex" rows="8" maxlength="100" required></textarea>
                   </div>
 
                 </div>
@@ -113,7 +118,6 @@
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Escoger el producto</h6>
               </div>
-
               <div class="space-small"></div>
 
               <div class="card-body">
@@ -121,7 +125,7 @@
 
                   <div class="form-group col-md-6">
                   <div class="table-responsive" style=" max-height:350px; " >
-                    <table class="table table-bordered" id="dataTable" width="100%" rows="3" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                         <tr>
                           <th></th>
@@ -131,6 +135,7 @@
                           <th>IVA</th>
                           <th>Cantidad</th>
                           <th>Tipo</th>
+                          <th>Cantidad a pedir</th>
                         </tr>
                       </thead>
                       <tfoot>
@@ -142,30 +147,16 @@
                           <th>IVA</th>
                           <th>Cantidad</th>
                           <th>Tipo</th>
+                          <th>Cantidad a pedir</th>
                         </tr>
                       </tfoot>
-                      <tbody id="tabla_pro_llenar">
-                       <?php require ("../basededatos/listami_ped.php");?>
+                      <tbody id="InsumoyMateria">
+                        
                       </tbody>
                     </table>
                   </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputCantidad">Codigo del producto</label>
-                    <input type="number" name="cod" class="form-control" id="inputCantidad5" maxlength="11"oninput="maxlengthNumber(this)" onkeypress="return cod_pe(event)" onpaste="return false"  placeholder="">
-                    <div class="space-small"></div>
-                    <label for="inputCantidad">Precio del producto</label>
-                    <input type="number" name="can1" class="form-control" id="inputCantidad6" maxlength="11"oninput="maxlengthNumber(this)" onkeypress="return pre_pe(event)" onpaste="return false"  placeholder="">
-                    <div class="space-small"></div>
-                    <label for="inputCantidad">Cantidad a pedir</label>
-                    <input type="number" name="can" class="form-control" id="inputCantidad7" maxlength="11"oninput="maxlengthNumber(this)" onkeypress="return cant_pe(event)" onpaste="return false"  placeholder="">
-                    <div class="space-small"></div>
-                    <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea name="des" class="form-control" id="exampleFormControlTextarea1" maxlength="30" onkeypress="return des_pe(event)" onpaste="return false"  rows="1"></textarea>
-                  </div>
                 </div>
-
-                <input type="hidden" name="id" id="prueba" readonly="">
 
                 <button type="submit" class="btn btn-primary float-right">Agregar</button>
               </div>
@@ -182,64 +173,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-      function cambia(text) {
-        //  var text = document.getElementById('sd').value;
-        document.getElementById('prueba').value = text;     
-      }
-    </script>
-    <script>
-    $(document).ready(function(){
-        $(".pr").click(function(){
- var flag=1;
-            var valores="";
 
-            // Obtenemos todos los valores contenidos en los <td> de la fila
-            // seleccionada
-            $(this).parents("tr").find("td").each(function(){
-
-                valores=$(this).html();
-                if(flag==2){
-                document.getElementById('inputCantidad1').value = valores;}
-                if(flag==5){
-                document.getElementById('inputCantidad2').value = valores;
-                }
-                if(flag==6){
-                document.getElementById('inputCantidad3').value = valores;}
-                flag+=1;
-                console.log(flag);
-            });
-
-
-
-        });
-    });
-    </script>
-        <script>
-    $(document).ready(function(){
-        $(".pr2").click(function(){
- var flag=1;
-            var valores="";
-
-            // Obtenemos todos los valores contenidos en los <td> de la fila
-            // seleccionada
-            $(this).parents("tr").find("td").each(function(){
-
-                valores=$(this).html();
-                if(flag==2){
-                document.getElementById('inputCantidad5').value = valores;}
-                if(flag==4){
-                document.getElementById('inputCantidad6').value = valores;
-                }
-                flag+=1;
-                console.log(flag);
-            });
-
-
-
-        });
-    });
-    </script>
     <!-- validacion de longitud de campo numerico-->
             <script>
           function maxlengthNumber(ob){
@@ -257,7 +191,7 @@
 
 
            <script type="text/javascript">
-      function Ced_pe(evento){
+      function soloM(evento){
 
           key = evento.keyCode || evento.which;
            teclado = String.fromCharCode(key).toLocaleLowerCase();

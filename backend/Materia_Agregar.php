@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder=""  maxlength="10" onkeypress="return Nom_ma(event)"  onpaste="return false"  required>
+                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="" maxlength="10" onkeypress="return Nom_ma(event)"  onpaste="return false"  required>
                 </div>
               </div>
 
@@ -112,7 +112,7 @@
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return des_ma(event)" onpaste="return false"  required></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return des_ma(event)" onpaste="return false" required></textarea>
                   </div>
                 </div>
               </div>
@@ -130,7 +130,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      ¿Estas seguro de agregar este ítem?
+                      ¿Esta seguro de agregar este ítem?
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>

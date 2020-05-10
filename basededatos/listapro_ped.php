@@ -13,7 +13,7 @@ $result=mysqli_query($conn,$sql);
 				?>
 
 		<tr align="center">
-			<td><input required="" type="radio" name="r1" onclick="cambia('<?php echo $id; ?>')" id="sd"></input></td>
+			<td><input required="" type="radio" name="pro_r" value="<?php echo $id; ?>" id="prov"></input></td>
 			<td><?php echo $prnom." ".$segnom; ?></td>
 			<td><?php echo $prape." ".$segape; ?></td>
 			<td><select id="inputState" class="form-control">

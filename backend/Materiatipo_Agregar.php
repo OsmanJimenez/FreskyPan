@@ -36,7 +36,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Agregar tipos de Materia Prima</h1>
+          <h1 class="h3 mb-2 text-gray-800">Agregar tipo de materia prima</h1>
           <div class="space-small"></div>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -47,8 +47,7 @@
 
             <div class="card-body">
 
-              <form action="../basededatos/agregasu.php" method="POST">
-
+              <form action="../basededatos/agregatipomateria.php" method="POST">
                 <div class="form-row">
                   <div class="card-body">
 
@@ -56,20 +55,18 @@
                       <div class="form-group col-md-8 " >
 
                         <div class="table-responsive" style=" max-height:350px; " >
-                          <table class="table table-bordered " id="dataTable" id="Productos_Ver" width="100%"
+                          <table class="table table-bordered " id="dataTable" id="TipoMateria_Agregar" width="100%"
                             cellspacing="0">
                             <thead>
-                              <tr >
-                                <th></th>
-                                <th>Id</th>
-                                <th>Nombre del tipo de producto</th>
-
+                              <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
                               </tr>
                             </thead>
 
                             <tbody>
 
-                              <?php require ("../basededatos/listasub.php");?>
+                              <?php require ("../basededatos/listatip_mat.php");?>
 
                             </tbody>
                           </table>
@@ -84,11 +81,9 @@
                         <div class="space-small"></div>
 
                         <label for="inputName">Código</label>
-                        <input type="number" name="cd" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_sub(event)" onpaste="return false" placeholder="">
+                        <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_sub(event)" onpaste="return false" placeholder="">
                         <label for="inputName">Nombre</label>
                         <input type="text" name="nom" class="form-control" id="inputName"  maxlength="11"  onkeypress="return Nom_sub(event)" onpaste="return false" placeholder="">           
-                        <div class="space-small"></div>
-                        <input type="hidden" name="id" id="prueba" readonly="">
                         <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-primary float-right" data-toggle="modal"
                       data-target="#myModal">Añadir</button>
@@ -117,17 +112,7 @@
                     </div>
                   </div>
                 </div>
-
-
-
                   </div>
-
-
-
-
-
-
-
               </form>
 
               <!--End  Add Example -->
