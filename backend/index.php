@@ -1,6 +1,8 @@
-<?php
-session_start();
- if((isset($_SESSION['cl']))){ ?>
+ <?php
+ session_start();
+ if((isset($_SESSION['cl']))){ 
+  require('../basededatos/llenare.php');
+  ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -56,7 +58,7 @@ session_start();
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Ventas (Semanales)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">$<?php echo $prom2 ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -73,7 +75,7 @@ session_start();
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ventas (Mensuales)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">$<?php echo $prom4 ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -185,13 +187,13 @@ session_start();
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Alineado
+                      <i class="fas fa-circle text-primary"></i> <?php echo  $nb1;?>
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Torta
+                      <i class="fas fa-circle text-success"></i> <?php echo  $nb2;?>
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Salado
+                      <i class="fas fa-circle text-info"></i> <?php echo  $nb3;?>
                     </span>
                   </div>
                 </div>
@@ -237,10 +239,6 @@ session_start();
             </div>
 
             <div class="col-lg-6 mb-4">
-
-
-
-
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Productos más Visitados</h6>
@@ -266,6 +264,7 @@ session_start();
                   <div class="progress">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
+
                 </div>
               </div>
 
@@ -332,7 +331,9 @@ session_start();
   <script src="vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js">
+    
+  </script>
   <script src="js/demo/chart-pie-demo.js"></script>
 
 
@@ -341,12 +342,7 @@ session_start();
 
 </html>
 
-<?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
+ <?php
 }
- ?>
+  require('../basededatos/llenare2.php');
+  ?>

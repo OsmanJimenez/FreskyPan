@@ -1,3 +1,4 @@
+
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
@@ -29,6 +30,23 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
+var x = $("#n1").val();
+var n1=$("#n1").val();
+var n2=$("#n2").val();
+var n3=$("#n3").val();
+var n4=$("#n4").val();
+
+var n5=$("#n5").val();
+var n6=$("#n6").val();
+var n7=$("#n7").val();
+var n8=$("#n8").val();
+
+var n9=$("#n9").val();
+var n10=$("#n10").val();
+var n11=$("#n11").val();
+var n12=$("#n12").val();
+typeof n1;
+
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -46,7 +64,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+      data: [n1,n2 ,n3 ,n4 ,n5 ,n6 ,n7 ,n8 ,n9 ,n10 ,n11 ,n12 ],
     }],
   },
   options: {

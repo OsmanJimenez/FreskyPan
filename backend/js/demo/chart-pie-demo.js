@@ -4,12 +4,20 @@ Chart.defaults.global.defaultFontColor = '#858796';
 
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
+var piei=1;
+var no1=$("#no1").val();
+var no2=$("#no2").val();
+var no3=$("#no3").val();
+var va1=$("#v1").val();
+
+var va2=$("#v2").val();
+var va3=$("#v3").val();
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Directo", "Remisión", "Social"],
+    labels: [no1, no2, no3],
     datasets: [{
-      data: [55, 30, 15],
+      data: [va1, va2, va3],
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
