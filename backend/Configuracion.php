@@ -70,24 +70,58 @@ session_start();
             <div class="card-body">
               <div class="form-row">
                 <div class="form-group col-md-4">           
-                  <a id="theme-toggle1" class="btn btn-outline-secondary" >Azul</a>              
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/Theme_Blue.png" alt="Card image cap">
+                    <div class="card-body">
+                      <a id="theme-toggle1" class="btn btn-primary btn-block text-white">Azul</a> 
+                    </div>
+                  </div>                         
                 </div>
+
                 <div class="form-group col-md-4">
-                  <a id="theme-toggle3" class="btn btn-outline-danger" >Rojo</a>             
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/Theme_Red.png" alt="Card image cap">
+                    <div class="card-body">
+                      <a id="theme-toggle3" class="btn btn-danger btn-block text-white" >Rojo</a> 
+                    </div>
+                  </div>            
                 </div>
+
                 <div class="form-group col-md-4">
-                  <a id="theme-toggle5" class="btn btn-outline-info" >Cyan</a>               
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/Theme_Cyan.png" alt="Card image cap">
+                    <div class="card-body">
+                      <a id="theme-toggle5" class="btn btn-info btn-block text-white" >Cyan</a> 
+                    </div>
+                  </div>             
                 </div>
               </div>
+
               <div class="form-row">
                 <div class="form-group col-md-4">           
-                  <a id="theme-toggle2" class="btn btn-outline-success" >Verde</a>                
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/Theme_Green.png" alt="Card image cap">
+                    <div class="card-body">
+                      <a id="theme-toggle2" class="btn btn-success btn-block text-white" >Verde</a> 
+                    </div>
+                  </div>             
                 </div>
+
                 <div class="form-group col-md-4">
-                  <a id="theme-toggle4" class="btn btn-outline-warning" >Amarillo</a>                
-                </div>
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/Theme_Yellow.png" alt="Card image cap">
+                    <div class="card-body">
+                      <a id="theme-toggle4" class="btn btn-warning btn-block text-white" >Amarillo</a> 
+                    </div>
+                  </div>             
+                </div>             
                 <div class="form-group col-md-4">
-                  <a id="theme-toggle6" class="btn btn-outline-Dark" >Negro</a>                
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/Theme_Cyan.png" alt="Card image cap">
+                    <div class="card-body">
+                      <a id="theme-toggle6" class="btn btn-dark btn-block text-white" >Negro</a> 
+                    </div>
+                  </div>                           
                 </div>
               </div>
             </div>
