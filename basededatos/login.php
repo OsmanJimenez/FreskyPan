@@ -3,7 +3,7 @@ session_start();
 require ("connectionbd.php");
 $id_user=$_POST['ced'];
 $pas_user=$_POST['pas'];
-$query="select * from usuario where ID_USUARIO='$id_user' and contrasena='$pas_user'" ;
+$query="select * from Usuario where ID_USUARIO='$id_user' and contrasena='$pas_user'" ;
 
 $result=mysqli_query($conn,$query);
 			$a=mysqli_num_rows($result);

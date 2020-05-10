@@ -60,7 +60,7 @@ session_start();
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Facturas ejemplos</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Registro de facturas</h6>
             </div>
 
             <div class="card-body">
@@ -70,28 +70,29 @@ session_start();
                     <tr>
                       <th>ID Factura</th>
                       <th>Fecha</th>
+                      <th>Productos recibidos</th>
+                      <th>Proveedor</th>
                       <th>ID Pedido</th>
-
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th>ID Factura</th>
                       <th>Fecha</th>
+                      <th>Productos recibidos</th>
+                      <th>Proveedor</th>
                       <th>ID Pedido</th>
-
                     </tr>
                   </tfoot>
                   <tbody>
 
-                    <?php require("../basededatos/listap_2.php"); ?>
+                    <?php require("../basededatos/listarfac.php"); ?>
 
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
 

@@ -128,14 +128,14 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Pedidos:</h6>
         <a class="collapse-item" href="Pedidos_Agregar.php">Agregar</a>
-        <a class="collapse-item" href="Pedidos_ver.php">Ver</a>
+        <a class="collapse-item" href="Pedidos_Ver.php">Ver</a>
       </div>
     </div>
     <div id="collapseCuentas" class="collapse" aria-labelledby="headingCuentas" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Facturas:</h6>
-        <a class="collapse-item" href="Facturas_agregar.php">Agregar</a>
-        <a class="collapse-item" href="Facturas_ver.php">Ver</a>
+        <a class="collapse-item" href="Facturas_Agregar.php">Agregar</a>
+        <a class="collapse-item" href="Facturas_Ver.php">Ver</a>
       </div>
     </div>
   </li>

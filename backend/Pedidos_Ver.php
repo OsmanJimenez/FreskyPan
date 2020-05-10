@@ -6,7 +6,7 @@ session_start();
 
 <head>
   <meta charset="utf-8">
-  <title>Agregar Pedidos</title>
+  <title>Ver Pedidos</title>
 
   <?php
   require('Style.php');
@@ -25,7 +25,6 @@ session_start();
     ?>
     <!-- End of Sidebar -->
 
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -40,8 +39,6 @@ session_start();
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -60,58 +57,63 @@ session_start();
             </ul>
 
           </div>
+
+          <p class="mb-4">Aquí encontrará información acerca de los pedidos registrados en el sistema</a>.</p>
+
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Pedidos ejemplos</h6>
+              <h6 class="m-0 font-weight-bold text-primary"></h6>
             </div>
 
 
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" id="Pedidos_Ver" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Numero de pedido</th>
+                      <th>Código</th>
                       <th>Fecha</th>
-                      <th>Nombre Cliente</th>
-                      <th>Apellido</th>
-                      <th>Dirrecion</th>
-                      <th>Descripcion</th>
-                      <th>Nombre Producto</th>
-                      <th>Cantidad</th>
+                      <th>Plazo</th>
+                      <th>Exigencias</th>
+                      <th>Productos pedidos</th>
+                      <th>Proveedor</th>
                       <th>Estado</th>
                       <th>Modificar</th>
                       <th>Opción</th>
+                      <th>Disponibilidad</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Numero de pedido</th>
+                      <th>Código</th>
                       <th>Fecha</th>
-                      <th>Nombre Cliente</th>
-                      <th>Apellido</th>
-                      <th>Dirrecion</th>
-                      <th>Descripcion</th>
-                      <th>Nombre Producto</th>
-                      <th>Cantidad</th>
+                      <th>Plazo</th>
+                      <th>Exigencias</th>
+                      <th>Productos pedidos</th>
+                      <th>Proveedor</th>
                       <th>Estado</th>
                       <th>Modificar</th>
                       <th>Opción</th>
+                      <th>Disponibilidad</th>
                     </tr>
                   </tfoot>
                   <tbody>
 
-                    <?php require("../basededatos/listap_2.php"); ?>
+                    <?php require("../basededatos/listarpedidos.php"); ?>
 
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-
+          <?php if (empty($_GET)) { ?>
+            <a class="btn btn-primary" href="Pedidos_Ver.php?all=True">Ver todos</a>
+          <?php } else { ?>
+            <a class="btn btn-primary" href="Pedidos_Ver.php">Ver activos</a>
+          <?php } ?>
         </div>
-        <!-- /.container-fluid -->
+
 
       </div>
       <!-- End of Main Content -->
@@ -153,18 +155,18 @@ session_start();
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>

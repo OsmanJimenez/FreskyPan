@@ -36,6 +36,13 @@ session_start();
       <!-- Begin Page Content -->
       <div class="container-fluid">
 
+        <?php require("../basededatos/connectionbd.php");
+        $query = "SELECT MAX(ID_FACTURA) AS id FROM Factura";
+        $result = mysqli_query($conn, $query);
+        $fila = mysqli_fetch_array($result);
+        if(!empty($fila)){$last=1;}else{$last=$fila['id'];}
+        ?>
+
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Agregar Facturas</h1>
         <p class="mb-4">En este apartado podremos agregar distintas Facturas</a>.</p>
@@ -49,7 +56,7 @@ session_start();
 
           <div class="card-body">
             <!-- Add Example -->
-            <form action="../basededatos/agregap.php" method="POST">
+            <form action="../basededatos/agregafac.php" method="POST">
 
 
 
@@ -63,87 +70,53 @@ session_start();
                       <thead>
                         <tr>
                           <th></th>
-                          <th>ID</th>
+                          <th>Código</th>
                           <th>Plazo</th>
                           <th>Fecha</th>
-                          <th>Exigencia</th>
-                          <th>Estado</th>
-
-
+                          <th>Exigencias</th>
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
                           <th></th>
-
-                          <th>ID</th>
+                          <th>Código</th>
                           <th>Plazo</th>
                           <th>Fecha</th>
-                          <th>Exigencia</th>
-                          <th>Estado</th>
+                          <th>Exigencias</th>
                         </tr>
                       </tfoot>
                       <tbody>
 
-                        <?php require("../basededatos/listac3.php"); ?>
+                        <?php require("../basededatos/listaped_fac.php"); ?>
                       </tbody>
                     </table>
                   </div>
                 </div>
 
                 <div class="form-group col-md-6">
-                  <label for="inputCantidad">ID Pedido</label>
-                  <input type="number" name="ced" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_ped(event)" onpaste="return false" id="inputCantidad1" placeholder="">
-                  <div class="space-small"></div>
                   <label for="inputCantidad">ID Factura</label>
-                  <input type="number" name="a1" class="form-control" maxlength="11" onkeypress="return id_fa(event)" onpaste="return false" id="inputCantidad2" placeholder="">
+                  <input type="number" name="codfac_txt" class="form-control" id="codfac_txt" placeholder="" readonly="" value="<?php echo $last; ?>">
+                  <div class="space-small"></div>
+                  <label for="inputCantidad">Código Pedido</label>
+                  <input type="number" name="codped_txt" class="form-control" id="codped_txt" placeholder="" readonly="" required>
+                  <div class="space-small"></div>
                   <label for="inputCantidad">Fecha</label>
-                  <input type="date" name="dire" class="form-control" id="inputCantidad3" placeholder="">
+                  <input type="date" name="fecha" class="form-control" id="inputCantidad3" placeholder="" required>
                   <div class="space-small"></div>
                   <button type="submit" class="btn btn-primary float-right">Agregar</button>
                 </div>
               </div>
-
-
-
-
           </div>
-
-
-
-
-          <input type="hidden" name="id" id="prueba" readonly="">
-
-
-
-
           </form>
-
-
-
         </div>
-
       </div>
-
-
     </div>
-
   </div>
 
   <!--End  Add Example -->
 
 
 </div>
-<script>
-  function maxlengthNumber(ob) {
-    console.log(ob.value);
-
-    if (ob.value.length > ob.maxLength) {
-
-      ob.value = ob.value.slice(0, ob.maxLength);
-    }
-  }
-</script>
 <!-- Validation -->
 <?php
 require('Validation.php');
@@ -154,65 +127,9 @@ require('Validation.php');
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
-  function cambia(text) {
-    //  var text = document.getElementById('sd').value;
-    document.getElementById('prueba').value = text;
+  function llenar(text) {
+    $("#codped_txt").val(text);
   }
-</script>
-<script>
-  $(document).ready(function() {
-    $(".pr").click(function() {
-      var flag = 1;
-      var valores = "";
-
-      // Obtenemos todos los valores contenidos en los <td> de la fila
-      // seleccionada
-      $(this).parents("tr").find("td").each(function() {
-
-        valores = $(this).html();
-        if (flag == 2) {
-          document.getElementById('inputCantidad1').value = valores;
-        }
-        if (flag == 5) {
-          document.getElementById('inputCantidad2').value = valores;
-        }
-        if (flag == 6) {
-          document.getElementById('inputCantidad3').value = valores;
-        }
-        flag += 1;
-        console.log(flag);
-      });
-
-
-
-    });
-  });
-</script>
-<script>
-  $(document).ready(function() {
-    $(".pr2").click(function() {
-      var flag = 1;
-      var valores = "";
-
-      // Obtenemos todos los valores contenidos en los <td> de la fila
-      // seleccionada
-      $(this).parents("tr").find("td").each(function() {
-
-        valores = $(this).html();
-        if (flag == 2) {
-          document.getElementById('inputCantidad5').value = valores;
-        }
-        if (flag == 4) {
-          document.getElementById('inputCantidad6').value = valores;
-        }
-        flag += 1;
-        console.log(flag);
-      });
-
-
-
-    });
-  });
 </script>
 <!-- Core plugin JavaScript-->
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
