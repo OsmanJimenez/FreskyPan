@@ -39,13 +39,13 @@ session_start();
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Agregar subtipos de productos</h1>
-          <p class="mb-4">En este apartado podremos agregar Subtipos de producto </a>.</p>
+          <h1 class="h3 mb-2 text-gray-800">Modificar tipos de productos</h1>
+          <p class="mb-4">En este apartado podremos agregar tipos de producto </a>.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Subtipo</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tipo</h6>
             </div>
 
 
@@ -53,7 +53,7 @@ session_start();
               <?php
               require("../basededatos/connectionbd.php");
               $mic = $_GET['idc'];
-              $query = "Select * from tipoproducto where ID_TIPOPRODUCTO='$mic'";
+              $query = "Select * from subtipoproducto where ID_SUBTIPOPRODUCTO='$mic'";
               $result = mysqli_query($conn, $query);
               $i = 0;
               if (!$result) {
@@ -61,7 +61,7 @@ session_start();
               }
               $fila = mysqli_fetch_array($result);
               $nomt = $fila['nombre'];
-              $idt = $fila['ID_TIPOPRODUCTO'];
+              $idt = $fila['ID_SUBTIPOPRODUCTO'];
               $i++; ?>
               <form action="../basededatos/actuati.php" method="POST">
 
@@ -82,6 +82,11 @@ session_start();
                         <label for="inputName">Nombre</label>
                         <input type="text" name="nom" value="<?php echo $nomt; ?>" class="form-control" maxlength="11" onkeypress="return Nom_tip(event)" onpaste="return false" id="inputName" placeholder="">
                         <div class="space-small"></div>
+                            <label for="inputState">Categoria</label>
+                  <select id="inputState" name="cate" class="form-control">
+                    <?php require("../basededatos/combottp.php"); ?>
+                   </select>
+                   <div class="space-small"></div>
                         <!-- Trigger the modal with a button -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
 

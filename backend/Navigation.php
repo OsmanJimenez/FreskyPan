@@ -1,4 +1,84 @@
 <!-- Topbar -->
+        <?php
+        $fec=date('Y-m-d');
+        
+        $cli=$_SESSION['cl']['nom'];
+        $ape=$_SESSION['cl']['ape'];
+require ("../basededatos/connectionbd.php");
+$query="SELECT nombre FROM catproducto WHERE stock=0 ";
+$result=mysqli_query($conn,$query);
+$i = 0;
+$ind=100;
+$tar=0;   
+      while($fila=mysqli_fetch_array($result)){     
+        $nom = $fila['nombre'];
+
+        $i++; 
+        $tar=$tar+5;
+}
+$query2="SELECT Max(venta.fecha) as fecha,catproducto.nombre,(catproducto.precio*venta_produccion.cantidad)as tot FROM venta,catproducto,produccion,venta_produccion WHERE venta.ID_VENTA=venta_produccion.FK_ID_VENTA and venta_produccion.FK_ID_PRODUCCION=produccion.ID_PRODUCCION and produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO ";
+$result2=mysqli_query($conn,$query2);
+
+      
+      while($fila2=mysqli_fetch_array($result2)){     
+        $nom2 = $fila2['nombre'];
+        $gan=$fila2['tot'];
+          $i++; 
+}
+$query3="SELECT nombre FROM materiaprima WHERE stock=0 ";
+$result3=mysqli_query($conn,$query3);
+
+      
+      while($fila3=mysqli_fetch_array($result3)){     
+        $nom3 = $fila3['nombre'];
+        $i++;
+       $tar=$tar+10;
+       
+}
+$query4="SELECT nombre FROM insumo WHERE stock=0 ";
+$result4=mysqli_query($conn,$query4);
+
+      
+      while($fila4=mysqli_fetch_array($result4)){     
+        $nom4 = $fila4['nombre'];
+          $i++; 
+          $tar=$tar+10;
+       
+}
+$sd="";
+$query5="SELECT COUNT(*) as cont FROM bodega";
+$result5=mysqli_query($conn,$query5);
+
+      
+      while($fila5=mysqli_fetch_array($result5)){     
+        $bode = $fila5['cont'];
+       
+}
+
+$query6="SELECT COUNT(*) as cont FROM catproducto WHERE estado=1";
+$result6=mysqli_query($conn,$query6);
+
+      
+      while($fila6=mysqli_fetch_array($result6)){     
+        $prod = $fila6['cont'];
+       
+       
+}
+$query7="SELECT COUNT(*) as cont FROM agenda";
+$result7=mysqli_query($conn,$query7);
+
+      
+      while($fila7=mysqli_fetch_array($result7)){     
+        $item = $fila7['cont'];
+        
+       
+}
+if($tar>100){
+$veri=0;
+}else if($tar<100){
+ $veri=$ind-$tar; 
+}
+        ?>
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
   <!-- Sidebar Toggle (Topbar) -->
@@ -47,7 +127,7 @@
         <i class="far fa-calendar-alt"></i>
 
         <!-- Counter - Alerts -->
-        <span class="badge badge-danger badge-counter">5+</span>
+        <span class="badge badge-danger badge-counter"><?php echo $item;?>+</span>
       </a>
     </li>
 
@@ -56,13 +136,14 @@
       <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-bell fa-fw"></i>
         <!-- Counter - Alerts -->
-        <span class="badge badge-danger badge-counter">3+</span>
+        <span class="badge badge-danger badge-counter">3</span>
       </a>
       <!-- Dropdown - Alerts -->
       <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
         <h6 class="dropdown-header">
-          Centro de Alertas
+          Centro de Alertas 
         </h6>
+
         <a class="dropdown-item d-flex align-items-center" href="#">
           <div class="mr-3">
             <div class="icon-circle bg-primary">
@@ -70,8 +151,8 @@
             </div>
           </div>
           <div>
-            <div class="small text-gray-500">Septiembre 8, 2019</div>
-            <span class="font-weight-bold">Un nuevo reporte mensual esta listo para descargarse!</span>
+            <div class="small text-gray-500"><?php echo $fec; ?></div>
+            <span class="font-weight-bold">Alerta: Fabricar <?php echo $nom; ?></span>
           </div>
         </a>
         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -81,8 +162,8 @@
             </div>
           </div>
           <div>
-            <div class="small text-gray-500">Septiembre 8, 2019</div>
-            $290.29 an sido depositados en la cuenta!
+            <div class="small text-gray-500"><?php echo $fec; ?></div>
+            La ultima venta fue de <?php echo $nom2; ?> con una ganancia de <?php echo $gan; ?>
           </div>
         </a>
         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -92,8 +173,8 @@
             </div>
           </div>
           <div>
-            <div class="small text-gray-500">Septiembre 8, 2019</div>
-            Alerta Naranja: Se va a terminar la harina.
+            <div class="small text-gray-500"><?php echo $fec; ?></div>
+            Alerta Roja: No hay <?php echo $nom3; ?> .
           </div>
         </a>
         <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar Todo</a>
@@ -105,7 +186,7 @@
       <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-envelope fa-fw"></i>
         <!-- Counter - Messages -->
-        <span class="badge badge-danger badge-counter">7</span>
+        <span class="badge badge-danger badge-counter">4</span>
       </a>
       <!-- Dropdown - Messages -->
       <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
@@ -114,12 +195,12 @@
         </h6>
         <a class="dropdown-item d-flex align-items-center" href="#">
           <div class="dropdown-list-image mr-3">
-            <img class="rounded-circle" src="../img/panadero.jpg" alt="">
+            <img class="rounded-circle" src="../img/bot.jpg" alt="">
             <div class="status-indicator bg-success"></div>
           </div>
           <div class="font-weight-bold">
-            <div class="text-truncate">Hola en que puedo ayudarte.</div>
-            <div class="small text-gray-500">Osman Jimenez · 58m</div>
+            <div class="text-truncate">Se agoto el insumo: <?php echo $nom4; ?>.</div>
+            <div class="small text-gray-500">Sistema · 1m</div>
           </div>
         </a>
         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -128,8 +209,8 @@
             <div class="status-indicator"></div>
           </div>
           <div>
-            <div class="text-truncate">Como estas tu</div>
-            <div class="small text-gray-500">Jae Chun · 1d</div>
+            <div class="text-truncate">Bodega(s) actualmente activas : <?php echo $bode; ?></div>
+            <div class="small text-gray-500">Bot · 2d</div>
           </div>
         </a>
         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -138,7 +219,7 @@
             <div class="status-indicator bg-warning"></div>
           </div>
           <div>
-            <div class="text-truncate">Compre pan pues mijo!</div>
+            <div class="text-truncate">Producto(s) activos : <?php echo $prod; ?></div>
             <div class="small text-gray-500">Morgan Alvarez · 2d</div>
           </div>
         </a>
@@ -148,7 +229,7 @@
             <div class="status-indicator bg-success"></div>
           </div>
           <div>
-            <div class="text-truncate">Y si es rico el pan...</div>
+            <div class="text-truncate">Revise el calendario</div>
             <div class="small text-gray-500">Chicken the Dog · 2w</div>
           </div>
         </a>
@@ -161,7 +242,7 @@
     <!-- Nav Item - User Information -->
     <li class="nav-item dropdown no-arrow">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Osman Jimenez</span>
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $cli; ?> <?php echo $ape; ?> </span>
         <img class="img-profile rounded-circle" src="../img/panadero.jpg">
       </a>
       <!-- Dropdown - User Information -->

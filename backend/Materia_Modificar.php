@@ -105,6 +105,20 @@ session_start();
                   <label for="inputPrice">Iva</label>
                   <input type="number" name="iva" value="<?php echo $iva; ?>" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
                 </div>
+                <div class="space-small"></div>
+                       <div class="form-group col-md-4">
+                  <label for="inputState">Tipo</label>
+                  <select id="inputState" name="tip" class="form-control">
+                    <?php require("../basededatos/combotmp.php"); ?>
+                  </select>
+                </div>
+                  <div class="form-group col-md-4">
+
+                  <label for="inputState">Proveedor</label>
+                  <select id="inputState" name="prv" class="form-control">
+                    <?php require("../basededatos/combopro.php"); ?>
+                  </select>
+                </div>
               </div>
 
               <div class="form-row">

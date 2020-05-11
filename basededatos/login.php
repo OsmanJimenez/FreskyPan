@@ -12,11 +12,12 @@ if($a>0){
 				$id_u = $fila['ID_USUARIO'];
 				$nom=$fila['prNombre'];
 				$ape=$fila['prApellido'];
+				$rol=$fila['rol'];
 
 					
  
 
-$usr = array('id_u' => $id_u,'nom'=>$nom,'ape'=>$ape );
+$usr = array('id_u' => $id_u,'nom'=>$nom,'ape'=>$ape ,'rol'=>$rol);
 
 $_SESSION['cl']=$usr;
 header('location:../backend/');

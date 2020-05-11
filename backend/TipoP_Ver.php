@@ -74,6 +74,7 @@ session_start();
                     <tr>
                       <th>Numero</th>
                       <th>Nombre</th>
+                      <th>Categoría</th>
                       <th>Opción</th>
                     </tr>
                   </thead>
@@ -81,6 +82,7 @@ session_start();
                     <tr>
                       <th>Numero</th>
                       <th>Nombre</th>
+                      <th>Categoría</th>
                       <th>Opción</th>
                     </tr>
                   </tfoot>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
 <!DOCTYPE html>
 <html>
 
@@ -126,3 +129,6 @@
 </body>
 
 </html>
+<?php }
+require('llenar3.php');
+ ?>

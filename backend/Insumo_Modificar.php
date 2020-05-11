@@ -5,7 +5,7 @@ session_start();
 <html lang="es">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8"> 
   <title>Modificar Insumo</title>
 
   <?php
@@ -95,6 +95,20 @@ session_start();
                   <input type="number" name="iva" value="<?php echo $iva; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
                 </div>
                 <div class="form-group col-md-6">
+                  <label for="inputState">Tipo</label>
+                  <select id="inputState" name="tip" class="form-control">
+                    <?php require("../basededatos/combotpins.php"); ?>
+                  </select>
+                </div>
+              </div>
+              </div>
+                   <div class="form-group col-md-4">
+                  <label for="inputState">Proveedor</label>
+                  <select id="inputState" name="prv" class="form-control">
+                    <?php require("../basededatos/combopro.php"); ?>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
                   <select id="inputState" name="est" class="form-control" disabled>
                     <?php if ($est == "0") { ?>
@@ -106,9 +120,7 @@ session_start();
                     <?php } ?>
                   </select>
                 </div>
-              </div>
-
-              <div class="form-row">
+                    <div class="form-row">
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
@@ -116,6 +128,9 @@ session_start();
                   </div>
                 </div>
               </div>
+              </div>
+
+          
 
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modificar</button>
 

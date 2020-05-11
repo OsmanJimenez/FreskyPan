@@ -68,6 +68,13 @@ session_start();
                         <label for="inputName">Nombre</label>
                         <input type="text" name="nom" class="form-control" id="inputName" maxlength="11" onkeypress="return Nom_tip(event)" onpaste="return false" placeholder="">
                         <div class="space-small"></div>
+                        <div class="form-group col-md-4">
+<div class="space-small"></div>
+                  <label for="inputState">Categoria</label>
+                  <select id="inputState" name="cate" class="form-control">
+                    <?php require("../basededatos/combottp.php"); ?>
+                   </select>
+                    </div>
 
                         <!-- Trigger the modal with a button -->
                         <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>

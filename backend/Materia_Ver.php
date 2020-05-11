@@ -80,8 +80,11 @@ session_start();
                       <th>Precio</th>
                       <th>Iva</th>
                       <th>Estado</th>
+                      <?php if($rol=='Administrador'){?>
                       <th>Modificar</th>
+
                       <th>Opción</th>
+                    <?php } ?>
                     </tr>
                   </thead>
                   <tfoot>
@@ -94,8 +97,10 @@ session_start();
                       <th>Precio</th>
                       <th>Iva</th>
                       <th>Estado</th>
+                      <?php if($rol=='Administrador'){?>
                       <th>Modificar</th>
                       <th>Opción</th>
+                    <?php } ?>
                     </tr>
                   </tfoot>
                   <tbody>
