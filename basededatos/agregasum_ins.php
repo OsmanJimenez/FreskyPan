@@ -16,19 +16,10 @@ $sql_bod="SELECT descripcion FROM Bodega WHERE ID_BODEGA='$codb_agr';";
 $res_bod = mysqli_query($conn, $sql_bod);
 $fila_bod=mysqli_fetch_array($res_bod);
 
-$sql_lastc = "SELECT MAX(ID_CALENDARIO) AS idc FROM Calendario";
-$res_lastc = mysqli_query($conn, $sql_lastc);
-$fila_lastc = mysqli_fetch_array($res_lastc);
-$last=$fila_lastc['idc']+1;
-
-$sql_cal="INSERT INTO Calendario(ID_CALENDARIO,nombre,hora,detalles)VALUES('$last','Vencimiento de ".$fila_ins['nombre']."','$hoy','Ubicado en bodega ".$codb_agr.": ".$fila_bod['descripcion']."');";
-
-$res_cal=mysqli_query($conn,$sql_cal);
-
-$sql_bm="INSERT INTO BODEGA_INSUMO(FK_ID_INSUMO,FK_ID_BODEGA,fechaRegistro,unidades,transaccion,FK_ID_CALENDARIO) VALUES ('$codm_agr','$codb_agr','$fec_agr','$can_agr','1','$last');";
+$sql_bm="INSERT INTO BODEGA_INSUMO(FK_ID_INSUMO,FK_ID_BODEGA,fechaRegistro,unidades,transaccion) VALUES ('$codm_agr','$codb_agr','$fec_agr','$can_agr','1');";
 
 $res_bm=mysqli_query($conn,$sql_bm);
-if(!$res_cal || !$res_bm || !$res_mat || !$res_bod){
+if(!$res_bm || !$res_ins || !$res_bod){
 	if(mysqli_errno($conn)==1062){
 ?><script type="text/javascript">alert("Error ya se encuentra un registro con el mismo código")</script> <?php  
 	}else {

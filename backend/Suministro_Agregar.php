@@ -48,7 +48,7 @@ session_start();
             <h6 class="m-0 font-weight-bold text-primary">Agregar materia prima</h6>
           </div>
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregasum_mat.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/agregasum_mat.php" name="formmat" id="formmat" method="POST" enctype="multipart/form-data">
               <div class="form-row">
                 <div class="form-group col-md-4">
                   <div class="form-group">
@@ -71,7 +71,7 @@ session_start();
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputCantidad">Materia Prima</label>
+                  <label>Materia Prima</label>
                   <div class="table-responsive" style=" max-height:350px; ">
                     <table class="table table-bordered" id="mat_Table" width="100%" rows="3" cellspacing="0">
                       <thead>
@@ -129,28 +129,7 @@ session_start();
                   </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
-
-              <!-- Modal -->
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">¡Alerta!</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      ¿Estas seguro de agregar este ítem?
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                      <button type="submit" class="btn btn-primary">Agregar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <button type="submit" class="btn btn-primary">Agregar</button>
             </form>
           </div>
         </div>
@@ -161,17 +140,17 @@ session_start();
             <h6 class="m-0 font-weight-bold text-primary">Agregar insumos</h6>
           </div>
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregasum_ins.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/agregasum_ins.php" method="POST" enctype="multipart/form-data" name="formins" id="formins">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <div class="form-group">
-                    <label for="inputPrice">Cantidad</label>
+                    <label for="can_ins">Cantidad</label>
                     <input type="number" id="can_ins" class="form-control" name="can_ins" width="100%" required="">
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <div class="form-group">
-                    <label for="inputPrice">Fecha de registro</label>
+                    <label for="fec_ins">Fecha de registro</label>
                     <input type="date" id="fec_ins" class="form-control" name="fec_ins" width="100%" required="">
                   </div>
                 </div>
@@ -236,28 +215,7 @@ session_start();
                   </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
-
-              <!-- Modal -->
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">¡Alerta!</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      ¿Estas seguro de agregar este ítem?
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                      <button type="submit" class="btn btn-primary">Agregar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <button type="submit" class="btn btn-primary">Agregar</button>
             </form>
           </div>
         </div>

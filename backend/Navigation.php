@@ -5,7 +5,7 @@
         $cli=$_SESSION['cl']['nom'];
         $ape=$_SESSION['cl']['ape'];
 require ("../basededatos/connectionbd.php");
-$query="SELECT nombre FROM catproducto WHERE stock=0 ";
+$query="SELECT nombre FROM CatProducto WHERE stock=0 ";
 $result=mysqli_query($conn,$query);
 $i = 0;
 $ind=100;
@@ -19,7 +19,7 @@ $flag=1;
         $i++; 
         $tar=$tar+5;
 }
-$query2="SELECT Max(venta.fecha) as fecha,catproducto.nombre,(catproducto.precio*venta_produccion.cantidad)as tot FROM venta,catproducto,produccion,venta_produccion WHERE venta.ID_VENTA=venta_produccion.FK_ID_VENTA and venta_produccion.FK_ID_PRODUCCION=produccion.ID_PRODUCCION and produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO ";
+$query2="SELECT Max(Venta.fecha) as fecha,CatProducto.nombre,(CatProducto.precio*VENTA_PRODUCCION.cantidad)as tot FROM Venta,CatProducto,Produccion,VENTA_PRODUCCION WHERE Venta.ID_VENTA=VENTA_PRODUCCION.FK_ID_VENTA and VENTA_PRODUCCION.FK_ID_PRODUCCION=Produccion.ID_PRODUCCION and Produccion.FK_ID_CATPRODUCTO=CatProducto.ID_CATPRODUCTO ";
 $result2=mysqli_query($conn,$query2);
 
       
@@ -28,7 +28,7 @@ $result2=mysqli_query($conn,$query2);
         $gan=$fila2['tot'];
           $i++; 
 }
-$query3="SELECT nombre FROM materiaprima WHERE stock=0 ";
+$query3="SELECT nombre FROM MateriaPrima WHERE stock=0 ";
 $result3=mysqli_query($conn,$query3);
 
       
@@ -39,7 +39,7 @@ $result3=mysqli_query($conn,$query3);
        $tar=$tar+10;
        
 }
-$query4="SELECT nombre FROM insumo WHERE stock=0 ";
+$query4="SELECT nombre FROM Insumo WHERE stock=0 ";
 $result4=mysqli_query($conn,$query4);
 
       
@@ -51,7 +51,7 @@ $result4=mysqli_query($conn,$query4);
        
 }
 $sd="";
-$query5="SELECT COUNT(*) as cont FROM bodega";
+$query5="SELECT COUNT(*) as cont FROM Bodega";
 $result5=mysqli_query($conn,$query5);
 
       
@@ -60,7 +60,7 @@ $result5=mysqli_query($conn,$query5);
        
 }
 
-$query6="SELECT COUNT(*) as cont FROM catproducto WHERE estado=1";
+$query6="SELECT COUNT(*) as cont FROM CatProducto WHERE estado=1";
 $result6=mysqli_query($conn,$query6);
 
       
@@ -170,7 +170,7 @@ $veri=0;
           </div>
           <div>
             <div class="small text-gray-500"><?php echo $fec; ?></div>
-            La ultima venta fue de <?php echo $nom2; ?> con una ganancia de <?php echo $gan; ?>
+            La ultima Venta fue de <?php echo $nom2; ?> con una ganancia de <?php echo $gan; ?>
           </div>
         </a>
         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -209,7 +209,7 @@ $veri=0;
           </div>
           <div class="font-weight-bold">
  <?php if($flag3==1){ ?>
-            <div class="text-truncate">Se agoto el insumo: <?php echo $nom4; ?>.</div>
+            <div class="text-truncate">Se agoto el Insumo: <?php echo $nom4; ?>.</div>
           <?php }?>
             <div class="small text-gray-500">Sistema · 1m</div>
           </div>

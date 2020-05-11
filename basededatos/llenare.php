@@ -6,13 +6,13 @@ $fecha_actual = date("Y-m-d");
 $fecha2=date("Y-m-d",strtotime($fecha_actual."- 7 days"));
 $fecha3=date("Y-m-d",strtotime($fecha_actual."- 1 month"));
 require("../basededatos/connectionbd.php");
-$query="SELECT SUM(venta_produccion.cantidad*catproducto.precio) as prom FROM venta,venta_produccion,produccion,catproducto where venta.fecha BETWEEN '$fecha2' and '$fecha_actual'and venta.ID_VENTA=venta_produccion.FK_ID_VENTA and venta_produccion.FK_ID_PRODUCCION=produccion.ID_PRODUCCION and produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO";
+$query="SELECT SUM(VENTA_PRODUCCION.cantidad*CatProducto.precio) as prom FROM Venta,VENTA_PRODUCCION,Produccion,CatProducto where Venta.fecha BETWEEN '$fecha2' and '$fecha_actual'and Venta.ID_VENTA=VENTA_PRODUCCION.FK_ID_VENTA and VENTA_PRODUCCION.FK_ID_PRODUCCION=Produccion.ID_PRODUCCION and Produccion.FK_ID_CATPRODUCTO=CatProducto.ID_CATPRODUCTO";
 $result=mysqli_query($conn,$query);
 $fila=mysqli_fetch_array($result);
 $prom=$fila['prom'];
 $prom2=number_format((round($prom)));
 
-$query2="SELECT SUM(venta_produccion.cantidad*catproducto.precio) as prome FROM venta,venta_produccion,produccion,catproducto where venta.fecha BETWEEN '$fecha3' and '$fecha_actual'and venta.ID_VENTA=venta_produccion.FK_ID_VENTA and venta_produccion.FK_ID_PRODUCCION=produccion.ID_PRODUCCION and produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO";
+$query2="SELECT SUM(VENTA_PRODUCCION.cantidad*CatProducto.precio) as prome FROM Venta,VENTA_PRODUCCION,Produccion,CatProducto where Venta.fecha BETWEEN '$fecha3' and '$fecha_actual'and Venta.ID_VENTA=VENTA_PRODUCCION.FK_ID_VENTA and VENTA_PRODUCCION.FK_ID_PRODUCCION=Produccion.ID_PRODUCCION and Produccion.FK_ID_CATPRODUCTO=CatProducto.ID_CATPRODUCTO";
 $result2=mysqli_query($conn,$query2);
 $fila2=mysqli_fetch_array($result2);
 $prom3=$fila2['prome'];
@@ -21,7 +21,7 @@ $año=date("Y");
 $c=[];
 for ($i=1; $i <13 ; $i++) { 
   $mes="".$año."-0".$i."%";
-  $querye="SELECT SUM(venta_produccion.cantidad*catproducto.precio) as promed FROM venta,venta_produccion,produccion,catproducto where venta.fecha LIKE '$mes' and venta.ID_VENTA=venta_produccion.FK_ID_VENTA and venta_produccion.FK_ID_PRODUCCION=produccion.ID_PRODUCCION and produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO ";
+  $querye="SELECT SUM(VENTA_PRODUCCION.cantidad*CatProducto.precio) as promed FROM Venta,VENTA_PRODUCCION,Produccion,CatProducto where Venta.fecha LIKE '$mes' and Venta.ID_VENTA=VENTA_PRODUCCION.FK_ID_VENTA and VENTA_PRODUCCION.FK_ID_PRODUCCION=Produccion.ID_PRODUCCION and Produccion.FK_ID_CATPRODUCTO=CatProducto.ID_CATPRODUCTO ";
   $res=mysqli_query($conn,$querye);
 $fil=mysqli_fetch_array($res);
 $fil2=mysqli_fetch_row($res);
@@ -52,7 +52,7 @@ $sum11=$c[11];
 $sum12=$c[12];
 $nom=[];
 $val=[];
-$query20="SELECT catproducto.nombre, sum(produccion.cantidadInicial ) AS total FROM produccion,catproducto WHERE produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO GROUP BY produccion.FK_ID_CATPRODUCTO ORDER BY total DESC";
+$query20="SELECT CatProducto.nombre, sum(Produccion.cantidadInicial ) AS total FROM Produccion,CatProducto WHERE Produccion.FK_ID_CATPRODUCTO=CatProducto.ID_CATPRODUCTO GROUP BY Produccion.FK_ID_CATPRODUCTO ORDER BY total DESC";
 $result20=mysqli_query($conn,$query20);
  $ns=1;
  
