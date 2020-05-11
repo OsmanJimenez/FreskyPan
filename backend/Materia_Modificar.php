@@ -1,6 +1,7 @@
 <?php
 session_start();
  if((isset($_SESSION['cl']))){ ?>
+ 	
 <!DOCTYPE html>
 <html lang="es">
 
@@ -104,13 +105,27 @@ session_start();
                   <label for="inputPrice">Iva</label>
                   <input type="number" name="iva" value="<?php echo $iva; ?>" class="form-control" maxlength="11" onkeypress="return Num_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
                 </div>
+                <div class="space-small"></div>
+                       <div class="form-group col-md-4">
+                  <label for="inputState">Tipo</label>
+                  <select id="inputState" name="tip" class="form-control">
+                    <?php require("../basededatos/combotmp.php"); ?>
+                  </select>
+                </div>
+                  <div class="form-group col-md-4">
+
+                  <label for="inputState">Proveedor</label>
+                  <select id="inputState" name="prv" class="form-control">
+                    <?php require("../basededatos/combopro.php"); ?>
+                  </select>
+                </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return texto_1(event)" onpaste="return false" id="inputName" required><?php echo $des; ?></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onpaste="return false" id="inputName" required><?php echo $des; ?></textarea>
                   </div>
                 </div>
               </div>
@@ -156,7 +171,7 @@ session_start();
           }
         }
       </script>
-    
+
 
 
 <!-- Validation -->
@@ -187,11 +202,5 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

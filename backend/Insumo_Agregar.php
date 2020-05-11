@@ -85,6 +85,7 @@ session_start();
                   </select>
                 </div>
               </div>
+              </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -93,6 +94,19 @@ session_start();
                     <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required></textarea>
                   </div>
                 </div>
+
+                  <div class="form-group col-md-4">
+                  <label for="inputState">Proveedor</label>
+                  <select id="inputState" name="prv" class="form-control">
+                    <?php require("../basededatos/combopro.php"); ?>
+                  </select>
+                </div>
+                <div class="form-group col-md-2 text-center">
+                  <div class="space-small"></div>
+                  <a href="Clientes_Agregar.php" class="btn btn-primary">Agregar Proveedor</a>
+                </div>
+              </div>
+
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
                   <select id="inputState" name="est" class="form-control">
@@ -152,11 +166,6 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
+
  ?>

@@ -107,7 +107,7 @@ session_start();
                       <div class="space-small"></div>
                       <label for="inputState">Estado</label>
                       <select id="inputState" name="est" value="<?php echo $est; ?>" class="form-control">
-                        <option>Escoger</option>
+                        
                         <option value="1">Activo</option>
                         <option value="0">Suspendido</option>
                       </select>
@@ -150,11 +150,5 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

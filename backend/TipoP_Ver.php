@@ -74,6 +74,7 @@ session_start();
                     <tr>
                       <th>Numero</th>
                       <th>Nombre</th>
+                      <th>Categoría</th>
                       <th>Opción</th>
                     </tr>
                   </thead>
@@ -81,6 +82,7 @@ session_start();
                     <tr>
                       <th>Numero</th>
                       <th>Nombre</th>
+                      <th>Categoría</th>
                       <th>Opción</th>
                     </tr>
                   </tfoot>
@@ -165,11 +167,5 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

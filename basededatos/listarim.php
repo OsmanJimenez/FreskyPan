@@ -33,7 +33,9 @@ if(empty($_GET)){
              	?><label class="btn btn-warning">Inactivo</label><?php
              }
               ?></td>
+               <?php if($rol=='Administrador'){?>
 		<td><a class="btn btn-success" href="Insumo_Modificar.php?id=<?php echo $cod; ?>&all=<?php echo $vertodo; ?>">Editar</a></td>
 		<td><a class="btn btn-danger" href="../basededatos/cam_est_im.php?id=<?php echo $cod; ?>&est=<?php echo $est; ?>&all=<?php echo $vertodo; ?>">Cambiar estado</a></td>
+	<?php }?>
 		</tr> <label></label>
-<?php }?>
+<?php  }?>

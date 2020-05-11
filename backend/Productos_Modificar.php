@@ -89,7 +89,7 @@ session_start();
                   <div class="form-group col-md-6">
                     <label for="inputState">Sabor</label>
                     <select id="inputStatesab" class="form-control" name="sab" required="" value="<?php echo $sab; ?>">
-                      <option>Escoger</option>
+                      
                       <option value="1">Dulce</option>
                       <option value="2">Salado</option>
                       <option value="3">Agridulce</option>
@@ -116,7 +116,7 @@ session_start();
                   <div class="form-group col-md-6">
                     <label for="inputState">Estado</label>
                     <select class="form-control" name="esta" value='<?php echo $esta ?>' id="estado">
-                      <option selected>Escoger</option>
+                      
                       <option value="1">Activo</option>
                       <option value="0">Inactivo</option>
                     </select>
@@ -125,7 +125,7 @@ session_start();
 
                 <div class="form-group">
                   <label for="exampleFormControlTextarea1">Descripción</label>
-                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40" onkeypress="return texto_1(event)" onpaste="return false" rows="3"><?php echo $des; ?></textarea>
+                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40"  onpaste="return false" rows="3"><?php echo $des; ?></textarea>
                   <label for="exampleFormControlFile1">Imagen del Producto</label>
                   <input type="file" name="img" accept="image/*" class="form-control-file" id="exampleFormControlFile1">
                 </div>
@@ -212,11 +212,5 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

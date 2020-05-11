@@ -1,3 +1,7 @@
+<?php
+$rol = $_SESSION['cl']['rol'];
+
+?>
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-design sidebar sidebar-light accordion" id="accordionSidebar">
 
@@ -36,6 +40,7 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Productos:</h6>
+
         <a class="collapse-item" href="Productos_Agregar.php">Agregar</a>
         <a class="collapse-item" href="Productos_Ver.php">Ver</a>
       </div>
@@ -77,25 +82,32 @@
     </a>
     <div id="collapseInventarios" class="collapse" aria-labelledby="headingBodegas" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
+        <?php if($rol=='Administrador'){?>
         <h6 class="collapse-header">Bodega:</h6>
         <a class="collapse-item" href="Bodegas_Agregar.php">Agregar</a>
         <a class="collapse-item" href="Bodegas_Ver.php">Ver</a>
+      <?php } ?>
       </div>
     </div>
     <div id="collapseInventarios" class="collapse" aria-labelledby="headingMateria" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Materia Prima:</h6>
+        <?php if($rol=='Administrador'){ ?>
         <a class="collapse-item" href="Materia_Agregar.php">Agregar</a>
+      <?php } ?>
         <a class="collapse-item" href="Materia_Ver.php">Ver</a>
       </div>
     </div>
     <div id="collapseInventarios" class="collapse" aria-labelledby="headingInsumos" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Insumo:</h6>
+        <?php if($rol=='Administrador'){?>
         <a class="collapse-item" href="Insumo_Agregar.php">Agregar</a>
+      <?php } ?>
         <a class="collapse-item" href="Insumo_Ver.php">Ver</a>
       </div>
     </div>
+    <?php if($rol=='Administrador'){?>
     <div id="collapseInventarios" class="collapse" aria-labelledby="headingInsumos" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Suministro:</h6>
@@ -103,6 +115,7 @@
         <a class="collapse-item" href="Suministro_Ver.php">Ver</a>
       </div>
     </div>
+  <?php } ?>
   </li>
 
   <li class="nav-item">
@@ -131,6 +144,7 @@
         <a class="collapse-item" href="Pedidos_Ver.php">Ver</a>
       </div>
     </div>
+    <?php if($rol=='Administrador'){?>
     <div id="collapseCuentas" class="collapse" aria-labelledby="headingCuentas" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Facturas:</h6>
@@ -138,6 +152,7 @@
         <a class="collapse-item" href="Facturas_Ver.php">Ver</a>
       </div>
     </div>
+  <?php } ?>
   </li>
 
   <li class="nav-item">
@@ -169,7 +184,7 @@
       </div>
     </div>
   </li>
-
+<?php if($rol=='Administrador'){?>
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConfiguracion" aria-expanded="true" aria-controls="collapseCuentas">
       <i class="fas fa-users-cog"></i>
@@ -183,7 +198,7 @@
       </div>
     </div>
   </li>
-
+<?php } ?>
   <!-- Divider -->
   <hr class="sidebar-divider">
 

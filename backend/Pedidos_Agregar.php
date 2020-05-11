@@ -10,7 +10,7 @@ session_start();
   <?php
   require('Style.php');
   ?>
-  
+
 </head>
     <script type="text/javascript">
       $(document).ready(function(){
@@ -53,7 +53,7 @@ session_start();
         <div class="card shadow mb-4">
         <div class="card-body">
             <!-- Add Example -->
-          
+
               <div class="form-row">
                 <label for="inputPrice">Fecha</label>
                 <input type="date" id="inputName" class="form-control" name="fec" width="100%" />
@@ -64,7 +64,7 @@ session_start();
           </div>
           <div class="space-small"></div>
           <div class="form-row">
-                  <div class="form-group col-md-6"> 
+                  <div class="form-group col-md-6">
                     <div class="table-responsive" style=" max-height:350px; ">
                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -94,7 +94,7 @@ session_start();
 
                   <div class="form-group col-md-6">
                     <label for="inputCantidad">Plazo</label>
-                    <input type="number" name="pla" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return soloN(event)" onpaste="return false" placeholder="">
+                    <input type="number" name="pla" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return soloM(event)" onpaste="return false" placeholder="">
                     <div class="space-small"></div>
                     <label for="inputCantidad">Exigencias</label>
                     <textarea class="form-control" name="ex" rows="8" maxlength="100" required></textarea>
@@ -107,7 +107,7 @@ session_start();
           <div class="card-body">
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Escoger el producto</h6>
-              </div> 
+              </div>
           <div class="space-small"></div>
             <div class="form-row">
                   <div class="table-responsive" style=" max-height:350px; " >
@@ -137,7 +137,7 @@ session_start();
                         </tr>
                       </tfoot>
                       <tbody id="InsumoyMateria">
-                        
+
                       </tbody>
                     </table>
                 </div>
@@ -205,133 +205,10 @@ session_start();
                 }
       }
      </script>
-     <script type="text/javascript">
-      function Tel_pe(evento){
 
-          key = evento.keyCode || evento.which;
-           teclado = String.fromCharCode(key).toLocaleLowerCase();
-              a1= "1234567890";
-                especiales = "37-38-46";
-
-                teclado_especial = false;
-                for (var i in especiales) {
-                    if (key == especiales[i]) {
-                        teclado_especial = true; break;
-                    }
-                }
-                if (a1.indexOf(teclado) == -1 && !teclado_especial) {
-                    return false;
-                }
-      }
-      </script>
-
-      <script type="text/javascript">
-        function cod_pe(evento){
-
-          key = evento.keyCode || evento.which;
-          teclado = String.fromCharCode(key).toLocaleLowerCase();
-          cod= "1234567890";
-          especiales = "37-38-46";
-
-           teclado_especial = false;
-           for (var i in especiales) {
-               if (key == especiales[i]) {
-                   teclado_especial = true; break;
-               }
-           }
-           if (cod.indexOf(teclado) == -1 && !teclado_especial) {
-               return false;
-           }
-        }
-      </script>
-      <script type="text/javascript">
-        function pre_pe(evento){
-
-        key = evento.keyCode || evento.which;
-        teclado = String.fromCharCode(key).toLocaleLowerCase();
-        can1= "1234567890";
-        especiales = "37-38-46";
-
-        teclado_especial = false;
-        for (var i in especiales) {
-          if (key == especiales[i]) {
-              teclado_especial = true; break;
-           }
-          }
-          if (can1.indexOf(teclado) == -1 && !teclado_especial) {
-          return false;
-          }
-        }
-      </script>
-    <script type="text/javascript">
-      function cant_pe(evento){
-
-      key = evento.keyCode || evento.which;
-      teclado = String.fromCharCode(key).toLocaleLowerCase();
-      can= "1234567890";
-      especiales = "37-38-46";
-
-      teclado_especial = false;
-      for (var i in especiales) {
-          if (key == especiales[i]) {
-              teclado_especial = true; break;
-          }
-      }
-      if (can.indexOf(teclado) == -1 && !teclado_especial) {
-          return false;
-        }
-      }
-      </script>
-     <!-- validacion de texto-->
-
-      <script type="text/javascript">
-        function sed_pe(evento){
-
-          key = evento.keyCode || evento.which;
-           teclado = String.fromCharCode(key).toLocaleLowerCase();
-              dire = "abcdefghijklmnñopqrstuvwxyz";
-                especiales = "37-38-46";
-
-                teclado_especial = false;
-                for (var i in especiales) {
-                    if (key == especiales[i]) {
-                        teclado_especial = true; break;
-                    }
-                }
-                if (dire.indexOf(teclado) == -1 && !teclado_especial) {
-                    return false;
-                }
-        }
-     </script>
-
-     <script type="text/javascript">
-      function des_pe(evento){
-
-      key = evento.keyCode || evento.which;
-      teclado = String.fromCharCode(key).toLocaleLowerCase();
-       des = "abcdefghijklmnñopqrstuvwxyz";
-         especiales = "37-38-46";
-
-         teclado_especial = false;
-         for (var i in especiales) {
-             if (key == especiales[i]) {
-                 teclado_especial = true; break;
-             }
-         }
-         if (des.indexOf(teclado) == -1 && !teclado_especial) {
-             return false;
-         }
-        }
-      </script>
     </body>
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

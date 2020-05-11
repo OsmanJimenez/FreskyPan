@@ -1,4 +1,9 @@
 <?php
+session_start();
+ if((isset($_SESSION['cl']))){ 
+$rol = $_SESSION['cl']['rol'];
+  ?>
+<?php
 // Definimos nuestra zona horaria
 date_default_timezone_set("America/Bogota");
 
@@ -527,13 +532,13 @@ if (isset($_POST['from'])) {
                   </div>
 
                 </div>
-
+<?php if($rol=='Administrador'){?>
                 <div class="col-md-6">
                   <div class="pull-right form-inline"><br>
                     <button class="btn d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle='modal' data-target='#add_evento'>Añadir Evento</button>
                   </div>
                 </div>
-
+<?php } ?>
               </div>
               <br><br><br>
               <div class="row">
@@ -787,3 +792,6 @@ if (isset($_POST['from'])) {
 </body>
 
 </html>
+<?php }
+require('../llenar3.php');
+ ?>

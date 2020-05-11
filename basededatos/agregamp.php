@@ -10,8 +10,11 @@ $iva= $_POST['iva'];
 $udm= $_POST['udm'];
 $tip= $_POST['tip'];
 $des= $_POST['des'];	
+$prv=$_POST['prv'];
 $query="INSERT INTO MateriaPrima(ID_MATERIAPRIMA,nombre,cantidad,descripcion,precio,iva,stock,estado,FK_ID_MEDIDACANTIDAD,FK_ID_TIPOMATERIAPRIMA) VALUES ('$cod','$nom','$can','$des','$pre','$iva','0','$est','$udm','$tip')";
 $result=mysqli_query($conn,$query);
+$query2="INSERT INTO `proveedor_materiaprima`(`FK_ID_MATERIAPRIMA`, `FK_ID_PROVEEDOR`, `estado`) VALUES ('$cod','$prv','1')";
+$result2=mysqli_query($conn,$query2);
 if(!$result){
 	if(mysqli_errno($conn)==1062){
 ?><script type="text/javascript">alert("Error ya se encuentra un registro con el mismo código")</script> <?php  

@@ -24,10 +24,10 @@ session_start();
   <!-- End of Sidebar -->
 
   <!-- Content Wrapper -->
-  <div id="content-wrapper" class="d-flex flex-column"> 
+  <div id="content-wrapper" class="d-flex flex-column">
 
     <!-- Main Content -->
-    <div id="content"> 
+    <div id="content">
 
       <!-- Topbar -->
       <?php
@@ -36,7 +36,7 @@ session_start();
       <!-- End of -->
 
       <!-- Begin Page Content -->
-      <div class="container-fluid"> 
+      <div class="container-fluid">
         <?php require("../basededatos/connectionbd.php");
         $query = "SELECT MAX(ID_DEVOLUCION) AS id FROM Devolucion";
         $result = mysqli_query($conn, $query);
@@ -49,11 +49,11 @@ session_start();
         <p class="mb-4">En este apartado podremos agregar distintos devoluciones que se generen.</p>
 
         <!-- DataTales Example -->
-        <div class="card shadow mb-4"> 
+        <div class="card shadow mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Devoluciones</h6>
           </div>
-          <div class="card-body"> 
+          <div class="card-body">
             <!-- Add Example -->
             <form action="../basededatos/agregad.php" method="POST">
               <div class="form-row">
@@ -131,48 +131,48 @@ session_start();
                   </div>
                 </div>
               </div>
-              <div class="form-row"> 
-                <div class="form-group col-md-6"> 
+              <div class="form-row">
+                <div class="form-group col-md-6">
                   <label for="des">Descripción de la devolución</label>
-                  <textarea class="form-control" name="des" id="des" maxlength="30" required="" onkeypress="return des_devo(event)" rows="3"></textarea>
+                  <textarea class="form-control" name="des" id="des" maxlength="30" required="" rows="3"></textarea>
 
                   <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
 
                   <!-- Modal -->
-                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
-                    <div class="modal-dialog" role="document"> 
-                      <div class="modal-content"> 
-                        <div class="modal-header"> 
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel">¡Alerta!</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
-                        </div> 
-                        <div class="modal-body"> 
+                        </div>
+                        <div class="modal-body">
                           ¿Estas seguro de agregar este ítem?
-                        </div> 
-                        <div class="modal-footer"> 
+                        </div>
+                        <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                           <button type="submit" class="btn btn-primary">Agregar</button>
-                        </div> 
-                      </div> 
-                    </div> 
-                  </div> 
-                  </div> 
-                </div> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
             </form>
 
             <!--End  Add Example -->
-          </div> 
+          </div>
 
 
-        </div> 
+        </div>
         <!-- /.container-fluid -->
       </div>
     </div>
   </div>
 </div>
-        <!-- Validation --> 
+        <!-- Validation -->
         <?php
         require('Validation.php');
         ?>
@@ -217,11 +217,5 @@ session_start();
 </html>
 
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

@@ -61,7 +61,7 @@ session_start();
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Producto</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="10" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
+                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="20" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
@@ -79,7 +79,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
                   <select id="inputState" name="est" class="form-control">
-                    <option selected>Escoger</option>
+                    
                     <option value="1">Activo</option>
                     <option value="0">Suspendido</option>
                   </select>
@@ -97,7 +97,6 @@ session_start();
                 <div class="form-group col-md-6">
                   <label for="inputState">Sabor</label>
                   <select id="inputState" name="sab" class="form-control">
-                    <option selected>Escoger</option>
                     <option>Dulce</option>
                     <option>Salado</option>
                     <option>Agridulce</option>
@@ -109,7 +108,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40" onkeypress="return texto_1(event)" onpaste="return false" rows="3"></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40"  onpaste="return false" rows="3"></textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -195,11 +194,5 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

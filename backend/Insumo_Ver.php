@@ -80,8 +80,10 @@ session_start();
                       <th>Precio</th>
                       <th>Iva</th>
                       <th>Estado</th>
+                      <?php if($rol=='Administrador'){?>
                       <th>Modificar</th>
                       <th>Opción</th>
+                       <?php } ?>
                     </tr>
                   </thead>
                   <tfoot>
@@ -93,9 +95,12 @@ session_start();
                       <th>Cantidad</th>
                       <th>Precio</th>
                       <th>Iva</th>
+                     
                       <th>Estado</th>
+                       <?php if($rol=='Administrador'){?>
                       <th>Modificar</th>
                       <th>Opción</th>
+                    <?php } ?>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -183,11 +188,5 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

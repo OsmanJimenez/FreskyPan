@@ -65,24 +65,25 @@ session_start();
                     <tr>
                       <th>Cedula</th>
                       <th>Nombre</th>
+                      <th>Segundo Nombre</th>
                       <th>Apellido</th>
                       <th>Telefono</th>
-                      <th>Dirección</th>
+                       <th>Correo</th>
                       <th>Estado</th>
                       <th>Modificar</th>
-                      <th>Opción</th>
+                     
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Cedula</th>
+                       <th>Cedula</th>
                       <th>Nombre</th>
+                      <th>Segundo Nombre</th>
                       <th>Apellido</th>
                       <th>Telefono</th>
-                      <th>Dirección</th>
+                       <th>Correo</th>
                       <th>Estado</th>
                       <th>Modificar</th>
-                      <th>Opción</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -162,11 +163,5 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

@@ -105,9 +105,19 @@ session_start();
                     <?php require("../basededatos/combotmp.php"); ?>
                   </select>
                 </div>
-                <div class="form-group col-md-2 text-center">
+                     <div class="form-group col-md-2 text-center">
                   <div class="space-small"></div>
                   <a href="Materiatipo_Agregar.php" class="btn btn-primary">Agregar Tipo</a>
+                </div>
+                  <div class="form-group col-md-4">
+                  <label for="inputState">Proveedor</label>
+                  <select id="inputState" name="prv" class="form-control">
+                    <?php require("../basededatos/combopro.php"); ?>
+                  </select>
+                </div>
+                <div class="form-group col-md-2 text-center">
+                  <div class="space-small"></div>
+                  <a href="Clientes_Agregar.php" class="btn btn-primary">Agregar Proveedor</a>
                 </div>
               </div>
 
@@ -115,7 +125,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return texto_1(event)" onpaste="return false" required></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30"  onpaste="return false" required></textarea>
                   </div>
                 </div>
               </div>
@@ -183,11 +193,5 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>

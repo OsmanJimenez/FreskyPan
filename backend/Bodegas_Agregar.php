@@ -1,3 +1,6 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -44,7 +47,7 @@
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
             <form action="../basededatos/agregarbg.php" method="POST" enctype="multipart/form-data">
               <label for="inputName">Codigo de la Bodega</label>
-              <input type="number" name="cod" class="form-control" maxlength="11" onkeypress="return Cod_bo(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" placeholder="" required>
+              <input type="number" name="cod" class="form-control" maxlength="11" onkeypress="return texto_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" placeholder="" required>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <div class="form-group">
@@ -116,3 +119,7 @@
       </body>
 
 </html>
+<?php }
+require('llenar3.php');
+
+ ?>

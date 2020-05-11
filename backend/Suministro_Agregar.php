@@ -1,3 +1,6 @@
+<?php
+session_start();
+ if((isset($_SESSION['cl']))){ ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -291,3 +294,7 @@
       <script src="js/demo/datatables-demo.js"></script>
 
 </html>
+<?php }
+require('llenar3.php');
+ ?>
+

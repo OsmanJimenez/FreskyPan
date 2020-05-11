@@ -79,7 +79,6 @@ session_start();
                     <div class="form-group col-md-6">
                       <label for="inputState">Tipo de Contrato</label>
                       <select id="inputState" name="tip" class="form-control" value="<?php echo $tip; ?>">
-                        <option>Escoger</option>
                         <option>Dia</option>
                         <option>Semana</option>
                         <option>Mes</option>
@@ -233,11 +232,5 @@ session_start();
 
 </html>
 <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
+require('llenar3.php');
  ?>
