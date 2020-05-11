@@ -1,15 +1,6 @@
 <?php
 session_start();
  if((isset($_SESSION['cl']))){ ?>
-  <?php }
-else if(!(isset($_SESSION['cl']))){
-  ?>
-<script>
-alert('Primero inicie sesión');
-  window.location.href='../login/index.php';
-</script><?php
-}
- ?>
 <!DOCTYPE html>
 <html lang="es">
 

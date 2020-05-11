@@ -36,117 +36,68 @@ session_start();
 
       <!-- Begin Page Content -->
       <div class="container-fluid">
+        <?php require("../basededatos/connectionbd.php");
+        $id = $_GET['id'];
+        $query = "SELECT * FROM Devolucion WHERE ID_DEVOLUCION='$id'";
+        $result = mysqli_query($conn, $query);
+
+        $fila = mysqli_fetch_array($result);
+        $cod = $fila['ID_DEVOLUCION'];
+        $des = $fila['descripcion'];
+        $fec = $fila['fecha'];
+        $est = $fila['estado'];
+        $idped = $fila['FK_ID_PEDIDO'];
+        ?>
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Agregar Devoluciones</h1>
-        <p class="mb-4">En este apartado podremos agregar distintos devoluciones que se generen</a>.</p>
+        <h1 class="h3 mb-2 text-gray-800">Modificar devolución</h1>
+        <p class="mb-4">En este apartado podremos modificar las devoluciones registradas en el sistema.</a>.</p>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Devoluciones</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Devolución</h6>
           </div>
           <div class="card-body">
             <!-- Add Example -->
 
-            <form action="../basededatos/agregad.php" method="POST">
-              <div class="form-row">
-                <div class="form-group col-md-8">
-                  <?php
-                  require("../basededatos/connectionbd.php");
-                  $mic = $_GET['id4'];
-                  $query = "Select devolucion.can_dev,pedidos.cod_pro,pedidos.Fec_ped,devolucion.cod_con,devolucion.est_dev,devolucion.cod_dev,devolucion.des_dev,productos.nom_pro,clientes.nom_cl,clientes.ced_cl,devolucion.fec_dev from devolucion,productos,clientes,pedidos WHERE devolucion.cod_dev='$mic' and devolucion.cod_con=pedidos.Id_ped AND pedidos.ced_cl=clientes.ced_cl AND pedidos.cod_pro=productos.cod_pro ";
-                  $result = mysqli_query($conn, $query);
+            <form action="../basededatos/actuadev.php" method="POST">
 
-                  $i = 0;
-
-                  while ($fila = mysqli_fetch_array($result)) {
-                    $tip = $fila['cod_dev'];
-                    $cod = $fila['des_dev'];
-                    $fec = $fila['nom_pro'];
-                    $ced_cl = $fila['nom_cl'];
-                    $hor_ent = $fila['ced_cl'];
-                    $fec_ent = $fila['fec_dev'];
-                    $est = $fila['est_dev'];
-                    $code = $fila['cod_con'];
-                    $feca = $fila['Fec_ped'];
-                    $dev = $fila['can_dev'];
-                    $i++;
-                  ?>
-                    <label for="inputName">Codigo de Devolución</label>
-                    <input type="text" name="cd" value="<?php echo $mic; ?>" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_devo(event)" onpaste="return false" id="inputName" placeholder="" required="">
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="inputName">Fecha</label>
-                  <input type="date" value="<?php echo $fec_ent; ?>" id="inputName" class="form-control" name="fec" width="100%" />
-                </div>
-              </div>
-
-
-
-
-
-              <div class="form-row">
-                <div class="form-group col-md-8">
-                  <div class="table-responsive" style=" max-height:350px; ">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th>Codigo de pedido</th>
-                          <th>Fecha</th>
-                          <th>Cedula del cliente</th>
-                          <th>Codigo del producto</th>
-                          <th>Cantidad</th>
-                          <th></th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tfoot>
-                        <tr>
-                          <th></th>
-                          <th>Codigo de pedido</th>
-                          <th>Fecha</th>
-                          <th>Cedula del cliente</th>
-                          <th>Codigo del producto</th>
-                          <th>Cantidad</th>
-                          <th></th>
-                          <th></th>
-                        </tr>
-                      </tfoot>
-                      <tbody>
-                        <?php require("../basededatos/listap3.php"); ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-
-
-                <div class="form-group col-md-4">
-                  <label for="inputPrice">Codigo del pedido</label>
-                  <input type="number" value="<?php echo $code; ?>" name="cod" readonly="" class="form-control" id="inputrice" placeholder="" required="">
-                  <label for="inputCantidad">Cedula del cliente</label>
-                  <input type="number" readonly="" value="<?php echo $hor_ent; ?>" class="form-control" id="inputCantidad1" placeholder="" required="">
-                  <label for="inputCantidad">Fecha de compra</label>
-                  <input type="date" name="fecha" value="<?php echo $feca; ?>" class="form-control" id="inputCantidad2" placeholder="" required="">
-                  <label for="inputCantidad">Codigo del producto</label>
-                  <input type="number" name="id" readonly="" value="<?php echo $cod_pro; ?>" class="form-control" id="inputCantidad3" placeholder="" required="">
-                  <label for="inputCantidad">Cantidad del pedido</label>
-                  <input type="number" name="can" value="<?php echo $dev; ?>" class="form-control" id="inputCantidad4" placeholder="" required="">
-                </div>
-              </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+                    <label for="inputName">Código de devolución</label>
+                    <input type="text" name="cod" value="<?php echo $cod; ?>" class="form-control" id="inputName" placeholder="" readonly="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputName">Fecha</label>
+                  <input type="date" value="<?php echo $fec; ?>" id="inputName" class="form-control" name="fec" width="100%" required="">
+                </div>
+              </div>
 
-
-                  <label for="exampleFormControlTextarea1">Descripción de la devolución</label>
-                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="30" onkeypress="return des_devo(event)" onpaste="return false" rows="3"></textarea>
-                  <br>
-
-                  <br>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputPrice">Código del pedido</label>
+                  <input type="number" value="<?php echo $idped; ?>" name="cod" readonly="" class="form-control" id="inputrice" placeholder="">
+                  <div class="space-small"></div>
+                  <label for="inputCantidad">Estado</label>
+                  <select id="inputState" name="est" class="form-control" disabled>
+                    <?php if ($est == "0") { ?>
+                      <option value="1">Activo</option>
+                      <option selected value="0">Suspendido</option>
+                    <?php } else { ?>
+                      <option selected value="1">Activo</option>
+                      <option value="0">Suspendido</option>
+                    <?php } ?>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="txtarea">Descripción de la devolución</label>
+                  <textarea class="form-control" name="des" id="txtarea" maxlength="30" style="height: 128px;"><?php echo $des; ?></textarea>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Añadir</button>
-
                   <!-- Modal -->
                   <div id="myModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
@@ -159,7 +110,7 @@ session_start();
 
                         </div>
                         <div class="modal-body">
-                          <p>Esta seguro?</p>
+                          <p>¿Está seguro?</p>
                         </div>
                         <div class="modal-footer">
                           <button type="submit" class="btn btn-primary">Si</button>
@@ -167,17 +118,14 @@ session_start();
                         </div>
                       </div>
 
-                    </div>
                   </div>
                 </div>
-              <?php } ?>
+              </div>
+            </div>
             </form>
 
             <!--End  Add Example -->
           </div>
-
-
-        </div>
         <script>
           function maxlengthNumber(ob) {
             console.log(ob.value);

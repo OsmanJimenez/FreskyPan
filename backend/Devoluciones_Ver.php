@@ -67,15 +67,14 @@ session_start();
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dev_Tabla" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Numero</th>
-                      <th>Descripcion</th>
-                      <th>Nombre producto</th>
-                      <th>Nombre cliente </th>
-                      <th>Cedula</th>
+                      <th>Código de la devolución</th>
                       <th>Fecha</th>
+                      <th>Descripcion</th>
+                      <th>Proveedor</th>
+                      <th>Código del pedido</th>
                       <th>Estado</th>
                       <th>Modificar</th>
                       <th>Opción</th>
@@ -83,27 +82,28 @@ session_start();
                   </thead>
                   <tfoot>
                     <tr>
-                    <tr>
-                      <th>Numero</th>
-                      <th>Descripcion</th>
-                      <th>Nombre producto</th>
-                      <th>Nombre cliente </th>
-                      <th>Cedula</th>
+                      <th>Código de la devolución</th>
                       <th>Fecha</th>
+                      <th>Descripcion</th>
+                      <th>Proveedor</th>
+                      <th>Código del pedido</th>
                       <th>Estado</th>
                       <th>Modificar</th>
                       <th>Opción</th>
                     </tr>
-                    </tr>
                   </tfoot>
                   <tbody>
-                    <?php require("../basededatos/listad.php"); ?>
-
+                    <?php require("../basededatos/listadev.php"); ?>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
+          <?php if (empty($_GET)) { ?>
+            <a class="btn btn-primary" href="Devoluciones_Ver.php?all=True">Ver todos</a>
+          <?php } else { ?>
+            <a class="btn btn-primary" href="Devoluciones_Ver.php">Ver activos</a>
+          <?php } ?>
 
         </div>
         <!-- /.container-fluid -->

@@ -40,7 +40,7 @@ session_start();
         $query = "SELECT MAX(ID_FACTURA) AS id FROM Factura";
         $result = mysqli_query($conn, $query);
         $fila = mysqli_fetch_array($result);
-        if(!empty($fila)){$last=1;}else{$last=$fila['id'];}
+        if(!empty($fila)){$last=1;}else{$last=$fila['id']+1;}
         ?>
 
         <!-- Page Heading -->

@@ -58,6 +58,7 @@ session_start();
                 <label for="inputPrice">Fecha</label>
                 <input type="date" id="inputName" class="form-control" name="fec" width="100%" />
               </div>
+              <div class="space-small"></div>
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Escoger al proveedor</h6>
           </div>
@@ -109,7 +110,6 @@ session_start();
               </div> 
           <div class="space-small"></div>
             <div class="form-row">
-              <div class="form-group col-md-6">
                   <div class="table-responsive" style=" max-height:350px; " >
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
@@ -140,7 +140,6 @@ session_start();
                         
                       </tbody>
                     </table>
-                  </div>
                 </div>
                 </div>
               </div>
@@ -150,11 +149,12 @@ session_start();
 
             <button type="submit" class="btn btn-primary float-right">Agregar</button>
           </form>
-
         </div>
 
       </div>
-
+      <?php
+      require('footer.php');
+      ?>
 
     </div>
   </div>
