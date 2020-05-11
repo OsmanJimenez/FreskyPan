@@ -89,7 +89,7 @@ session_start();
                   <div class="form-group col-md-6">
                     <label for="inputState">Sabor</label>
                     <select id="inputStatesab" class="form-control" name="sab" required="" value="<?php echo $sab; ?>">
-                      <option>Escoger</option>
+                      
                       <option value="1">Dulce</option>
                       <option value="2">Salado</option>
                       <option value="3">Agridulce</option>
@@ -116,7 +116,7 @@ session_start();
                   <div class="form-group col-md-6">
                     <label for="inputState">Estado</label>
                     <select class="form-control" name="esta" value='<?php echo $esta ?>' id="estado">
-                      <option selected>Escoger</option>
+                      
                       <option value="1">Activo</option>
                       <option value="0">Inactivo</option>
                     </select>

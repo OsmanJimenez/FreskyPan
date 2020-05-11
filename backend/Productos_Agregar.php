@@ -61,7 +61,7 @@ session_start();
 
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre del Producto</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="10" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
+                  <input type="text" name="nom" class="form-control" id="inputName" maxlength="20" onkeypress="return texto_1(event)" onpaste="return false" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPrice">Precio</label>
@@ -79,7 +79,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <label for="inputState">Estado</label>
                   <select id="inputState" name="est" class="form-control">
-                    <option selected>Escoger</option>
+                    
                     <option value="1">Activo</option>
                     <option value="0">Suspendido</option>
                   </select>
@@ -97,7 +97,6 @@ session_start();
                 <div class="form-group col-md-6">
                   <label for="inputState">Sabor</label>
                   <select id="inputState" name="sab" class="form-control">
-                    <option selected>Escoger</option>
                     <option>Dulce</option>
                     <option>Salado</option>
                     <option>Agridulce</option>

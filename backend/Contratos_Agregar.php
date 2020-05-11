@@ -58,7 +58,6 @@ session_start();
                   <div class="form-group col-md-6">
                     <label for="inputState">Tipo de Contrato</label>
                     <select id="inputState" name="tip" class="form-control">
-                      <option selected>Escoger</option>
                       <option>Dia</option>
                       <option>Semana</option>
                       <option>Mes</option>

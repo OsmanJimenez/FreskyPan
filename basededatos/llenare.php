@@ -74,7 +74,7 @@ $pr3=$fila20['total'];
 $ns++;
 }
 
-if(isset($nom) and isset($val)){
+if((isset($nom) and isset($val)) and $ns==3 ){
 $nb1=$nom[1];
 $nb2=$nom[2];
 $nb3=$nom[3];

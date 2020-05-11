@@ -1,5 +1,5 @@
                   <select id="inputState" name="cat" class="form-control">
-                    <option selected>Escoger</option>
+                    
                     <?php
 require ("../basededatos/connectionbd.php");
 $query="Select * from subtipoproducto";

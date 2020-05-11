@@ -9,10 +9,13 @@ $query="SELECT nombre FROM catproducto WHERE stock=0 ";
 $result=mysqli_query($conn,$query);
 $i = 0;
 $ind=100;
-$tar=0;   
+$tar=0;  
+$flag=0; 
+$flag2=0; 
+$flag3=0;
       while($fila=mysqli_fetch_array($result)){     
         $nom = $fila['nombre'];
-
+$flag=1;
         $i++; 
         $tar=$tar+5;
 }
@@ -31,6 +34,7 @@ $result3=mysqli_query($conn,$query3);
       
       while($fila3=mysqli_fetch_array($result3)){     
         $nom3 = $fila3['nombre'];
+        $flag2=1;
         $i++;
        $tar=$tar+10;
        
@@ -42,6 +46,7 @@ $result4=mysqli_query($conn,$query4);
       while($fila4=mysqli_fetch_array($result4)){     
         $nom4 = $fila4['nombre'];
           $i++; 
+          $flag3=1;
           $tar=$tar+10;
        
 }
@@ -152,7 +157,9 @@ $veri=0;
           </div>
           <div>
             <div class="small text-gray-500"><?php echo $fec; ?></div>
+            <?php if($flag==1){ ?>
             <span class="font-weight-bold">Alerta: Fabricar <?php echo $nom; ?></span>
+          <?php }?>
           </div>
         </a>
         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -174,10 +181,12 @@ $veri=0;
           </div>
           <div>
             <div class="small text-gray-500"><?php echo $fec; ?></div>
+            <?php if($flag2==1){ ?>
             Alerta Roja: No hay <?php echo $nom3; ?> .
+          <?php } ?>
           </div>
         </a>
-        <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar Todo</a>
+        <a class="dropdown-item text-center small text-gray-500" href="calendario/">Mostrar Todo</a>
       </div>
     </li>
 
@@ -199,7 +208,9 @@ $veri=0;
             <div class="status-indicator bg-success"></div>
           </div>
           <div class="font-weight-bold">
+ <?php if($flag3==1){ ?>
             <div class="text-truncate">Se agoto el insumo: <?php echo $nom4; ?>.</div>
+          <?php }?>
             <div class="small text-gray-500">Sistema · 1m</div>
           </div>
         </a>
