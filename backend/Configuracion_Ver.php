@@ -158,6 +158,7 @@ session_start();
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
+<script src="js/script.js"></script>
 
   <!-- Page level custom scripts -->
   <script src="Exportar_Excel.js"></script>

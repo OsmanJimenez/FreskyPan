@@ -337,7 +337,7 @@
     
   </script>
   <script src="js/demo/chart-pie-demo.js"></script>
-
+   <script  src="js/script.js"></script>
 
 
 </body>

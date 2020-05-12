@@ -2,6 +2,10 @@
 <link rel="icon" type="image/png" href="../favicon.png" />
 <!-- End Custom favicon for this template-->
 
+<!-- Search css-->
+<link rel="stylesheet" type="text/css" href="css/style4.css">
+<!--End Search css-->
+
 <!-- Font-->
 <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
