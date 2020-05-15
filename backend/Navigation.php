@@ -279,7 +279,24 @@ $veri=0;
     </li>
 
   </ul>
-
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres salir?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
+        <div class="modal-footer">
+          <button class="btn d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="../salir.php">Salir</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
     <div class="search" id="search">
       <table class="search-table" id="searchTable">

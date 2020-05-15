@@ -2,8 +2,6 @@
 session_start();
  if((isset($_SESSION['cl']))){ 
 $rol = $_SESSION['cl']['rol'];
-  ?>
-<?php
 // Definimos nuestra zona horaria
 date_default_timezone_set("America/Bogota");
 
@@ -497,7 +495,7 @@ if (isset($_POST['from'])) {
                   Registro de actividades
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="../../salir.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Salir
                 </a>
@@ -597,8 +595,8 @@ if (isset($_POST['from'])) {
         </div>
         <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
         <div class="modal-footer">
-          <button class="btn d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="../../salir.php">Logout</a>
+          <button class="btn d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="../../salir.php">Salir</a>
         </div>
       </div>
     </div>
