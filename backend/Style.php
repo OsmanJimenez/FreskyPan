@@ -30,6 +30,7 @@
 <!-- End Meta -->
 
 <!-- Custom styles for this template-->
+<link href="css/sb-admin-2.css" rel="stylesheet">
 <link id="theme" href="css/sb-admin-2.css" rel="stylesheet">
 <!-- End Custom styles for this template-->
 

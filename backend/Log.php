@@ -42,8 +42,19 @@ session_start();
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Producción</h1>
-            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="exportTableToExcel('dataTable' ,'Lista_Producción')"><i class="fas fa-download fa-sm text-white-50"></i> Generar Reporte</button>
+            <h1 class="h3 mb-0 text-gray-800">Registro de Actividades</h1>
+            <button type="button" class="btn btn-default dropdown-toggle d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="dropdown"><i class="fas fa-download fa-sm text-white-50"></i> Generar Reporte</button>
+
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'txt'});"><img src='icons/txt.png' alt="TXT" style="width:24px">TXT</a></li>
+              <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'json'});"> <img src='icons/json.png' alt="JSON" style="width:24px"> JSON</a></li>
+              <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'xml'});"> <img src='icons/xml.png' alt="XML" style="width:24px"> XML</a></li>
+              <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'sql'});"> <img src='icons/sql.png' alt="SQL" style="width:24px"> SQL</a></li>
+              <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'doc'});"> <img src='icons/word.png' alt="Word" style="width:24px"> Word</a></li>
+              <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'xlsx'});"> <img src='icons/xls.png' alt="XLSX" style="width:24px"> Excel</a></li>
+              <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'pdf', jspdf: {autotable: {tableWidth: 'wrap'}}});"><img src='icons/pdf.png' alt="PDF" style="width:24px"> PDF</a></li>
+              <li><a href="#" class="dropdown-item" onClick="doExport('#dataTable', {type: 'png'});"> <img src='icons/png.png' alt="PNG" style="width:24px"> PNG</a></li>
+            </ul>
 
           </div>
           <p class="mb-4">Aqui encontrara información acerca de los cambios efectuados en el sistema</a>.</p>
@@ -53,11 +64,9 @@ session_start();
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Lista de Actividades</h6>
             </div>
-
-
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable"  id="Productos_Ver" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>ID Usuario</th>
@@ -65,9 +74,6 @@ session_start();
                       <th>Hora</th>
                       <th>Descripción</th>
                       <th>Modulo Afectado</th>
-
-
-
                     </tr>
                   </thead>
                   <tfoot>
@@ -77,8 +83,6 @@ session_start();
                       <th>Hora</th>
                       <th>Descripción</th>
                       <th>Modulo Afectado</th>
-
-
                     </tr>
                   </tfoot>
                   <tbody>
@@ -155,6 +159,10 @@ session_start();
   <!-- Page level custom scripts -->
   <script src="Exportar_Excel.js"></script>
 
+  <!-- Export Multi-Scripts -->
+  <?php
+  require('export.php');
+  ?>
 </body>
 
 </html>

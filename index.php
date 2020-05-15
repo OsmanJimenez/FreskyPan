@@ -38,17 +38,7 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link" href="historia.html">Historia</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contacto.php">Contactanos</a>
-                </li>
             </ul>
-            <div class="btn-group mr-2" role="group" aria-label="Second group">
-                <form class="form-inline my-2 my-lg-0">
-                    <?php if (!(isset($_SESSION['cl']))) { ?>
-                        <a href="nuevo_cliente.php" class="btn btn-primary my-2 my-sm-0 ">Registrarse</a>
-                    <?php } ?>
-                </form>
-            </div>
             <form class="form-inline my-2 my-lg-0">
                 <?php if (!(isset($_SESSION['cl']))) { ?>
                     <a href="login/" class="btn btn-success my-2 my-sm-0">Iniciar sesión</a>
