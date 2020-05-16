@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `Agenda`
 --
 
-CREATE TABLE `agenda` (
+CREATE TABLE `Agenda` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(150) COLLATE utf8_spanish_ci DEFAULT NULL,
   `body` text COLLATE utf8_spanish_ci NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `agenda` (
 -- Volcado de datos para la tabla `agenda`
 --
 
-INSERT INTO `agenda` (`id`, `title`, `body`, `url`, `class`, `start`, `end`, `inicio_normal`, `final_normal`) VALUES
+INSERT INTO `Agenda` (`id`, `title`, `body`, `url`, `class`, `start`, `end`, `inicio_normal`, `final_normal`) VALUES
 (89, 'Prueba_1', 'Esta es la descripción', 'http://localhost/linea/backend/Calendario/descripcion_evento.php?id=89', 'event-success', '1583862720000', '1583430720000', '10/03/2020 12:52:00', '05/03/2020 12:52:00'),
 (90, 'sds', 'dsadsa', 'http://localhost/linea/backend/Calendario/descripcion_evento.php?id=90', 'event-info', '1584294780000', '1584381180000', '15/03/2020 12:53:00', '16/03/2020 12:53:00'),
 (92, 'Esto es un titulo especial', 'el evento es especial.', 'http://localhost/linea/backend/Calendario/descripcion_evento.php?id=92', 'event-special', '1584594000000', '1584939600000', '19/03/2020 00:00:00', '23/03/2020 00:00:00');
@@ -70,8 +70,6 @@ CREATE TABLE `Bodega` (
 CREATE TABLE `BODEGA_INSUMO` (
   `FK_ID_BODEGA` int(2) NOT NULL,
   `FK_ID_INSUMO` int(3) NOT NULL,
-  `fechaRegistro` date NOT NULL,
-  `transaccion` tinyint(1) NOT NULL,
   `unidades` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -86,22 +84,7 @@ CREATE TABLE `BODEGA_MATERIAPRIMA` (
   `FK_ID_MATERIAPRIMA` int(3) NOT NULL,
   `FK_ID_AGENDA` int(10) NOT NULL,
   `fechaVencimiento` date NOT NULL,
-  `fechaRegistro` date NOT NULL,
-  `unidades` int(3) NOT NULL,
-  `transaccion` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `Calendario`
---
-
-CREATE TABLE `Calendario` (
-  `ID_CALENDARIO` int(7) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `hora` varchar(5) NOT NULL,
-  `detalles` varchar(50) NOT NULL
+  `unidades` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -135,20 +118,8 @@ CREATE TABLE `Devolucion` (
   `ID_DEVOLUCION` int(4) NOT NULL,
   `descripcion` varchar(60) NOT NULL,
   `fecha` date NOT NULL,
-  `estado` tinyint(1) NOT NULL,
-  `FK_ID_PEDIDO` int(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `EventoEspecifico`
---
-
-CREATE TABLE `EventoEspecifico` (
-  `ID_EVENTOESPECIFICO` int(5) NOT NULL,
-  `FK_ID_AGENDA` int(10) NOT NULL,
-  `fecha` date NOT NULL
+  `cancelado` tinyint(1) NOT NULL,
+  `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -255,10 +226,13 @@ CREATE TABLE `Pedido` (
 --
 
 CREATE TABLE `PEDIDO_INSUMO` (
+  `ID_PEDIDO_INSUMO` int(3) NOT NULL AUTO_INCREMENT,
   `FK_ID_PEDIDO` int(6) NOT NULL,
   `FK_ID_INSUMO` int(3) NOT NULL,
+  `precio` varchar(9) NOT NULL,
   `unidades` int(3) NOT NULL,
-  `cancelado` tinyint(1) NOT NULL
+  `cancelado` tinyint(1) NOT NULL,
+  PRIMARY KEY (ID_PEDIDO_INSUMO)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -270,8 +244,10 @@ CREATE TABLE `PEDIDO_INSUMO` (
 CREATE TABLE `PEDIDO_MATERIAPRIMA` (
   `FK_ID_PEDIDO` int(6) NOT NULL,
   `FK_ID_MATERIAPRIMA` int(3) NOT NULL,
+  `precio` varchar(6) NOT NULL,
   `unidades` int(3) NOT NULL,
-  `cancelado` tinyint(1) NOT NULL
+  `cancelado` tinyint(1) NOT NULL,
+  `FK_ID_DEVOLUCION` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -456,7 +432,7 @@ ALTER TABLE `Bodega`
 ALTER TABLE `BODEGA_INSUMO`
   ADD PRIMARY KEY (`FK_ID_BODEGA`,`FK_ID_INSUMO`),
   ADD KEY `FK_ID_INSUMO_BODEGA_INSUMO` (`FK_ID_INSUMO`),
-  ADD KEY `FK_ID_BODEGA_BODEGA_INSUMO` (`FK_ID_BODEGA`);
+  ADD KEY `FK_ID_BODEGA_BODEGA_INSUMO` (`FK_ID_BODEGA`),
 
 --
 -- Indices de la tabla `BODEGA_MATERIAPRIMA`
@@ -485,14 +461,6 @@ ALTER TABLE `CatProducto`
 --
 ALTER TABLE `Devolucion`
   ADD PRIMARY KEY (`ID_DEVOLUCION`),
-  ADD KEY `FK_ID_PEDIDO_DEVOLUCION` (`FK_ID_PEDIDO`);
-
---
--- Indices de la tabla `EventoEspecifico`
---
-ALTER TABLE `EventoEspecifico`
-  ADD PRIMARY KEY (`ID_EVENTOESPECIFICO`,`FK_ID_AGENDA`),
-  ADD KEY `FK_ID_AGENDA_EVENTOESPECIFICO` (`FK_ID_AGENDA`);
 
 --
 -- Indices de la tabla `Factura`
@@ -541,7 +509,7 @@ ALTER TABLE `Pedido`
 ALTER TABLE `PEDIDO_INSUMO`
   ADD PRIMARY KEY (`FK_ID_PEDIDO`,`FK_ID_INSUMO`),
   ADD KEY `FK_ID_INSUMO_PEDIDO_INSUMO` (`FK_ID_INSUMO`),
-  ADD KEY `FK_ID_PEDIDO_PEDIDO_INSUMO` (`FK_ID_PEDIDO`);
+  ADD KEY `FK_ID_PEDIDO_PEDIDO_INSUMO` (`FK_ID_PEDIDO`),
 
 --
 -- Indices de la tabla `PEDIDO_MATERIAPRIMA`
@@ -549,7 +517,8 @@ ALTER TABLE `PEDIDO_INSUMO`
 ALTER TABLE `PEDIDO_MATERIAPRIMA`
   ADD PRIMARY KEY (`FK_ID_PEDIDO`,`FK_ID_MATERIAPRIMA`),
   ADD KEY `FK_ID_MATERIAPRIMA_PEDIDO_MATERIAPRIMA` (`FK_ID_MATERIAPRIMA`),
-  ADD KEY `FK_ID_PEDIDO_PEDIDO_MATERIAPRIMA` (`FK_ID_PEDIDO`);
+  ADD KEY `FK_ID_PEDIDO_PEDIDO_MATERIAPRIMA` (`FK_ID_PEDIDO`),
+  ADD KEY `FK_ID_DEVOLUCION_PEDIDO_MATERIAPRIMA` (`FK_ID_DEVOLUCION`);
 
 --
 -- Indices de la tabla `PEDIDO_PROVEEDOR`
@@ -669,14 +638,8 @@ ALTER TABLE `CatProducto`
 --
 -- Filtros para la tabla `Devolucion`
 --
-ALTER TABLE `Devolucion`
-  ADD CONSTRAINT `FK_ID_PEDIDO_DEVOLUCION` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `Pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `EventoEspecifico`
---
-ALTER TABLE `EventoEspecifico`
-  ADD CONSTRAINT `FK_ID_AGENDA_EVENTOESPECIFICO` FOREIGN KEY (`FK_ID_AGENDA`) REFERENCES `agenda` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `PEDIDO_MATERIAPRIMA`
+  ADD CONSTRAINT `FK_ID_DEVOLUCION_PEDIDO_MATERIAPRIMA` FOREIGN KEY (`FK_ID_DEVOLUCION`) REFERENCES `Devolucion` (`ID_DEVOLUCION`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `Factura`
