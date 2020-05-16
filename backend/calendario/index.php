@@ -75,43 +75,51 @@ if (isset($_POST['from'])) {
 <html lang="es">
 
 <head>
-  <meta charset="utf-8">
-  <title>Calendario</title>
-  <link rel="stylesheet" type="text/css" href="css/calendar.css">
-  <meta http-equiv="Expires" content="0">
-  <meta http-equiv="Last-Modified" content="0">
-  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <script type="text/javascript" src="js/es-ES.js"></script>
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/moment.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
-  <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+    <meta charset="utf-8">
+    <title>Calendario</title>
+    <link rel="stylesheet" type="text/css" href="css/calendar.css">
 
+    <link rel="stylesheet" href="css/font-awesome.min.css" >
+    <script type="text/javascript" src="js/es-ES.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+    
+   
   <!-- Font-->
   <link rel="stylesheet" type="text/css" href="../css/roboto-font.css">
   <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-5/css/fontawesome-all.min.css">
+  <!-- Main Style Css -->
+
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
   <!-- Custom favicon for this template-->
   <link rel="icon" type="image/png" href="../../favicon.png" />
 
+  <title>Pedidos - ERP</title>
+
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.css" rel="stylesheet">
 
   <!-- Custom calendar -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-  <?php
-  require('../Style.php');
-  ?>
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+
 </head>
 
 <body id="page-top" style="background: white;">
@@ -602,8 +610,8 @@ if (isset($_POST['from'])) {
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="../vendor/jquery/jquery.min.js"></script>
+   <!-- Bootstrap core JavaScript-->
+   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
@@ -617,113 +625,120 @@ if (isset($_POST['from'])) {
   <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
- <script src="../js/demo/datatables-demo.js"></script>
-<script  src="../js/script.js"></script>
-
+  <script src="../js/demo/datatables-demo.js"></script>
 
   <!-- Page level custom scripts -->
   <script src="../Exportar_Excel.js"></script>
 
-  <script src="js/underscore-min.js"></script>
-  <script src="js/calendar.js"></script>
-  <script type="text/javascript">
-    (function($) {
-      //creamos la fecha actual
-      var date = new Date();
-      var yyyy = date.getFullYear().toString();
-      var mm = (date.getMonth() + 1).toString().length == 1 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
-      var dd = (date.getDate()).toString().length == 1 ? "0" + (date.getDate()).toString() : (date.getDate()).toString();
+      <script src="js/underscore-min.js"></script>
+    <script src="js/calendar.js"></script>
+    <script type="text/javascript">
+        (function($){
+                //creamos la fecha actual
+                var date = new Date();
+                var yyyy = date.getFullYear().toString();
+                var mm = (date.getMonth()+1).toString().length == 1 ? "0"+(date.getMonth()+1).toString() : (date.getMonth()+1).toString();
+                var dd  = (date.getDate()).toString().length == 1 ? "0"+(date.getDate()).toString() : (date.getDate()).toString();
 
-      //establecemos los valores del calendario
-      var options = {
+                //establecemos los valores del calendario
+                var options = {
 
-        // definimos que los agenda se mostraran en ventana modal
-        modal: '#events-modal',
+                    // definimos que los agenda se mostraran en ventana modal
+                    modal: '#events-modal', 
 
-        // dentro de un iframe
-        modal_type: 'iframe',
+                        // dentro de un iframe
+                        modal_type:'iframe',    
 
-        //obtenemos los agenda de la base de datos
-        events_source: '<?= $base_url ?>obtener_eventos.php',
+                        //obtenemos los agenda de la base de datos
+                        events_source: '<?=$base_url?>obtener_eventos.php', 
 
-        // mostramos el calendario en el mes
-        view: 'month',
+                        // mostramos el calendario en el mes
+                        view: 'month',             
 
-        // y dia actual
-        day: yyyy + "-" + mm + "-" + dd,
-
-        // definimos el idioma por defecto
-        language: 'es-ES',
-
-        //Template de nuestro calendario
-        tmpl_path: '<?= $base_url ?>tmpls/',
-        tmpl_cache: false,
+                        // y dia actual
+                        day: yyyy+"-"+mm+"-"+dd,   
 
 
-        // Hora de inicio
-        time_start: '08:00',
+                        // definimos el idioma por defecto
+                        language: 'es-ES', 
 
-        // y Hora final de cada dia
-        time_end: '22:00',
+                        //Template de nuestro calendario
+                        tmpl_path: '<?=$base_url?>tmpls/', 
+                        tmpl_cache: false,
 
-        // intervalo de tiempo entre las hora, en este caso son 30 minutos
-        time_split: '30',
 
-        // Definimos un ancho del 100% a nuestro calendario
-        width: '100%',
+                        // Hora de inicio
+                        time_start: '08:00', 
 
-        onAfterEventsLoad: function(events) {
-          if (!events) {
-            return;
-          }
-          var list = $('#eventlist');
-          list.html('');
+                        // y Hora final de cada dia
+                        time_end: '22:00',   
 
-          $.each(events, function(key, val) {
-            $(document.createElement('li'))
-              .html('<a href="' + val.url + '">' + val.title + '</a>')
-              .appendTo(list);
-          });
-        },
-        onAfterViewLoad: function(view) {
-          $('#page-header').text(this.getTitle());
-          $('.btn-group button').removeClass('active');
-          $('button[data-calendar-view="' + view + '"]').addClass('active');
-        },
-        classes: {
-          months: {
-            general: 'label'
-          }
-        }
-      };
+                        // intervalo de tiempo entre las hora, en este caso son 30 minutos
+                        time_split: '30',    
 
-      // id del div donde se mostrara el calendario
-      var calendar = $('#calendar').calendar(options);
+                        // Definimos un ancho del 100% a nuestro calendario
+                        width: '100%', 
 
-      $('.btn-group button[data-calendar-nav]').each(function() {
-        var $this = $(this);
-        $this.click(function() {
-          calendar.navigate($this.data('calendar-nav'));
-        });
-      });
+                        onAfterEventsLoad: function(events)
+                        {
+                            if(!events)
+                            {
+                                return;
+                            }
+                            var list = $('#eventlist');
+                            list.html('');
 
-      $('.btn-group button[data-calendar-view]').each(function() {
-        var $this = $(this);
-        $this.click(function() {
-          calendar.view($this.data('calendar-view'));
-        });
-      });
+                            $.each(events, function(key, val)
+                            {
+                                $(document.createElement('li'))
+                                .html('<a href="' + val.url + '">' + val.title + '</a>')
+                                .appendTo(list);
+                            });
+                        },
+                        onAfterViewLoad: function(view)
+                        {
+                            $('#page-header').text(this.getTitle());
+                            $('.btn-group button').removeClass('active');
+                            $('button[data-calendar-view="' + view + '"]').addClass('active');
+                        },
+                        classes: {
+                            months: {
+                                general: 'label'
+                            }
+                        }
+                    };
 
-      $('#first_day').change(function() {
-        var value = $(this).val();
-        value = value.length ? parseInt(value) : null;
-        calendar.setOptions({
-          first_day: value
-        });
-        calendar.view();
-      });
-    }(jQuery));
-  </script>
+
+                // id del div donde se mostrara el calendario
+                var calendar = $('#calendar').calendar(options); 
+
+                $('.btn-group button[data-calendar-nav]').each(function()
+                {
+                    var $this = $(this);
+                    $this.click(function()
+                    {
+                        calendar.navigate($this.data('calendar-nav'));
+                    });
+                });
+
+                $('.btn-group button[data-calendar-view]').each(function()
+                {
+                    var $this = $(this);
+                    $this.click(function()
+                    {
+                        calendar.view($this.data('calendar-view'));
+                    });
+                });
+
+                $('#first_day').change(function()
+                {
+                    var value = $(this).val();
+                    value = value.length ? parseInt(value) : null;
+                    calendar.setOptions({first_day: value});
+                    calendar.view();
+                });
+            }(jQuery));
+        </script>
 
   <div class="modal fade" id="add_evento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
     <div class="modal-dialog">
