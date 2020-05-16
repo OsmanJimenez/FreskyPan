@@ -69,7 +69,7 @@ session_start();
 
 
               <div class="form-row">
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-12">
                   <div class="table-responsive" style=" max-height:350px; ">
                     <table class="table table-bordered" id="ped_Table" width="100%" cellspacing="0">
                       <thead>
@@ -101,7 +101,7 @@ session_start();
               </div>
 
               <div class="form-row">
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-12">
                   <div class="table-responsive" style=" max-height:350px; ">
                     <table class="table table-bordered" id="matin_Table" width="100%" cellspacing="0">
                       <thead>
