@@ -30,18 +30,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Agenda` (
   `id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(150) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `body` text COLLATE utf8_spanish_ci NOT NULL,
-  `url` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
-  `class` varchar(45) COLLATE utf8_spanish_ci NOT NULL DEFAULT 'event-important',
-  `start` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
-  `end` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
-  `inicio_normal` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `final_normal` varchar(50) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `title` varchar(150) DEFAULT NULL,
+  `body` text NOT NULL,
+  `url` varchar(150) NOT NULL,
+  `class` varchar(45) NOT NULL DEFAULT 'event-important',
+  `start` varchar(15) NOT NULL,
+  `end` varchar(15) NOT NULL,
+  `inicio_normal` varchar(50) NOT NULL,
+  `final_normal` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `agenda`
+-- Volcado de datos para la tabla `Agenda`
 --
 
 INSERT INTO `Agenda` (`id`, `title`, `body`, `url`, `class`, `start`, `end`, `inicio_normal`, `final_normal`) VALUES
@@ -82,7 +82,7 @@ CREATE TABLE `BODEGA_INSUMO` (
 CREATE TABLE `BODEGA_MATERIAPRIMA` (
   `FK_ID_BODEGA` int(2) NOT NULL,
   `FK_ID_MATERIAPRIMA` int(3) NOT NULL,
-  `FK_ID_AGENDA` int(10) NOT NULL,
+  `FK_ID_AGENDA` int(10) UNSIGNED NOT NULL,
   `fechaVencimiento` date NOT NULL,
   `unidades` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -212,7 +212,7 @@ INSERT INTO `MedidaCantidad` (`ID_MEDIDACANTIDAD`, `nombre`) VALUES
 
 CREATE TABLE `Pedido` (
   `ID_PEDIDO` int(6) NOT NULL,
-  `FK_ID_AGENDA` int(10) NOT NULL,
+  `FK_ID_AGENDA` int(10) UNSIGNED NOT NULL,
   `plazo` int(2) NOT NULL,
   `fecha` date NOT NULL,
   `exigencia` varchar(100) NOT NULL,
@@ -232,7 +232,7 @@ CREATE TABLE `PEDIDO_INSUMO` (
   `precio` varchar(9) NOT NULL,
   `unidades` int(3) NOT NULL,
   `cancelado` tinyint(1) NOT NULL,
-  PRIMARY KEY (ID_PEDIDO_INSUMO)
+  PRIMARY KEY (ID_PEDIDO_INSUMO,FK_ID_PEDIDO,FK_ID_INSUMO)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -269,7 +269,7 @@ CREATE TABLE `PEDIDO_PROVEEDOR` (
 
 CREATE TABLE `Produccion` (
   `ID_PRODUCCION` int(7) NOT NULL,
-  `FK_ID_AGENDA` int(10) NOT NULL,
+  `FK_ID_AGENDA` int(10) UNSIGNED NOT NULL,
   `fechaProduccion` date NOT NULL,
   `unidades` int(3) NOT NULL,
   `cantidadInicial` int(2) NOT NULL,
@@ -427,12 +427,18 @@ ALTER TABLE `Bodega`
   ADD PRIMARY KEY (`ID_BODEGA`);
 
 --
+-- Indices de la tabla `Bodega`
+--
+ALTER TABLE `Agenda`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `BODEGA_INSUMO`
 --
 ALTER TABLE `BODEGA_INSUMO`
   ADD PRIMARY KEY (`FK_ID_BODEGA`,`FK_ID_INSUMO`),
   ADD KEY `FK_ID_INSUMO_BODEGA_INSUMO` (`FK_ID_INSUMO`),
-  ADD KEY `FK_ID_BODEGA_BODEGA_INSUMO` (`FK_ID_BODEGA`),
+  ADD KEY `FK_ID_BODEGA_BODEGA_INSUMO` (`FK_ID_BODEGA`);
 
 --
 -- Indices de la tabla `BODEGA_MATERIAPRIMA`
@@ -442,12 +448,6 @@ ALTER TABLE `BODEGA_MATERIAPRIMA`
   ADD KEY `FK_ID_MATERIAPRIMA_BODEGA_MATERIAPRIMA` (`FK_ID_MATERIAPRIMA`),
   ADD KEY `FK_ID_AGENDA_BODEGA_MATERIAPRIMA` (`FK_ID_AGENDA`),
   ADD KEY `FK_ID_BODEGA_BODEGA_MATERIAPRIMA` (`FK_ID_BODEGA`);
-
---
--- Indices de la tabla `Calendario`
---
-ALTER TABLE `Calendario`
-  ADD PRIMARY KEY (`ID_CALENDARIO`);
 
 --
 -- Indices de la tabla `CatProducto`
@@ -460,7 +460,7 @@ ALTER TABLE `CatProducto`
 -- Indices de la tabla `Devolucion`
 --
 ALTER TABLE `Devolucion`
-  ADD PRIMARY KEY (`ID_DEVOLUCION`),
+  ADD PRIMARY KEY (`ID_DEVOLUCION`);
 
 --
 -- Indices de la tabla `Factura`
@@ -507,9 +507,8 @@ ALTER TABLE `Pedido`
 -- Indices de la tabla `PEDIDO_INSUMO`
 --
 ALTER TABLE `PEDIDO_INSUMO`
-  ADD PRIMARY KEY (`FK_ID_PEDIDO`,`FK_ID_INSUMO`),
   ADD KEY `FK_ID_INSUMO_PEDIDO_INSUMO` (`FK_ID_INSUMO`),
-  ADD KEY `FK_ID_PEDIDO_PEDIDO_INSUMO` (`FK_ID_PEDIDO`),
+  ADD KEY `FK_ID_PEDIDO_PEDIDO_INSUMO` (`FK_ID_PEDIDO`);
 
 --
 -- Indices de la tabla `PEDIDO_MATERIAPRIMA`
@@ -626,7 +625,7 @@ ALTER TABLE `BODEGA_INSUMO`
 --
 ALTER TABLE `BODEGA_MATERIAPRIMA`
   ADD CONSTRAINT `FK_ID_BODEGA_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_BODEGA`) REFERENCES `Bodega` (`ID_BODEGA`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_ID_AGENDA_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_AGENDA`) REFERENCES `agenda` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_AGENDA_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_AGENDA`) REFERENCES `Agenda` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_ID_MATERIAPRIMA_BODEGA_MATERIAPRIMA` FOREIGN KEY (`FK_ID_MATERIAPRIMA`) REFERENCES `MateriaPrima` (`ID_MATERIAPRIMA`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -670,7 +669,7 @@ ALTER TABLE `MateriaPrima`
 -- Filtros para la tabla `Pedido`
 --
 ALTER TABLE `Pedido`
-  ADD CONSTRAINT `FK_ID_AGENDA_PEDIDO` FOREIGN KEY (`FK_ID_AGENDA`) REFERENCES `agenda` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_ID_AGENDA_PEDIDO` FOREIGN KEY (`FK_ID_AGENDA`) REFERENCES `Agenda` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `PEDIDO_INSUMO`
@@ -697,7 +696,7 @@ ALTER TABLE `PEDIDO_PROVEEDOR`
 -- Filtros para la tabla `Produccion`
 --
 ALTER TABLE `Produccion`
-  ADD CONSTRAINT `FK_ID_AGENDA_PRODUCCION` FOREIGN KEY (`FK_ID_AGENDA`) REFERENCES `agenda` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_ID_AGENDA_PRODUCCION` FOREIGN KEY (`FK_ID_AGENDA`) REFERENCES `Agenda` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_ID_CATPRODUCTO_PRODUCCION` FOREIGN KEY (`FK_ID_CATPRODUCTO`) REFERENCES `CatProducto` (`ID_CATPRODUCTO`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
