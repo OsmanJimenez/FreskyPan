@@ -69,7 +69,7 @@ $result6=mysqli_query($conn,$query6);
        
        
 }
-$query7="SELECT COUNT(*) as cont FROM agenda";
+$query7="SELECT COUNT(*) as cont FROM Agenda";
 $result7=mysqli_query($conn,$query7);
 
       

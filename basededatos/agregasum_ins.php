@@ -7,6 +7,8 @@ $codm_agr= $_POST['ins_r'];
 $codb_agr= $_POST['bod_r'];	
 $mDate = new DateTime('now', new DateTimeZone('America/Bogota'));
 $hoy=$mDate->format("H:i");
+$fecha=date("Y-n-j",new DateTimeZone('America/Bogota'));
+echo $fecha;
 
 $sql_ins="SELECT nombre FROM Insumo WHERE ID_INSUMO='$codm_agr';";
 $res_ins = mysqli_query($conn, $sql_ins);

@@ -45,6 +45,7 @@ session_start();
         $fila = mysqli_fetch_array($result);
         $des = $fila['descripcion'];
         $estado = $fila['estado'];
+        $vertodo=$_GET['all'];
         ?>
 
         <!-- Page Heading -->
@@ -57,7 +58,7 @@ session_start();
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/actuabg.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/actuabg.php?all=<?php echo $vertodo; ?>" method="POST" enctype="multipart/form-data">
               <label for="inputName">Codigo de la Bodega</label>
               <input type="number" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return Cod_bo(event)" onpaste="return false" placeholder="" readonly="readonly">
               <div class="form-row">

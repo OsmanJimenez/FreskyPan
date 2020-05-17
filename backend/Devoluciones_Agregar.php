@@ -59,7 +59,7 @@ session_start();
               <div class="form-row">
                 <div class="form-group col-md-8">
                   <label for="cod">Código de Devolución</label>
-                  <input type="text" name="cod" class="form-control" id="cod" onkeypress="return cod_devo(event)" placeholder="" readonly="">
+                  <input type="number" name="cod" class="form-control" id="cod" placeholder="" readonly="" value="<?php echo $last ?>">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="fec">Fecha</label>

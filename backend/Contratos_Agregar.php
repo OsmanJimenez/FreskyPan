@@ -53,7 +53,7 @@ session_start();
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputName">Codigo del Contrato</label>
-                    <input type="text" name="cod" class="form-control" id="inputName" placeholder="">
+                    <input type="numbre" name="cod" class="form-control" id="inputName" placeholder="">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputState">Tipo de Contrato</label>

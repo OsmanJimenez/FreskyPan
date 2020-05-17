@@ -51,6 +51,7 @@ session_start();
         $can = $fila['cantidad'];
         $iva = $fila['iva'];
         $des = $fila['descripcion'];
+        $vertodo=$_GET['all'];
         ?>
 
         <!-- Page Heading -->
@@ -64,53 +65,52 @@ session_start();
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/actuaim.php" method="POST" enctype="multipart/form-data">
-
+            <form action="../basededatos/actuaim.php?all=<?php echo $vertodo; ?>" method="POST" enctype="multipart/form-data">
               <div class="form-row">
 
                 <div class="form-group col-md-6">
-                  <label for="inputName">Código</label>
-                  <input type="number" name="cod" value="<?php echo $id; ?>" class="form-control" id="inputName" placeholder="" readonly="readonly">
+                  <label for="cod">Código</label>
+                  <input type="number" name="cod" class="form-control" readonly="" id="cod" value="<?php echo $id; ?>">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputName">Nombre</label>
-                  <input type="text" name="nom" value="<?php echo $nom; ?>" class="form-control" id="inputName" placeholder="" maxlength="10" required>
+                  <label for="nom">Nombre</label>
+                  <input type="text" name="nom" class="form-control" id="nom" maxlength="20" required required value="<?php echo $nom; ?>">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputState">Cantidad</label>
-                  <input type="number" name="can" value="<?php echo $can; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                  <label for="can">Cantidad</label>
+                  <input type="number" name="can" class="form-control" oninput="return maxlengthNumber(this)" maxlength="3" onkeypress="return validanumericos(event)" onpaste="return false" id="can" required value="<?php echo $can; ?>">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" value="<?php echo $pre; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                  <label for="pre">Precio</label>
+                  <input type="number" name="pre" class="form-control" oninput="return maxlengthNumber(this)" maxlength="9" onkeypress="return validanumericos(event)" id="pre" onpaste="return false" required value="<?php echo $pre; ?>">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputPrice">Iva</label>
-                  <input type="number" name="iva" value="<?php echo $iva; ?>" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
+                  <label for="iva">Iva</label>
+                  <input type="number" name="iva" oninput="return maxlengthNumber(this)" maxlength="2" class="form-control" onkeypress="return validanumericos(event)" id="iva" onpaste="return false" required value="<?php echo $iva; ?>">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputState">Tipo</label>
-                  <select id="inputState" name="tip" class="form-control">
+                  <label for="tip">Tipo</label>
+                  <select id="tip" name="tip" class="form-control">
                     <?php require("../basededatos/combotpins.php"); ?>
                   </select>
                 </div>
               </div>
               </div>
                    <div class="form-group col-md-4">
-                  <label for="inputState">Proveedor</label>
-                  <select id="inputState" name="prv" class="form-control">
-                    <?php require("../basededatos/combopro.php"); ?>
+                  <label for="prov">Proveedor</label>
+                  <select id="prov" name="prov" class="form-control">
+                    <?php require("../basededatos/combopro_sel.php"); ?>
                   </select>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputState">Estado</label>
-                  <select id="inputState" name="est" class="form-control" disabled>
+                  <label for="est">Estado</label>
+                  <select id="est" name="est" class="form-control" disabled>
                     <?php if ($est == "0") { ?>
                       <option value="1">Activo</option>
                       <option selected value="0">Suspendido</option>
@@ -123,8 +123,8 @@ session_start();
                     <div class="form-row">
                 <div class="form-group col-md-6">
                   <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required><?php echo $des; ?></textarea>
+                    <label for="des">Descripción</label>
+                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required><?php echo $des; ?></textarea>
                   </div>
                 </div>
               </div>

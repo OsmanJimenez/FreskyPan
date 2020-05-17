@@ -1,19 +1,17 @@
 <?php
 require ("connectionbd.php");
-		$sql2="SELECT ID_PROVEEDOR, prNombre,prApellido,estado FROM proveedor";
+		$sql_comboprov="SELECT ID_PROVEEDOR,prNombre,segNombre,prApellido,segApellido FROM Proveedor WHERE estado='1';";
 
-	$result2=mysqli_query($conn,$sql2);
+	$result_comboprov=mysqli_query($conn,$sql_comboprov);
 	
-			while($fila2=mysqli_fetch_array($result2)){			
-				$cod = $fila2['ID_PROVEEDOR'];
-				$nom = $fila2['prNombre'];
-				$nom2=$fila2['prApellido'];
-				$esta=$fila2['estado'];
-				if($esta==1){
+			while($fila_comboprov=mysqli_fetch_array($result_comboprov)){			
+				$cod = $fila_comboprov['ID_PROVEEDOR'];
+				$prnom = $fila_comboprov['prNombre'];
+				$segnom = $fila_comboprov['segNombre'];
+				$prape = $fila_comboprov['prApellido'];
+				$segape = $fila_comboprov['segApellido'];
 				?>
-		
-		<option value="<?php echo $cod; ?>  "><?php echo $nom?> <?php echo $nom2; ?></option>
-	
-<?php 
-}
-}?>
+					<option value="<?php echo $cod; ?>"><?php echo $prnom." ".$segnom." ".$prape." ".$segape; ?></option>
+				<?php 
+				}
+				?>

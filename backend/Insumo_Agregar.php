@@ -36,6 +36,12 @@ session_start();
       <!-- End of -->
       <!-- Begin Page Content -->
       <div class="container-fluid">
+        <?php require("../basededatos/connectionbd.php");
+        $query_lastid = "SELECT MAX(ID_INSUMO) AS id FROM Insumo";
+        $result_lastid = mysqli_query($conn, $query_lastid);
+        $fila_lastid = mysqli_fetch_array($result_lastid);
+        if(empty($fila_lastid)){$last=1;}else{$last=$fila_lastid['id']+1;}
+        ?>
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Agregar Insumos</h1>
@@ -53,30 +59,30 @@ session_start();
               <div class="form-row">
 
                 <div class="form-group col-md-6">
-                  <label for="inputName">Código</label>
-                  <input type="number" name="cod" class="form-control" onkeypress="return validanumericos(event)" id="inputName" placeholder="" required>
+                  <label for="cod">Código</label>
+                  <input type="number" name="cod" class="form-control" readonly="" id="cod" value="<?php echo $last ?>">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre</label>
-                  <input type="text" name="nom" class="form-control" id="inputName" placeholder="" maxlength="10" required>
+                  <input type="text" name="nom" class="form-control" id="nom" maxlength="20" required>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputState">Cantidad</label>
-                  <input type="number" name="can" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                  <input type="number" name="can" class="form-control" oninput="return maxlengthNumber(this)" maxlength="3" onkeypress="return validanumericos(event)" onpaste="return false" id="can" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPrice">Precio</label>
-                  <input type="number" name="pre" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" required>
+                  <label for="pre">Precio</label>
+                  <input type="number" name="pre" class="form-control" oninput="return maxlengthNumber(this)" maxlength="9" onkeypress="return validanumericos(event)" id="pre" onpaste="return false" required>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputPrice">Iva</label>
-                  <input type="number" name="iva" class="form-control" onkeypress="return validanumericos(event)" id="inputrice" placeholder="" onKeyDown="if(this.value.length==2) return false;" required>
+                  <label for="iva">Iva</label>
+                  <input type="number" name="iva" oninput="return maxlengthNumber(this)" maxlength="2" class="form-control" onkeypress="return validanumericos(event)" id="iva" onpaste="return false" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputState">Tipo</label>
@@ -90,14 +96,15 @@ session_start();
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" required></textarea>
+                    <label for="des">Descripción</label>
+                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required></textarea>
                   </div>
                 </div>
 
                   <div class="form-group col-md-4">
-                  <label for="inputState">Proveedor</label>
-                  <select id="inputState" name="prv" class="form-control">
+                  <label for="prov">Proveedor</label>
+                  <select id="prov" name="prov" class="form-control">
+                    <option value="0">No seleccionado</option>
                     <?php require("../basededatos/combopro.php"); ?>
                   </select>
                 </div>
@@ -145,6 +152,16 @@ session_start();
 
       </div>
       <!-- /.container-fluid -->
+      <script>
+        function maxlengthNumber(ob) {
+          console.log(ob.value);
+
+          if (ob.value.length > ob.maxLength) {
+
+            ob.value = ob.value.slice(0, ob.maxLength);
+          }
+        }
+      </script>
 
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

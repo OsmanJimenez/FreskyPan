@@ -34,6 +34,13 @@ session_start();
       <!-- End of -->
       <!-- Begin Page Content -->
       <div class="container-fluid">
+        
+        <?php require("../basededatos/connectionbd.php");
+        $query = "SELECT MAX(ID_BODEGA) AS id FROM Bodega";
+        $result = mysqli_query($conn, $query);
+        $fila = mysqli_fetch_array($result);
+        if(empty($fila)){$last=1;}else{$last=$fila['id']+1;}
+        ?>
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Agregar Bodegas</h1>
@@ -45,14 +52,14 @@ session_start();
           </div>
           <div class="card-body">
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
-            <form action="../basededatos/agregarbg.php" method="POST" enctype="multipart/form-data">
+            <form action="../basededatos/agregarbg.php?usuario=" method="POST" enctype="multipart/form-data">
               <label for="inputName">Codigo de la Bodega</label>
-              <input type="number" name="cod" class="form-control" maxlength="11" onkeypress="return texto_1(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="inputName" placeholder="" required>
+              <input type="number" name="cod" class="form-control" id="inputName" placeholder="" value="<?php echo $last ?>" readonly="" required>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="3" maxlength="30" onkeypress="return des_1(event)" onpaste="return false" required></textarea>
+                    <label for="des">Descripción</label>
+                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required></textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
