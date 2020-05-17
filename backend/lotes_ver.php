@@ -75,6 +75,7 @@ session_start();
                       <th>Fecha</th>
                       <th>Numero producto</th>
                       <th>Nombre producto</th>
+                      <th>Cantidad Inicial</th>
                       <th>Stock</th>
 
 
@@ -89,6 +90,7 @@ session_start();
                       <th>Fecha</th>
                       <th>Numero producto</th>
                       <th>Nombre producto</th>
+                       <th>Cantidad Inicial</th>
                       <th>Stock</th>
 
                       <th></th>

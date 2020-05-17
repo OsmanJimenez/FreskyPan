@@ -73,8 +73,10 @@ $pr3=$fila20['total'];
 
 $ns++;
 }
+$lo1=sizeof($nom);
+$lo2=sizeof($val);
 
-if((isset($nom) and isset($val)) and $ns==3 ){
+if((isset($nom) and isset($val)) and ($lo1>2) and ($lo2>2)  ){
 $nb1=$nom[1];
 $nb2=$nom[2];
 $nb3=$nom[3];
@@ -84,7 +86,7 @@ $vr3=$val[3];
 }
 
   ?>
-  <input type="hidden" value="<?php echo $sum1; ?>" id="n1">
+ <input type="hidden" value="<?php echo $sum1; ?>" id="n1">
 <input type="hidden" value="<?php echo $sum2; ?>" id="n2">
 <input type="hidden" value="<?php echo $sum3; ?>" id="n3">
 <input type="hidden" value="<?php echo $sum4; ?>" id="n4">

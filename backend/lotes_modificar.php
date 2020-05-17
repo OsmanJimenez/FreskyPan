@@ -39,8 +39,8 @@ session_start();
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Agregar producciones</h1>
-          <p class="mb-4">En este apartado podremos agregar distintas producciones</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800">Modificar producciones</h1>
+          <p class="mb-4">En este apartado podremos editar distintas producciones</a>.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -76,7 +76,7 @@ session_start();
               </div>
 
               <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-11">
                   <label for="inputName">Unidades</label>
                   <input type="number" value="<?php echo $Stock; ?>" name="st" class="form-control" id="inputName" maxlength="11" onkeypress="return uni_lo(event)" oninput="maxlengthNumber(this)" onpaste="return false" placeholder="">
 

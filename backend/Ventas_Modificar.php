@@ -37,8 +37,8 @@ session_start();
       <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Agregar Ventas</h1>
-        <p class="mb-4">En este apartado podremos agregar distintas Ventas</a>.</p>
+        <h1 class="h3 mb-2 text-gray-800">Modificar Ventas</h1>
+        <p class="mb-4">En este apartado podremos modificar distintas Ventas</a>.</p>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -86,7 +86,7 @@ session_start();
                   <input type="date" name="fec" class="form-control" id="inputCantidad3" placeholder="" value="<?php echo $fec; ?>">
                   <label for="inputCantidad">Cantidad</label>
                   <input type="number" name="can" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cant_vent(event)" onpaste="return false" id="inputCantidad2" placeholder="" value="<?php echo $can; ?>">
-                  <input type="text" name="st" value="<?php echo $can; ?>">
+                  <input type="hidden" name="st" value="<?php echo $can; ?>">
                   <div class="space-small"></div>
                   <button type="submit" class="btn btn-primary  ">Actualizar</button>
                 </div>

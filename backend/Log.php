@@ -69,27 +69,28 @@ session_start();
                 <table class="table table-bordered" id="dataTable"  id="Productos_Ver" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>ID Usuario</th>
+                      <th>ID Log</th>
                       <th>Fecha</th>
                       <th>Hora</th>
                       <th>Descripción</th>
-                      <th>Modulo Afectado</th>
+                      <th>ID Usuario</th>
+                      <th>Nombre</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>ID Usuario</th>
+                      <th>ID Log</th>
                       <th>Fecha</th>
                       <th>Hora</th>
                       <th>Descripción</th>
-                      <th>Modulo Afectado</th>
+                      <th>ID Usuario</th>
+                      <th>Nombre</th>
                     </tr>
                   </tfoot>
                   <tbody>
 
-                    <?php require("../basededatos/listalo.php"); ?>
-                    <!-- De aqui traen los botones eso, no los quite del php para no afectar la estetica, pero cuando usds creen el php ya no les saldran los botones -->
-
+                    <?php require("../basededatos/listalog.php"); ?>
+                  
                   </tbody>
                 </table>
               </div>

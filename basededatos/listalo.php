@@ -1,6 +1,6 @@
 <?php
 require ("connectionbd.php");
-$query="Select produccion.ID_PRODUCCION,produccion.fechaProduccion,produccion.FK_ID_CATPRODUCTO,catproducto.nombre,produccion.cantidadInicial from produccion,catproducto where produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO ORDER BY `produccion`.`fechaProduccion` ASC";
+$query="Select produccion.ID_PRODUCCION,produccion.fechaProduccion,produccion.FK_ID_CATPRODUCTO,catproducto.nombre,produccion.cantidadInicial,produccion.unidades from produccion,catproducto where produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO ORDER BY `produccion`.`fechaProduccion` ASC";
 $result=mysqli_query($conn,$query);
 $i = 0;
 			
@@ -10,6 +10,7 @@ $i = 0;
 				$nump = $fila['FK_ID_CATPRODUCTO'];
 				$numl = $fila['ID_PRODUCCION'];
 				$ca=$fila['cantidadInicial'];
+				$canr=$fila['unidades'];
 				$i++;	?>
 
 		<tr align="center">
@@ -20,6 +21,7 @@ $i = 0;
 			<td><?php echo $nump; ?></td>
 			<td><?php echo $Nom; ?></td>
 			<td><?php echo $ca; ?></td>
+			<td><?php echo $canr; ?></td>
 			<!--<td>
 				<?php
             /* if($est==1){

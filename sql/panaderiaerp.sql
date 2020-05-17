@@ -50,7 +50,20 @@ INSERT INTO `Agenda` (`id`, `title`, `body`, `url`, `class`, `start`, `end`, `in
 (92, 'Esto es un titulo especial', 'el evento es especial.', 'http://localhost/linea/backend/Calendario/descripcion_evento.php?id=92', 'event-special', '1584594000000', '1584939600000', '19/03/2020 00:00:00', '23/03/2020 00:00:00');
 
 -- --------------------------------------------------------
+--
+-- Disparadores `agenda`
+--
+DELIMITER $$
+CREATE TRIGGER `AGENDA` BEFORE INSERT ON `agenda` FOR EACH ROW BEGIN
+    SET NEW.`id` = (
+       SELECT IFNULL(MAX(id), 0) + 1
+       FROM AGENDA 
+    );
+END
+$$
+DELIMITER ;
 
+-- --------------------------------------------------------
 --
 -- Estructura de tabla para la tabla `Bodega`
 --
@@ -169,6 +182,22 @@ CREATE TABLE `Log` (
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+--
+-- Disparadores `log`
+--
+DELIMITER $$
+CREATE TRIGGER `logtg` BEFORE INSERT ON `Log` FOR EACH ROW SET NEW.`ID_LOG` = (
+       SELECT IFNULL(MAX(ID_LOG), 0) + 1
+       FROM Log
+       
+         
+    )
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `MateriaPrima`
 --
@@ -275,6 +304,20 @@ CREATE TABLE `Produccion` (
   `cantidadInicial` int(2) NOT NULL,
   `FK_ID_CATPRODUCTO` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+--
+-- Disparadores `produccion`
+--
+DELIMITER $$
+CREATE TRIGGER `prtg` BEFORE INSERT ON `produccion` FOR EACH ROW SET NEW.`ID_PRODUCCION` = (
+       SELECT IFNULL(MAX(ID_PRODUCCION), 0) + 1
+       FROM produccion
+       
+         
+    )
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 

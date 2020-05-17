@@ -1,10 +1,16 @@
 <?php
+session_start();
 require ("connectionbd.php");
 $cod_pro= $_POST['id'];	
 $canini= $_POST['ci'];	
 $uni=$_POST['uni'];
 $fec=$_POST['fecha'];	
 
+$ids = $_SESSION['cl']['id_u'];
+$actua=date("Y-m-d");
+$fecha=date("Y-m-d",strtotime($actua." - 1 days") );
+$horario = new DateTime("now", new DateTimeZone('America/Bogota'));
+$hora="".$horario->format('H:i');
 $query4="SELECT nombre,duracion FROM catproducto WHERE ID_CATPRODUCTO='$cod_pro'";
  $result6=mysqli_query($conn,$query4);
  if ($row2 = mysqli_fetch_array($result6)) {
@@ -13,9 +19,10 @@ $dur= $row2['duracion'];
 }
 
 $dura=date("Y-m-d",strtotime($fec."+ ".$dur." days") );
+$desc="Se ha añadido un lote de produccion para ".$id2." con la cantidad ".$canini;
+$query90="INSERT INTO log(fecha, hora, descripcion, FK_ID_USUARIO) VALUES ('$fecha','$hora','$desc','$ids')";
 
-
-$tit="Duracion lote".$id2;
+$tit="Duracion lote ".$id2;
 $bod="Duracion de la produccion de ".$id2." de la fecha ".$fec;
   $Datein                    = date('d/m/Y H:i:s', strtotime($fec));
     $Datefi                    = date('d/m/Y H:i:s', strtotime($dura));
@@ -54,6 +61,10 @@ if(!$result1){
 echo "no se pudo",mysqli_error($conn);
 
 }else{
+            $result90=mysqli_query($conn,$query90);
+        if(!$result90){
+          echo "error",mysqli_error($conn);
+        }
 $query="UPDATE catproducto SET stock=stock+'$canini' where ID_CATPRODUCTO='$cod_pro'";
 $result=mysqli_query($conn,$query);	
 echo "registro insertado";

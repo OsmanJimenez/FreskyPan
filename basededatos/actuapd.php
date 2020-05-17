@@ -1,4 +1,5 @@
 <?php
+session_start();
 require ("connectionbd.php");
 $cod_pro= $_POST['cod'];	
 $nom_pro= $_POST['nom'];		
@@ -11,6 +12,12 @@ $img_pro= $_FILES["img"]["name"];
 $ruta=$_FILES["img"]["tmp_name"];
 $destino="fotos/".$img_pro;
 copy($ruta,$destino);
+
+$id = $_SESSION['cl']['id_u'];
+$fecha=date("Y-m-d");
+$horario = new DateTime("now", new DateTimeZone('America/Bogota'));
+$hora="".$horario->format('H:i');
+$desc="Se ha modificado el producto ".$nom_pro." con el id ".$cod_pro;
 if(strcasecmp($sab_pro,'1')==0){
 	$sab_pro='Dulce';
 }elseif (strcasecmp($sab_pro,'2')==0) {
@@ -18,7 +25,6 @@ if(strcasecmp($sab_pro,'1')==0){
 }elseif (strcasecmp($sab_pro,'3')==0) {
 	$sab_pro='Agridulce';
 }
-var_dump($img_pro);
 if(empty(($img_pro))){
 $actualizar1 = "UPDATE catproducto SET nombre='$nom_pro',FK_ID_SUBTIPOPRODUCTO='$cat_pro',descripcion='$des_pro',precio='$pre_pro',sabor='$sab_pro',estado='$est' where ID_CATPRODUCTO='$cod_pro'";
 		
@@ -37,12 +43,18 @@ header('location:../backend/Productos_Ver.php');
 $ejecutar = mysqli_query($conn, $actualizar);
 	
 if($ejecutar){
-	
-header('location:../backend/Productos_Ver.php');
+
+				
+
 }else{
 
 			echo "error",mysqli_error($conn);
 		}
 }
-
+$query2="INSERT INTO log(fecha, hora, descripcion, FK_ID_USUARIO) VALUES ('$fecha','$hora','$desc','$id')";
+		$result2=mysqli_query($conn,$query2);
+		if(!$result2){
+          echo "error",mysqli_error($conn);
+          header('location:../backend/Productos_Ver.php');
+		}
 		?>
