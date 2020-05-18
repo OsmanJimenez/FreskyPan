@@ -132,7 +132,8 @@ CREATE TABLE `Devolucion` (
   `descripcion` varchar(60) NOT NULL,
   `fecha` date NOT NULL,
   `cancelado` tinyint(1) NOT NULL,
-  `estado` tinyint(1) NOT NULL
+  `estado` tinyint(1) NOT NULL,
+  `FK_ID_PEDIDO` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -258,7 +259,7 @@ CREATE TABLE `PEDIDO_INSUMO` (
   `ID_PEDIDO_INSUMO` int(3) NOT NULL AUTO_INCREMENT,
   `FK_ID_PEDIDO` int(6) NOT NULL,
   `FK_ID_INSUMO` int(3) NOT NULL,
-  `precio` varchar(9) NOT NULL,
+  `precio` int(9) NOT NULL,
   `unidades` int(3) NOT NULL,
   `cancelado` tinyint(1) NOT NULL,
   PRIMARY KEY (ID_PEDIDO_INSUMO,FK_ID_PEDIDO,FK_ID_INSUMO)
@@ -273,7 +274,7 @@ CREATE TABLE `PEDIDO_INSUMO` (
 CREATE TABLE `PEDIDO_MATERIAPRIMA` (
   `FK_ID_PEDIDO` int(6) NOT NULL,
   `FK_ID_MATERIAPRIMA` int(3) NOT NULL,
-  `precio` varchar(6) NOT NULL,
+  `precio` int(6) NOT NULL,
   `unidades` int(3) NOT NULL,
   `cancelado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -391,6 +392,10 @@ CREATE TABLE `TipoInsumo` (
   `ID_TIPOINSUMO` int(2) NOT NULL,
   `nombre` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `TipoInsumo` (`ID_TIPOINSUMO`, `nombre`) VALUES
+(1,'Maquinaria'),(2,'Otros prod.');
+
 
 -- --------------------------------------------------------
 
@@ -525,7 +530,8 @@ ALTER TABLE `CatProducto`
 -- Indices de la tabla `Devolucion`
 --
 ALTER TABLE `Devolucion`
-  ADD PRIMARY KEY (`ID_DEVOLUCION`);
+  ADD PRIMARY KEY (`ID_DEVOLUCION`),
+  ADD KEY `FK_ID_PEDIDO_DEVOLUCION` (`FK_ID_PEDIDO`);
 
 --
 -- Indices de la tabla `Factura`
@@ -792,6 +798,13 @@ ALTER TABLE `PROVEEDOR_MATERIAPRIMA`
 --
 ALTER TABLE `SubtipoProducto`
   ADD CONSTRAINT `FK_ID_TIPOPRODUCTO_SUBTIPOPRODUCTO` FOREIGN KEY (`FK_ID_TIPOPRODUCTO`) REFERENCES `TipoProducto` (`ID_TIPOPRODUCTO`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `Devolucion`
+--
+ALTER TABLE `Devolucion`
+  ADD CONSTRAINT `FK_ID_PEDIDO_DEVOLUCION` FOREIGN KEY (`FK_ID_PEDIDO`) REFERENCES `Pedido` (`ID_PEDIDO`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 
 --
 -- Filtros para la tabla `Telefono`

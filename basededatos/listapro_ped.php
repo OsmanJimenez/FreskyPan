@@ -13,7 +13,7 @@ $result=mysqli_query($conn,$sql);
 				?>
 
 		<tr align="center">
-			<td><input required="" type="radio" name="pro_r" value="<?php echo $id; ?>" id="prov"></input></td>
+			<td><input required="" type="radio" name="pro_r" value="<?php echo $id; ?>" id="prov" onclick="location.href='Pedidos_Agregar.php?prov=<?php echo $id ?>';" <?php if(!empty($_GET)){if($id==$_GET['prov']){ ?> checked <?php }} ?> ></input></td>
 			<td><?php echo $prnom." ".$segnom; ?></td>
 			<td><?php echo $prape." ".$segape; ?></td>
 			<td><select id="inputState" class="form-control">

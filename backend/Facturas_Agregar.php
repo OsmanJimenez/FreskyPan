@@ -40,7 +40,7 @@ session_start();
         $query = "SELECT MAX(ID_FACTURA) AS id FROM Factura";
         $result = mysqli_query($conn, $query);
         $fila = mysqli_fetch_array($result);
-        if(!empty($fila)){$last=1;}else{$last=$fila['id']+1;}
+        if(empty($fila)){$last=1;}else{$last=$fila['id']+1;}
         ?>
 
         <!-- Page Heading -->
@@ -94,14 +94,14 @@ session_start();
                 </div>
 
                 <div class="form-group col-md-6">
-                  <label for="inputCantidad">ID Factura</label>
+                  <label for="codfac_txt">ID Factura</label>
                   <input type="number" name="codfac_txt" class="form-control" id="codfac_txt" placeholder="" readonly="" value="<?php echo $last; ?>">
                   <div class="space-small"></div>
-                  <label for="inputCantidad">Código Pedido</label>
-                  <input type="number" name="codped_txt" class="form-control" id="codped_txt" placeholder="" readonly="" required>
+                  <label for="codped_txt">Código Pedido</label>
+                  <input type="number" name="codped_txt" class="form-control" id="codped_txt" readonly="" required>
                   <div class="space-small"></div>
-                  <label for="inputCantidad">Fecha</label>
-                  <input type="date" name="fecha" class="form-control" id="inputCantidad3" placeholder="" required>
+                  <label for="fecha">Fecha</label>
+                  <input type="date" name="fecha" class="form-control" id="fecha" placeholder="" required>
                   <div class="space-small"></div>
                   <button type="submit" class="btn btn-primary float-right">Agregar</button>
                 </div>

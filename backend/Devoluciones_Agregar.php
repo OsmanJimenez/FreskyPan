@@ -38,10 +38,10 @@ session_start();
       <!-- Begin Page Content -->
       <div class="container-fluid">
         <?php require("../basededatos/connectionbd.php");
-        $query = "SELECT MAX(ID_DEVOLUCION) AS id FROM Devolucion";
-        $result = mysqli_query($conn, $query);
-        $fila = mysqli_fetch_array($result);
-        if(!empty($fila)){$last=1;}else{$last=$fila['id'];}
+        $query_lastid = "SELECT MAX(ID_DEVOLUCION) AS id FROM Devolucion";
+        $result_lastid = mysqli_query($conn, $query_lastid);
+        $fila_lastid = mysqli_fetch_array($result_lastid);
+        if(empty($fila_lastid)){$last=1;}else{$last=$fila_lastid['id']+1;}
         ?>
 
         <!-- Page Heading -->
@@ -59,7 +59,7 @@ session_start();
               <div class="form-row">
                 <div class="form-group col-md-8">
                   <label for="cod">Código de Devolución</label>
-                  <input type="number" name="cod" class="form-control" id="cod" placeholder="" readonly="" value="<?php echo $last ?>">
+                  <input type="number" name="cod" class="form-control" id="cod" readonly="" value="<?php echo $last ?>">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="fec">Fecha</label>
@@ -107,25 +107,25 @@ session_start();
                       <thead>
                         <tr>
                           <th></th>
-                          <th>Codigo de pedido</th>
-                          <th>Fecha</th>
-                          <th>Cedula del cliente</th>
-                          <th>Codigo del producto</th>
+                          <th>Nombre</th>
+                          <th>Tipo</th>
                           <th>Cantidad</th>
+                          <th>Unidades pedidas</th>
+                          <th>Precio</th>
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
                           <th></th>
-                          <th>Codigo de pedido</th>
-                          <th>Fecha</th>
-                          <th>Cedula del cliente</th>
-                          <th>Codigo del producto</th>
+                          <th>Nombre</th>
+                          <th>Tipo</th>
                           <th>Cantidad</th>
+                          <th>Unidades pedidas</th>
+                          <th>Precio</th>
                         </tr>
                       </tfoot>
                       <tbody>
-                        <?php //require("../basededatos/listap3.php"); ?>
+                        <?php require("../basededatos/listami_dev.php"); ?>
                       </tbody>
                     </table>
                   </div>
@@ -134,7 +134,7 @@ session_start();
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="des">Descripción de la devolución</label>
-                  <textarea class="form-control" name="des" id="des" maxlength="30" required="" rows="3"></textarea>
+                  <textarea class="form-control" name="des" id="des" maxlength="60" required="" rows="3"></textarea>
 
                   <div class="space-small">
 
@@ -186,12 +186,6 @@ session_start();
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="js/jquery.min.js"></script>
         <script>
-          function cambia(text) {
-            //  var text = document.getElementById('sd').value;
-            document.getElementById('inputrice').value = text;
-          }
-        </script>
-        <script>
           function maxlengthNumber(ob) {
             console.log(ob.value);
 
@@ -200,6 +194,15 @@ session_start();
               ob.value = ob.value.slice(0, ob.maxLength);
             }
           }
+        </script>
+
+         <script>
+            $('form').submit(function(e){
+                if ($('input[type=checkbox]:checked').length === 0) {
+                    e.preventDefault();
+                    alert('Debe seleccionar al menos un producto.');
+                }
+            });
         </script>
 
         <!-- Core plugin JavaScript-->

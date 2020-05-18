@@ -1,4 +1,5 @@
 <?php
+session_start();
 require ("connectionbd.php");
 $id=$_GET['id'];
 $estado=$_GET['est'];
@@ -20,6 +21,9 @@ echo "Error en la conexión",mysqli_error($conn);
 	}else{
 		$enlace='location:../backend/Materia_Ver.php';
 	}
+
+	$razon="Se canceló un pedido (".$id.").";
+	require ("reg_log.php");
 	header($enlace);
 }
 ?>   

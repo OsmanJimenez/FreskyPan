@@ -14,8 +14,8 @@ if(empty($_GET)){
 				$exi = $fila['exigencia'];
 				$est = $fila['estado'];
 				$pro = $fila['prNombre']." ".$fila['segNombre']." ".$fila['prApellido']." ".$fila['segApellido'];
-				$result2=mysqli_query($conn,"SELECT MateriaPrima.nombre AS nmp,unidades,MedidaCantidad.nombre AS nmc,cancelado FROM Pedido,MateriaPrima,PEDIDO_MATERIAPRIMA,MedidaCantidad WHERE ID_PEDIDO=PEDIDO_MATERIAPRIMA.FK_ID_PEDIDO AND PEDIDO_MATERIAPRIMA.FK_ID_MATERIAPRIMA=ID_MATERIAPRIMA AND ID_PEDIDO=$cod AND ID_MEDIDACANTIDAD=FK_ID_MEDIDACANTIDAD;");
-				$result3=mysqli_query($conn,"SELECT nombre,unidades,cancelado FROM Pedido,Insumo,PEDIDO_INSUMO WHERE ID_PEDIDO=PEDIDO_INSUMO.FK_ID_PEDIDO AND PEDIDO_INSUMO.FK_ID_INSUMO=ID_INSUMO AND ID_PEDIDO=$cod;");
+				$result2=mysqli_query($conn,"SELECT MateriaPrima.nombre AS nmp,unidades,MedidaCantidad.nombre AS nmc,cancelado FROM Pedido,MateriaPrima,PEDIDO_MATERIAPRIMA,MedidaCantidad WHERE ID_PEDIDO=PEDIDO_MATERIAPRIMA.FK_ID_PEDIDO AND PEDIDO_MATERIAPRIMA.FK_ID_MATERIAPRIMA=ID_MATERIAPRIMA AND ID_PEDIDO=$cod AND ID_MEDIDACANTIDAD=FK_ID_MEDIDACANTIDAD AND cancelado=0;");
+				$result3=mysqli_query($conn,"SELECT nombre,unidades,cancelado FROM Pedido,Insumo,PEDIDO_INSUMO WHERE ID_PEDIDO=PEDIDO_INSUMO.FK_ID_PEDIDO AND PEDIDO_INSUMO.FK_ID_INSUMO=ID_INSUMO AND ID_PEDIDO=$cod AND cancelado=0;");
 					$contm=0; $conti=0;
 				?>
 
@@ -53,13 +53,13 @@ if(empty($_GET)){
              	if($contm==0 && $conti==0){
              	?><label class="btn btn-warning">Cancelado</label><?php
              	}else{
-             	?><label class="btn btn-warning">Inactivo</label><?php
+             	?><label class="btn btn-warning">Completado</label><?php
              	}
              	$enlace="#";
              }
               ?>
           	</td>
-			<td><a class="btn btn-danger" href="../basededatos/cam_est_ped.php?id=<?php echo $cod; ?>&est=<?php echo $est; ?>&all=<?php echo $vertodo; ?>">Cambiar estado</a></td>
+			<td><a class="btn btn-danger" href="../basededatos/Editar_Pedido.php?id=<?php echo $cod; ?>&est=<?php echo $est; ?>&all=<?php echo $vertodo; ?>">Editar</a></td>
 			<td><a class="btn btn-danger" href="<?php echo $enlace; ?>">Cancelar</a></td>
 		</tr> <label></label>
 <?php }?>

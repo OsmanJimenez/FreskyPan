@@ -79,7 +79,7 @@ session_start();
                       <th>Productos pedidos</th>
                       <th>Proveedor</th>
                       <th>Estado</th>
-                      <th>Opción</th>
+                      <th>Modificar</th>
                       <th>Cancelar</th>
                     </tr>
                   </thead>
@@ -92,7 +92,7 @@ session_start();
                       <th>Productos pedidos</th>
                       <th>Proveedor</th>
                       <th>Estado</th>
-                      <th>Opción</th>
+                      <th>Modificar</th>
                       <th>Cancelar</th>
                     </tr>
                   </tfoot>

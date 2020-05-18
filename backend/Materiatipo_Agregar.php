@@ -43,7 +43,7 @@ session_start();
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Subtipo</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tipo</h6>
             </div>
             <div class="card-body">
 
@@ -53,21 +53,6 @@ session_start();
                   <div class="card-body">
                     <div class="form-row">
                       <div class="form-group col-md-8 " >
-
-                        <div class="table-responsive" style=" max-height:350px; " >
-                          <table class="table table-bordered " id="dataTable" id="TipoMateria_Agregar" width="100%"
-                            cellspacing="0">
-                            <thead>
-                              <tr>
-                                <th>Código</th>
-                                <th>Nombre</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <?php require ("../basededatos/listatip_mat.php");?>
-                            </tbody>
-                          </table>
-                        </div>
                       </div>
                       <div class="form-group col-md-4">
                         <div class="space-small"></div>

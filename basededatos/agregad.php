@@ -1,38 +1,35 @@
 <?php
+session_start();
 require ("connectionbd.php");
+$cod= $_POST['cod'];
+$fec= $_POST['fec'];	
+$des= $_POST['des'];		
+$cod_ped= $_POST['rcod_ped'];
 
-$cod_dev=$_POST['cd'] ;	
-$cod_con=$_POST['cod']; 	
-$can_dev=$_POST['can']; 	
-$des_dev=$_POST['des']; 	
-$fec_dev=$_POST['fec']; 
+$s_tip=$_POST['tip'];
 
+$query_dev="INSERT INTO Devolucion(ID_DEVOLUCION,descripcion,fecha,estado,cancelado,FK_ID_PEDIDO) VALUES ('$cod','$des','$fec','1','0','$cod_ped')";
+$result_dev=mysqli_query($conn,$query_dev);
 
-
-
-$query="Insert into devolucion(cod_dev,cod_con,can_dev,des_dev,fec_dev,est_dev) values('$cod_dev','$cod_con','$can_dev','$des_dev','$fec_dev','1')";
-$result=mysqli_query($conn,$query);
-
-$cod_pro=$_POST['id'];	
-$st_prn=$_POST['can'];	
-$fec=$_POST['fecha'];	
-$opt=$_POST['opt'];
-	
-if($opt=='Si'){
-$query2="Insert into lote (fec,cod_pro,st_prn,est_lot)values('$fec','$cod_pro','$st_prn','1')";
-$result2=mysqli_query($conn,$query2);
- if(!$result || !$result2){
-echo "no se pudo 2",mysqli_error($conn);
-
-}
-}
-if(!$result){
-echo "no se pudo",mysqli_error($conn);
-
-} else{
-echo "registro insertado";
-	header('location:../backend/');
+foreach ($_POST['check_mi'] as $index => $s_prod) {
+	if($s_tip[$index]=="Materia"){
+	$query_com="INSERT INTO DEVOLUCION_MATERIAPRIMA(FK_ID_DEVOLUCION,FK_ID_MATERIAPRIMA,cancelado,estado) VALUES ('$cod','$s_prod','0','1');";
+		mysqli_query($conn, $query_com);
+	}else{
+		$query_com="INSERT INTO DEVOLUCION_INSUMO(FK_ID_DEVOLUCION,FK_ID_INSUMO,cancelado,estado) VALUES ('$cod','$s_prod','0','1');";
+		mysqli_query($conn, $query_com);
+	}
 }
 
-
+if(!$result_dev){
+	if(mysqli_errno($conn)==1062){
+?><script type="text/javascript">alert("Error ya se encuentra un registro con el mismo código")</script> <?php  
+	}else {
+		echo "error",mysqli_error($conn);
+	}
+}else{
+	$razon="Se agregó una devolución (".$cod.").";
+	require ("reg_log.php");
+   header('location:../backend/Devoluciones_Agregar.php'); 
+}
 ?>

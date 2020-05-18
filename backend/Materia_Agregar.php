@@ -174,6 +174,21 @@ session_start();
           }
         }
       </script>
+      <script>
+    function validate(e) {
+  var formulario = document.form;
+  for (var i = 0; i < formulario.mat_c.length; i++) {
+    if (formulario.mat_c[i].checked === false) {
+      alert ('debes seleccionar al menos una opción');
+      if (e.preventDefault) {
+        e.preventDefault();
+      } else {
+        e.returnValue = false;
+      }
+    }
+  }
+}
+    </script>
       <!-- Validation -->
       <?php
       require('Validation.php');

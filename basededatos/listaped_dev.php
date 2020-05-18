@@ -12,7 +12,7 @@ $result=mysqli_query($conn,$query);
 				?>
 
 		<tr align="center">
-			<td><input type="radio" name="rcod_ped" value="<?php echo $codped; ?>" id="rcod_ped" class="pr"></input></td>
+			<td><input type="radio" name="rcod_ped" value="<?php echo $codped; ?>" onclick="location.href='Devoluciones_Agregar.php?ped=<?php echo $codped ?>';" id="rcod_ped" required <?php if(!empty($_GET)){if($codped==$_GET['ped']){ ?> checked <?php }} ?>></input></td>
 			<td><?php echo $codped; ?></td>
 			<td><?php echo $fecped; ?></td>
 			<td><?php echo $plaped; ?></td>

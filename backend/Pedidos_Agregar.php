@@ -12,14 +12,6 @@ session_start();
   ?>
 
 </head>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('#prov').click(function(){
-           $pro="../basededatos/listami_ped.php?p="+$("#prov").val();
-          $("#InsumoyMateria").load($pro);
-        });
-      });
-    </script>
 
 <div id="wrapper">
 
@@ -43,6 +35,12 @@ session_start();
       <!-- End of -->
       <!-- Begin Page Content -->
       <div class="container-fluid">
+        <?php require("../basededatos/connectionbd.php");
+        $query_lastid = "SELECT MAX(ID_PEDIDO) AS id FROM Pedido";
+        $result_lastid = mysqli_query($conn, $query_lastid);
+        $fila_lastid = mysqli_fetch_array($result_lastid);
+        if(empty($fila_lastid)){$last=1;}else{$last=$fila_lastid['id']+1;}
+        ?>
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Agregar Pedidos</h1>
@@ -55,8 +53,14 @@ session_start();
             <!-- Add Example -->
 
               <div class="form-row">
-                <label for="inputPrice">Fecha</label>
-                <input type="date" id="inputName" class="form-control" name="fec" width="100%" />
+                <div class="form-group col-md-6"> 
+                  <label for="fec">Código de pedido</label>
+                  <input type="number" id="cod_ped" class="form-control" name="cod_ped" width="100%" readonly="" value="<?php echo $last ?>">
+                </div>
+                <div class="form-group col-md-6"> 
+                  <label for="fec">Fecha</label>
+                  <input type="date" id="fec" class="form-control" name="fec" width="100%" required="">
+                </div>
               </div>
               <div class="space-small"></div>
           <div class="card-header py-3">
@@ -93,10 +97,10 @@ session_start();
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label for="inputCantidad">Plazo</label>
-                    <input type="number" name="pla" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return soloM(event)" onpaste="return false" placeholder="">
+                    <label for="pla">Plazo (días)</label>
+                    <input type="number" name="pla" class="form-control" maxlength="2" oninput="maxlengthNumber(this)" onpaste="return false" onkeypress="return validanumericos(event)">
                     <div class="space-small"></div>
-                    <label for="inputCantidad">Exigencias</label>
+                    <label for="ex">Exigencias</label>
                     <textarea class="form-control" name="ex" rows="8" maxlength="100" required></textarea>
                   </div>
               </div>
@@ -136,8 +140,8 @@ session_start();
                           <th>Cantidad a pedir</th>
                         </tr>
                       </tfoot>
-                      <tbody id="InsumoyMateria">
-
+                      <tbody>
+                        <?php require ("../basededatos/listami_ped.php"); ?>
                       </tbody>
                     </table>
                 </div>
@@ -187,25 +191,44 @@ session_start();
             }
           }
     </script>
-    <script type="text/javascript">
-      function soloM(evento){
 
-          key = evento.keyCode || evento.which;
-           teclado = String.fromCharCode(key).toLocaleLowerCase();
-              ced= "1234567890";
-                especiales = "37-38-46";
+      <script>
+            $('form').submit(function(e){
+                if ($('input[type=checkbox]:checked').length === 0) {
+                    e.preventDefault();
+                    alert('Debe seleccionar al menos un producto.');
+                }
+            });
+      </script>
 
-                teclado_especial = false;
-                for (var i in especiales) {
-                    if (key == especiales[i]) {
-                        teclado_especial = true; break;
-                    }
-                }
-                if (ced.indexOf(teclado) == -1 && !teclado_especial) {
-                    return false;
-                }
-      }
-     </script>
+    <script>
+      $('.check').change(function () {
+        var cont=0;
+          if($(this).prop('checked') == true) {
+          $(this).closest('td').siblings().each(function(){
+            if(cont==2 || cont==5 || cont==6){
+              $(this).find("input").prop("disabled", false);
+              if(cont==2){
+                $(this).find("input").val($(this).text());
+              }else if(cont==5){
+                $(this).find("input").val($(this).text());
+              }else if(cont==6){
+                $(this).find("input").val($(this).text());
+              }
+            }
+            cont++;
+          });
+        }
+        else {
+          $(this).closest('td').siblings().each(function(){
+            if(cont==2 || cont==5 || cont==6){
+              $(this).find("input").prop("disabled", true);
+            }
+            cont++;
+          });
+        }
+      });
+    </script>
 
     </body>
 
