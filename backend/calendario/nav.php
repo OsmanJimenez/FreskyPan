@@ -4,7 +4,7 @@
         
         $cli=$_SESSION['cl']['nom'];
         $ape=$_SESSION['cl']['ape'];
-require ("../basededatos/connectionbd.php");
+require ("../../basededatos/connectionbd.php");
 $query="SELECT nombre FROM CatProducto WHERE stock=0 ";
 $result=mysqli_query($conn,$query);
 $i = 0;
@@ -266,12 +266,12 @@ $veri=0;
           <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
           Configuración
         </a>
-        <a class="dropdown-item" href="Log.php">
+        <a class="dropdown-item" href="../Log.php">
           <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
           Registro de actividades
         </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="../salir.php" data-toggle="modal" data-target="#logoutModal">
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
           Salir 
         </a>
@@ -292,7 +292,7 @@ $veri=0;
         <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
         <div class="modal-footer">
           <button class="btn d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="../salir.php">Salir</a>
+          <a class="btn d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="sal.php">Salir</a>
         </div>
       </div>
     </div>
@@ -307,112 +307,112 @@ $veri=0;
         </thead>
         <tbody>
  <tr>
-                        <td><a href="index.php">Inicio</a></td>
+                        <td><a href="../index.php">Inicio</a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Productos_Agregar.php">Agregar productos</a></td>
+                        <td><a href="../Productos_Agregar.php">Agregar productos</a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Productos_Ver.php">Ver Productos</a></td>
+                        <td><a href="../Productos_Ver.php">Ver Productos</a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="TipoP_Ver.php">Ver Tipos</a></td>
+                        <td><a href="../TipoP_Ver.php">Ver Tipos</a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="TipoP_Agregar.php">Agregar Tipos</a></td>
+                        <td><a href="../TipoP_Agregar.php">Agregar Tipos</a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Produccion_Agregar.php">Agregar Produccion</a></td>
+                        <td><a href="../Produccion_Agregar.php">Agregar Produccion</a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Produccion_Ver.php">Ver Produccion</a></td>
+                        <td><a href="../Produccion_Ver.php">Ver Produccion</a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Ventas_Agregar.php">Agregar Ventas</a></td>
+                        <td><a href="../Ventas_Agregar.php">Agregar Ventas</a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Ventas_Ver.php">Ver Ventas</a></td>
+                        <td><a href="../Ventas_Ver.php">Ver Ventas</a></td>
                     </tr>
                      <?php if($rol=='Administrador'){ ?>
                     <tr>
-                        <td><a href="Bodegas_Agregar.php">Agregar Bodega </a></td>
+                        <td><a href="../Bodegas_Agregar.php">Agregar Bodega </a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Bodegas_Ver.php">Ver Bodega</a></td>
+                        <td><a href="../Bodegas_Ver.php">Ver Bodega</a></td>
                     </tr>
                     <?php } ?>
                      <?php if($rol=='Administrador'){?>
                     <tr>
-                        <td><a href="Materia_Agregar.php">Agregar Materia Prima </a></td>
+                        <td><a href="../Materia_Agregar.php">Agregar Materia Prima </a></td>
                     </tr>
                     <?php } ?>
                     <tr>
-                        <td><a href="Materia_Ver.php">Ver Materia Prima</a></td>
+                        <td><a href="../Materia_Ver.php">Ver Materia Prima</a></td>
                     </tr>
                      <?php if($rol=='Administrador'){ ?>
                     <tr>
-                        <td><a href="Insumo_Agregar.php">Agregar Insumo </a></td>
+                        <td><a href="../Insumo_Agregar.php">Agregar Insumo </a></td>
                     </tr>
                     <?php } ?>
                     <tr>
-                        <td><a href="Insumo_Ver.php">Ver Insumo</a></td>
+                        <td><a href="../Insumo_Ver.php">Ver Insumo</a></td>
                     </tr>
                      <?php if($rol=='Administrador'){ ?>
                     <tr>
-                        <td><a href="Suministro_Agregar.php">Agregar Suministro </a></td>
+                        <td><a href="../Suministro_Agregar.php">Agregar Suministro </a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Suministro_Ver.php">Ver Suministro</a></td>
+                        <td><a href="../Suministro_Ver.php">Ver Suministro</a></td>
                     </tr>
                     <?php } ?>
                     <tr>
-                        <td><a href="Clientes_Agregar.php">Agregar Proveedores </a></td>
+                        <td><a href="../Clientes_Agregar.php">Agregar Proveedores </a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Clientes_Ver.php">Ver Proveedores</a></td>
+                        <td><a href="../Clientes_Ver.php">Ver Proveedores</a></td>
                     </tr>
                     <tr>
-                        <td><a href="Pedidos_Agregar.php">Agregar Pedidos </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Pedidos_Ver.php">Ver Pedidos</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="Devoluciones_Agregar.php">Agregar Devoluciones </a></td>
+                        <td><a href="../Pedidos_Agregar.php">Agregar Pedidos </a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Devoluciones_Ver.php">Ver Devoluciones</a></td>
+                        <td><a href="../Pedidos_Ver.php">Ver Pedidos</a></td>
                     </tr>
                     <tr>
-                        <td><a href="Tools_Documentos">Documentos</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Tools_Calculo">Calculo</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="Tools_Presentacion">Presentacion </a></td>
+                        <td><a href="../Devoluciones_Agregar.php">Agregar Devoluciones </a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Tools_Dibujo">Dibujo</a></td>
+                        <td><a href="../Devoluciones_Ver.php">Ver Devoluciones</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="../Tools_Documentos">Documentos</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="../Tools_Calculo">Calculo</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="../Tools_Presentacion">Presentacion </a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="../Tools_Dibujo">Dibujo</a></td>
                     </tr>
                      <?php if($rol=='Administrador'){?>
                     <tr>
-                        <td><a href="Configuracion_Agregar.php">Agregar Usuarios </a></td>
+                        <td><a href="../Configuracion_Agregar.php">Agregar Usuarios </a></td>
                     </tr>
                     
                     <tr>
@@ -420,30 +420,28 @@ $veri=0;
                     </tr>
                      <?php } if($rol=='Administrador'){?>
                           <tr>
-                        <td><a href="Facturas_Agregar.php">Agregar Facturas </a></td>
+                        <td><a href="../Facturas_Agregar.php">Agregar Facturas </a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Facturas_Ver.php">Ver Facturas</a></td>
+                        <td><a href="../Facturas_Ver.php">Ver Facturas</a></td>
                     </tr>
                     <?php } ?>
                     <tr>
-                        <td><a href="Calendario/">Calendario </a></td>
+                        <td><a href="#">Calendario </a></td>
                     </tr>
                     
                     <tr>
-                        <td><a href="Perfil.php">Perfil</a></td>
+                        <td><a href="../Perfil.php">Perfil</a></td>
                     </tr>
                      <?php if($rol=='Administrador'){?>
                     <tr>
-                        <td><a href="Log.php">Registros </a></td>
+                        <td><a href="../Log.php">Registros </a></td>
                     </tr>
                     <?php } ?>
                     <tr>
-                        <td><a href="../salir.php">Salir</a></td>
+                        <td><a href="../../salir.php">Salir</a></td>
                     </tr>
         </tbody>
       </table>
     </div>
-
-<!-- End of

@@ -7,11 +7,13 @@ session_start();
 <head>
   <meta charset="utf-8">
   <title>Ver Suministros</title>
-
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
   <?php
   require('Style.php');
   ?>
-
 </head>
 
 <body id="page-top">
@@ -67,51 +69,17 @@ session_start();
             </div>
 
 
+            <select id="lista1" name="lista1">
+            <option value="0">Escoge una bodega</option>
+            <?php require("../basededatos/combosu.php") ?>
+        </select>
+        
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" id="Insumos_Ver" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Código</th>
-                      <th>Nombre</th>
-                      <th>Descripción</th>
-                      <th>Tipo</th>
-                      <th>Cantidad</th>
-                      <th>Precio</th>
-                      <th>Iva</th>
-                      <th>Estado</th>
-                      <th>Modificar</th>
-                      <th>Opción</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Código</th>
-                      <th>Nombre</th>
-                      <th>Descripción</th>
-                      <th>Tipo</th>
-                      <th>Cantidad</th>
-                      <th>Precio</th>
-                      <th>Iva</th>
-                      <th>Estado</th>
-                      <th>Modificar</th>
-                      <th>Opción</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-
-                    <?php require("../basededatos/listarim.php"); ?>
-
-                  </tbody>
-                </table>
+              <div class="table-responsive" id="select2lista">
+              
               </div>
             </div>
           </div>
-          <?php if (empty($_GET)) { ?>
-            <a class="btn btn-primary" href="Insumo_Ver.php?all=True">Ver todos</a>
-          <?php } else { ?>
-            <a class="btn btn-primary" href="Insumo_Ver.php">Ver activos</a>
-          <?php } ?>
         </div>
 
 
@@ -174,7 +142,28 @@ session_start();
 
   <!-- Page level custom scripts -->
   <script src="Exportar_Excel.js"></script>
+   <script type="text/javascript">
+  $(document).ready(function(){
+    $('#lista1').val(1);
+    recargarLista();
 
+    $('#lista1').change(function(){
+      recargarLista();
+    });
+  })
+</script>
+<script type="text/javascript">
+  function recargarLista(){
+    $.ajax({
+      type:"POST",
+      url:"../basededatos/tabla.php",
+      data:"idb=" + $('#lista1').val(),
+      success:function(r){
+        $('#select2lista').html(r);
+      }
+    });
+  }
+</script>
   <!-- Export Multi-Scripts -->
   <?php
   require('export.php');

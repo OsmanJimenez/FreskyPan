@@ -1,6 +1,17 @@
 <?php
 session_start();
- if((isset($_SESSION['cl']))){ ?>
+ if((isset($_SESSION['cl']))){
+require ("../basededatos/connectionbd.php");
+$codg="Select MAX(ID_VENTA) as idc from VENTA";
+$res=mysqli_query($conn,$codg);
+$file=mysqli_fetch_array($res);
+if((mysqli_num_fields($res))>0){
+$codg2=intval($file['idc'])+1;
+}else if((mysqli_num_fields($res))==0){
+$codg2=1;
+}
+
+  ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -92,7 +103,7 @@ session_start();
 
                 <div class="form-group col-md-6">
                   <label for="inputCantidad">ID Venta</label>
-                  <input type="text" name="cod" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_vent(event)" onpaste="return false" id="inputCantidad1" placeholder="">
+                  <input type="text" name="cod" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_vent(event)" readonly="" value="<?php echo $codg2; ?>" onpaste="return false" id="inputCantidad1" placeholder="">
                   <div class="space-small"></div>
                   <label for="inputCantidad">ID Producción</label>
                   <input type="number" name="pro" class="form-control" id="pro" readonly="" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_prod(event)" onpaste="return false" placeholder="">

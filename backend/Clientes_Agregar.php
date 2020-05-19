@@ -1,6 +1,16 @@
 <?php
 session_start();
- if((isset($_SESSION['cl']))){ ?>
+ if((isset($_SESSION['cl']))){ 
+require ("../basededatos/connectionbd.php");
+$codg="Select MAX(ID_PROVEEDOR) as idc from PROVEEDOR";
+$res=mysqli_query($conn,$codg);
+$file=mysqli_fetch_array($res);
+if((mysqli_num_fields($res))>0){
+$codg2=intval($file['idc'])+1;
+}else if((mysqli_num_fields($res))==0){
+$codg2=1;
+}
+  ?>
 <!DOCTYPE html>
 <html>
 
@@ -54,7 +64,7 @@ session_start();
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputName">Numero de Cedula</label>
-                    <input type="text" class="form-control" id="inputName" name="ced" maxlength="15" oninput="maxlengthNumber(this)" onkeypress="return numCed(event)" onpaste="return false" placeholder="">
+                    <input type="text" class="form-control" id="inputName" name="ced" maxlength="15" oninput="maxlengthNumber(this)"  readonly="" value=" <?php echo $codg2; ?>" onkeypress="return numCed(event)" onpaste="return false" placeholder="">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPrice">Telefono</label>

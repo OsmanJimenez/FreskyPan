@@ -1,6 +1,16 @@
 <?php
 session_start();
- if((isset($_SESSION['cl']))){ ?>
+ if((isset($_SESSION['cl']))){ 
+require ("../basededatos/connectionbd.php");
+$codg="Select MAX(ID_CATPRODUCTO) as idc from CATPRODUCTO";
+$res=mysqli_query($conn,$codg);
+$file=mysqli_fetch_array($res);
+if((mysqli_num_fields($res))>0){
+$codg2=intval($file['idc'])+1;
+}else if((mysqli_num_fields($res))==0){
+$codg2=1;
+}
+  ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -55,7 +65,7 @@ session_start();
 
 
               <label for="inputName">Codigo del Producto</label>
-              <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="return maxlengthNumber(this)" onkeypress="return Num_1(event)" onpaste="return false" placeholder="">
+              <input type="number" name="cod" class="form-control" id="inputName" value="<?php echo $codg2; ?>" maxlength="11" oninput="return maxlengthNumber(this)" readonly="" onkeypress="return Num_1(event)" onpaste="return false" placeholder="">
 
               <div class="form-row">
 

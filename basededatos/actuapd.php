@@ -53,8 +53,9 @@ if($ejecutar){
 }
 $query2="INSERT INTO log(fecha, hora, descripcion, FK_ID_USUARIO) VALUES ('$fecha','$hora','$desc','$id')";
 		$result2=mysqli_query($conn,$query2);
+		header('location:../backend/Productos_Ver.php');
 		if(!$result2){
           echo "error",mysqli_error($conn);
-          header('location:../backend/Productos_Ver.php');
+          
 		}
 		?>
