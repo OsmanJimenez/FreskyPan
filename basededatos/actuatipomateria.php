@@ -5,7 +5,7 @@ $cod=$_POST['cod'];
 $nom=$_POST['nom'];
 
 
-$query="INSERT INTO TipoMateriaPrima(ID_TIPOMATERIAPRIMA,nombre)values('$cod','$nom')";
+$query="UPDATE TipoMateriaPrima SET nombre='$nom' WHERE ID_TIPOMATERIAPRIMA='$cod'";
 $result=mysqli_query($conn,$query);
 if(!$result){
 	if(mysqli_errno($conn)==1062){
@@ -15,7 +15,7 @@ if(!$result){
 	}
 
 }else{
-	$razon="Se agregó un tipo de materia prima ".$nom.").";
+	$razon="Se modificó un tipo de materia prima (".$nom.").";
 	require ("reg_log.php");
   header('location:../backend/Materia_Agregar.php'); 
 }

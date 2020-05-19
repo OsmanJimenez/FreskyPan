@@ -204,6 +204,27 @@ session_start();
                 }
             });
         </script>
+        <script>
+      $('.check').change(function () {
+        var cont=0;
+            if($(this).prop('checked') == true) {
+            $(this).closest('td').siblings().each(function(){
+              if(cont==1){
+                $(this).find("input").prop("disabled", false);
+              }
+              cont++;
+            });
+            }
+            else {
+            $(this).closest('td').siblings().each(function(){
+              if(cont==1){
+                $(this).find("input").prop("disabled", true);
+              }
+              cont++;
+            });
+            }
+         });
+        </script>
 
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

@@ -27,17 +27,25 @@ if(empty($_GET)){
 			<td>
 				<select class="form-control">
 					<optgroup label="Materia Prima">
-						<?php while($fila2=mysqli_fetch_array($result2)){
-						$promat = $fila2['nmp']." (".$fila2['unidades']." ".$fila2['nmc'].")"; 
-						if($fila2['cancelado']=='1'){$promat.=" Cancelado.";}else{$contm++;}
+						<?php 
+						$promat="";
+						while($fila2=mysqli_fetch_array($result2)){
+						if($fila2['cancelado']=='0'){
+							$contm++;
+							$promat = $fila2['nmp']." (".$fila2['unidades']." ".$fila2['nmc'].")"; 
+						}
 						?>
 						<option><?php echo $promat ?></option>
 						<?php }	?>
 					</optgroup>
 					<optgroup label="Insumo">
-						<?php while($fila3=mysqli_fetch_array($result3)){
-						$proins = $fila3['nombre']." (".$fila3['unidades']." u)"; 
-						if($fila3['cancelado']=='1'){$proins.=" Cancelado.";}else{$conti++;}
+						<?php 
+						$proins="";
+						while($fila3=mysqli_fetch_array($result3)){
+						if($fila3['cancelado']=='0'){
+							$conti++;
+							$proins = $fila3['nombre']." (".$fila3['unidades']." u)"; 
+							}
 						?>
 						<option><?php echo $proins ?></option>
 						<?php }	?>
@@ -46,12 +54,14 @@ if(empty($_GET)){
 			</td>
 			<td><?php echo $pro;?></td>
 			<td><?php
+			$enlace_cam="../basededatos/cam_est_ped.php?id=".$cod."&est=".$est."&all=".$vertodo;
              if($est==1){
              	 ?><label class="btn btn-primary">Activo</label><?php
              	 $enlace="../basededatos/can_ped.php?id=".$cod."&all=".$vertodo;
              }else{
              	if($contm==0 && $conti==0){
              	?><label class="btn btn-warning">Cancelado</label><?php
+             	$enlace_cam="#";
              	}else{
              	?><label class="btn btn-warning">Completado</label><?php
              	}
@@ -59,7 +69,7 @@ if(empty($_GET)){
              }
               ?>
           	</td>
-			<td><a class="btn btn-danger" href="../basededatos/Editar_Pedido.php?id=<?php echo $cod; ?>&est=<?php echo $est; ?>&all=<?php echo $vertodo; ?>">Editar</a></td>
+			<td><a class="btn btn-danger" href="<?php echo $enlace_cam; ?>">Cambiar estado</a></td>
 			<td><a class="btn btn-danger" href="<?php echo $enlace; ?>">Cancelar</a></td>
 		</tr> <label></label>
 <?php }?>

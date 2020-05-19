@@ -36,6 +36,12 @@ session_start();
         <!-- End of
         Begin Page Content -->
         <div class="container-fluid">
+        <?php require("../basededatos/connectionbd.php");
+        $query = "SELECT MAX(ID_TIPOMATERIAPRIMA) AS id FROM TipoMateriaPrima";
+        $result = mysqli_query($conn, $query);
+        $fila = mysqli_fetch_array($result);
+        if(empty($fila)){$last=1;}else{$last=$fila['id']+1;}
+        ?>
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Agregar tipo de materia prima</h1>
@@ -47,47 +53,41 @@ session_start();
             </div>
             <div class="card-body">
 
-              <form action="../basededatos/agregatipomateria.php" method="POST">
+              <form method="POST" id="myform" action="../basededatos/agregatipomateria.php">
 
                 <div class="form-row">
                   <div class="card-body">
                     <div class="form-row">
-                      <div class="form-group col-md-8 " >
-                      </div>
-                      <div class="form-group col-md-4">
-                        <div class="space-small"></div>
-                        <div class="space-small"></div>
-                        <label for="inputName">Código</label>
-                        <input type="number" name="cod" class="form-control" id="inputName" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return Num_1(event)" onpaste="return false" placeholder="">
-                        <label for="inputName">Nombre</label>
-                        <input type="text" name="nom" class="form-control" id="inputName"  maxlength="11"  onkeypress="return texto_1(event)" onpaste="return false" placeholder="">           
-                        <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-primary float-right" data-toggle="modal"
-                      data-target="#myModal">Añadir</button>
-
-                        <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
-                      </div>
-                    </div>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">¡Alerta!</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            ¿Estas seguro de agregar este ítem?
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                            <button type="submit" class="btn btn-primary">Agregar</button>
-                          </div>
+                      <div class="form-group col-md-6 " >
+                        <div class="table-responsive">
+                          <table class="table table-bordered" id="dataTable" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                              <tr>
+                                <th>Seleccionar</th>
+                                <th>Nombre</th>
+                              </tr>
+                            </thead>
+                            <tfoot>
+                              <tr>
+                                <th>Seleccionar</th>
+                                <th>Nombre</th>
+                              </tr>
+                            </tfoot>
+                            <tbody>
+                              <?php require("../basededatos/listartipom.php"); ?>
+                            </tbody>
+                          </table>
                         </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <div class="space-small"></div>
+                        <div class="space-small"></div>
+                        <label for="cod">Código</label>
+                        <input type="number" name="cod" readonly="" class="form-control" id="cod" value="<?php echo $last; ?>">
+                        <label for="nom">Nombre</label>
+                        <input type="text" name="nom" class="form-control" id="nom" maxlength="15" required="">           
+                        <button type="submit" name="action_ana" class="btn btn-primary float-right" value="ana">Añadir</button>
+                        <button type="submit" name="action_mod" class="btn btn-primary float-right" value="mod">Modificar</button>
                       </div>
                     </div>
                   </div>
@@ -105,20 +105,43 @@ session_start();
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
-          function cambia(text) {
-            //  var text = document.getElementById('sd').value;
-            document.getElementById('prueba').value = text;
-          }
-        </script>
-        <script>
-          function maxlengthNumber(ob) {
-            console.log(ob.value);
+          $('.radio').click(function(){
+            var $radio = $(this);
 
-            if (ob.value.length > ob.maxLength) {
-
-              ob.value = ob.value.slice(0, ob.maxLength);
+            // if this was previously checked
+            if ($radio.data('waschecked') == true)
+            {
+                $radio.prop('checked', false);
+                $radio.data('waschecked', false);
+                $("#cod").val(<?php echo $last ?>);
             }
-          }
+            else{
+                $radio.data('waschecked', true);
+                $("#cod").val($radio.val());
+              }
+            // remove was checked from other radios
+            $radio.siblings('input[type="radio"]').data('waschecked', false);
+        });
+        </script>
+
+        <script>
+                $(document).ready(function(){
+                  $("#myform button").click(function (ev) {
+                  ev.preventDefault()
+                  if ($(this).attr("value") == "ana") {             
+                    $("#myform").submit();
+                  }
+                  if ($(this).attr("value") == "mod") {
+                    if ($('input[type=radio]:checked').length === 0) {
+                      ev.preventDefault();
+                      alert('Debe seleccionar al menos un tipo.');
+                    }else{
+                      $('#myform').attr('action', '../basededatos/actuatipomateria.php');
+                      $("#myform").submit();
+                    }
+                  }
+                });
+            });
         </script>
 
 <!-- Validation -->

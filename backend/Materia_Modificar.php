@@ -66,7 +66,6 @@ session_start();
             <form action="../basededatos/actuamp.php" method="POST" enctype="multipart/form-data">
 
               <div class="form-row">
-
                 <div class="form-group col-md-6">
                   <label for="cod">Código</label>
                   <input type="number" name="cod" class="form-control" id="cod" readonly="" required value="<?php echo $id; ?>">
@@ -78,21 +77,14 @@ session_start();
               </div>
 
               <div class="form-row">
-
                 <div class="form-group col-md-6">
                   <label for="pre">Precio</label>
                   <input type="number" name="pre" class="form-control" maxlength="6" onkeypress="return validanumericos(event)" oninput="maxlengthNumber(this)" value="<?php echo $pre; ?>" onpaste="return false" id="pre" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="est">Estado</label>
-                  <select id="est" name="est" class="form-control" disabled>
-                    <?php if ($est == "0") { ?>
-                      <option value="1">Activo</option>
-                      <option selected value="0">Suspendido</option>
-                    <?php } else { ?>
-                      <option selected value="1">Activo</option>
-                      <option value="0">Suspendido</option>
-                    <?php } ?>
+                  <label for="tip">Tipo</label>
+                  <select id="tip" name="tip" class="form-control">
+                    <?php require("../basededatos/combotmp.php"); ?>
                   </select>
                 </div>
               </div>
@@ -106,28 +98,47 @@ session_start();
                   <label for="iva">Iva</label>
                   <input type="number" name="iva" class="form-control" maxlength="2" onkeypress="return validanumericos(event)" oninput="maxlengthNumber(this)" onpaste="return false" value="<?php echo $iva; ?>" id="iva" placeholder="" required>
                 </div>
-                <div class="space-small"></div>
-                       <div class="form-group col-md-4">
-                  <label for="tip">Tipo</label>
-                  <select id="tip" name="tip" class="form-control">
-                    <?php require("../basededatos/combotmp.php"); ?>
-                  </select>
-                </div>
-                  <div class="form-group col-md-4">
-
-                  <label for="prov">Proveedor</label>
-                  <select id="prov" name="prov" class="form-control">
-                    <?php require("../basededatos/combopro.php"); ?>
+              </div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <div class="form-group">
+                      <label for="des">Descripción</label>
+                      <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required><?php echo $des; ?></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                  <label for="est">Estado</label>
+                  <select id="est" name="est" class="form-control" disabled>
+                    <?php if ($est == "0") { ?>
+                      <option value="1">Activo</option>
+                      <option selected value="0">Suspendido</option>
+                    <?php } else { ?>
+                      <option selected value="1">Activo</option>
+                      <option value="0">Suspendido</option>
+                    <?php } ?>
                   </select>
                 </div>
               </div>
-
+              <div class="space-small"></div>
               <div class="form-row">
-                <div class="form-group col-md-6">
-                  <div class="form-group">
-                    <label for="des">Descripción</label>
-                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required><?php echo $des; ?></textarea>
-                  </div>
+                <div class="table-responsive" style=" max-height:350px; " >
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>Selección</th>
+                          <th>Nombre</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Selección</th>
+                          <th>Nombre</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        <?php require ("../basededatos/listapro_mmat.php"); ?>
+                      </tbody>
+                    </table>
                 </div>
               </div>
 

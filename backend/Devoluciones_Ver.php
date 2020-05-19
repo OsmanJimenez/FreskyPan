@@ -75,9 +75,10 @@ session_start();
                       <th>Descripcion</th>
                       <th>Proveedor</th>
                       <th>Código del pedido</th>
+                      <th>Productos en devolución</th>
                       <th>Estado</th>
-                      <th>Modificar</th>
                       <th>Opción</th>
+                      <th>Cancelar</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -87,9 +88,10 @@ session_start();
                       <th>Descripcion</th>
                       <th>Proveedor</th>
                       <th>Código del pedido</th>
+                      <th>Productos en devolución</th>
                       <th>Estado</th>
-                      <th>Modificar</th>
                       <th>Opción</th>
+                      <th>Cancelar</th>
                     </tr>
                   </tfoot>
                   <tbody>

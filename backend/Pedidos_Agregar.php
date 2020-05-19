@@ -121,7 +121,7 @@ session_start();
                           <th></th>
                           <th>Nombre</th>
                           <th>Descripción</th>
-                          <th>Precio</th>
+                          <th>Precio ($)</th>
                           <th>IVA</th>
                           <th>Cantidad</th>
                           <th>Tipo</th>
@@ -133,7 +133,7 @@ session_start();
                           <th></th>
                           <th>Nombre</th>
                           <th>Descripción</th>
-                          <th>Precio</th>
+                          <th>Precio ($)</th>
                           <th>IVA</th>
                           <th>Cantidad</th>
                           <th>Tipo</th>
@@ -208,13 +208,6 @@ session_start();
           $(this).closest('td').siblings().each(function(){
             if(cont==2 || cont==5 || cont==6){
               $(this).find("input").prop("disabled", false);
-              if(cont==2){
-                $(this).find("input").val($(this).text());
-              }else if(cont==5){
-                $(this).find("input").val($(this).text());
-              }else if(cont==6){
-                $(this).find("input").val($(this).text());
-              }
             }
             cont++;
           });

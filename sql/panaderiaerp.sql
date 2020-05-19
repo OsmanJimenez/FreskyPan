@@ -131,7 +131,6 @@ CREATE TABLE `Devolucion` (
   `ID_DEVOLUCION` int(4) NOT NULL,
   `descripcion` varchar(60) NOT NULL,
   `fecha` date NOT NULL,
-  `cancelado` tinyint(1) NOT NULL,
   `estado` tinyint(1) NOT NULL,
   `FK_ID_PEDIDO` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -470,8 +469,7 @@ CREATE TABLE `VENTA_PRODUCCION` (
 CREATE TABLE `DEVOLUCION_MATERIAPRIMA` (
   `FK_ID_DEVOLUCION` int(4) NOT NULL,
   `FK_ID_MATERIAPRIMA` int(3) NOT NULL,
-  `cancelado` tinyint(1) NOT NULL,
-   `estado` tinyint(1) NOT NULL
+  `cancelado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -482,8 +480,7 @@ CREATE TABLE `DEVOLUCION_MATERIAPRIMA` (
 CREATE TABLE `DEVOLUCION_INSUMO` (
   `FK_ID_DEVOLUCION` int(4) NOT NULL,
   `FK_ID_INSUMO` int(3) NOT NULL,
-  `cancelado` tinyint(1) NOT NULL,
-  `estado` tinyint(1) NOT NULL
+  `cancelado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

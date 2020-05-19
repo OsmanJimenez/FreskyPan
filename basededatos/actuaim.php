@@ -17,7 +17,7 @@ $prov=$_POST['prov'];
 		$result=mysqli_query($conn,$query);
 		$razon="Se modificó el insumo (".$nom.")";
 
-		if(mysql_num_rows($result2)!=0){
+		if(mysqli_num_rows($result2)!=0){
 			if($prov!=0){
 				$actualizar_prov = "UPDATE `PROVEEDOR_INSUMO` SET `estado`='1' WHERE `FK_ID_INSUMO`='$cod' AND `FK_ID_PROVEEDOR`='$prov'";
 				$ejecutar_prov = mysqli_query($conn, $actualizar_prov);

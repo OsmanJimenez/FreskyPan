@@ -16,7 +16,7 @@ if(!$result || !$result2){
 		echo "error",mysqli_error($conn);
 	}
 }else{
-	$razon="Se agregó una nueva factura (".$cod_fac.") de pedido (".$cod_ped.").";
+	$razon="Se agregó una nueva factura (".$cod_fac.") de pedido (".$cod_ped.") y se sumó al suministro.";
 	require ("reg_log.php");
    header('location:../backend/Facturas_Agregar.php'); 
 }

@@ -16,9 +16,9 @@ $res3=mysqli_query($conn,$query3);
 				mysqli_query($conn,$query5);
 				$fila=mysqli_fetch_array($res4);
 				$dev=$fila['ID_DEVOLUCION'];
-				$query6="UPDATE DEVOLUCION_MATERIAPRIMA SET cancelado='1' WHERE FK_ID_DEVOLUCION='$dev'";
+				$query6="UPDATE DEVOLUCION_MATERIAPRIMA SET estado='0' WHERE FK_ID_DEVOLUCION='$dev'";
 				mysqli_fetch_array($query6);
-				$query7="UPDATE DEVOLUCION_INSUMO SET cancelado='1' WHERE FK_ID_DEVOLUCION='$dev'";
+				$query7="UPDATE DEVOLUCION_INSUMO SET estado='0' WHERE FK_ID_DEVOLUCION='$dev'";
 				mysqli_fetch_array($query7);
 			}
 
@@ -30,9 +30,9 @@ echo "Error en la conexión",mysqli_error($conn);
 echo "Error en la conexión",mysqli_error($conn);
 }else{
 	if($_GET['all']=="True"){
-		$enlace='location:../backend/Pedidos_Ver.php?all=True';
+		$enlace='location:../backend/Devoluciones_Ver.php?all=True';
 	}else{
-		$enlace='location:../backend/Pedidos_Ver.php';
+		$enlace='location:../backend/Devoluciones_Ver.php';
 	}
 
 	$razon="Se canceló un pedido (".$id.").";
