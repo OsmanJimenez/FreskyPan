@@ -48,7 +48,7 @@ if (isset($_POST['from'])) {
     // Ejecutamos nuestra sentencia sql
     $conexion->query($query) or die('<script type="text/javascript">alert("Horario No Disponible ")</script>');
     header("Location:$base_url");
-
+   
 
     // Obtenemos el ultimo id insetado
     $im = $conexion->query("SELECT MAX(id) AS id FROM agenda");
@@ -63,7 +63,17 @@ if (isset($_POST['from'])) {
 
     // Ejecutamos nuestra sentencia sql
     $conexion->query($query);
+  
+    $ids = $_SESSION['cl']['id_u'];
+    $actua=date("Y-m-d");
+    $fecha=date("Y-m-d",strtotime($actua." - 1 days") );
+    $horario = new DateTime("now", new DateTimeZone('America/Bogota'));
+    $hora="".$horario->format('H:i');
+    $desc="Se ha añadido un nuevo evento con el titulo ".$titulo;
+    $query90="INSERT INTO log(fecha, hora, descripcion, FK_ID_USUARIO) VALUES ('$fecha','$hora','$desc','$ids')";
+    $conexion->query($query90);
 
+    
     // redireccionamos a nuestro calendario
     //header("Location:$base_url"); 
   }
