@@ -35,7 +35,7 @@ echo "Error en la conexión",mysqli_error($conn);
 		$enlace='location:../backend/Devoluciones_Ver.php';
 	}
 
-	$razon="Se canceló un pedido (".$id.").";
+	$razon="Se canceló un devolución (".$id.").";
 	require ("reg_log.php");
 	header($enlace);
 }

@@ -120,27 +120,6 @@ session_start();
                 </div>
               </div>
               <div class="space-small"></div>
-              <div class="form-row">
-                <div class="table-responsive" style=" max-height:350px; " >
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th>Selección</th>
-                          <th>Nombre</th>
-                        </tr>
-                      </thead>
-                      <tfoot>
-                        <tr>
-                          <th>Selección</th>
-                          <th>Nombre</th>
-                        </tr>
-                      </tfoot>
-                      <tbody>
-                        <?php require ("../basededatos/listapro_mmat.php"); ?>
-                      </tbody>
-                    </table>
-                </div>
-              </div>
 
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modificar</button>
 

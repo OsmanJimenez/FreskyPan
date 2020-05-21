@@ -101,12 +101,11 @@ session_start();
                   </select>
                 </div>
               </div>
-              </div>
-                   <div class="form-group col-md-4">
-                  <label for="prov">Proveedor</label>
-                  <select id="prov" name="prov" class="form-control">
-                    <?php require("../basededatos/combopro_sel.php"); ?>
-                  </select>
+                
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="des">Descripción</label>
+                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required><?php echo $des; ?></textarea>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="est">Estado</label>
@@ -120,14 +119,6 @@ session_start();
                     <?php } ?>
                   </select>
                 </div>
-                    <div class="form-row">
-                <div class="form-group col-md-6">
-                  <div class="form-group">
-                    <label for="des">Descripción</label>
-                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required><?php echo $des; ?></textarea>
-                  </div>
-                </div>
-              </div>
               </div>
 
           

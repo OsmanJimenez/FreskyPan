@@ -1,4 +1,5 @@
 <?php
+session_start();
 require ("connectionbd.php");
 $cod= $_POST['cod'];
 $fec= $_POST['fec'];	
@@ -16,6 +17,8 @@ $des= $_POST['des'];
 			}
 		header($enlace);
 		}else{
+			$razon="Se modificó una devolución (".$cod.").";
+			require ("reg_log.php");
 			echo "error",mysqli_error($conn);
 		}
 		?>
