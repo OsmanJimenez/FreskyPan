@@ -1,5 +1,5 @@
 <!-- Topbar -->
-        <?php
+<?php
         $fec=date('Y-m-d');
         
         $cli=$_SESSION['cl']['nom'];
@@ -93,15 +93,16 @@ $veri=0;
 
   <!-- Topbar Search -->
   <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-    <div class="input-group">
-      <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar por..." aria-label="Buscar" aria-describedby="basic-addon2" id="inputBusqueda">
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="button">
-          <i class="fas fa-search fa-sm"></i>
-        </button>
-      </div>
+  <div class="input-group">
+    <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar por..."
+      aria-label="Buscar" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="button">
+        <i class="fas fa-search fa-sm"></i>
+      </button>
     </div>
-  </form>
+  </div>
+</form>
 
   <!-- Topbar Navbar -->
   <ul class="navbar-nav ml-auto">
@@ -298,152 +299,4 @@ $veri=0;
     </div>
   </div>
 </nav>
-    <div class="search" id="search">
-      <table class="search-table" id="searchTable">
-        <thead>
-          <tr>
-            <td></td>
-          </tr>
-        </thead>
-        <tbody>
- <tr>
-                        <td><a href="index.php">Inicio</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Productos_Agregar.php">Agregar productos</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Productos_Ver.php">Ver Productos</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="TipoP_Ver.php">Ver Tipos</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="TipoP_Agregar.php">Agregar Tipos</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Produccion_Agregar.php">Agregar Produccion</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Produccion_Ver.php">Ver Produccion</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Ventas_Agregar.php">Agregar Ventas</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Ventas_Ver.php">Ver Ventas</a></td>
-                    </tr>
-                     <?php if($rol=='Administrador'){ ?>
-                    <tr>
-                        <td><a href="Bodegas_Agregar.php">Agregar Bodega </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Bodegas_Ver.php">Ver Bodega</a></td>
-                    </tr>
-                    <?php } ?>
-                     <?php if($rol=='Administrador'){?>
-                    <tr>
-                        <td><a href="Materia_Agregar.php">Agregar Materia Prima </a></td>
-                    </tr>
-                    <?php } ?>
-                    <tr>
-                        <td><a href="Materia_Ver.php">Ver Materia Prima</a></td>
-                    </tr>
-                     <?php if($rol=='Administrador'){ ?>
-                    <tr>
-                        <td><a href="Insumo_Agregar.php">Agregar Insumo </a></td>
-                    </tr>
-                    <?php } ?>
-                    <tr>
-                        <td><a href="Insumo_Ver.php">Ver Insumo</a></td>
-                    </tr>
-                     <?php if($rol=='Administrador'){ ?>
-                    <tr>
-                        <td><a href="Suministro_Agregar.php">Agregar Suministro </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Suministro_Ver.php">Ver Suministro</a></td>
-                    </tr>
-                    <?php } ?>
-                    <tr>
-                        <td><a href="Clientes_Agregar.php">Agregar Proveedores </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Clientes_Ver.php">Ver Proveedores</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="Pedidos_Agregar.php">Agregar Pedidos </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Pedidos_Ver.php">Ver Pedidos</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="Devoluciones_Agregar.php">Agregar Devoluciones </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Devoluciones_Ver.php">Ver Devoluciones</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="Tools_Documentos">Documentos</a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Tools_Calculo">Calculo</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="Tools_Presentacion">Presentacion </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Tools_Dibujo">Dibujo</a></td>
-                    </tr>
-                     <?php if($rol=='Administrador'){?>
-                    <tr>
-                        <td><a href="Configuracion_Agregar.php">Agregar Usuarios </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Configuracion_Ver.php">Ver Usuarios</a></td>
-                    </tr>
-                     <?php } if($rol=='Administrador'){?>
-                          <tr>
-                        <td><a href="Facturas_Agregar.php">Agregar Facturas </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Facturas_Ver.php">Ver Facturas</a></td>
-                    </tr>
-                    <?php } ?>
-                    <tr>
-                        <td><a href="Calendario/">Calendario </a></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><a href="Perfil.php">Perfil</a></td>
-                    </tr>
-                     <?php if($rol=='Administrador'){?>
-                    <tr>
-                        <td><a href="Log.php">Registros </a></td>
-                    </tr>
-                    <?php } ?>
-                    <tr>
-                        <td><a href="../salir.php">Salir</a></td>
-                    </tr>
-        </tbody>
-      </table>
-    </div>
-
 <!-- End of

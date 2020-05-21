@@ -69,8 +69,6 @@ session_start();
 
             <div class="card-body">
               <div class="table-responsive">
-                <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
-                <br>
                 <table class="table table-bordered" id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
                   <thead>
                     <tr>
@@ -149,7 +147,7 @@ session_start();
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.js"></script>
+  <script src="vendor/jquery/jquery.js" ></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
 
   <!-- Core plugin JavaScript-->

@@ -2,10 +2,6 @@
 <link rel="icon" type="image/png" href="../favicon.png" />
 <!-- End Custom favicon for this template-->
 
-<!-- Search css-->
-<link rel="stylesheet" type="text/css" href="css/style4.css">
-<!--End Search css-->
-
 <!-- Font-->
 <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
@@ -33,6 +29,8 @@
 <link href="css/sb-admin-2.css" rel="stylesheet">
 <link id="theme" href="css/sb-admin-2.css" rel="stylesheet">
 <!-- End Custom styles for this template-->
+
+
 
 <!-- Custom calendar -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
