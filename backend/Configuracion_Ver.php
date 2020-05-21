@@ -68,9 +68,8 @@ session_start();
               <h6 class="m-0 font-weight-bold text-primary"></h6>
             </div>
 
-
             <div class="card-body">
-              <div class="table-responsive" style="width:45%">
+              <div class="table-responsive">
                 <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
                 <br>
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

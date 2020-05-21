@@ -104,6 +104,15 @@ session_start();
                   <input type="number" name="iva" class="form-control" maxlength="2" onkeypress="return validanumericos(event)" oninput="maxlengthNumber(this)" onpaste="return false" id="iva" placeholder="" required>
                 </div>
 
+                
+                <div class="form-group col-md-6">
+                  <div class="form-group">
+                    <label for="des">Descripción</label>
+                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required></textarea>
+                  </div>
+                </div>
+              
+
                 <div class="form-group col-md-4">
                   <label for="tip">Tipo</label>
                   <select id="tip" name="tip" class="form-control">
@@ -127,14 +136,7 @@ session_start();
                 </div>
               </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <div class="form-group">
-                    <label for="des">Descripción</label>
-                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required></textarea>
-                  </div>
-                </div>
-              </div>
+              
 
               <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
 

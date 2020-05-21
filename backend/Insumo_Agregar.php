@@ -91,15 +91,16 @@ session_start();
                   </select>
                 </div>
               </div>
-              </div>
 
               <div class="form-row">
-                <div class="form-group col-md-6">
-                  <div class="form-group">
-                    <label for="des">Descripción</label>
-                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required></textarea>
-                  </div>
+              <div class="form-group col-md-6">
+                  <label for="inputState">Estado</label>
+                  <select id="inputState" name="est" class="form-control">
+                    <option selected value="1">Activo</option>
+                    <option value="0">Suspendido</option>
+                  </select>
                 </div>
+                
 
                   <div class="form-group col-md-4">
                   <label for="prov">Proveedor</label>
@@ -112,15 +113,16 @@ session_start();
                   <div class="space-small"></div>
                   <a href="Clientes_Agregar.php" class="btn btn-primary">Agregar Proveedor</a>
                 </div>
-              </div>
+              
 
-                <div class="form-group col-md-6">
-                  <label for="inputState">Estado</label>
-                  <select id="inputState" name="est" class="form-control">
-                    <option selected value="1">Activo</option>
-                    <option value="0">Suspendido</option>
-                  </select>
+              <div class="form-group col-md-12">
+                  <div class="form-group">
+                    <label for="des">Descripción</label>
+                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required></textarea>
+                  </div>
                 </div>
+
+
               </div>
 
               <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>

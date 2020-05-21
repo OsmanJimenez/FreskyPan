@@ -67,7 +67,7 @@ session_start();
 
 
             <div class="card-body">
-              <div class="table-responsive" style="width:44%">
+              <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="auto" cellspacing="0">
                   <thead>
                     <tr>

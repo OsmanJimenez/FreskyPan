@@ -67,7 +67,7 @@ session_start();
 
 
             <div class="card-body">
-              <div class="table-responsive" style="width:66%;">
+              <div class="table-responsive">
                 <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
                 <br>
                 <table class="table table-bordered" id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">

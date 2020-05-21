@@ -72,10 +72,14 @@ $codg2=1;
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-3">
                     <label for="inputCantidad">Nombre</label>
                     <input type="text" name="nom" class="form-control" id="inputCantidad" maxlength="10" onkeypress="return Nom_1(event)" onpaste="return false" placeholder="">
                   </div>
+                  <div class="form-group col-md-3">
+                  <label for="inputName">Segundo Nombre</label>
+                    <input type="text" name="nom2" class="form-control" id="inputName" maxlength="15" onkeypress=" return Nom_2(event)" onpaste="return false" placeholder="">
+                    </div>
                   <div class="form-group col-md-3">
                     <label for="inputCantidad">Primer Apellido</label>
                     <input type="text" name="a1" class="form-control" id="inputCantidad" maxlength="15" onkeypress="return Pr_ap(event)" onpaste="return false" placeholder="">
@@ -87,12 +91,10 @@ $codg2=1;
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputName">Segundo Nombre</label>
-                    <input type="text" name="nom2" class="form-control" id="inputName" maxlength="15" onkeypress=" return Nom_2(event)" onpaste="return false" placeholder="">
-                    <div class="space-small"></div>
                     <label for="exampleFormControlTextarea1">Correo electronico</label>
                     <input type="email" name="cor" class="form-control" id="inputName" placeholder="" required="">
-                    <div class="space-small"></div>
+                    </div>
+                    <div class="form-group col-md-6">
                     <label for="inputState">Estado</label>
                     <select id="inputState" name="est" class="form-control">
                       <option value="1">Activo</option>
@@ -101,7 +103,7 @@ $codg2=1;
                   </div>
                  
                 </div>
-                <button type="submit" class="btn btn-primary">Agregar</button>
+                <button type="submit" class="btn btn-primary float-right">Agregar</button>
               </form>
 
               <!--End  Add Example -->
