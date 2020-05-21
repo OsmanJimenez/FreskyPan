@@ -1,13 +1,13 @@
 <?php
 require ("connectionbd.php");
-$query="Select produccion.ID_PRODUCCION,catproducto.nombre,produccion.fechaProduccion,produccion.cantidadInicial from produccion,catproducto where produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO ORDER BY `produccion`.`fechaProduccion` ASC ";
+$query="Select produccion.ID_PRODUCCION,catproducto.nombre,produccion.fechaProduccion,produccion.unidades from produccion,catproducto where produccion.FK_ID_CATPRODUCTO=catproducto.ID_CATPRODUCTO ORDER BY `produccion`.`fechaProduccion` ASC ";
 $result=mysqli_query($conn,$query);
 $i = 0;
 			
 			while($fila=mysqli_fetch_array($result)){			
 				$num = $fila['ID_PRODUCCION'];
 				$Nom = $fila['nombre'];
-				$stock = $fila['cantidadInicial']; 
+				$stock = $fila['unidades']; 
 				$fec=$fila['fechaProduccion'];
 				$i++;	?>
 

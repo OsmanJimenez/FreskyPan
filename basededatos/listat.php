@@ -16,6 +16,6 @@ $i = 0;
 			
 			<td><?php echo $nomt; ?></td>
 			<td><?php echo $ctg; ?></td>
-			<td><a class="btn btn-success" href="TipoP_Modificar.php?idc=<?php echo $idt; ?>">Editar</a></td>
+			<td style=""><a class="btn btn-success" href="TipoP_Modificar.php?idc=<?php echo $idt; ?>">Editar</a></td>
 		</tr> 
 <?php }?>
