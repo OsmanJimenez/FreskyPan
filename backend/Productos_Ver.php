@@ -69,6 +69,8 @@ session_start();
 
             <div class="card-body">
               <div class="table-responsive">
+                <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
+                <br>
                 <table class="table table-bordered" id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
                   <thead>
                     <tr>
@@ -103,7 +105,7 @@ session_start();
               </div>
             </div>
           </div>
-          <a class="btn btn-primary" href="Productos_Vertodos.php">Ver todos</a>
+         
         </div>
 
 
@@ -166,7 +168,7 @@ session_start();
 
   <!-- Page level custom scripts -->
   <script src="Exportar_Excel.js"></script>
-
+  <script src="js/latabla.js" ></script>
   <!-- Export Multi-Scripts -->
   <?php
   require('export.php');

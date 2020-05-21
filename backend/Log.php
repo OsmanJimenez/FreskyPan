@@ -65,6 +65,8 @@ session_start();
               <h6 class="m-0 font-weight-bold text-primary">Lista de Actividades</h6>
             </div>
             <div class="card-body">
+            <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
+            <br>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable"  id="Productos_Ver" width="100%" cellspacing="0">
                   <thead>
@@ -156,6 +158,7 @@ session_start();
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
 <script src="js/script.js"></script>
+<script src="js/latabla.js" ></script>
 
   <!-- Page level custom scripts -->
   <script src="Exportar_Excel.js"></script>

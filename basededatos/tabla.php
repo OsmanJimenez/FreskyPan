@@ -4,7 +4,8 @@ $idb=$_POST["idb"];
 
 		$sql_comboprov="SELECT bodega.ID_BODEGA,insumo.ID_INSUMO,insumo.nombre as isn,insumo.descripcion as isdc,insumo.stock as ick,insumo.precio,materiaprima.ID_MATERIAPRIMA, materiaprima.nombre as mtn,materiaprima.descripcion as dsm , materiaprima.stock as mts,materiaprima.precio as prm from bodega,insumo,bodega_insumo,bodega_materiaprima,materiaprima WHERE bodega.ID_BODEGA='$idb' and bodega_insumo.`FK_ID_BODEGA`=bodega.ID_BODEGA AND bodega_materiaprima.FK_ID_MATERIAPRIMA=materiaprima.ID_MATERIAPRIMA;";
 		$result_comboprov=mysqli_query($conn,$sql_comboprov);
-?> 
+?> <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
+<br>
   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             
 	 <thead>

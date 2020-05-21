@@ -64,6 +64,8 @@ session_start();
             </div>
             <div class="card-body">
               <div class="table-responsive">
+                <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
+                <br>
                 <table class="table table-bordered" id="dataTable" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
@@ -152,6 +154,7 @@ session_start();
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/latabla.js" ></script>
 
   <!-- Page level custom scripts -->
   <script src="Exportar_Excel.js"></script>

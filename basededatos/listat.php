@@ -12,10 +12,10 @@ $i = 0;
 				$i++;	?>
 
 		<tr align="center">
-			<td><?php echo $idt; ?></td>
+			<td width="auto"><?php echo $idt;?></td>
 			
-			<td><?php echo $nomt; ?></td>
+			<td><?php echo $nomt;?></td>
 			<td><?php echo $ctg; ?></td>
-			<td style=""><a class="btn btn-success" href="TipoP_Modificar.php?idc=<?php echo $idt; ?>">Editar</a></td>
+			<td><a class="btn btn-success" href="TipoP_Modificar.php?idc=<?php echo $idt; ?>">Editar</a></td>
 		</tr> 
 <?php }?>

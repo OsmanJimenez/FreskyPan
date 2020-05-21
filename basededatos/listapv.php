@@ -33,7 +33,7 @@ $result=mysqli_query($conn,$query);
              	 ?><label class="btn btn-primary">Activo</label><?php
              }else{
 
-             	?><label class="btn btn-warning">Inactivo</label><?php
+             	?><label class="btn btn-warning">Suspendido</label><?php
              }
 
               ?></td>

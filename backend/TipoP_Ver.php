@@ -7,7 +7,6 @@ session_start();
 <head>
   <meta charset="utf-8">
   <title>Ver Tipo de Producto</title>
-
   <?php
   require('Style.php');
   ?>
@@ -68,8 +67,8 @@ session_start();
 
 
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <div class="table-responsive" style="width:44%">
+                <table class="table table-bordered" id="dataTable" width="auto" cellspacing="0">
                   <thead>
                     <tr>
                       <th>Numero</th>
@@ -87,7 +86,7 @@ session_start();
                     </tr>
                   </tfoot>
                   <tbody>
-
+ 
                     <?php require("../basededatos/listat.php"); ?>
 
                   </tbody>

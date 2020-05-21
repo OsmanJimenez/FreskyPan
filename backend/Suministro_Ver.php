@@ -69,7 +69,7 @@ session_start();
             </div>
 
 
-            <select id="lista1" name="lista1">
+            <select class="form-control" id="lista1" name="lista1">
             <option value="0">Escoge una bodega</option>
             <?php require("../basededatos/combosu.php") ?>
         </select>
@@ -164,6 +164,7 @@ session_start();
     });
   }
 </script>
+<script src="js/latabla.js" ></script>
   <!-- Export Multi-Scripts -->
   <?php
   require('export.php');

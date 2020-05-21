@@ -57,7 +57,7 @@ session_start();
                     <div class="form-row">
                       <div class="form-group col-md-8 ">
 
-                        <div class="table-responsive" style=" max-height:350px; ">
+                        <div class="table-responsive" style="width:66%;">
                           <table class="table table-bordered " id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
                             <thead>
                               <tr>

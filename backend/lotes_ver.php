@@ -67,7 +67,9 @@ session_start();
 
 
             <div class="card-body">
-              <div class="table-responsive">
+              <div class="table-responsive" style="width:66%;">
+                <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
+                <br>
                 <table class="table table-bordered" id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
                   <thead>
                     <tr>
@@ -77,10 +79,6 @@ session_start();
                       <th>Nombre producto</th>
                       <th>Cantidad Inicial</th>
                       <th>Stock</th>
-
-
-                      <!-- <th></th>
-                      <th></th>-->
                       <th></th>
                     </tr>
                   </thead>
@@ -170,7 +168,7 @@ session_start();
 
   <!-- Page level custom scripts -->
   <script src="Exportar_Excel.js"></script>
-
+  <script src="js/latabla.js" ></script>
   <!-- Export Multi-Scripts -->
   <?php
   require('export.php');
