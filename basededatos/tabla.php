@@ -2,10 +2,10 @@
 require ("connectionbd.php");
 $idb=$_POST["idb"];
 
-		$sql_comboprov="SELECT bodega.ID_BODEGA,insumo.ID_INSUMO,insumo.nombre as isn,insumo.descripcion as isdc,insumo.stock as ick,insumo.precio,materiaprima.ID_MATERIAPRIMA, materiaprima.nombre as mtn,materiaprima.descripcion as dsm , materiaprima.stock as mts,materiaprima.precio as prm from bodega,insumo,bodega_insumo,bodega_materiaprima,materiaprima WHERE bodega.ID_BODEGA='$idb' and bodega_insumo.`FK_ID_BODEGA`=bodega.ID_BODEGA AND bodega_materiaprima.FK_ID_MATERIAPRIMA=materiaprima.ID_MATERIAPRIMA;";
+		$sql_comboprov="SELECT bodega.ID_BODEGA,insumo.ID_INSUMO,insumo.nombre as isn,insumo.descripcion as isdc,bodega_insumo.unidades as ick,insumo.precio,bodega_insumo.registro from bodega,insumo,bodega_insumo WHERE bodega.ID_BODEGA='$idb' and bodega_insumo.`FK_ID_BODEGA`=bodega.ID_BODEGA and bodega_insumo.FK_ID_INSUMO=insumo.ID_INSUMO;";
 		$result_comboprov=mysqli_query($conn,$sql_comboprov);
-?> <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
-<br>
+?> 
+
   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             
 	 <thead>
@@ -42,11 +42,7 @@ $idb=$_POST["idb"];
     $st=$fila_comboprov['ick'];
     $dess=$fila_comboprov['isdc'];
     $pres=$fila_comboprov['precio'];
-    $idm=$fila_comboprov['ID_MATERIAPRIMA'];
-    $nomt=$fila_comboprov['mtn'];
-    $stm=$fila_comboprov['mts'];
-    $desm=$fila_comboprov['dsm'];
-    $prem=$fila_comboprov['prm'];
+    $ref=$fila_comboprov['registro'];
   	if(!empty($ids) ){
   	?> <tbody>
 			<td><?php echo $ids;  ?></td>
@@ -55,9 +51,20 @@ $idb=$_POST["idb"];
 			<td>       Insumo         </td>
 			<td> <?php echo $st; ?></td>
 			<td><?php echo $pres; ?></td>
-			<td><a class="btn btn-success" href="Suministro_Modificar.php?id=<?php echo $ids; ?>&all=<?php echo $nsb; ?>&flag=<?php echo "1"?>">Editar</a></td>
+			<td><a class="btn btn-success" href="Suministro_Modificar.php?id=<?php echo $ids; ?>&all=<?php echo $nsb; ?>&r= <?php echo $ref; ?> &flag=<?php echo "1"?>">Editar</a></td>
  </tbody>
- <?php } if(!empty($idm)) { ?>
+ <?php }}
+$sql_comboprov2="SELECT bodega.ID_BODEGA,materiaprima.ID_MATERIAPRIMA, materiaprima.nombre as mtn,materiaprima.descripcion as dsm , bodega_materiaprima.unidades as mts,materiaprima.precio as prm,bodega_materiaprima.FK_ID_AGENDA from bodega,bodega_materiaprima,materiaprima WHERE bodega.ID_BODEGA='$idb' and  bodega_materiaprima.FK_ID_MATERIAPRIMA=materiaprima.ID_MATERIAPRIMA and bodega_materiaprima.`FK_ID_BODEGA`=bodega.ID_BODEGA;";
+$result_comboprov2=mysqli_query($conn,$sql_comboprov2);
+  while($fila_comboprov2=mysqli_fetch_array($result_comboprov2)){ 
+$nsb=$fila_comboprov2['ID_BODEGA'];
+$idm=$fila_comboprov2['ID_MATERIAPRIMA'];
+    $nomt=$fila_comboprov2['mtn'];
+    $stm=$fila_comboprov2['mts'];
+    $desm=$fila_comboprov2['dsm'];
+    $prem=$fila_comboprov2['prm'];
+    $agenda=$fila_comboprov2['FK_ID_AGENDA'];
+  if(!empty($idm)) { ?>
 	 <tbody>
 			<td><?php echo $idm;  ?></td>
 			<td> <?php echo $nomt; ?></td>
@@ -67,7 +74,7 @@ $idb=$_POST["idb"];
 			
 			
 			<td><?php echo $prem; ?></td>
-			<td><a class="btn btn-success" href="Suministro_Modificar.php?id=<?php echo $idm; ?>&all=<?php echo $nsb; ?> &flag=<?php echo "2"?>">Editar</a></td>
+			<td><a class="btn btn-success" href="Suministro_Modificar.php?id=<?php echo $idm; ?>&all=<?php echo $nsb; ?>&agenda= <?php echo $agenda; ?> &flag=<?php echo "2"?>">Editar</a></td>
  </tbody>
 <?php }} ?>
   

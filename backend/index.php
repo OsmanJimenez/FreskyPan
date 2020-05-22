@@ -191,29 +191,36 @@
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Entregas Pendientes</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Porcentaje de operaciones por usuarios</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Pan alineado a Dora <span class="float-right">20%</span></h4>
+                  <?php if($lo3>0 || $lo4 >0){ ?>
+                  <h4 class="small font-weight-bold"> <?php echo $nus; ?> <span class="float-right"><?php echo $div;?>%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo $div;?>%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Pan roscon a Juana<span class="float-right">40%</span></h4>
+                <?php } if($lo3>1 || $lo4 >1){?>
+
+                  <h4 class="small font-weight-bold"><?php echo $nus1; ?><span class="float-right"><?php echo $div1;?>%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: <?php echo $div1;?>%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Pan alineado a Luis <span class="float-right">60%</span></h4>
+                <?php } if($lo3>2 || $lo4 >2) { ?>
+                  <h4 class="small font-weight-bold"><?php echo $nus2; ?> <span class="float-right"><?php echo $div2;?>%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?php echo $div2;?>%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Pan Tostao a Lina <span class="float-right">80%</span></h4>
+                <?php } if($lo3>3 || $lo4 >3){ ?>
+                  <h4 class="small font-weight-bold"><?php echo $nus3; ?> <span class="float-right"><?php echo $div3;?>%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo $div3;?>%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Pan Dulce a Mario <span class="float-right">Finalizado</span></h4>
+                <?php } if($lo3>4 || $lo4 >4){ ?>
+                  <h4 class="small font-weight-bold"><?php echo $nus4; ?> <span class="float-right"><?php echo $div4;?></span></h4>
                   <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="<?php echo $div4;?>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
+                <?php } ?>
                 </div>
               </div>
 
@@ -222,30 +229,36 @@
             <div class="col-lg-6 mb-4">
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Productos más Visitados</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Productos más Vendidos</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Pan alineado <span class="float-right">80%</span></h4>
+                            <?php if($lo5>0 || $lo6 >0){ ?>
+                  <h4 class="small font-weight-bold"> <?php echo $bnus; ?> <span class="float-right"><?php echo $bdiv;?>%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo $bdiv;?>%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Pan roscon<span class="float-right">70%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Torta Dulce <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Pan Tostao <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Pan Dulce<span class="float-right">Tendencia</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                <?php } if($lo5>1 || $lo6 >1){?>
 
+                  <h4 class="small font-weight-bold"><?php echo $bnus1; ?><span class="float-right"><?php echo $bdiv1;?>%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: <?php echo $bdiv1;?>%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                <?php } if($lo5>2 || $lo6 >2) { ?>
+                  <h4 class="small font-weight-bold"><?php echo $bnus2; ?> <span class="float-right"><?php echo $bdiv2;?>%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" style="width: <?php echo $bdiv2;?>%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                <?php } if($lo5>3 || $lo6 >3){ ?>
+                  <h4 class="small font-weight-bold"><?php echo $bnus3; ?> <span class="float-right"><?php echo $bdiv3;?>%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo $bdiv3;?>%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                <?php } if($lo5>4 || $lo6 >4){ ?>
+                  <h4 class="small font-weight-bold"><?php echo $bnus4; ?> <span class="float-right"><?php echo $bdiv4;?>%</span></h4>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width:<?php echo $bdiv4; ?>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                <?php } ?>
                 </div>
               </div>
 

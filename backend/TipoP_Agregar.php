@@ -2,7 +2,7 @@
 session_start();
 if ((isset($_SESSION['cl']))) {
   require("../basededatos/connectionbd.php");
-  $codg = "Select MAX(ID_TIPOPRODUCTO) as idc from TIPOPRODUCTO";
+  $codg = "Select MAX(ID_SUBTIPOPRODUCTO) as idc from SUBTIPOPRODUCTO";
   $res = mysqli_query($conn, $codg);
   $file = mysqli_fetch_array($res);
   if ((mysqli_num_fields($res)) > 0) {

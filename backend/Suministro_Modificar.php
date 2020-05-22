@@ -2,6 +2,7 @@
 session_start();
  if((isset($_SESSION['cl']))){
 $idf=$_GET['flag'];
+
 $id=$_GET['id'];
 $nbg=$_GET['all'];
 require ('../basededatos/connectionbd.php');
@@ -50,6 +51,7 @@ require ('../basededatos/connectionbd.php');
           <div class="card shadow mb-4">
           <div class="card-body">
             <?php if($idf=='2') { 
+              $age=$_GET['agenda'];
 $queryma="SELECT bodega_materiaprima.unidades,bodega_materiaprima.FK_ID_MATERIAPRIMA,bodega_materiaprima.FK_ID_BODEGA,materiaprima.nombre,tipomateriaprima.nombre as tp,materiaprima.descripcion,materiaprima.cantidad,materiaprima.precio,materiaprima.iva,MedidaCantidad.nombre AS nmc,bodega.descripcion as desb from bodega_materiaprima,materiaprima,tipomateriaprima,bodega,medidacantidad WHERE bodega_materiaprima.FK_ID_BODEGA='$nbg' and bodega_materiaprima.FK_ID_MATERIAPRIMA='$id' and bodega_materiaprima.FK_ID_BODEGA=bodega.ID_BODEGA and bodega_materiaprima.FK_ID_MATERIAPRIMA=materiaprima.ID_MATERIAPRIMA and materiaprima.FK_ID_TIPOMATERIAPRIMA=tipomateriaprima.ID_TIPOMATERIAPRIMA AND ID_MEDIDACANTIDAD=FK_ID_MEDIDACANTIDAD";
         $rma=mysqli_query($conn,$queryma);
         $fma=mysqli_fetch_array($rma);
@@ -166,6 +168,7 @@ $queryma="SELECT bodega_materiaprima.unidades,bodega_materiaprima.FK_ID_MATERIAP
               </div>
                   <input type="hidden" name="can_mat2" value="<?php echo $unidm;?>">
                     <input type="hidden" name="nbg2" value="<?php echo $cod2;?>">
+                    <input type="hidden" name="age" value="<?php echo $age;?>">
                     <input type="hidden" name="nimt" value="<?php echo $idmat;?>">
               <button type="submit" class="btn btn-primary">Agregar</button>
             </form>
@@ -173,7 +176,7 @@ $queryma="SELECT bodega_materiaprima.unidades,bodega_materiaprima.FK_ID_MATERIAP
           </div>
         </div>
 <?php } else if($idf=='1') { 
-
+$ref=$_GET['r'];
 $querysu="SELECT bodega_insumo.unidades,bodega_insumo.FK_ID_INSUMO,bodega_insumo.FK_ID_BODEGA,insumo.nombre,tipoinsumo.nombre as tp,insumo.descripcion,insumo.cantidad,insumo.precio,insumo.iva,bodega.descripcion as desb from bodega_insumo,insumo,tipoinsumo,bodega WHERE bodega_insumo.FK_ID_BODEGA='$nbg' and bodega_insumo.FK_ID_INSUMO='$id' and bodega_insumo.FK_ID_BODEGA=bodega.ID_BODEGA and bodega_insumo.FK_ID_INSUMO=insumo.ID_INSUMO and insumo.FK_ID_TIPOINSUMO=tipoinsumo.ID_TIPOINSUMO";
 $rsu=mysqli_query($conn,$querysu);
 $fila=mysqli_fetch_array($rsu);
@@ -202,6 +205,7 @@ $fila=mysqli_fetch_array($rsu);
                     <input type="number" id="can_ins" class="form-control" name="can_ins" width="100%" required="" value="<?php echo $can;?>">
                     <input type="hidden" name="can_ins2" required="" value="<?php echo $can;?>">
                      <input type="hidden" name="nbg" value="<?php echo $cod;?>">
+                     <input type="hidden" name="ref" value="<?php echo $ref;?>">
                     <input type="hidden" name="ninm" value="<?php echo $idins;?>">
                   </div>
                 </div>
