@@ -112,7 +112,7 @@ $codg2=1;
                   <label for="inputCantidad">Cantidad</label>
                   <input type="number" name="can" class="form-control" id="inputCantidad2" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cant_vent(event)" onpaste="return false" placeholder="">
                   <div class="space-small"></div>
-                  <button type="submit" class="btn btn-primary  ">Agregar</button>
+                  <button type="submit" class="btn btn-primary float-right ">Agregar</button>
                 </div>
               </div>
 

@@ -123,7 +123,7 @@ $codg2=1;
                 </div>
                 <div class="form-group col-md-6">
 
-                  <div class="form-group">
+                  <div class="form-group ">
                     <label for="exampleFormControlFile1">Imagen del Producto</label>
                     <input type="file" name="img" accept="image/*" class="form-control-file" id="exampleFormControlFile1">
                   </div>
