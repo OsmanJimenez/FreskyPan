@@ -68,6 +68,7 @@ session_start();
 
 
             <div class="card-body">
+              
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
                   <thead>
@@ -162,11 +163,10 @@ session_start();
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
-<script src="js/script.js"></script>
 
   <!-- Page level custom scripts -->
   <script src="Exportar_Excel.js"></script>
-  <script src="js/latabla.js" ></script>
+
   <!-- Export Multi-Scripts -->
   <?php
   require('export.php');

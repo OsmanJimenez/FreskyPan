@@ -170,7 +170,6 @@ if ((isset($_SESSION['cl']))) {
 
           <!-- Page level custom scripts -->
           <script src="js/demo/datatables-demo.js"></script>
-          <script src="js/script.js"></script>
 
   </body>
 

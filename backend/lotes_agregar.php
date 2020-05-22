@@ -69,7 +69,16 @@ session_start();
                                 <th>Opción</th>
                               </tr>
                             </thead>
-
+                            <tfoot>
+                    <tr>
+                    <th>Opción</th>
+                                <th>Nombre del producto</th>
+                                <th>Id del producto</th>
+                                <th>Categoria</th>
+                                <th>Estado</th>
+                                <th>Opción</th>
+                    </tr>
+                  </tfoot>
                             <tbody>
 
                               <?php require("../basededatos/listapv3.php"); ?>
@@ -230,7 +239,8 @@ session_start();
 
         <!-- Page level custom scripts -->
         <script src="js/demo/datatables-demo.js"></script>
-<script src="js/script.js"></script>
+
+
 
 </body>
 

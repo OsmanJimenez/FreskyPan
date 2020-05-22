@@ -133,7 +133,6 @@ $codg2=1;
 
         <!-- Page level custom scripts -->
         <script src="js/demo/datatables-demo.js"></script>
-<script src="js/script.js"></script>
 
         <!-- MultiSelect -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

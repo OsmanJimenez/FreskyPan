@@ -1,5 +1,4 @@
   <!-- Export Multi-Scripts -->
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="libs/js-xlsx/xlsx.core.min.js"></script>
   <script type="text/javascript" src="libs/FileSaver/FileSaver.min.js"></script>
   <!--
