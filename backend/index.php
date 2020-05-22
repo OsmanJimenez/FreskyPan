@@ -9,6 +9,7 @@
 <head>
   <meta charset="utf-8">
   <title>Administración ERP</title>
+
   <?php
   require('Style.php');
   ?>

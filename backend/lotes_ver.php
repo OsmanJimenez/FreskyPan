@@ -71,9 +71,9 @@ session_start();
                 <table class="table table-bordered" id="dataTable" id="Productos_Ver" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Numero de lote</th>
+                      <th>Número de lote</th>
                       <th>Fecha</th>
-                      <th>Numero producto</th>
+                      <th>Número producto</th>
                       <th>Nombre producto</th>
                       <th>Cantidad Inicial</th>
                       <th>Stock</th>
@@ -82,9 +82,9 @@ session_start();
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Numero de lote</th>
+                      <th>Número de lote</th>
                       <th>Fecha</th>
-                      <th>Numero producto</th>
+                      <th>Número producto</th>
                       <th>Nombre producto</th>
                        <th>Cantidad Inicial</th>
                       <th>Stock</th>

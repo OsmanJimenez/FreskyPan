@@ -75,8 +75,8 @@ session_start();
                 <form action="../basededatos/actuac.php" method="POST">
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="inputName">Numero de Cedula</label>
-                      <input type="text" value="<?php echo $cod; ?>" class="form-control" id="inputName" name="ced" maxlength="15" oninput="return maxlengthNumber(this)" onkeypress="return numCed(event)" onepaste="return false" placeholder="Numero de Cedula" readonly="">
+                      <label for="inputName">Número de Cedula</label>
+                      <input type="text" value="<?php echo $cod; ?>" class="form-control" id="inputName" name="ced" maxlength="15" oninput="return maxlengthNumber(this)" onkeypress="return numCed(event)" onepaste="return false" placeholder="Número de Cedula" readonly="">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputPrice">Telefono</label>

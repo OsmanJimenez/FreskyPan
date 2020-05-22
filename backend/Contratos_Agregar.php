@@ -92,7 +92,7 @@ session_start();
 
 
                   <div class="form-group col-md-6">
-                    <label for="inputCantidad">Numero de Cedula</label>
+                    <label for="inputCantidad">Número de Cedula</label>
                     <input type="text" class="form-control" id="inputCantidad" placeholder="">
 
                     <label for="inputCantidad">Nombre</label>
@@ -133,7 +133,7 @@ session_start();
                       <thead>
                         <tr>
                           <th></th>
-                          <th>Numero de pedido</th>
+                          <th>Número de pedido</th>
                           <th>Fecha</th>
                           <th>Nombre Cliente</th>
                           <th>Apellido</th>

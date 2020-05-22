@@ -63,7 +63,7 @@ $codg2=1;
               <form action="../basededatos/agregarc.php" method="POST">
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputName">Numero de Cedula</label>
+                    <label for="inputName">Número de Cedula</label>
                     <input type="text" class="form-control" id="inputName" name="ced" maxlength="15" oninput="maxlengthNumber(this)"  readonly="" value=" <?php echo $codg2; ?>" onkeypress="return numCed(event)" onpaste="return false" placeholder="">
                   </div>
                   <div class="form-group col-md-6">

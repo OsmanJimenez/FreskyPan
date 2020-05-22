@@ -54,7 +54,7 @@ $ape = $_SESSION['cl']['ape'];
               <form action="../basededatos/agregarc.php" method="POST">
                 <div class="form-row">
                   <div class="form-group col-md-8">
-                    <label for="inputName">Numero de Cedula</label>
+                    <label for="inputName">Número de Cedula</label>
                     <input type="text" readonly="" value="<?php echo $id; ?>" class="form-control" id="inputName" name="ced" placeholder="">
 
                     <label for="inputPrice">Nombre</label>

@@ -72,7 +72,7 @@ session_start();
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Numero de pedido</th>
+                      <th>Número de pedido</th>
                       <th>Fecha</th>
                       <th>Nombre Cliente</th>
                       <th>Opción</th>
@@ -80,7 +80,7 @@ session_start();
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Numero de pedido</th>
+                      <th>Número de pedido</th>
                       <th>Fecha</th>
                       <th>Nombre Cliente</th>
                       <th>Opción</th>
