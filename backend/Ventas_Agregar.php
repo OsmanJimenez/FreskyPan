@@ -56,18 +56,13 @@ $codg2=1;
         <div class="card shadow mb-4">
 
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Ventas</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Información de la Producción</h6>
           </div>
 
           <div class="card-body">
             <!-- Add Example -->
             <form action="../basededatos/agregap.php" method="POST">
 
-
-
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Información de la Producción</h6>
-              </div>
               <div class="space-small"></div>
 
               <div class="form-row">

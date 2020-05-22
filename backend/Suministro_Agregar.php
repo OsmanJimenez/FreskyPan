@@ -43,10 +43,11 @@ session_start();
         <p class="mb-4">En este apartado podremos agregar Suministros</a>.</p>
 
           <div class="card shadow mb-4">
-          <div class="card-body">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Agregar materia prima</h6>
           </div>
+          <div class="card-body">
+          
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
             <form action="../basededatos/agregasum_mat.php" name="formmat" id="formmat" method="POST" enctype="multipart/form-data">
               <div class="form-row">
@@ -129,16 +130,17 @@ session_start();
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">Agregar</button>
+              <button type="submit" class="btn btn-primary float-right">Agregar</button>
             </form>
           </div>
         </div>
 
         <div class="card shadow mb-4">
-          <div class="card-body">
-          <div class="card-header py-3">
+        <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Agregar insumos</h6>
           </div>
+          <div class="card-body">
+          
             <!-- Aca se envian los datos a un archivo php ene el action="../basededatos/agregapd.php" -->
             <form action="../basededatos/agregasum_ins.php" method="POST" enctype="multipart/form-data" name="formins" id="formins">
               <div class="form-row">
@@ -215,7 +217,7 @@ session_start();
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">Agregar</button>
+              <button type="submit" class="btn btn-primary float-right">Agregar</button>
             </form>
           </div>
         </div>

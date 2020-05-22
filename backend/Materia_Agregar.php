@@ -108,7 +108,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="des">Descripción</label>
-                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required></textarea>
+                    <textarea class="form-control" name="des" id="des" rows="1" maxlength="50" required></textarea>
                   </div>
                 </div>
               
@@ -119,9 +119,9 @@ session_start();
                     <?php require("../basededatos/combotmp.php"); ?>
                   </select>
                 </div>
-                     <div class="form-group col-md-2 text-center">
+                     <div class="form-group col-md-2 ">
                   <div class="space-small"></div>
-                  <a href="Materiatipo_Agregar.php" class="btn btn-primary">Agregar Tipo</a>
+                  <a href="Materiatipo_Agregar.php" class="btn btn-outline-primary">Agregar Tipo</a>
                 </div>
                   <div class="form-group col-md-4">
                   <label for="prov">Proveedor</label>
@@ -132,7 +132,7 @@ session_start();
                 </div>
                 <div class="form-group col-md-2 text-center">
                   <div class="space-small"></div>
-                  <a href="Clientes_Agregar.php" class="btn btn-primary">Agregar Proveedor</a>
+                  <a href="Clientes_Agregar.php" class="btn btn-outline-primary">Agregar Proveedor</a>
                 </div>
               </div>
 

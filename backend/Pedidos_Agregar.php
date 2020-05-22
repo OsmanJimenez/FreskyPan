@@ -49,6 +49,9 @@ session_start();
         <form action="../basededatos/agregaped.php" method="POST">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Escoger al proveedor</h6>
+          </div>
         <div class="card-body">
             <!-- Add Example -->
 
@@ -62,11 +65,7 @@ session_start();
                   <input type="date" id="fec" class="form-control" name="fec" width="100%" required="">
                 </div>
               </div>
-              <div class="space-small"></div>
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Escoger al proveedor</h6>
-          </div>
-          <div class="space-small"></div>
+
           <div class="form-row">
                   <div class="form-group col-md-6">
                     <div class="table-responsive" style=" max-height:350px; ">
@@ -108,11 +107,10 @@ session_start();
             </div>
 
         <div class="card shadow mb-4">
-          <div class="card-body">
-              <div class="card-header py-3">
+        <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Escoger el producto</h6>
               </div>
-          <div class="space-small"></div>
+          <div class="card-body">
             <div class="form-row">
                   <div class="table-responsive" style=" max-height:350px; " >
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

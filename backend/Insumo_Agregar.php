@@ -111,7 +111,7 @@ session_start();
                 </div>
                 <div class="form-group col-md-2 text-center">
                   <div class="space-small"></div>
-                  <a href="Clientes_Agregar.php" class="btn btn-primary">Agregar Proveedor</a>
+                  <a href="Clientes_Agregar.php" class="btn btn-outline-primary">Agregar Proveedor</a>
                 </div>
               
 

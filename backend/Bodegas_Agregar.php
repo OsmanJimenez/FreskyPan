@@ -59,7 +59,7 @@ session_start();
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="des">Descripción</label>
-                    <textarea class="form-control" name="des" id="des" rows="3" maxlength="50" required></textarea>
+                    <textarea class="form-control" name="des" id="des" rows="1" maxlength="50" required></textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -70,7 +70,7 @@ session_start();
                   </select>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Añadir</button>
+              <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Añadir</button>
 
               <!-- Modal -->
               <div id="myModal" class="modal fade" role="dialog">

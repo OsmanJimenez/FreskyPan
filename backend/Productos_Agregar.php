@@ -118,7 +118,7 @@ $codg2=1;
                 <div class="form-group col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descripción</label>
-                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40"  onpaste="return false" rows="3"></textarea>
+                    <textarea class="form-control" name="des" id="exampleFormControlTextarea1" rows="1" maxlength="40"  onpaste="return false" rows="3"></textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
