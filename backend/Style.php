@@ -231,6 +231,7 @@ themeToggle.addEventListener('click', () => {
 /* width */
 ::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
 }
 
 /* Track */
