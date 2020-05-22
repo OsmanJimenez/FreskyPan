@@ -51,17 +51,7 @@ session_start();
             <!-- Add Example -->
             <form action="../basededatos/editarv.php" method="POST">
 
-
-
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Información de la Producción</h6>
-              </div>
-              <div class="space-small"></div>
-
               <div class="form-row">
-                <div class="form-group col-md-6">
-
-                </div>
                 <?php require("../basededatos/connectionbd.php");
                 $mic = $_GET['id'];
                 $query = "Select * from venta,produccion,venta_produccion where venta.ID_VENTA='$mic' and
@@ -76,7 +66,7 @@ session_start();
                 $fecha = $fila['fecha'];
 
                 ?>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                   <label for="inputCantidad">ID Venta</label>
                   <input type="text" name="cod" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return id_vent(event)" onpaste="return false" id="inputCantidad1" placeholder="" value="<?php echo $idv; ?>">
                   <div class="space-small"></div>
@@ -88,7 +78,7 @@ session_start();
                   <input type="number" name="can" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cant_vent(event)" onpaste="return false" id="inputCantidad2" placeholder="" value="<?php echo $can; ?>">
                   <input type="hidden" name="st" value="<?php echo $can; ?>">
                   <div class="space-small"></div>
-                  <button type="submit" class="btn btn-primary  ">Actualizar</button>
+                  <button type="submit" class="btn btn-primary float-right ">Actualizar</button>
                 </div>
               </div>
 

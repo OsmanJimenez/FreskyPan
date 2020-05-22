@@ -81,7 +81,7 @@ session_start();
                   </select>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
+              <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Actualizar</button>
 
               <!-- Modal -->
               <div id="myModal" class="modal fade" role="dialog">

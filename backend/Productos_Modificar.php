@@ -95,21 +95,14 @@ session_start();
                       <option value="3">Agridulce</option>
                     </select>
                   </div>
-                </div>
-                <div class="form-row">
+                
                   <div class="form-group col-md-6">
 
                     <label for="inputState">Categoria</label>
                     <?php require('../basededatos/select.php') ?>
                   </div>
 
-                  <div class="form-group col-md-6">
-
-                    <div class="form-group">
-
-                    </div>
-
-                  </div>
+                  
 
                 </div>
                 <div class="form-row">
@@ -121,18 +114,21 @@ session_start();
                       <option value="0">Inactivo</option>
                     </select>
                   </div>
+
+                  <div class="form-group">
+                  <label for="exampleFormControlFile1">Imagen del Producto</label>
+                  <input type="file" name="img" accept="image/*" class="form-control-file" id="exampleFormControlFile1">
+                </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Descripción</label>
-                  <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40"  onpaste="return false" rows="3"><?php echo $des; ?></textarea>
-                  <label for="exampleFormControlFile1">Imagen del Producto</label>
-                  <input type="file" name="img" accept="image/*" class="form-control-file" id="exampleFormControlFile1">
+                <label for="exampleFormControlTextarea1">Descripción</label>
+                <textarea class="form-control" name="des" id="exampleFormControlTextarea1" maxlength="40"  onpaste="return false" rows="3"><?php echo $des; ?></textarea>
                 </div>
 
 
               <?php } ?>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
+              <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Actualizar</button>
 
               <!-- Modal -->
               <div id="myModal" class="modal fade" role="dialog">

@@ -70,13 +70,7 @@ session_start();
 
                     <div class="form-row">
 
-
-
-
-                      <div class="form-group col-md-4">
-                        <div class="space-small"></div>
-                        <div class="space-small"></div>
-
+                      <div class="form-group col-md-12">
                         <label for="inputName">Código</label>
                         <input type="number" name="cd" value="<?php echo $idt; ?>" class="form-control" maxlength="11" oninput="maxlengthNumber(this)" onkeypress="return cod_tip(event)" onpaste="return false" id="inputName" placeholder="" readonly="">
                         <label for="inputName">Nombre</label>
@@ -88,7 +82,7 @@ session_start();
                    </select>
                    <div class="space-small"></div>
                         <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
+                        <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Actualizar</button>
 
                       </div>
                     </div>

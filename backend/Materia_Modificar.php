@@ -121,7 +121,7 @@ session_start();
               </div>
               <div class="space-small"></div>
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modificar</button>
+              <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Modificar</button>
 
               <!-- Modal -->
               <div id="myModal" class="modal fade" role="dialog">

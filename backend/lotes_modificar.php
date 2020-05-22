@@ -48,71 +48,71 @@ session_start();
               <h6 class="m-0 font-weight-bold text-primary">Produccion</h6>
             </div>
             <div class="card-body">
-              <!-- Add Example -->
-              <form action="../basededatos/editarlo.php" method="POST">
-                <div class="form-row">
-
-                </div>
-            </div>
-            <?php require("../basededatos/connectionbd.php");
-            $cd = $_GET['id'];
-            $fe = $_GET['fec'];
-            $ca = $_GET['ca'];
-            $query2 = "Select FK_ID_CATPRODUCTO,unidades from produccion where ID_PRODUCCION='$cd'
-                      and fechaProduccion='$fe'";
-            $result2 = mysqli_query($conn, $query2);
-            while ($fila2 = mysqli_fetch_array($result2)) {
-              $Stock = $fila2['unidades'];
-              $pro = $fila2['FK_ID_CATPRODUCTO'];
-            }
-            ?>
-            <div class="form-row">
-              <div class="form-group col-md-11">
-                <label for="inputState">Productos</label>
-                <input type="text" name="id" id="prueba" readonly="" value="<?php echo $pro; ?>" class="form-control">
-                <input type="text" name="idl" value="<?php echo $cd; ?>" class="form-control" readonly="">
-                <input type="text" name="fece" value="<?php echo $fe; ?>" class="form-control" readonly="">
-                <input type="text" name="can" value="<?php echo $ca; ?>" class="form-control" readonly="">
-              </div>
-
+                <!-- Add Example -->
+                <form action="../basededatos/editarlo.php" method="POST">
+                  
+              
+              <?php require("../basededatos/connectionbd.php");
+              $cd = $_GET['id'];
+              $fe = $_GET['fec'];
+              $ca = $_GET['ca'];
+              $query2 = "Select FK_ID_CATPRODUCTO,unidades from produccion where ID_PRODUCCION='$cd'
+                        and fechaProduccion='$fe'";
+              $result2 = mysqli_query($conn, $query2);
+              while ($fila2 = mysqli_fetch_array($result2)) {
+                $Stock = $fila2['unidades'];
+                $pro = $fila2['FK_ID_CATPRODUCTO'];
+              }
+              ?>
               <div class="form-row">
-                <div class="form-group col-md-11">
-                  <label for="inputName">Unidades</label>
-                  <input type="number" value="<?php echo $Stock; ?>" name="st" class="form-control" id="inputName" maxlength="11" onkeypress="return uni_lo(event)" oninput="maxlengthNumber(this)" onpaste="return false" placeholder="">
+                <div class="form-group col-md-12">
+                  <label for="inputState">Productos</label>
+                  <input type="text" name="id" id="prueba" readonly="" value="<?php echo $pro; ?>" class="form-control">
+                  <div class="space-small"></div>
+                  <input type="text" name="idl" value="<?php echo $cd; ?>" class="form-control" readonly="">
+                  <div class="space-small"></div>
+                  <input type="text" name="fece" value="<?php echo $fe; ?>" class="form-control" readonly="">
+                  <div class="space-small"></div>
+                  <input type="text" name="can" value="<?php echo $ca; ?>" class="form-control" readonly="">
+                
+                  
+                    <label for="inputName">Unidades</label>
+                    <input type="number" value="<?php echo $Stock; ?>" name="st" class="form-control" id="inputName" maxlength="11" onkeypress="return uni_lo(event)" oninput="maxlengthNumber(this)" onpaste="return false" placeholder="">
 
-                  <br>
+                    <br>
 
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Actualizar</button>
+                    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Actualizar</button>
 
-                  <!-- Modal -->
-                  <div id="myModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
 
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Confirmar</h4>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Confirmar</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Esta seguro</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Si</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                          </div>
                         </div>
-                        <div class="modal-body">
-                          <p>Esta seguro</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="submit" class="btn btn-primary">Si</button>
-                          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        </div>
+
                       </div>
-
-                    </div>
+                    
                   </div>
+
+                  </form>
+
+                  <!--End  Add Example -->
                 </div>
-
-                </form>
-
-                <!--End  Add Example -->
               </div>
-            </div>
 
+            </div>
           </div>
           <script>
             function maxlengthNumber(ob) {

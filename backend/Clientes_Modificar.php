@@ -117,7 +117,7 @@ session_start();
                     </div>
                   </div>
                 <?php } ?>
-                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <button type="submit" class="btn btn-primary float-right">Actualizar</button>
                 </form>
                 <!--End  Add Example -->
             </div>
