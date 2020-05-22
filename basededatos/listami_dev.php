@@ -15,7 +15,7 @@ $resultin=mysqli_query($conn,$sqlin);
 				$nomcm = $fila['nommc'];
 				?>
 		<tr align="center">
-			<td><input type="checkbox" name="check_mi[]" id="check_mi" class="check" value="<?php echo $idm; ?>"></input></td>
+			<td width="50"><input type="checkbox" name="check_mi[]" id="check_mi" class="check" value="<?php echo $idm; ?>"></input></td>
 			<td><?php echo $nomm; ?></td>
 			<td>Materia prima<input type="hidden" name="tip[]" value="Materia" disabled=""></td>
 			<td><?php echo $canm." ".$nomcm; ?></td>
@@ -32,7 +32,7 @@ $resultin=mysqli_query($conn,$sqlin);
 				?>
 
 		<tr align="center">
-			<td><input type="checkbox" name="check_mi[]" id="check_mi" class="check" value="<?php echo $idi; ?>"></input></td>
+			<td width="50"><input type="checkbox" name="check_mi[]" id="check_mi" class="check" value="<?php echo $idi; ?>"></input></td>
 			<td><?php echo $nomi; ?></td>
 			<td>Insumo<input type="hidden" name="tip[]" value="Insumo" disabled=""></td>
 			<td><?php echo $cani." unid."; ?></td>

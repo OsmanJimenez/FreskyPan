@@ -12,11 +12,11 @@ $result=mysqli_query($conn,$query);
 				?>
 
 		<tr align="center">
-			<td><input type="radio" name="rcod_ped" value="<?php echo $codped; ?>" onclick="location.href='Devoluciones_Agregar.php?ped=<?php echo $codped ?>';" id="rcod_ped" required <?php if(!empty($_GET)){if($codped==$_GET['ped']){ ?> checked <?php }} ?>></input></td>
-			<td><?php echo $codped; ?></td>
-			<td><?php echo $fecped; ?></td>
-			<td><?php echo $plaped; ?></td>
-			<td><?php echo $exiped; ?></td>
-			<td><?php echo $nomped; ?></td>
+			<td width="5%"><input type="radio" name="rcod_ped" value="<?php echo $codped; ?>" onclick="location.href='Devoluciones_Agregar.php?ped=<?php echo $codped ?>';" id="rcod_ped" required <?php if(!empty($_GET)){if($codped==$_GET['ped']){ ?> checked <?php }} ?>></input></td>
+			<td width="16%"><?php echo $codped; ?></td>
+			<td width="16%"><?php echo $fecped; ?></td>
+			<td width="16%"><?php echo $plaped; ?></td>
+			<td width="16%"><?php echo $exiped; ?></td>
+			<td width="27%"><?php echo $nomped; ?></td>
 		</tr>
 <?php }?>

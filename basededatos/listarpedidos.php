@@ -20,7 +20,7 @@ if(empty($_GET)){
 				?>
 
 		<tr align="center">
-			<td><?php echo $cod; ?></td>
+			<td width="50"><?php echo $cod; ?></td>
 			<td><?php echo $fec; ?></td>
 			<td><?php echo $pla; ?></td>
 			<td><?php echo $exi; ?></td>
