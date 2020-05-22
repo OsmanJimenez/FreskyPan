@@ -69,8 +69,6 @@ session_start();
 
             <div class="card-body">
               <div class="table-responsive">
-                <input id="buscar" type="text" class="form-control" placeholder="Buscar" />
-                <br>
                 <table class="table table-bordered" id="dataTable" id="dataTable2" id="Materia_Ver" width="100%" cellspacing="0">
                   <thead>
                     <tr>
