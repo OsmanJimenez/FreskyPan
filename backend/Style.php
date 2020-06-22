@@ -46,29 +46,32 @@
 <link rel="stylesheet" href="css/switch.css" />
 
 <script type="text/javascript">
-// this one is jut to wait for the page to load
-document.addEventListener('DOMContentLoaded', () => {
+    // this one is jut to wait for the page to load
+    document.addEventListener('DOMContentLoaded', () => {
 
-const themeStylesheet = document.getElementById('theme');
-const storedTheme = localStorage.getItem('theme');
-if(storedTheme){
-    themeStylesheet.href = storedTheme;
-}
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-    // if it's light -> go dark
-    if(themeStylesheet.href.includes('2')){
-        themeStylesheet.href = 'css/sb-admin-dark.css';
-        themeToggle.innerText = 'Activar Modo Claro';
-    } else {
-        // if it's dark -> go light
-        themeStylesheet.href = 'css/sb-admin-2.css';
-        themeToggle.innerText = 'Activar Modo Oscuro';
+    const themeStylesheet = document.getElementById('theme');
+    const storedTheme = localStorage.getItem('theme');
+
+    if(storedTheme){
+        themeStylesheet.href = storedTheme;
     }
-    // save the preference to localStorage
-    localStorage.setItem('theme',themeStylesheet.href)  
-})
-})
+    
+    const themeToggle = document.getElementById('theme-toggle');
+
+    themeToggle.addEventListener('click', () => {
+        // if it's light -> go dark
+        if(themeStylesheet.href.includes('2')){
+            themeStylesheet.href = 'css/sb-admin-dark.css';
+            themeToggle.innerText = 'Activar Modo Claro';
+        } else {
+            // if it's dark -> go light
+            themeStylesheet.href = 'css/sb-admin-2.css';
+            themeToggle.innerText = 'Activar Modo Oscuro';
+        }
+        // save the preference to localStorage
+        localStorage.setItem('theme',themeStylesheet.href)  
+    })
+    })
 </script>
 
 <script type="text/javascript">
