@@ -1,8 +1,11 @@
-![enter image description here](https://i.pinimg.com/564x/7a/c8/cd/7ac8cd8d511a475458cf3e9c6d0d7848.jpg)
+![enter image description here](https://lh3.googleusercontent.com/pw/ACtC-3f7EZUhUgWYHrME0JGv_ii6FdD84m0eIBkcknhLjwTrFveJeRlOzmnBi6xI5T4Sn-OKGkvK5mmp6LD2C9k09_nI5ebqMsRRn_sRZUZvo7AJ0Ic5rzBBrhx-CCbCDRGbsl644oyywRWhh2lFY8ysGnBR=w1366-h380-no?authuser=0)
 
 # FreskyPan
 
 Este aplicativo pretende **automatizar** la forma en la que los gerentes y empleados manejan la **producción** e **inventarios** de una panificadora, con esto en mente se plantea la idea de pasar de un ámbito analógico a uno digital apoyados en una **plataforma virtual** en donde se llevaran a cabo distintas tareas relacionadas con la **administración** del establecimiento (ver, ocultar, modificar).
+
+## Capturas
+![enter image description here](https://lh3.googleusercontent.com/ccwUkEalrzGhvdvZ4A29GrgJ4IENvHqsqA15dwoRvxqdsr4I8ylRU1dWrxytkL-pMQMyVPVLh9w072HIZ44rFn1FyLe8ckTdhsMkEZhTr7zx1ucEjfEUS5Fxrd-KBUTER3IKO97xGZ9kmcGF17QE1YUYbDi3ZeGknmIs3zBIh6L47fI_hHvEpTepxgRkSKGMZeE_RHxWnA8NSIAbMuLzPBmC4TpK4F2YftMR5YMy9lt9euhFKtEOpf_Fkw3FhCALhFVFSsYPCcYTSs5hUDgzSbbw8iEWocwzXByjVqLoSBXdXV7vq6sCFlm012TUOxWzGPLYrAKL-LBzUM3OC5GYyL8Ucb73dj49gNwTIe9Gf4IFanMl1ESU_cWHV1XQKyaPD1dD7sRa_AfttvliwrjKM2WAdzW-XAc64wlIngisB4cPh5PnX1073a34VGNKZbUp6DvrmfSZGpFwaeZXzEbcBZNQKQ89Tnjx-IiW4r5XJXmVlca0gE03R-LIgBnNk1VFPE9iXlIcee6HAVBHZzc1j7_rezJDN-2Ti4ElLXwac31DUXaLyIbmhyMltfc3XYhqJZVzxfqyu1Vr5dlpXxW887g5zjFheYEipdV5JTwMJK6xhdSL6rTo_Aj4xxfg4eP6hpBK7ZpcAgj_QErxfC7zE0uRaDIowUNUSLeNxnttZv5ZIPgpu4rz2VPbsR7x=w1326-h663-no?authuser=0)
 
 ## Objetivos
 
